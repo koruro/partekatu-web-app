@@ -18,8 +18,8 @@ const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
 	const headTitle = article?.metadata?.meta_title
 		? `${article.metadata.meta_title} | Partekatu`
 		: "Artículo | Partekatu";
-	const metaDesc = article.description
-		? article.description
+	const metaDesc = article?.description
+		? article?.description
 		: "Descripcion de ejemplo";
 	const metaImage = article.banner
 		? article.banner
@@ -33,12 +33,9 @@ const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
 		<>
 			<CustomHead
 				title={headTitle}
-				metaTitle={article?.meta_title}
+				metaTitle={article?.metadata.meta_title}
 				metaDesc={metaDesc}
 				imgUrl={metaImage}
-				loadKatexCss={
-					article.category.slug === CategoriesEnum.MATH || article.id === 24
-				}
 			/>
 			<PageContainerBox breakLimit="xl">
 				<ArticleWrapper article={article} recommendations={recommendations} />

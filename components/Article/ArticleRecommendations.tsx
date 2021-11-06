@@ -31,7 +31,7 @@ const ArticleRecommendations: React.FC<Props> = ({
 							category={article.category}
 							emoji={article.emoji}
 							title={article.title}
-							altTitle={article.metadata.titleAlt}
+							altTitle={article.metadata.title_alt}
 							description={article.description}
 							slug={article.slug}
 						/>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Logo404(props) {
+const Logo404: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 292.85" {...props}>
 			<style>
@@ -80,6 +80,6 @@ function Logo404(props) {
 			</g>
 		</svg>
 	);
-}
+};
 
 export default Logo404;

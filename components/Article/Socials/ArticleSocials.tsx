@@ -35,7 +35,7 @@ const ArticleSocials: React.FC<Props> = ({ title }) => {
 					<a
 						href={getFacebookShareLink(asPath)}
 						target="_blank"
-						rel="noopener"
+						rel="noopener noreferrer"
 						aria-label="share with Facebook"
 					>
 						<FaFacebookSquare size="42px" fill="#3b5998" />
@@ -43,7 +43,7 @@ const ArticleSocials: React.FC<Props> = ({ title }) => {
 					<a
 						href={getTwitterShareLink(asPath, title)}
 						target="_blank"
-						rel="noopener"
+						rel="noopener noreferrer"
 						aria-label="share with Twitter"
 					>
 						<FaTwitterSquare size="42px" fill="#00acee" />

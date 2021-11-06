@@ -29,7 +29,7 @@ export const useCalculatorHook = () => {
 			studiedLessons,
 			numberPossibleLessons
 		);
-		setProbability(prob);
+		setProbability(prob ?? 0);
 	}, [totalLessons, studiedLessons, numberPossibleLessons]);
 
 	return {

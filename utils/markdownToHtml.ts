@@ -1,4 +1,4 @@
-import unified from "unified";
+import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";
@@ -6,11 +6,12 @@ import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
 import rehypeFormat from "rehype-format";
 import rehypeRaw from "rehype-raw";
-import wrap from "rehype-wrap-all";
 import rehypeMinify from "rehype-preset-minify";
 import rehypeAutoLink from "rehype-autolink-headings";
 
-function htmlElementsTransformer(options = {}) {
+const wrap = require("rehype-wrap-all");
+
+function htmlElementsTransformer(options = {}): any {
 	return transformer;
 
 	function transformer(tree: any, file: any) {
@@ -71,7 +72,7 @@ function htmlElementsTransformer(options = {}) {
 	}
 }
 
-function deleteHeadingsId() {
+function deleteHeadingsId(): any {
 	return transformer;
 	function transformer(tree: any, file: any) {
 		parseChildren(tree.children);
@@ -111,7 +112,7 @@ export const baseProcessor = () => {
 		.use(rehypeFormat)
 		.use(wrap, { selector: "table", wrapper: "div.table-container" })
 		.use(htmlElementsTransformer)
-		.use(rehypeAutoLink, { behavior: "before" })
+		.use(rehypeAutoLink)
 		.use(deleteHeadingsId)
 		.use(rehypeKatex)
 		.use(rehypeMinify)

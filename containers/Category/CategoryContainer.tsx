@@ -6,6 +6,7 @@ import styles from "./styles.module.css";
 import { Category } from "../../models/Category";
 import { Article } from "../../models/Article";
 import HomeArticleList from "../../components/Articles/HomeArticleList/HomeArticlesList";
+import { CategoriesEnum } from "../../types/categories";
 
 interface Props {
 	category: Category;
@@ -25,16 +26,16 @@ const CategoryContainer: React.FC<Props> = ({
 					className={
 						styles[
 							`category-container__title__underline--${
-								CategoriesDict[category.slug].slug
+								CategoriesDict[category.slug as CategoriesEnum].slug
 							}`
 						]
 					}
 				>
-					{CategoriesDict[category.slug].text}
+					{CategoriesDict[category.slug as CategoriesEnum].text}
 				</h1>
 				<div
 					className={styles["category-container__description"]}
-					dangerouslySetInnerHTML={{ __html: category.description }}
+					dangerouslySetInnerHTML={{ __html: category.description ?? "" }}
 				/>
 				<HomeArticleList
 					newArticles={newArticles}

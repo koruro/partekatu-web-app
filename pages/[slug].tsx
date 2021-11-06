@@ -57,6 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			},
 		};
 	} catch (error) {
+		console.error(error);
 		return { props: {} };
 	}
 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Logo from "./Logo/Logo";
 import NavItems from "./Items/NavItems";
 import { FaTimes } from "@react-icons/all-files/fa/FaTimes";
@@ -33,9 +34,11 @@ const NavBar: React.FC = () => {
 									className={styles["menu-icon"]}
 									style={{ marginRight: "3rem" }}
 								>
-									<a href="/articulos">
-										<FaSearch size="18px" />
-									</a>
+									<Link href="/articulos">
+										<a>
+											<FaSearch size="18px" />
+										</a>
+									</Link>
 								</div>
 							)}
 							<div

@@ -30,7 +30,7 @@ const ArticleList: React.FC<Props> = ({ data, isLoading, numFetched }) => {
 					category={article.category}
 					emoji={article.emoji}
 					title={article.title}
-					altTitle={article.title_alt}
+					altTitle={article.metadata.title_alt}
 					description={article.description}
 					slug={article.slug}
 				/>

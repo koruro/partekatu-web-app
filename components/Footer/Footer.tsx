@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FaFacebookSquare } from "@react-icons/all-files/fa/FaFacebookSquare";
 import { FaTwitterSquare } from "@react-icons/all-files/fa/FaTwitterSquare";
 import { FaInstagramSquare } from "@react-icons/all-files/fa/FaInstagramSquare";
@@ -22,32 +23,38 @@ const Footer: React.FC = () => {
 						<a
 							href="https://www.facebook.com/partekatu"
 							target="_blank"
-							rel="noopener"
+							rel="noopener noreferrer"
 						>
 							<FaFacebookSquare size="24px" />
 						</a>
-						<a target="_blank" rel="noopener">
+						<a target="_blank" rel="noopener noreferrer">
 							<FaTwitterSquare size="24px" />
 						</a>
 						<a
 							href="https://www.instagram.com/partekatu/"
 							target="_blank"
-							rel="noopener"
+							rel="noopener noreferrer"
 						>
 							<FaInstagramSquare size="24px" />
 						</a>
 					</div>
 				</div>
 				<div className={styles["footer__links"]}>
-					<a href="/quienes-somos">
-						<small>Quiénes somos</small>
-					</a>
-					<a href="/legal">
-						<small>Aviso legal</small>
-					</a>
-					<a href="/privacidad">
-						<small>Politica de privacidad</small>
-					</a>
+					<Link href="/quienes-somos">
+						<a>
+							<small>Quiénes somos</small>
+						</a>
+					</Link>
+					<Link href="/legal">
+						<a>
+							<small>Aviso legal</small>
+						</a>
+					</Link>
+					<Link href="/privacidad">
+						<a>
+							<small>Politica de privacidad</small>
+						</a>
+					</Link>
 				</div>
 				<div className={styles["footer__copyright"]}>
 					<small>
@@ -55,7 +62,7 @@ const Footer: React.FC = () => {
 						<a
 							href="https://creativecommons.org/licenses/by/4.0/deed.es"
 							target="_blank"
-							rel="noopener"
+							rel="noopener noreferrer"
 						>
 							Creative Commons Attribution-NonCommercial 4.0 International
 							License.
@@ -66,7 +73,7 @@ const Footer: React.FC = () => {
 						<a
 							href="https://twemoji.twitter.com/"
 							target="_blak"
-							rel="noopener"
+							rel="noopener noreferrer"
 						>
 							twemoji
 						</a>

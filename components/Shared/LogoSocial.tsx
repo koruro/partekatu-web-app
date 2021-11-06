@@ -1,6 +1,6 @@
 import React from "react";
 
-function LogoSocial(props) {
+const LogoSocial: React.FC = (props) => {
 	return (
 		<svg
 			id="prefix__Capa_1"
@@ -55,6 +55,6 @@ function LogoSocial(props) {
 			/>
 		</svg>
 	);
-}
+};
 
 export default LogoSocial;

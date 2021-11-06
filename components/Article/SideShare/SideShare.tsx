@@ -19,7 +19,7 @@ const SideShare: React.FC = () => {
 					className="hoverable-elevate"
 					href={getFacebookShareLink(asPath)}
 					target="_blank"
-					rel="noopener noreferer"
+					rel="noopener noreferrer"
 					aria-label="share with Facebook"
 				>
 					<FaFacebookF />
@@ -28,7 +28,7 @@ const SideShare: React.FC = () => {
 					className="hoverable-elevate"
 					href={getTwitterShareLink(asPath, "")}
 					target="_blank"
-					rel="noopener noreferer"
+					rel="noopener noreferrer"
 					aria-label="share with Twitter"
 				>
 					<FaTwitter />

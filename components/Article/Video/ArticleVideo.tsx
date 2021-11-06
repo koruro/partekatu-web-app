@@ -16,6 +16,8 @@ const getEmbedCode = (videoUrl: string) => {
 		/^.*(?:youtu.be\/|v\/|\/u\/\w\/|embed\/|watch\?)\??v?=?([^#\&\?]*).*/;
 	const match = videoUrl.match(regExp);
 
+	if (!match) return null;
+
 	return match[1];
 };
 

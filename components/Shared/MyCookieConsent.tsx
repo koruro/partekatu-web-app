@@ -4,7 +4,9 @@ import CookieConsent from "react-cookie-consent";
 const MyCookieConsent = () => {
 	const setCookieValues = (state: boolean) => {
 		// Set Google Analytics cookie
-		window[`ga-disable-${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`] = !state;
+		(window[
+			`ga-disable-${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? ""}` as any
+		] as any) = !state;
 	};
 
 	return (
