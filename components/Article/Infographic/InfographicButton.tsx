@@ -1,4 +1,4 @@
-import { FaImage } from "@react-icons/all-files/fa/FaImage";
+import { FaImage } from "react-icons/fa";
 import styles from "./styles.module.css";
 
 interface Props {}

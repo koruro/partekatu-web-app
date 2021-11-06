@@ -1,4 +1,4 @@
-import { FaDownload } from "@react-icons/all-files/fa/FaDownload";
+import { FaDownload } from "react-icons/fa";
 import ArticleSection from "../Section/ArticleSection";
 import ArticleSectionHeader from "../Section/ArticleSectionHeader";
 import styles from "./styles.module.css";

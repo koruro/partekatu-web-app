@@ -6,9 +6,6 @@ export const ComponentDict: {
 		getComponent: () => ComponentType<{}>;
 	};
 } = {
-	oppositionCalculator: {
-		getComponent: () => dynamic(() => import("./Calculator/Calculator")),
-	},
 	articleAd: {
 		getComponent: () => dynamic(() => import("../../Ads/InArticleAd")),
 	},

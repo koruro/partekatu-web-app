@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useRef } from "react";
-import { FaCopy } from "@react-icons/all-files/fa/FaCopy";
+import { FaCopy } from "react-icons/fa";
 import LazyHydrate from "react-lazy-hydration";
 import ReactTooltip from "react-tooltip";
 import ArticleSection from "../Section/ArticleSection";
