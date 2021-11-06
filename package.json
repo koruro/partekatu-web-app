@@ -1,22 +1,44 @@
 {
-  "name": "partekatu-web-app",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.0.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "@types/node": "16.11.6",
-    "@types/react": "17.0.34",
-    "eslint": "7",
-    "eslint-config-next": "12.0.3",
-    "typescript": "4.4.4"
-  }
+	"name": "partekatu-web-app",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@react-icons/all-files": "^4.1.0",
+		"classnames": "^2.3.1",
+		"contentful": "^9.1.4",
+		"next": "12.0.3",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"react-lazy-hydration": "^0.1.0",
+		"react-loading-skeleton": "^3.0.1",
+		"react-paginate": "^7.1.5",
+		"react-tooltip": "^4.2.21",
+		"rehype-autolink-headings": "^5.1.0",
+		"rehype-format": "^3.1.0",
+		"rehype-katex": "^5.0.0",
+		"rehype-preset-minify": "^5.1.0",
+		"rehype-raw": "^5.1.0",
+		"rehype-react": "6.2.1",
+		"rehype-stringify": "^8.0.0",
+		"rehype-wrap-all": "^1.1.0",
+		"remark-gfm": "^1.0.0",
+		"remark-html": "^13.0.1",
+		"remark-math": "^4.0.0",
+		"remark-parse": "^9.0.0",
+		"remark-rehype": "^8.1.0",
+		"unified": "^9.2.2"
+	},
+	"devDependencies": {
+		"@types/node": "16.11.6",
+		"@types/react": "17.0.34",
+		"@types/react-paginate": "^7.1.1",
+		"eslint": "7",
+		"eslint-config-next": "12.0.3",
+		"typescript": "4.4.4"
+	}
 }

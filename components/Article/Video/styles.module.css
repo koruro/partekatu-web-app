@@ -1,0 +1,11 @@
+.article-video {
+	width: 100%;
+	max-width: 600px;
+	height: 300px;
+}
+
+@media (min-width: 768px) {
+	.article-video {
+		height: 420px;
+	}
+}

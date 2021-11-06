@@ -1,0 +1,26 @@
+.category-list-box {
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: fit-content;
+	background-color: transparent;
+	padding: 0;
+	border-radius: var(--rounded-l);
+}
+
+.category-list-item {
+	cursor: pointer;
+	margin: 0.3rem;
+}
+
+@media (min-width: 992px) {
+	.category-list-box {
+		background-color: var(--primary-light-2);
+		/* border: 3px solid var(--primary); */
+		padding: 0.4rem 1rem;
+		border-radius: var(--rounded-l);
+	}
+}

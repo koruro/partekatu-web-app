@@ -1,16 +1,117 @@
+:root {
+	/* ROUND */
+	--rounded-s: 7px;
+	--rounded-l: 32px;
+
+	/* BREAKPOINTS */
+	--large-bp: 992px;
+
+	/* COLORS */
+	--text: #07252e;
+	--text-subtle: #64666a;
+
+	--primary: #1870d5;
+	--primary-dark: #1357a6;
+	--primary-c1: #4db0b9;
+	--primary-light: #5d9be2;
+	--primary-light-2: #d1e2f7;
+
+	--secondary: #006bd6;
+
+	--clear: #f1f4f8;
+
+	--warn: #ffd56c;
+	--warn-c1: #f8de9c;
+
+	--math: #dd0426;
+	--math-c1: #d9338c;
+
+	--gramar: #8b3ab1;
+	--gramar-c1: #875dca;
+
+	--correct: #64b364;
+
+	--sand: #f7f7f0;
+
+	--vocabulary: #fe994f;
+	--vocabulary-c1: #f2bb68;
+
+	--blog: #117c13;
+	--blog-c1: #72b646;
+
+	--spanish: var(--secondary);
+	--spanish-c1: #3d71af;
+
+	--utilities: #6495ed;
+	--utilities-c1: #64a9ed;
+
+	--tecnology: var(--primary);
+	--tecnology-c1: #3f9590;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
+
+	background-color: #f4f5f9;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
+
+.button-padding-1 {
+	padding: 0.4rem 1rem;
+}
+
+.button-padding-2 {
+	padding: 1rem 2rem;
+}
+/** SHADOWS */
+.elevate-1 {
+	filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.elevate-2 {
+	filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.09));
+}
+
+.hoverable-elevate {
+	transition: transform 0.2s ease;
+}
+
+.hoverable-elevate:hover {
+	transform: translateY(-2px);
+}
+
+/* KATEX */
+.katex > .katex-html {
+	white-space: normal;
+}
+
+.katex {
+	font-size: 1.1rem;
+	line-height: 2;
+}
+@media (min-width: 768px) {
+	.katex {
+		font-size: 1.2rem;
+	}
+}
+
+.katex .base {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+/* KATEX */

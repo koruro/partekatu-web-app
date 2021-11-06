@@ -1,0 +1,45 @@
+.article-citation {
+	margin-top: 1.5rem;
+	align-items: normal;
+	font-size: 0.9em;
+}
+
+.article-citation p {
+	padding: 1em;
+	margin: 0;
+}
+
+.article-citation__cite {
+	position: relative;
+	background-color: var(--clear);
+	font-style: italic;
+	color: var(--text-subtle);
+	padding: 1.2em;
+}
+
+.article-citation__cite p {
+	padding: 1rem;
+	padding-right: 2em;
+}
+
+.article-citation__copy-button {
+	background-color: inherit;
+	margin: 1em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.article-citation__copy-button svg {
+	fill: var(--primary);
+}
+
+@media (min-width: 768px) {
+	.article-citation p {
+		padding: 0;
+		padding-right: 2em;
+	}
+}

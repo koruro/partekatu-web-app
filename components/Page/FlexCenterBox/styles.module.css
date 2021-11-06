@@ -1,0 +1,6 @@
+.container {
+	flex-grow: 1;
+	/* min-height: 92vh; */
+	display: flex;
+	justify-content: center;
+}

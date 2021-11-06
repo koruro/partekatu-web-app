@@ -1,0 +1,7 @@
+.article-data {
+	color: var(--text);
+	font-size: 1.12em;
+}
+
+@media (min-width: 768px) {
+}

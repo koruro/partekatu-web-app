@@ -1,0 +1,12 @@
+.button {
+	border: none;
+	width: fit-content;
+	color: white;
+	border-radius: var(--rounded-l);
+	font-weight: bold;
+	background: linear-gradient(
+		270deg,
+		var(--primary) 3.12%,
+		var(--primary-light) 100%
+	);
+}

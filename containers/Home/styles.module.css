@@ -1,0 +1,10 @@
+.home__button {
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	margin-top: 2rem;
+}
+
+.home__categories {
+	margin-bottom: 1rem;
+}

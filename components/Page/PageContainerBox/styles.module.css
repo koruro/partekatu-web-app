@@ -1,0 +1,37 @@
+.page-container-box {
+	/* justify-content: center;
+	align-self: center; */
+	width: 100%;
+	margin: auto;
+	flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+	.page-container-box--md {
+		width: 768px;
+	}
+}
+
+@media (min-width: 996px) {
+	.page-container-box--lg {
+		width: 996px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.page-container-box--xl {
+		width: 1200px;
+	}
+}
+
+@media (min-width: 1400px) {
+	.page-container-box--xxl {
+		width: 1400px;
+	}
+}
+
+@media (min-width: 2000px) {
+	.page-container-box--xl {
+		width: 1400px;
+	}
+}

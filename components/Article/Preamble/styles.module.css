@@ -1,0 +1,13 @@
+.article-preamble {
+	color: var(--text-subtle);
+	font-style: italic;
+	padding: 1rem;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+	.article-preamble {
+		padding: 0;
+	}
+}

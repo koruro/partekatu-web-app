@@ -1,0 +1,19 @@
+.side-container {
+	margin-top: 13rem;
+	display: none;
+}
+
+.side-container__inner {
+	position: sticky;
+	top: 8rem;
+	display: grid;
+	row-gap: 2em;
+}
+
+@media (min-width: 992px) {
+	.side-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2em;
+	}
+}

@@ -1,0 +1,41 @@
+.home-logo {
+	margin: auto;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	width: 300px;
+}
+
+.home-logo p {
+	text-align: center;
+	margin: 1rem 0;
+	color: var(--primary);
+	font-size: 1rem;
+	font-weight: bold;
+	font-style: italic;
+}
+
+@media (min-width: 768px) {
+	.home-logo {
+		width: 510px;
+		margin-top: 5rem;
+		margin-bottom: 5rem;
+	}
+
+	.home-logo h1 {
+		text-align: right;
+		font-size: 1.5rem;
+	}
+}
+
+@media (min-width: 992px) {
+	.home-logo {
+		width: 500px;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.home-logo p {
+		text-align: right;
+		font-size: 1.4rem;
+	}
+}

@@ -1,0 +1,138 @@
+.side-share {
+	background-color: white;
+	font-size: 0.9em;
+	border-radius: var(--rounded-l);
+	padding: 1.6rem 2rem;
+}
+
+.side-share p {
+	margin: 0;
+	margin-bottom: 1rem;
+	font-size: 1.4em;
+	color: var(--text);
+}
+
+.side-share__icons {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.side-share__icons svg {
+	box-sizing: content-box;
+	color: white;
+	background-color: var(--primary);
+	border-radius: 100%;
+	padding: 7px;
+}
+
+.article-bullet-points {
+	display: none;
+	font-size: 0.9em;
+	pointer-events: none;
+	background-color: white;
+	border-radius: var(--rounded-l);
+	padding: 1.6rem 2rem;
+}
+
+.article-bullet-points p {
+	margin: 0;
+	margin-bottom: 1rem;
+	font-size: 1.4em;
+	color: var(--text);
+}
+
+.article-bullet-points__container {
+	list-style: none;
+	pointer-events: auto;
+	display: flex;
+	border-right: #64666a22;
+	padding: 0;
+	margin: 0;
+	flex-direction: column;
+}
+
+.article-bullet-points__bullet-container {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1.4em 1fr;
+	column-gap: 0.6em;
+	align-items: center;
+	margin: 0.5em 0;
+	transition: transform 0.25s;
+	counter-increment: inst;
+}
+
+.article-bullet-points__bullet-container::before {
+	content: counter(inst);
+	box-sizing: border-box;
+	font-size: 0.92em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-style: normal;
+	font-weight: 700;
+	margin-right: 0.5rem;
+	border-radius: 100%;
+	text-align: center;
+	color: white;
+	background-color: var(--primary);
+	width: 1.4em;
+	height: 1.4em;
+	/* height: 20px; */
+	padding: 2px;
+}
+
+.article-bullet-points__bullet-container:hover {
+	transform: translateX(20px);
+}
+
+.article-bullet-points a {
+	font-size: 0.9rem;
+	color: var(--text-subtle);
+	font-weight: 500;
+}
+
+.article-bullet-points a:hover {
+	color: var(--primary);
+}
+
+.article-bullet-points__bullet-container--infographic {
+	margin-top: 1em;
+	display: block;
+}
+
+.article-bullet-points__bullet-container--infographic a {
+	font-style: normal;
+	background-color: var(--warn);
+	color: var(--text);
+	border-radius: var(--rounded-l);
+}
+
+.article-bullet-points__bullet-container--infographic a:hover {
+	color: black;
+}
+
+.article-bullet-points__bullet-container--infographic::before {
+	display: none;
+}
+
+.article-bullet-points__bullet-container--faq {
+	display: block;
+}
+
+.article-bullet-points__bullet-container--faq a {
+	font-style: normal;
+	/* padding: 0.2rem 0.6rem; */
+	color: var(--science);
+}
+
+.article-bullet-points__bullet-container--faq::before {
+	display: none;
+}
+
+@media (min-width: 780px) {
+	.article-bullet-points {
+		display: block;
+	}
+}

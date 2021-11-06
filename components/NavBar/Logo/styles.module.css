@@ -1,0 +1,14 @@
+.logo-box {
+	cursor: "pointer";
+}
+
+.logo-box svg {
+	fill: var(--text);
+	width: 150px;
+}
+
+@media (min-width: 768px) {
+	.logo-box svg {
+		display: block;
+	}
+}

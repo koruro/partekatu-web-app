@@ -1,0 +1,62 @@
+.category-container {
+	color: var(--text);
+	padding: 0 1rem;
+}
+
+.category-container__button {
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	margin-top: 2rem;
+}
+
+.category-container__description {
+	padding: 0 1rem;
+	font-size: 1em;
+	margin-bottom: 2rem;
+}
+
+.category-container h1 {
+	margin: 2rem 1rem;
+	font-size: 3em;
+	display: inline-block;
+}
+
+.category-container__title__underline--math {
+	border-bottom: 4px solid var(--math);
+}
+
+.category-container__title__underline--euskera {
+	border-bottom: 4px solid var(--euskera);
+}
+
+.category-container__title__underline--education {
+	border-bottom: 4px solid var(--education);
+}
+
+.category-container__title__underline--science {
+	border-bottom: 4px solid var(--science);
+}
+
+.category-container__title__underline--technology {
+	border-bottom: 4px solid var(--primary);
+}
+
+.category-container__title__underline--utilities {
+	border-bottom: 4px solid var(--utilities);
+}
+
+.category-container__title__underline--spanish {
+	border-bottom: 4px solid var(--spanish);
+}
+
+@media (min-width: 992px) {
+	.category-container__description {
+		padding: 0;
+		font-size: 1.2em;
+	}
+	.category-container h1 {
+		font-size: 5em;
+		margin-top: 5rem;
+	}
+}

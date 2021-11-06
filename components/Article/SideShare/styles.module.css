@@ -1,0 +1,27 @@
+.side-share {
+	background-color: white;
+	font-size: 0.9em;
+	border-radius: var(--rounded-l);
+	padding: 1.6rem 2rem;
+}
+
+.side-share p {
+	margin: 0;
+	margin-bottom: 1rem;
+	font-size: 1.4em;
+	color: var(--text);
+}
+
+.side-share__icons {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.side-share__icons svg {
+	box-sizing: content-box;
+	color: white;
+	background-color: var(--primary);
+	border-radius: 100%;
+	padding: 7px;
+}

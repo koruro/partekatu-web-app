@@ -1,0 +1,7 @@
+.article-references {
+	align-items: flex-start;
+}
+
+.article-references a {
+	color: var(--secondary);
+}
