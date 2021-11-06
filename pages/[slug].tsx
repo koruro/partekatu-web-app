@@ -40,7 +40,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		const article = await articleRepository.getArticleBySlug(
 			params!.slug as string
 		);
-		const recommendations = await articleRepository.getArticles();
+		const recommendations = await articleRepository.getArticles({
+			limit: 3,
+			excludeSlugs: [article.slug],
+		});
 
 		const htmlContent = await markdownToHtml(article.content);
 		const referencesHtmlContent = await markdownToHtml(article.references);
@@ -52,7 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 					content: htmlContent,
 					references: referencesHtmlContent,
 				},
-				recommendations: [],
+				recommendations,
 			},
 		};
 	} catch (error) {

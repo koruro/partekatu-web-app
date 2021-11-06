@@ -18,7 +18,7 @@
 
 .article-content h3 {
 	font-size: 1.2em;
-	background-color: var(--primary-light);
+	background-color: var(--primary-light-2);
 	padding: 0.3rem 0.7rem;
 	display: inline-block;
 }
@@ -143,7 +143,7 @@
 	border: 5px solid #dd0426;
 }
 
-.article-content .koruro_table--equal_width {
+.article-content .table--equal_width {
 	table-layout: fixed;
 	width: 100%;
 }

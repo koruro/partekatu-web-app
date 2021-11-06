@@ -11,7 +11,7 @@ import { articleRepository } from "../../services/bootstrap";
 import { CategoriesEnum } from "../../types/categories";
 import { markdownToHtml } from "../../utils/markdownToHtml";
 
-const headTitle = (category: string) => `${category} | Koruro`;
+const headTitle = (category: string) => `${category} | Partekatu`;
 
 interface Props {
 	category: Category;

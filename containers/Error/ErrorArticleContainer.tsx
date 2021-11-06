@@ -3,6 +3,7 @@ import ArticleRecommendations from "../../components/Article/ArticleRecommendati
 import FlexCenterBox from "../../components/Page/FlexCenterBox/FlexCenterBox";
 import Logo404 from "../../components/Shared/Logo404";
 import { Article } from "../../models/Article";
+import { articleRepository } from "../../services/bootstrap";
 import styles from "./styles.module.css";
 
 const NUM_RECOMMENDATIONS = 5;
@@ -10,7 +11,10 @@ const NUM_RECOMMENDATIONS = 5;
 const ErrorArticleContainer = () => {
 	const [recommendations, setRecommendations] = useState<Article[]>([]);
 	useEffect(() => {
-		setRecommendations([]);
+		articleRepository
+			.getArticles({ limit: 5 })
+			.then((data) => setRecommendations(data))
+			.catch(() => setRecommendations([]));
 	}, []);
 
 	return (

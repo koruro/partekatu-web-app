@@ -4,8 +4,6 @@ import styles from "./styles.module.css";
 import ArticleBullets from "../BulletPoints/ArticleBullets";
 import SideContainer from "../SideContainer/SideContainer";
 import SideShare from "../SideShare/SideShare";
-import SidebarAd from "../../Ads/DisplayAd";
-import StickyContainer from "../SideContainer/StickyContainer";
 
 interface Props {
 	article: Article;
@@ -34,9 +32,6 @@ const ArticleWrapper: React.FC<Props> = ({
 					bullet_points={article.bulletPoints}
 					infographic={article.infographic}
 				/>
-				<StickyContainer>
-					<SidebarAd />
-				</StickyContainer>
 			</SideContainer>
 		</div>
 	);

@@ -36,13 +36,8 @@ const Home: NextPage<Props> = ({ newArticles, highlightedArticles }) => {
 
 export async function getServerSideProps(context: any) {
 	try {
-		const highlightedArticles = await articleRepository.getHighlightArticles({
-			limit: 2,
-		});
-		const newArticles = await articleRepository.getArticles({
-			limit: 4,
-			excludeSlugs: highlightedArticles.map((highlight) => highlight.slug),
-		});
+		const highlightedArticles = await getHighlightArticles();
+		const newArticles = await getNewArticles(highlightedArticles);
 
 		return {
 			props: {
@@ -55,6 +50,27 @@ export async function getServerSideProps(context: any) {
 		return {
 			props: {},
 		};
+	}
+}
+
+async function getHighlightArticles() {
+	try {
+		return await articleRepository.getHighlightArticles({
+			limit: 2,
+		});
+	} catch (error) {
+		return [];
+	}
+}
+
+async function getNewArticles(exclude: Article[]) {
+	try {
+		return await articleRepository.getArticles({
+			limit: 4,
+			excludeSlugs: exclude.map((highlight) => highlight.slug),
+		});
+	} catch (error) {
+		return [];
 	}
 }
 
