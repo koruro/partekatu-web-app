@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import { useEffect, useState, createElement } from "react";
+import { createPortal } from "react-dom";
 import { ComponentDict } from "./ComponentDict";
 
 const getInjectableComponents = () => {
@@ -31,8 +31,8 @@ const DynamicComponentLoader: React.FC = () => {
 	return (
 		<>
 			{components.map((element) => {
-				return ReactDOM.createPortal(
-					React.createElement(ComponentDict[element.id].getComponent()),
+				return createPortal(
+					createElement(ComponentDict[element.id].getComponent()),
 					element
 				);
 			})}

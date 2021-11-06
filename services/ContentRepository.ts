@@ -13,6 +13,7 @@ export interface Query {
 export interface ContentRepository {
 	getNumArticles(query?: Query): Promise<number>;
 	getArticles(query?: Query): Promise<Article[]>;
+	getHighlightArticles(query?: Query): Promise<Article[]>;
 	getArticleSlugs(query?: Query): Promise<{ slug: string }[]>;
 	getArticleBySlug(slug: string): Promise<Article>;
 	getCategories(query?: Query): Promise<Category[]>;

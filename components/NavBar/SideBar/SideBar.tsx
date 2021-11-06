@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import CategoryList from "../../Categories/CategoryList/CategoryList";
 import styles from "./styles.module.css";
 

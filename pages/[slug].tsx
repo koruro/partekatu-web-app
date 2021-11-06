@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import React from "react";
 import Footer from "../components/Footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
 import PageBox from "../components/Page/PageBox/PageBox";
@@ -53,7 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 					content: htmlContent,
 					references: referencesHtmlContent,
 				},
-				recommendations,
+				recommendations: [],
 			},
 		};
 	} catch (error) {

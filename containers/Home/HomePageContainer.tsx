@@ -1,4 +1,3 @@
-import React from "react";
 import CategoryList from "../../components/Categories/CategoryList/CategoryList";
 import PageContainerBox from "../../components/Page/PageContainerBox/PageContainerBox";
 import ButtonLink from "../../components/Shared/Buttons/ButtonLink";

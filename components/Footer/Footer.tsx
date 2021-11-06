@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { FaFacebookSquare } from "@react-icons/all-files/fa/FaFacebookSquare";
 import { FaTwitterSquare } from "@react-icons/all-files/fa/FaTwitterSquare";

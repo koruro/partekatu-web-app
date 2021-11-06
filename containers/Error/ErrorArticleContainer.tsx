@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ArticleRecommendations from "../../components/Article/ArticleRecommendations";
 import FlexCenterBox from "../../components/Page/FlexCenterBox/FlexCenterBox";
 import Logo404 from "../../components/Shared/Logo404";

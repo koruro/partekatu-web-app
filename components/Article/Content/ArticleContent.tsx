@@ -1,4 +1,3 @@
-import React from "react";
 import LazyHydrate from "react-lazy-hydration";
 interface Props {
 	content: string;

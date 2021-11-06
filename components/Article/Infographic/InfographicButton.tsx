@@ -1,4 +1,3 @@
-import React from "react";
 import { FaImage } from "@react-icons/all-files/fa/FaImage";
 import styles from "./styles.module.css";
 

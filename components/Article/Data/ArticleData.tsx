@@ -1,4 +1,3 @@
-import React from "react";
 import ArticleHeader from "../Header/ArticleHeader";
 import ArticleReferences from "../References/ArticleReferences";
 import ArticleCitation from "../Citation/ArticleCitation";

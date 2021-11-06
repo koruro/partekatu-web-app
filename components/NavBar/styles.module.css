@@ -39,7 +39,7 @@
 }
 
 .menu-icon svg {
-	fill: white;
+	fill: var(--primary);
 	margin: auto;
 }
 

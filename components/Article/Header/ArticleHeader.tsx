@@ -1,4 +1,3 @@
-import React from "react";
 import LazyHydrate from "react-lazy-hydration";
 import ArticleAuthor from "../Author/ArticleAuthor";
 import styles from "./styles.module.css";

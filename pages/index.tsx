@@ -36,10 +36,8 @@ const Home: NextPage<Props> = ({ newArticles, highlightedArticles }) => {
 
 export async function getServerSideProps(context: any) {
 	try {
-		// Get highlighted articles for this category
-		const highlightedArticles = await articleRepository.getArticles({
+		const highlightedArticles = await articleRepository.getHighlightArticles({
 			limit: 2,
-			excludeSlugs: ["adios-en-euskera"],
 		});
 		const newArticles = await articleRepository.getArticles({
 			limit: 4,
@@ -53,6 +51,7 @@ export async function getServerSideProps(context: any) {
 			},
 		};
 	} catch (error) {
+		console.error(error);
 		return {
 			props: {},
 		};

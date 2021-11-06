@@ -12,8 +12,30 @@ export class ContentfulRepository implements ContentRepository {
 		});
 	}
 
+	async getHighlightArticles(query?: Query): Promise<Article[]> {
+		const _query = await this.highlightQueryConformer(query);
+		const data = await this.client.getEntries(_query);
+
+		if (data.items.length <= 0)
+			throw new Error(`No articles found under query ${JSON.stringify(query)}`);
+
+		const parsed = await this.client.parseEntries<any>(data);
+
+		const articles: Entry<any>[] = parsed.items.map(
+			(item) => item.fields.article
+		);
+
+		return articles
+			.filter((item) =>
+				query?.category
+					? item.fields.category.fields.slug === query?.category
+					: true
+			)
+			.map((item) => this.mapContentfulToDomain<Article>(item));
+	}
+
 	async getNumArticles(query?: Query): Promise<number> {
-		const _query = this.queryConformer(query);
+		const _query = this.articleQueryConformer(query);
 		const data = await this.client.getEntries({
 			..._query,
 			select: "fields.slug",
@@ -48,7 +70,7 @@ export class ContentfulRepository implements ContentRepository {
 	}
 
 	async getArticles(query?: Query): Promise<Article[]> {
-		const _query = this.queryConformer(query);
+		const _query = this.articleQueryConformer(query);
 		const data = await this.client.getEntries(_query);
 
 		if (data.items.length <= 0)
@@ -61,15 +83,33 @@ export class ContentfulRepository implements ContentRepository {
 		);
 	}
 
-	getCategoryBySlug(slug: string): Promise<Category> {
-		throw new Error("Method not implemented.");
+	async getCategoryBySlug(slug: string): Promise<Category> {
+		const _query = { content_type: "category", "fields.slug[all]": slug };
+		const data = await this.client.getEntries(_query);
+
+		if (data.items.length <= 0)
+			throw new Error(`No category found with slug ${slug}`);
+
+		const parsed = await this.client.parseEntries<any>(data);
+
+		return this.mapContentfulToDomain<Category>(parsed.items[0]);
 	}
 
-	getCategories(query?: Query): Promise<Category[]> {
-		throw new Error("Method not implemented.");
+	async getCategories(query?: Query): Promise<Category[]> {
+		const _query = { content_type: "category" };
+		const data = await this.client.getEntries(_query);
+
+		if (data.items.length <= 0)
+			throw new Error(`No articles found under query ${JSON.stringify(query)}`);
+
+		const parsed = await this.client.parseEntries<any>(data);
+
+		return parsed.items.map((item) =>
+			this.mapContentfulToDomain<Category>(item)
+		);
 	}
 
-	private queryConformer(query?: Query) {
+	private articleQueryConformer(query?: Query) {
 		let _query: any = { content_type: "article", order: "-sys.createdAt" };
 
 		if (query?.limit) {
@@ -101,7 +141,73 @@ export class ContentfulRepository implements ContentRepository {
 		return _query;
 	}
 
+	private async highlightQueryConformer(query?: Query) {
+		let _query: any = {
+			content_type: "highlights",
+			order: "-sys.createdAt",
+			include: 10,
+		};
+
+		if (query?.limit) {
+			_query = { ..._query, limit: query.limit };
+		}
+		if (query?.skip) {
+			_query = { ..._query, skip: query.skip };
+		}
+		// if (query?.excludeSlugs) {
+		// 	_query = {
+		// 		..._query,
+		// 		"fields.slug[nin]": query.excludeSlugs.join(","),
+		// 	};
+		// }
+		// if (query?.titleStartsWith) {
+		// 	_query = {
+		// 		..._query,
+		// 		"fields.title[match]": query.titleStartsWith,
+		// 	};
+		// }
+
+		return _query;
+	}
+
+	private categoryQueryConformer(query?: Query) {
+		let _query: any = {
+			content_type: "highlights",
+			order: "-sys.createdAt",
+			include: 10,
+		};
+
+		if (query?.limit) {
+			_query = { ..._query, limit: query.limit };
+		}
+		if (query?.skip) {
+			_query = { ..._query, skip: query.skip };
+		}
+		// if (query?.category) {
+		// 	_query = {
+		// 		..._query,
+		// 		"fields.category.sys.contentType.sys.id": "category",
+		// 		"fields.category.fields.slug[all]": query.category,
+		// 	};
+		// }
+		// if (query?.excludeSlugs) {
+		// 	_query = {
+		// 		..._query,
+		// 		"fields.slug[nin]": query.excludeSlugs.join(","),
+		// 	};
+		// }
+		// if (query?.titleStartsWith) {
+		// 	_query = {
+		// 		..._query,
+		// 		"fields.title[match]": query.titleStartsWith,
+		// 	};
+		// }
+
+		return _query;
+	}
+
 	private mapContentfulToDomain<T>(entry: Entry<any>): T {
+		// console.log("MAPAP", entry);
 		const parsed = Object.keys(entry.fields).reduce((acc: any, key) => {
 			if (typeof entry.fields[key] === "object" && entry.fields[key] !== null) {
 				if (Reflect.has(entry.fields[key], "fields")) {

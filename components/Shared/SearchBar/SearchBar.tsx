@@ -1,4 +1,3 @@
-import React from "react";
 import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
 import { CategoriesEnum } from "../../../types/categories";
 import { CategoriesDict } from "../../Categories/categories";

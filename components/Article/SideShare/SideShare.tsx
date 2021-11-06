@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./styles.module.css";
 import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";

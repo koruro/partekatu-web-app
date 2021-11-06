@@ -1,4 +1,4 @@
-import React from "react";
+import { createElement } from "react";
 import styles from "./styles.module.css";
 
 interface Props {
@@ -16,7 +16,7 @@ const ArticleTitle: React.FC<
 		...props,
 		className: [styles["article-header__title"], props.className].join(" "),
 	};
-	return React.createElement(as, props, children);
+	return createElement(as, props, children);
 };
 
 export default ArticleTitle;

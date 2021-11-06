@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import React from "react";
 import { FaFacebookSquare } from "@react-icons/all-files/fa/FaFacebookSquare";
 import { FaTwitterSquare } from "@react-icons/all-files/fa/FaTwitterSquare";
 import LazyHydrate from "react-lazy-hydration";

@@ -1,4 +1,3 @@
-import React from "react";
 import LazyHydrate from "react-lazy-hydration";
 import ArticleSection from "../Section/ArticleSection";
 import ArticleSectionHeader from "../Section/ArticleSectionHeader";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ArticlesList from "../../components/Articles/List/ArticlesList";
 import ReactPaginate from "react-paginate";
 import SearchBar from "../../components/Shared/SearchBar/SearchBar";
@@ -54,8 +54,9 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
 			})
 			.then((data) => {
 				setArticles(data);
-				setArticlesLoading(false);
-			});
+			})
+			.catch(() => setArticles([]))
+			.finally(() => setArticlesLoading(false));
 	}, [queryProps.c, queryProps.p, filter, queryProps.cat]);
 
 	useEffect(() => {
@@ -64,7 +65,8 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
 				category: queryProps.cat,
 				titleStartsWith: queryProps.c,
 			})
-			.then((data) => setNumArticles(data));
+			.then((data) => setNumArticles(data))
+			.catch(() => setNumArticles(0));
 	}, [queryProps.c, queryProps.cat]);
 
 	return (

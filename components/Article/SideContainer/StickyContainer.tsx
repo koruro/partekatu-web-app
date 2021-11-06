@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./styles.module.css";
 
 const StickyContainer: React.FC = ({ children }) => {

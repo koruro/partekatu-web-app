@@ -1,4 +1,3 @@
-import React from "react";
 import ArticleData from "../Data/ArticleData";
 import { Article } from "../../../models/Article";
 import styles from "./styles.module.css";

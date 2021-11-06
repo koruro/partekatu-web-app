@@ -1,4 +1,3 @@
-import React from "react";
 import { CategoriesEnum } from "../../../types/categories";
 import { CategoriesDict } from "../categories";
 import styles from "./styles.module.css";

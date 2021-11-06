@@ -1,4 +1,3 @@
-import React from "react";
 import LazyHydrate from "react-lazy-hydration";
 import { Article } from "../../models/Article";
 import ArticleCard from "../Articles/ArticleCard/ArticleCard";

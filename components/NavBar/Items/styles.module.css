@@ -10,8 +10,8 @@
 
 	.nav-items a {
 		border-radius: var(--rounded-l);
-		border: 3px solid white;
-		color: white;
+		border: 3px solid var(--primary);
+		color: var(--primary);
 		font-weight: bold;
 		/* background-color: var(--primaryLight); */
 	}

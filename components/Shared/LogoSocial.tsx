@@ -1,5 +1,3 @@
-import React from "react";
-
 const LogoSocial: React.FC = (props) => {
 	return (
 		<svg

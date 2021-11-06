@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { FaCopy } from "@react-icons/all-files/fa/FaCopy";
 import LazyHydrate from "react-lazy-hydration";
 import ReactTooltip from "react-tooltip";

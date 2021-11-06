@@ -1,4 +1,3 @@
-import React from "react";
 import { FaDownload } from "@react-icons/all-files/fa/FaDownload";
 import ArticleSection from "../Section/ArticleSection";
 import ArticleSectionHeader from "../Section/ArticleSectionHeader";

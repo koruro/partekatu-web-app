@@ -1,4 +1,3 @@
-import React from "react";
 import { CategoriesDict } from "../../components/Categories/categories";
 import PageContainerBox from "../../components/Page/PageContainerBox/PageContainerBox";
 import Button from "../../components/Shared/Buttons/ButtonLink";

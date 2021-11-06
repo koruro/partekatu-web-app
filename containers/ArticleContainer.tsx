@@ -1,12 +1,10 @@
 import { useRouter } from "next/router";
-import React from "react";
 import ArticleWrapper from "../components/Article/Wrapper/ArticleWrapper";
 import DynamicComponentLoader from "../components/Article/InteractiveComponents/DynamicComponentLoader";
 import CustomHead from "../components/CustomHead";
 import LoadingRing from "../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../components/Page/PageContainerBox/PageContainerBox";
 import { Article } from "../models/Article";
-import { CategoriesEnum } from "../types/categories";
 import ErrorArticleContainer from "./Error/ErrorArticleContainer";
 
 interface Props {
