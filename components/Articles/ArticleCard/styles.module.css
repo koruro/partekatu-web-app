@@ -4,6 +4,7 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	border-radius: var(--rounded-s);
+	position: relative;
 }
 
 .article-card--large {

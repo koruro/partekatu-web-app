@@ -2,7 +2,6 @@ import Image from "next/image";
 import classNames from "classnames";
 import CategoryBox from "../../Categories/CategoryBox/CategoryBox";
 import styles from "./styles.module.css";
-import CardBase from "./CardBase";
 import { getMinifiedImage } from "../../../utils/getMinifiedImage";
 
 interface Props {
@@ -39,10 +38,9 @@ const ArticleCard: React.FC<Props> = ({
 				)}
 			>
 				{category && (
-					<CategoryBox
-						className={styles["article-card__category"]}
-						category={category.slug}
-					/>
+					<div className={styles["article-card__category"]}>
+						<CategoryBox category={category.slug} />
+					</div>
 				)}
 				<div className={styles["article-card__image"]}>
 					<Image
