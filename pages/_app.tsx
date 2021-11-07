@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				strategy="afterInteractive"
 				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
 			/>
-			<Component {...pageProps} />;
+			<Component {...pageProps} />
 			<MyCookieConsent />
 		</>
 	);
