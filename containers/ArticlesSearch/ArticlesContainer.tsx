@@ -72,6 +72,7 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
 	return (
 		<PageContainerBox breakLimit="xl">
 			<div className={styles["articles-search"]}>
+				<h1>Todos nuestros artículos sobre el euskera</h1>
 				<SearchBar
 					onSubmit={(e) => {
 						e.preventDefault();

@@ -2,7 +2,7 @@ import PageContainerBox from "../components/Page/PageContainerBox/PageContainerB
 
 const LegalAdvisorContainer = () => {
 	return (
-		<PageContainerBox breakLimit="xl">
+		<PageContainerBox breakLimit="md">
 			<section className="article-content" style={{ marginTop: "5rem" }}>
 				<h1>Aviso legal y términos de uso</h1>
 				<p>

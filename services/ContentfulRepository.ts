@@ -207,7 +207,6 @@ export class ContentfulRepository implements ContentRepository {
 	}
 
 	private mapContentfulToDomain<T>(entry: Entry<any>): T {
-		// console.log("MAPAP", entry);
 		const parsed = Object.keys(entry.fields).reduce((acc: any, key) => {
 			if (typeof entry.fields[key] === "object" && entry.fields[key] !== null) {
 				if (Reflect.has(entry.fields[key], "fields")) {

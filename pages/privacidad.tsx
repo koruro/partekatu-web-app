@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar/NavBar";
 import PageBox from "../components/Page/PageBox/PageBox";
 import PrivacyPolicyContainer from "../containers/PrivacyPolicyContainer";
 
-const headTitle = "Privacidad | Koruro";
+const headTitle = "Privacidad | partekatu.com";
 const metaTitle = "Información sobre la privacidad";
 
 const PrivacyPage = () => {

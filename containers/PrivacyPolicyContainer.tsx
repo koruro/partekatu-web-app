@@ -2,7 +2,7 @@ import PageContainerBox from "../components/Page/PageContainerBox/PageContainerB
 
 const PrivacyPolicyContainer = () => {
 	return (
-		<PageContainerBox breakLimit="xl">
+		<PageContainerBox breakLimit="md">
 			<section className="article-content" style={{ marginTop: "5rem" }}>
 				<h1>
 					Responsable – ¿quién es el responsable del tratamiento de los datos?

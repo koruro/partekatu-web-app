@@ -1,6 +1,6 @@
 import { BulletPoint } from "./BulletPoint";
 import { Category } from "./Category";
-import { ArticleMetadata } from "./Metadata";
+import { ArticleMetadata, SeoMetadata } from "./Metadata";
 
 export interface Article {
 	id: string | number;
@@ -17,5 +17,6 @@ export interface Article {
 	references: string;
 	locale: string;
 	metadata: ArticleMetadata;
+	seoMetadata: SeoMetadata;
 	category: Category;
 }

@@ -6,10 +6,11 @@ import HomePageContainer from "../containers/Home/HomePageContainer";
 import { Article } from "../models/Article";
 import { articleRepository } from "../services/bootstrap";
 
-const headTitle = "Partekatu.com - Información Educativa Fácil y Visual";
+const headTitle =
+	"partekatu.com - Aprende euskera desde 0 de forma fácil y visual";
 
 const metaDesc =
-	"Partekatu es la web educativa para estudiantes y profesores. Aquí aprenderás de forma sencilla y visual mediante: Ejemplos, Mapas Conceptuales e Infografías.";
+	"¿El euskera te suena a chino? Entra y te prometemos que aprenderás euskera online de forma sencilla gracias a nuestros artículos e imágenes.";
 
 interface Props {
 	newArticles: Article[];
@@ -23,7 +24,7 @@ const Home: NextPage<Props> = ({ newArticles, highlightedArticles }) => {
 				title={headTitle}
 				metaTitle={headTitle}
 				metaDesc={metaDesc}
-				keywords={["educacion", "aprender", "informacion", "facil", "visual"]}
+				keywords={["euskera", "aprender", "online", "gratis"]}
 			/>
 			<HomePageContainer
 				newArticles={newArticles}

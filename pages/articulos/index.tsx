@@ -18,9 +18,9 @@ interface Props {
 	queryProps: QueryProps;
 }
 
-const headTitle = "Todos los Artículos | Partekatu";
+const headTitle = "Todos los artículos de partekatu.com";
 const metaDesc =
-	"Artículos de temas educativos explicados de forma fácil y visual para estudiantes y profesores. Todos los artículos contienen una infografía.";
+	"En Partekatu tenemos artículos de todo lo que puedas necesitar en torno al euskera ¡Simplemente busca lo que necesites y aprende!";
 
 const Articles: NextPage<Props> = ({ queryProps }) => {
 	return (

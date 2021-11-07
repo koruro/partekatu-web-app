@@ -29,10 +29,8 @@ const CategoryPage: React.FC<Props> = ({
 		<>
 			<CustomHead
 				title={headTitle(CategoriesDict[category.slug as CategoriesEnum].text)}
-				metaTitle={headTitle(
-					CategoriesDict[category.slug as CategoriesEnum].text
-				)}
-				metaDesc={category.description}
+				metaTitle={category.seoMetadata?.meta_title}
+				metaDesc={category.seoMetadata?.meta_desc}
 			/>
 			<PageBox className="home">
 				<NavBar />

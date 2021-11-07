@@ -20,25 +20,6 @@ const Footer: React.FC = () => {
 						<HiMail />
 						<small>partekatu.web@gmail.com</small>
 					</a>
-					<div className={styles["footer__socials"]}>
-						<a
-							href="https://www.facebook.com/partekatu"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<FaFacebookSquare size="24px" />
-						</a>
-						<a target="_blank" rel="noopener noreferrer">
-							<FaTwitterSquare size="24px" />
-						</a>
-						<a
-							href="https://www.instagram.com/partekatu/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<FaInstagramSquare size="24px" />
-						</a>
-					</div>
 				</div>
 				<div className={styles["footer__links"]}>
 					<Link href="/quienes-somos">

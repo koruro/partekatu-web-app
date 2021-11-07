@@ -7,6 +7,10 @@
 	width: 100%;
 }
 
+.articles-search h1 {
+	text-align: center;
+}
+
 .articles-ammount {
 	padding: 0;
 	margin: 1rem 0;

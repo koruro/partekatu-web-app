@@ -5,11 +5,6 @@ export const CategoriesDict: Record<
 	CategoriesEnum,
 	{ text: string; color: string; slug: string }
 > = {
-	blog: {
-		text: "Blog",
-		color: colors.light.education,
-		slug: "blog",
-	},
 	gramatica: {
 		text: "Gramática",
 		color: colors.light.euskera,
@@ -19,5 +14,10 @@ export const CategoriesDict: Record<
 		text: "Vocabulario",
 		color: colors.light.math,
 		slug: "vocabulary",
+	},
+	blog: {
+		text: "Blog",
+		color: colors.light.education,
+		slug: "blog",
 	},
 };

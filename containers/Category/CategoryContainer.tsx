@@ -30,7 +30,7 @@ const CategoryContainer: React.FC<Props> = ({
 						]
 					}
 				>
-					{CategoriesDict[category.slug as CategoriesEnum].text}
+					{category.title}
 				</h1>
 				<div
 					className={styles["category-container__description"]}

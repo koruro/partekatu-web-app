@@ -1,57 +1,67 @@
 import PageContainerBox from "../components/Page/PageContainerBox/PageContainerBox";
+import AboutUsSvg from "../components/Shared/AboutUsSvg";
 
 const AboutContainer = () => {
 	return (
-		<PageContainerBox breakLimit="xl">
+		<PageContainerBox breakLimit="md">
 			<section className="article-content" style={{ marginTop: "5rem" }}>
-				<h1>Quiénes Somos</h1>
+				<h1>Sobre nosotros</h1>
 				<h2>Objetivo</h2>
 				<p>
-					<strong>Partekatu.com</strong> es una web educativa dirigida a
-					estudiantes, profesores o gente curiosa.{" "}
 					<strong>
-						¡Cualquiera puede aprender con nuestra web y es totalmente gratis!
+						Nuestro objetivo es simple: queremos que aprendas euskera online
+						mediante nuestra web, seas quién seas y estés donde estés.
 					</strong>
 				</p>
 				<p>
-					Nuestro objetivo es ser una web educativa de referencia mundial y,
-					para eso, ofrecemos contenidos educativos explicados de forma fácil y
-					visual.
+					Para eso creamos artículos escritos de forma amigable y entendible en
+					los que explicamos contenidos del euskera de forma fácil, visual y
+					gratuita 🤓.
 				</p>
-				<h2>Nosotros</h2>
+				<h2>Quiénes somos</h2>
 				<div>
-					Detrás del proyecto estamos{" "}
-					<a
-						href="https://www.linkedin.com/in/ander-benito/"
-						target="_blank"
-						rel="noopener"
-					>
-						Ander Benito
-					</a>{" "}
-					y{" "}
-					<a
-						href="https://www.linkedin.com/in/xabier-madorr%C3%A1n-de-la-iglesia-a83b03206/"
-						target="_blank"
-						rel="noopener"
-					>
-						Xabier Madorrán
-					</a>
-					. Somos dos amigos jóvenes que compartimos la ilusión por el proyecto:
+					<strong>
+						Detrás de este proyecto estamos Detrás del proyecto estamos{" "}
+						<a
+							href="https://www.linkedin.com/in/ander-benito/"
+							target="_blank"
+							rel="noopener"
+						>
+							Ander Benito
+						</a>{" "}
+						y{" "}
+						<a
+							href="https://www.linkedin.com/in/xabier-madorr%C3%A1n-de-la-iglesia-a83b03206/"
+							target="_blank"
+							rel="noopener"
+						>
+							Xabier Madorrán
+						</a>
+					</strong>
+					, dos jóvenes vascos que queremos que aprender euskera te sea lo más
+					fácil posible:
 					<ul>
 						<li>
-							<strong>Ander</strong> es ingeniero en telecomunicaciones y se
-							encarga, principalmente, del desarrollo de la web.
+							<strong>Xabi es profesor, precisamente, de euskera,</strong> y ha
+							trabajado en euskaltegis, centros de educación primaria y
+							secundaria e incluso en el propio departamento de educación del
+							Gobierno Vasco. Él se encarga de crear el contenido de los
+							artículos y las imágenes de la web.
 						</li>
 						<li>
-							<strong>Xabier</strong>, en cambio, es profesor, y se encarga,
-							principalmente, del contenido.
+							<strong>
+								Ander, en cambio, es ingeniero en telecomunicaciones
+							</strong>{" "}
+							y todo un apasionado del desarrollo de software. Ha trabajado en
+							diversas empresas del sector, y es el encargado del desarrollo de
+							la web ¡Gracias a él partekatu.com se ve y funciona tan bien!
 						</li>
 					</ul>
+					<p>Por lo que, como ves, ¡Aquí somos de fiar! 😇😅</p>
 				</div>
-				<img
-					decoding="async"
-					src="https://koruro.s3.sa-east-1.amazonaws.com/directores_koruro_77070f0d35.png"
-				></img>
+				<div style={{ display: "flex", justifyContent: "center" }}>
+					<AboutUsSvg width={"80%"} />
+				</div>
 			</section>
 		</PageContainerBox>
 	);

@@ -2,14 +2,15 @@
 	margin: auto;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
-	width: 300px;
+	width: 100%;
+	padding: 1rem;
 }
 
-.home-logo p {
+.home-logo h1 {
 	text-align: center;
 	margin: 1rem 0;
 	color: var(--primary);
-	font-size: 1rem;
+	font-size: 1.2rem;
 	font-weight: bold;
 	font-style: italic;
 }
@@ -29,13 +30,8 @@
 
 @media (min-width: 992px) {
 	.home-logo {
-		width: 500px;
+		width: 600px;
 		margin-top: 3rem;
 		margin-bottom: 3rem;
-	}
-
-	.home-logo p {
-		text-align: right;
-		font-size: 1.4rem;
 	}
 }

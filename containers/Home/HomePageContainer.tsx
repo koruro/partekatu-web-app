@@ -20,6 +20,7 @@ const HomePageContainer: React.FC<Props> = ({
 		<PageContainerBox breakLimit="xl">
 			<HomeLogoBox>
 				<PartekatuLogo />
+				<h1>Aprende Euskera</h1>
 			</HomeLogoBox>
 			<CategoryList className={styles["home__categories"]} />
 			<HomeArticleList

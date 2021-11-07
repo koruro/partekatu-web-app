@@ -13,11 +13,13 @@
 		border: 3px solid var(--primary);
 		color: var(--primary);
 		font-weight: bold;
-		/* background-color: var(--primaryLight); */
+		transition-property: background-color, color;
+		transition-duration: 0.2s;
 	}
 
-	.nav-items a:active {
-		transform: scale(0.96);
+	.nav-items a:hover {
+		background-color: var(--primary);
+		color: white;
 	}
 
 	.nav-items a:first-of-type {

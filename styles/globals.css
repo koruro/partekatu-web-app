@@ -13,7 +13,7 @@
 	--primary: #1870d5;
 	--primary-dark: #1357a6;
 	--primary-c1: #4db0b9;
-	--primary-light: #5d9be2;
+	--primary-light: #65bdeb;
 	--primary-light-2: #d1e2f7;
 
 	--secondary: #006bd6;
@@ -51,6 +51,7 @@
 
 html,
 body {
+	color: var(--text);
 	padding: 0;
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Ubuntu",

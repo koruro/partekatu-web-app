@@ -2,7 +2,7 @@ import PageContainerBox from "../components/Page/PageContainerBox/PageContainerB
 
 const CookiePolicyContainer = () => {
 	return (
-		<PageContainerBox breakLimit="xl">
+		<PageContainerBox breakLimit="md">
 			<section className="article-content" style={{ marginTop: "5rem" }}>
 				<h1>Política de Cookies</h1>
 				<p>
