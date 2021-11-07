@@ -55,7 +55,7 @@
 	}
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
 	.article-infographic__anchor-button {
 		display: none;
 	}
