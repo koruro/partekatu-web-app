@@ -11,7 +11,7 @@ import { articleRepository } from "../../services/bootstrap";
 import { CategoriesEnum } from "../../types/categories";
 import { markdownToHtml } from "../../utils/markdownToHtml";
 
-const headTitle = (category: string) => `${category} | Partekatu`;
+const headTitle = (category: string) => `${category} - partekatu.com`;
 
 interface Props {
 	category: Category;
@@ -28,7 +28,7 @@ const CategoryPage: React.FC<Props> = ({
 	return (
 		<>
 			<CustomHead
-				title={headTitle(CategoriesDict[category.slug as CategoriesEnum].text)}
+				title={headTitle(category.title)}
 				metaTitle={category.seoMetadata?.meta_title}
 				metaDesc={category.seoMetadata?.meta_desc}
 			/>

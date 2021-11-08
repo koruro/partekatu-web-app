@@ -5,9 +5,10 @@ import styles from "./styles.module.css";
 
 interface Props {
 	className?: string;
+	categoryAs?: "h2" | "p";
 }
 
-const CategoryList: React.FC<Props> = ({ className }) => {
+const CategoryList: React.FC<Props> = ({ className, categoryAs }) => {
 	return (
 		<div
 			className={[styles["category-list-box"], "elevate-2", className].join(
@@ -21,6 +22,7 @@ const CategoryList: React.FC<Props> = ({ className }) => {
 					href={`/categorias/${category}`}
 				>
 					<CategoryBox
+						as={categoryAs ?? "p"}
 						category={category as CategoriesEnum}
 						hoverAnimation={true}
 					/>

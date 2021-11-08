@@ -30,7 +30,7 @@ const CategoryContainer: React.FC<Props> = ({
 						]
 					}
 				>
-					{category.title}
+					{category.name}
 				</h1>
 				<div
 					className={styles["category-container__description"]}

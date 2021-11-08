@@ -7,7 +7,7 @@ export interface Query {
 	excludeSlugs?: string[];
 	skip?: number;
 	limit?: number;
-	order?: string;
+	order?: { property: string; order: "ASC" | "DESC" };
 	titleStartsWith?: string;
 }
 export interface ContentRepository {

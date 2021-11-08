@@ -31,9 +31,9 @@ const HomeArticleList: React.FC<Props> = ({
 			</div>
 			{newArticles.length > 0 && (
 				<>
-					<h3 className={styles["home-articles-list__news-title"]}>
+					<h2 className={styles["home-articles-list__news-title"]}>
 						Novedades
-					</h3>
+					</h2>
 					<div className={styles["home-articles__news"]}>
 						{newArticles.map((article) => (
 							<ArticleCard

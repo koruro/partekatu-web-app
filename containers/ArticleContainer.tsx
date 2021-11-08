@@ -30,7 +30,7 @@ const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
 	return (
 		<>
 			<CustomHead
-				title={headTitle}
+				title={article?.metadata.meta_title}
 				metaTitle={article?.metadata.meta_title}
 				metaDesc={metaDesc}
 				imgUrl={metaImage}

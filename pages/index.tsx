@@ -7,7 +7,7 @@ import { Article } from "../models/Article";
 import { articleRepository } from "../services/bootstrap";
 
 const headTitle =
-	"partekatu.com - Aprende euskera desde 0 de forma fácil y visual";
+	"Aprende euskera desde 0 de forma fácil y visual - partekatu.com";
 
 const metaDesc =
 	"¿El euskera te suena a chino? Entra y te prometemos que aprenderás euskera online de forma sencilla gracias a nuestros artículos e imágenes.";
