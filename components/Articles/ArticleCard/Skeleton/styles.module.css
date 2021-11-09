@@ -1,0 +1,18 @@
+.article-skeleton-card {
+	min-width: 100px;
+	height: 200px;
+	border-radius: var(--rounded-s);
+	/* flex-grow: 1; */
+	/* margin-bottom: 1.5rem; */
+}
+
+.article-skeleton-card__info {
+	margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+	.article-skeleton-card {
+		flex-direction: row;
+		backface-visibility: hidden;
+	}
+}

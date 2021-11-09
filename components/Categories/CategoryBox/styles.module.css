@@ -1,0 +1,27 @@
+.category-box {
+	color: white;
+	margin: 0;
+	font-size: 1rem;
+	font-weight: bold;
+	border-radius: var(--rounded-l);
+}
+
+.category--gramar {
+	background: linear-gradient(
+		270deg,
+		var(--gramar) 3.12%,
+		var(--gramar-c1) 100%
+	);
+}
+
+.category--blog {
+	background: linear-gradient(270deg, var(--blog) 3.12%, var(--blog-c1) 100%);
+}
+
+.category--vocabulary {
+	background: linear-gradient(
+		270deg,
+		var(--vocabulary) 3.12%,
+		var(--vocabulary-c1) 100%
+	);
+}

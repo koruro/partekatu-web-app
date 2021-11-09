@@ -1,0 +1,28 @@
+.nav-items {
+	display: none;
+}
+
+@media (min-width: 992px) {
+	.nav-items {
+		display: flex;
+		align-items: center;
+	}
+
+	.nav-items a {
+		border-radius: var(--rounded-l);
+		border: 3px solid var(--primary);
+		color: var(--primary);
+		font-weight: bold;
+		transition-property: background-color, color;
+		transition-duration: 0.2s;
+	}
+
+	.nav-items a:hover {
+		background-color: var(--primary);
+		color: white;
+	}
+
+	.nav-items a:first-of-type {
+		margin-right: 2rem;
+	}
+}

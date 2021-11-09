@@ -1,0 +1,252 @@
+.article-content {
+	color: var(--text);
+}
+
+.article-content h1 {
+	font-size: 2.5em;
+	padding: 0.3rem 0.7rem;
+	text-align: center;
+}
+
+.article-content h2 {
+	color: white;
+	font-size: 1.5em;
+	background-color: var(--primary);
+	padding: 0.3rem 0.7rem;
+	display: inline-block;
+}
+
+.article-content h3 {
+	font-size: 1.2em;
+	background-color: var(--primary-light-2);
+	padding: 0.3rem 0.7rem;
+	display: inline-block;
+}
+
+.article-content h4 {
+	color: var(--primary);
+	font-size: 1.1em;
+	padding: 0 1rem;
+}
+
+.article-content p {
+	padding: 0 1rem;
+	line-height: 160%;
+}
+
+.article-content li {
+	padding: 0 1rem;
+	margin-bottom: 0.7rem;
+	line-height: 140%;
+}
+
+.article-content a {
+	color: var(--secondary);
+}
+
+.article-content a:target {
+	position: relative;
+	top: -12rem;
+}
+
+.article-content blockquote {
+	background-color: white;
+	padding: 1rem 2rem;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+	border-left: 10px solid var(--primary);
+	margin: 0;
+}
+
+.article-content img {
+	max-width: 100%;
+	mix-blend-mode: multiply;
+	margin: auto;
+	display: block;
+}
+
+.article-content .table-container {
+	overflow: auto;
+	display: block;
+	position: relative;
+}
+
+.article-content table {
+	margin: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 5px;
+}
+
+.article-content table thead {
+	background-color: #008e9b11;
+}
+
+.article-content table thead th {
+	text-align: center;
+	padding: 1rem;
+	border: 4px solid var(--primary);
+}
+
+.article-content table tbody {
+	text-align: left;
+}
+
+.article-content table tbody td {
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+	background-color: white;
+	padding: 1rem;
+}
+
+.article-content table tbody li {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 0.3rem;
+}
+
+/** COLOR & UTIL CLASSES **/
+.article-content .wh {
+	padding: 0 0.2rem;
+}
+
+.article-content .red {
+	background-color: var(--math);
+	color: white;
+}
+
+.article-content .green {
+	background-color: var(--correct);
+}
+
+.article-content .yellow {
+	background-color: var(--warn);
+}
+
+.article-content .blue {
+	background-color: var(--secondary);
+	color: white;
+}
+
+.article-content .purple {
+	background-color: var(--gramar);
+	color: white;
+}
+
+.article-content .border-green {
+	border: 5px solid #64b36488;
+}
+
+.article-content .border-blue {
+	border: 5px solid #006bd6;
+}
+
+.article-content .border-red {
+	border: 5px solid #dd0426;
+}
+
+.article-content .table--equal_width {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.article-content .highlight {
+	background-color: #ffd56caa;
+	display: block;
+	padding: 2rem 2rem;
+	margin: 0;
+	text-align: center;
+	position: relative;
+	text-indent: 30px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+	font-size: 1.1em;
+}
+
+.article-content .highlight::before {
+	text-indent: 0;
+	color: var(--text-subtle);
+	content: "i";
+	position: absolute;
+	top: 10px;
+	left: 18px;
+	display: block;
+	font-size: 1.6em;
+	font-family: serif;
+	font-style: italic;
+	margin-right: 0.25em;
+}
+
+/** TABLE CLASSES **/
+.table-center td {
+	text-align: center;
+}
+
+.table-italic-1 td:first-of-type {
+	font-style: italic;
+}
+
+.table-italic-2 td:nth-of-type(2) {
+	font-style: italic;
+}
+
+.table-bold-1 td:first-of-type {
+	font-weight: bold;
+}
+
+.table-bold-2 td:nth-of-type(2) {
+	font-weight: bold;
+}
+
+.emoji {
+	font-style: normal;
+	font-size: 1em;
+}
+
+.amazon-referal {
+	background-color: #f4d078;
+	padding: 0.4rem 1rem;
+	text-align: center;
+	font-weight: bold;
+	border-radius: var(--rounded-s);
+	color: #131a22;
+	font-size: 0.85em;
+	border: 2px solid transparent;
+	transition: border 0.05s ease;
+	width: fit-content;
+	display: block;
+	margin: auto;
+	margin-top: 2rem;
+}
+
+.amazon-referal::after {
+	content: "Ver en Amazon";
+}
+
+.amazon-referal:hover {
+	border: 2px solid var(--text-subtle);
+}
+
+@media (min-width: 992px) {
+	.article-content p {
+		padding: 0;
+	}
+
+	.article-content h4 {
+		padding: 0;
+	}
+
+	.article-content img {
+		max-width: 80%;
+	}
+
+	.article-content blockquote {
+		margin: 2rem 1.6rem;
+	}
+
+	.article-content table {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.article-content .highlight {
+		margin: 2rem 1.6rem;
+	}
+}

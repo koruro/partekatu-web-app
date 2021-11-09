@@ -1,0 +1,42 @@
+.error-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.error-container h1 {
+	display: flex;
+	margin-bottom: 1rem;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 4rem;
+	color: var(--primary);
+}
+
+.error-container h1:first-of-type {
+	margin-right: 1rem;
+}
+
+.error-container__content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.error-container__content p {
+	text-align: center;
+	padding: 1rem;
+	font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+	.error-container {
+		width: 768px;
+	}
+	.error-container h1 {
+		font-size: 8rem;
+	}
+
+	.error-container__content p {
+		font-size: 1.3rem;
+	}
+}
