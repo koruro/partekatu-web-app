@@ -13,15 +13,10 @@ interface Props {
 }
 
 const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
-	const headTitle = article?.metadata?.meta_title
-		? `${article.metadata.meta_title} | Partekatu`
-		: "Artículo | Partekatu";
 	const metaDesc = article?.description
 		? article?.description
 		: "Descripcion de ejemplo";
-	const metaImage = article.banner
-		? article.banner
-		: "https://koruro.s3-sa-east-1.amazonaws.com/Full_Logo_1080_5835b47b57.png";
+	const metaImage = article.banner;
 	const router = useRouter();
 
 	if (router.isFallback) return <LoadingRing />;

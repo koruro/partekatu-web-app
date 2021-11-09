@@ -1,9 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { SITE_URL } from "../utils/constants";
-
-const DEFAULT_IMG_URL =
-	"https://koruro.s3-sa-east-1.amazonaws.com/Full_Logo_1080_5835b47b57.png";
+import { META_IMAGE, SITE_URL } from "../utils/constants";
 
 interface Props {
 	title: string;
@@ -34,12 +31,8 @@ const CustomHead: React.FC<Props> = ({
 				<meta name="description" content={metaDesc} key="description" />
 			)}
 			{keywords && <meta name="keywords" content={keywords.join(", ")} />}
-			<meta property="image" content={imgUrl ?? DEFAULT_IMG_URL} key="image" />
-			<meta
-				property="og:image"
-				content={imgUrl ?? DEFAULT_IMG_URL}
-				key="og:image"
-			/>
+			<meta property="image" content={imgUrl ?? META_IMAGE} key="image" />
+			<meta property="og:image" content={imgUrl ?? META_IMAGE} key="og:image" />
 			<link rel="canonical" href={`${SITE_URL}${asPath}`} />
 			{noIndex && <meta name="robots" content="noindex" />}
 		</Head>
