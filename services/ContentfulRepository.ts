@@ -21,17 +21,9 @@ export class ContentfulRepository implements ContentRepository {
 
 		const parsed = await this.client.parseEntries<any>(data);
 
-		const articles: Entry<any>[] = parsed.items.map(
-			(item) => item.fields.article
-		);
+		const articles: Entry<any>[] = parsed.items.map((item) => item);
 
-		return articles
-			.filter((item) =>
-				query?.category
-					? item.fields.category.fields.slug === query?.category
-					: true
-			)
-			.map((item) => this.mapContentfulToDomain<Article>(item));
+		return articles.map((item) => this.mapContentfulToDomain<Article>(item));
 	}
 
 	async getNumArticles(query?: Query): Promise<number> {
@@ -143,16 +135,24 @@ export class ContentfulRepository implements ContentRepository {
 
 	private async highlightQueryConformer(query?: Query) {
 		let _query: any = {
-			content_type: "highlights",
+			content_type: "article",
 			order: "-sys.createdAt",
+			"metadata.tags.sys.id[in]": "highlightHome",
 			include: 10,
 		};
-
 		if (query?.limit) {
 			_query = { ..._query, limit: query.limit };
 		}
 		if (query?.skip) {
 			_query = { ..._query, skip: query.skip };
+		}
+		if (query?.category) {
+			_query = {
+				..._query,
+				"metadata.tags.sys.id[in]": "highlight",
+				"fields.category.sys.contentType.sys.id": "category",
+				"fields.category.fields.slug[all]": query.category,
+			};
 		}
 		// if (query?.excludeSlugs) {
 		// 	_query = {
