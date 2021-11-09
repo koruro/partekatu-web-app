@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				strategy="afterInteractive"
 				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
 			/>
-			<Script strategy="afterInteractive">
+			<Script strategy="afterInteractive" id="gtag-script">
 				{`
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
