@@ -11,7 +11,7 @@ import PageContainerBox from "../../components/Page/PageContainerBox/PageContain
 import { articleRepository } from "../../services/bootstrap";
 
 const DEFAULT_FILTER = {
-	sortBy: "published_at",
+	sortBy: "createdAt",
 	order: "DESC",
 };
 
@@ -50,6 +50,7 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
 				titleStartsWith: queryProps.c,
 				category: queryProps.cat,
 				skip: queryProps.p * PAGE_SIZE,
+				order: { property: filter.sortBy, order: filter.order as any },
 				limit: PAGE_SIZE,
 			})
 			.then((data) => {

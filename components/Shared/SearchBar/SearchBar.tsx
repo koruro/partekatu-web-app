@@ -17,14 +17,14 @@ interface Props {
 const selectFilters = [
 	{
 		value: {
-			sortBy: "published_at",
+			sortBy: "createdAt",
 			order: "DESC",
 		},
 		text: "Recientes",
 	},
 	{
 		value: {
-			sortBy: "published_at",
+			sortBy: "createdAt",
 			order: "ASC",
 		},
 		text: "Antiguos",
