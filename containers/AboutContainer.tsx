@@ -62,6 +62,25 @@ const AboutContainer = () => {
 				<div style={{ display: "flex", justifyContent: "center" }}>
 					<AboutUsSvg width={"80%"} />
 				</div>
+				<p>
+					Nosotros somos también los creadores de{" "}
+					<a
+						href="https://koruro.com"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						koruro.com
+					</a>
+					. Así que si quieres seguir aprendiendo sobre muchos otros temas no
+					dudes en visitarla{" "}
+					<a
+						href="https://koruro.com"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						haciendo click aquí!
+					</a>
+				</p>
 			</section>
 		</PageContainerBox>
 	);

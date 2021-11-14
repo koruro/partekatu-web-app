@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar/NavBar";
 import PageBox from "../components/Page/PageBox/PageBox";
 import LegalAdvisorContainer from "../containers/LegalAdvisorContainer";
 
-const headTitle = "Aviso Legal | partekatu.com";
+const headTitle = "Aviso Legal - partekatu.com";
 const metaTitle = "Información sobre aviso legal";
 
 const LegalPage = () => {

@@ -9,7 +9,6 @@ import ArticleContent from "../Content/ArticleContent";
 import styles from "./styles.module.css";
 import Divider from "../../Shared/Divider/Divider";
 import { Article } from "../../../models/Article";
-import InArticleAd from "../../Ads/InArticleAd";
 
 const WPM = 225;
 

@@ -130,6 +130,15 @@ export class ContentfulRepository implements ContentRepository {
 			};
 		}
 
+		if (query?.order) {
+			_query = {
+				..._query,
+				order: `${query.order.order === "DESC" ? "-" : ""}sys.${
+					query.order.property
+				}`,
+			};
+		}
+
 		return _query;
 	}
 
