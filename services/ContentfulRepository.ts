@@ -102,7 +102,10 @@ export class ContentfulRepository implements ContentRepository {
 	}
 
 	private articleQueryConformer(query?: Query) {
-		let _query: any = { content_type: "article", order: "-sys.createdAt" };
+		let _query: any = {
+			content_type: "article",
+			order: "-sys.createdAt",
+		};
 
 		if (query?.limit) {
 			_query = { ..._query, limit: query.limit };
@@ -220,6 +223,16 @@ export class ContentfulRepository implements ContentRepository {
 			if (typeof entry.fields[key] === "object" && entry.fields[key] !== null) {
 				if (Reflect.has(entry.fields[key], "fields")) {
 					acc[key] = this.mapContentfulToDomain(entry.fields[key]);
+					return acc;
+				}
+
+				if (Array.isArray(entry.fields[key])) {
+					acc[key] = entry.fields[key].map((el: any) => {
+						if (Reflect.has(el, "fields")) {
+							return this.mapContentfulToDomain(el);
+						}
+						return el;
+					});
 					return acc;
 				}
 			}

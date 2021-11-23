@@ -1,0 +1,34 @@
+.article-refered-articles {
+	/* font-weight: bold; */
+	font-size: 1.1em;
+	font-style: italic;
+	display: inline-block;
+	margin: 2rem 0;
+	padding: 0 1rem;
+}
+
+.article-refered-articles p {
+	color: var(--text-subtle);
+	display: inline-block;
+}
+
+.article-refered-articles p::before {
+	font-weight: bold;
+	font-style: normal;
+	content: "\00BB";
+	margin-right: 0.4em;
+	color: var(--primary);
+}
+
+.article-refered-articles a {
+	color: var(--primary);
+	border-bottom: 2px solid var(--primary);
+	font-weight: bold;
+	font-style: normal;
+}
+
+@media (min-width: 768px) {
+	.article-refered-articles {
+		padding: 0;
+	}
+}

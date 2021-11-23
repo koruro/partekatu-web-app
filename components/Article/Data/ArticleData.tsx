@@ -9,6 +9,7 @@ import ArticleContent from "../Content/ArticleContent";
 import styles from "./styles.module.css";
 import Divider from "../../Shared/Divider/Divider";
 import { Article } from "../../../models/Article";
+import ArticleReferedArticles from "../Refered/ArticleReferedArticles";
 
 const WPM = 225;
 
@@ -47,6 +48,7 @@ const ArticleData: React.FC<Props> = ({
 				slug={article.slug}
 			/>
 			<ArticleContent content={article.content} />
+			<ArticleReferedArticles articles={article.referedArticles} />
 			<ArticleInfographic infographic={article.infographic} />
 			<ArticleVideo videoUrl={article.videoUrl} title={article.title} />
 			<ArticleReferences references={article.references} />
