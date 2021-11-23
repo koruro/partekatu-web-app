@@ -40,6 +40,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		const article = await articleRepository.getArticleBySlug(
 			params!.slug as string
 		);
+
 		const recommendations = await articleRepository.getArticles({
 			limit: 3,
 			excludeSlugs: [article.slug],

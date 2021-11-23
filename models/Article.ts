@@ -19,4 +19,5 @@ export interface Article {
 	metadata: ArticleMetadata;
 	seoMetadata: SeoMetadata;
 	category: Category;
+	referedArticles: Article[];
 }
