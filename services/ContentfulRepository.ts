@@ -1,6 +1,7 @@
 import { createClient, ContentfulClientApi, Entry } from "contentful";
 import { Article } from "../models/Article";
 import { Category } from "../models/Category";
+import { Infographic } from "../models/Infographic";
 import { ContentRepository, Query } from "./ContentRepository";
 
 export class ContentfulRepository implements ContentRepository {
@@ -23,7 +24,7 @@ export class ContentfulRepository implements ContentRepository {
 
 		const articles: Entry<any>[] = parsed.items.map((item) => item);
 
-		return articles.map((item) => this.mapContentfulToDomain<Article>(item));
+		return articles.map((item) => this.mapArticleToDomain(item));
 	}
 
 	async getNumArticles(query?: Query): Promise<number> {
@@ -53,12 +54,11 @@ export class ContentfulRepository implements ContentRepository {
 			content_type: "article",
 			"fields.slug[all]": slug,
 		});
+
 		if (data.items.length <= 0)
 			throw new Error(`No article found with slug ${slug}`);
 
-		const parsed = await this.client.parseEntries<any>(data);
-
-		return this.mapContentfulToDomain<Article>(parsed.items[0]);
+		return this.mapArticleToDomain(data.items[0]);
 	}
 
 	async getArticles(query?: Query): Promise<Article[]> {
@@ -68,11 +68,7 @@ export class ContentfulRepository implements ContentRepository {
 		if (data.items.length <= 0)
 			throw new Error(`No articles found under query ${JSON.stringify(query)}`);
 
-		const parsed = await this.client.parseEntries<any>(data);
-
-		return parsed.items.map((item) =>
-			this.mapContentfulToDomain<Article>(item)
-		);
+		return data.items.map((item) => this.mapArticleToDomain(item));
 	}
 
 	async getCategoryBySlug(slug: string): Promise<Category> {
@@ -84,7 +80,7 @@ export class ContentfulRepository implements ContentRepository {
 
 		const parsed = await this.client.parseEntries<any>(data);
 
-		return this.mapContentfulToDomain<Category>(parsed.items[0]);
+		return this.mapCategoryToDomain(parsed.items[0]);
 	}
 
 	async getCategories(query?: Query): Promise<Category[]> {
@@ -96,15 +92,14 @@ export class ContentfulRepository implements ContentRepository {
 
 		const parsed = await this.client.parseEntries<any>(data);
 
-		return parsed.items.map((item) =>
-			this.mapContentfulToDomain<Category>(item)
-		);
+		return parsed.items.map((item) => this.mapCategoryToDomain(item));
 	}
 
 	private articleQueryConformer(query?: Query) {
 		let _query: any = {
 			content_type: "article",
 			order: "-sys.createdAt",
+			include: 1,
 		};
 
 		if (query?.limit) {
@@ -150,7 +145,7 @@ export class ContentfulRepository implements ContentRepository {
 			content_type: "article",
 			order: "-sys.createdAt",
 			"metadata.tags.sys.id[in]": "highlightHome",
-			include: 10,
+			include: 1,
 		};
 		if (query?.limit) {
 			_query = { ..._query, limit: query.limit };
@@ -241,5 +236,59 @@ export class ContentfulRepository implements ContentRepository {
 			return acc;
 		}, {});
 		return parsed;
+	}
+
+	private mapArticleToDomain(entry: Entry<any>, stack = 1): Article {
+		const fields = entry.fields;
+		return {
+			id: entry.sys.id,
+			banner: fields.banner,
+			bulletPoints: fields.bulletPoints ?? null,
+			content: fields.content ?? null,
+			description: fields.description ?? null,
+			emoji: fields.emoji ?? null,
+			metadata: fields.metadata ?? null,
+			seoMetadata: fields.seoMetadata ?? null,
+			preamble: fields.preamble ?? null,
+			slug: fields.slug,
+			title: fields.title,
+			references: fields.references ?? null,
+			videoUrl: fields.videoUrl ?? null,
+			locale: entry.sys.locale ?? null,
+			category: fields.category && this.mapCategoryToDomain(fields.category),
+			infographic: fields.infographic
+				? this.mapInfograficToDomain(fields.infographic)
+				: null,
+			referedArticles:
+				stack > 0
+					? fields.referedArticles
+						? fields.referedArticles.map((article: any) =>
+								this.mapArticleToDomain(article, --stack)
+						  )
+						: []
+					: [],
+		};
+	}
+
+	private mapCategoryToDomain(entry: Entry<any>): Category {
+		return {
+			name: entry.fields.name,
+			color: entry.fields.color ?? null,
+			description: entry.fields.description ?? null,
+			seoMetadata: entry.fields.seoMetadata ?? null,
+			slug: entry.fields.slug ?? null,
+			title: entry.fields.title ?? null,
+			created_at: entry.sys.createdAt as any,
+			updated_at: entry.sys.updatedAt as any,
+			id: entry.sys.id,
+		};
+	}
+
+	private mapInfograficToDomain(entry: Entry<any>): Infographic {
+		return {
+			file: entry.fields.file,
+			description: entry.fields.description ?? null,
+			title: entry.fields.title,
+		};
 	}
 }
