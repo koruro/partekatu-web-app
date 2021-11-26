@@ -265,8 +265,8 @@ export class ContentfulRepository implements ContentRepository {
 						? fields.referedArticles.map((article: any) =>
 								this.mapArticleToDomain(article, --stack)
 						  )
-						: []
-					: [],
+						: null
+					: null,
 		};
 	}
 
