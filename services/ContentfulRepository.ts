@@ -2,14 +2,28 @@ import { createClient, ContentfulClientApi, Entry } from "contentful";
 import { Article } from "../models/Article";
 import { Category } from "../models/Category";
 import { Infographic } from "../models/Infographic";
-import { ContentRepository, Query } from "./ContentRepository";
+import {
+	ContentRepository,
+	DEFAULT_PREVIEW_OPTIONS,
+	PreviewOptions,
+	Query,
+} from "./ContentRepository";
 
 export class ContentfulRepository implements ContentRepository {
 	private readonly client: ContentfulClientApi;
+	private readonly previewClient?: ContentfulClientApi;
 	constructor() {
 		this.client = createClient({
 			space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
 			accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+		});
+		const previewToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN!;
+
+		if (!previewToken) return;
+		this.previewClient = createClient({
+			space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+			accessToken: previewToken,
+			host: "preview.contentful.com",
 		});
 	}
 
@@ -49,11 +63,24 @@ export class ContentfulRepository implements ContentRepository {
 		);
 	}
 
-	async getArticleBySlug(slug: string): Promise<Article> {
-		const data = await this.client.getEntries({
+	async getArticleBySlug(
+		slug: string,
+		options?: PreviewOptions
+	): Promise<Article> {
+		const _options = Object.assign({}, DEFAULT_PREVIEW_OPTIONS, options);
+		const _query = {
 			content_type: "article",
 			"fields.slug[all]": slug,
-		});
+		};
+
+		let data;
+
+		if (_options.preview) {
+			if (!this.previewClient) throw new Error(`No preview client defined`);
+			data = await this.previewClient.getEntries(_query);
+		} else {
+			data = await this.client.getEntries(_query);
+		}
 
 		if (data.items.length <= 0)
 			throw new Error(`No article found with slug ${slug}`);
