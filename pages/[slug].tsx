@@ -34,11 +34,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 // Get static props
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 	try {
 		// Fetch article and recommendations data
 		const article = await articleRepository.getArticleBySlug(
-			params!.slug as string
+			params!.slug as string,
+			{ preview }
 		);
 
 		const recommendations = await articleRepository.getArticles({
