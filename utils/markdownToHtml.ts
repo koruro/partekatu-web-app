@@ -1,17 +1,18 @@
 import { unified } from "unified";
+import rehypeFormat from "rehype-format";
 import remarkParse from "remark-parse";
 import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";
 import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
-import rehypeFormat from "rehype-format";
 import rehypeRaw from "rehype-raw";
 import rehypeMinify from "rehype-preset-minify";
 import rehypeAutoLink from "rehype-autolink-headings";
+import { BulletPoint } from "../models/BulletPoint";
 
 const wrap = require("rehype-wrap-all");
 
-function htmlElementsTransformer(options = {}): any {
+function htmlElementsTransformer(options = {}) {
 	return transformer;
 
 	function transformer(tree: any, file: any) {
@@ -72,7 +73,7 @@ function htmlElementsTransformer(options = {}): any {
 	}
 }
 
-function deleteHeadingsId(): any {
+function deleteHeadingsId() {
 	return transformer;
 	function transformer(tree: any, file: any) {
 		parseChildren(tree.children);
@@ -88,7 +89,6 @@ function deleteHeadingsId(): any {
 			if (!element) continue;
 			if (element.type !== "element") continue;
 
-			// Delete ids
 			if (element.tagName === "a") {
 				element.properties.id = element.properties.href.substring(1);
 			}
@@ -96,6 +96,7 @@ function deleteHeadingsId(): any {
 			// Delete ids
 			if (element.tagName === "h2") {
 				delete element.properties.id;
+				element._metadata = { isHeadingLink: true };
 			}
 
 			parseChildren(element.children);
@@ -103,27 +104,107 @@ function deleteHeadingsId(): any {
 	}
 }
 
-export const baseProcessor = () => {
-	return unified()
-		.use(remarkParse)
-		.use(remarkMath)
-		.use(remarkRehype, { allowDangerousHtml: true })
-		.use(rehypeRaw)
-		.use(rehypeFormat)
-		.use(wrap, { selector: "table", wrapper: "div.table-container" })
-		.use(htmlElementsTransformer)
-		.use(rehypeAutoLink)
-		.use(deleteHeadingsId)
-		.use(rehypeKatex)
-		.use(rehypeMinify)
-		.use(rehypeStringify, {
+function addHeadingAd() {
+	return transformer;
+	function transformer(tree: any, file: any) {
+		findHeading(tree.children);
+	}
+
+	function findHeading(children: any[]) {
+		if (!children) return;
+		if (children.length === 0) return;
+
+		let h2Counter = 0;
+		let h2Index = -1;
+		for (let i = 0; i < children.length; i++) {
+			const element = children[i];
+			if (isH2(element)) {
+				h2Counter++;
+			}
+
+			// If two h2 elements are found, inject div before it
+			if (h2Counter >= 2) {
+				h2Index = i;
+
+				children.splice(h2Index, 0, {
+					type: "html",
+					value: '<div id="secondaryArticleAd"></div>',
+				});
+				return;
+			}
+		}
+	}
+
+	function isH2(element: any) {
+		return element.type === "heading" && element.depth === 2;
+	}
+}
+
+export class ArticleMarkdownParser {
+	private parser = () => {
+		return unified().use(remarkParse);
+	};
+	private processor = () => {
+		return unified()
+			.use(addHeadingAd)
+			.use(remarkMath as any)
+			.use(remarkRehype, { allowDangerousHtml: true })
+			.use(rehypeRaw)
+			.use(rehypeFormat)
+			.use(wrap, { selector: "table", wrapper: "div.table-container" })
+			.use(htmlElementsTransformer)
+			.use(rehypeAutoLink as any)
+			.use(deleteHeadingsId)
+			.use(rehypeKatex)
+			.use(rehypeMinify);
+	};
+	private compiler = () => {
+		return unified().use(rehypeStringify, {
 			quoteSmart: true,
 			closeSelfClosing: true,
 		});
-};
+	};
 
-export const markdownToHtml = async (markdown: string) => {
-	const result = await baseProcessor().process(markdown);
+	private tree: any;
+	private parsedTree: any;
+	private html?: string;
 
-	return String(result);
-};
+	constructor(content: string) {
+		this.tree = this.parser().parse(content);
+	}
+
+	public async parse() {
+		this.parsedTree = await this.processor().run(this.tree);
+	}
+
+	public getRawHtml() {
+		if (this.html) return this.html;
+		const result = this.compiler().stringify(this.parsedTree);
+
+		this.html = String(result);
+
+		return this.html;
+	}
+
+	public getBulletPoints(names?: string[]) {
+		const _bullets: BulletPoint[] = [];
+		let nameIndex = 0;
+		this.parsedTree.children.forEach((element: any) => {
+			if (!element._metadata) return;
+			if (!element._metadata.isHeadingLink) return;
+
+			const targetId = element.children[0]?.properties?.id;
+			const name = names ? names[nameIndex] : element.children[1]?.value;
+
+			if (!targetId) return;
+
+			_bullets.push({
+				targetId,
+				name: name ?? "Test",
+			});
+			nameIndex++;
+		});
+
+		return _bullets;
+	}
+}
