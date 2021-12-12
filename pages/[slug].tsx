@@ -5,7 +5,7 @@ import PageBox from "../components/Page/PageBox/PageBox";
 import ArticleContainer from "../containers/ArticleContainer";
 import { Article } from "../models/Article";
 import { articleRepository } from "../services/bootstrap";
-import { markdownToHtml } from "../utils/markdownToHtml";
+import { ArticleMarkdownParser } from "../utils/markdownToHtml";
 
 interface Props {
 	article: Article;
@@ -47,15 +47,23 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 			excludeSlugs: [article.slug],
 		});
 
-		const htmlContent = await markdownToHtml(article.content);
-		const referencesHtmlContent = await markdownToHtml(article.references);
+		const htmlContent = new ArticleMarkdownParser(article.content);
+		const referencesHtmlContent = new ArticleMarkdownParser(article.references);
+
+		await htmlContent.parse();
+		await referencesHtmlContent.parse();
+
+		const bullets = htmlContent.getBulletPoints(
+			article.bulletPoints?.map((bullet) => bullet.name)
+		);
 
 		return {
 			props: {
 				article: {
 					...article,
-					content: htmlContent,
-					references: referencesHtmlContent,
+					content: htmlContent.getRawHtml(),
+					references: referencesHtmlContent.getRawHtml(),
+					bulletPoints: bullets,
 				},
 				recommendations,
 			},

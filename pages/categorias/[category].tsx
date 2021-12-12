@@ -9,7 +9,7 @@ import { Article } from "../../models/Article";
 import { Category } from "../../models/Category";
 import { articleRepository } from "../../services/bootstrap";
 import { CategoriesEnum } from "../../types/categories";
-import { markdownToHtml } from "../../utils/markdownToHtml";
+import { ArticleMarkdownParser } from "../../utils/markdownToHtml";
 
 const headTitle = (category: string) => `${category} - partekatu.com`;
 
@@ -68,7 +68,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		);
 
 		// Render html of the category description
-		const description = await markdownToHtml(category.description ?? "");
+		const description = new ArticleMarkdownParser(category.description ?? "");
+		await description.parse();
 
 		const highlightedArticles = await getHighlightArticles(
 			category.slug as CategoriesEnum
@@ -80,7 +81,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 		return {
 			props: {
-				category: { ...category, description },
+				category: { ...category, description: description.getRawHtml() },
 				newArticles,
 				highlightedArticles,
 			},
