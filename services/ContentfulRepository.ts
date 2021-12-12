@@ -282,7 +282,10 @@ export class ContentfulRepository implements ContentRepository {
 			references: fields.references ?? null,
 			videoUrl: fields.videoUrl ?? null,
 			locale: entry.sys.locale ?? null,
-			category: fields.category && this.mapCategoryToDomain(fields.category),
+			category:
+				stack > 0
+					? fields.category && this.mapCategoryToDomain(fields.category)
+					: null,
 			infographic: fields.infographic
 				? this.mapInfograficToDomain(fields.infographic)
 				: null,
