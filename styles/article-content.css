@@ -30,6 +30,7 @@
 }
 
 .article-content p {
+	position: relative;
 	padding: 0 1rem;
 	line-height: 160%;
 }
@@ -109,26 +110,81 @@
 }
 
 .article-content .red {
-	background-color: var(--math);
 	color: white;
+	padding-right: 0.2em;
+	margin-right: -0.2em;
+	border-radius: 0.8em 0.3em;
+	background: transparent;
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 225, 0, 0.1),
+		var(--math) 4%,
+		var(--math-highlighter)
+	);
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
 }
 
 .article-content .green {
-	background-color: var(--correct);
+	color: white;
+	padding-right: 0.2em;
+	margin-right: -0.2em;
+	border-radius: 0.8em 0.3em;
+	background: transparent;
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 225, 0, 0.1),
+		var(--correct) 4%,
+		var(--correct-highlighter)
+	);
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
 }
 
 .article-content .yellow {
-	background-color: var(--warn);
+	padding-right: 0.2em;
+	margin-right: -0.2em;
+	border-radius: 0.8em 0.3em;
+	background: transparent;
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 225, 0, 0.1),
+		var(--warn) 4%,
+		var(--warn-c1)
+	);
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
 }
 
 .article-content .blue {
-	background-color: var(--secondary);
 	color: white;
+	padding-right: 0.2em;
+	margin-right: -0.2em;
+	border-radius: 0.8em 0.3em;
+	background: transparent;
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 225, 0, 0.1),
+		var(--secondary) 4%,
+		var(--secondary-highlighter)
+	);
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
 }
 
 .article-content .purple {
-	background-color: var(--gramar);
 	color: white;
+	padding: 0.1em 0.4em;
+	border-radius: 0.8em 0.3em;
+	background: transparent;
+	background-image: linear-gradient(
+		to right,
+		rgba(255, 225, 0, 0.1),
+		var(--gramar) 4%,
+		var(--gramar-highlighter)
+	);
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
 }
 
 .article-content .border-green {
@@ -146,6 +202,18 @@
 .article-content .table--equal_width {
 	table-layout: fixed;
 	width: 100%;
+}
+
+.article-content .fill-yellow {
+	background-color: var(--warn-light);
+}
+
+.article-content .fill-red {
+	background-color: var(--math-light);
+}
+
+.article-content .fill-green {
+	background-color: var(--correct-light);
 }
 
 .article-content .highlight {

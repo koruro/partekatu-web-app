@@ -18,22 +18,24 @@ const HomePageContainer: React.FC<Props> = ({
 }) => {
 	return (
 		<PageContainerBox breakLimit="xl">
-			<HomeLogoBox>
-				<PartekatuLogo />
-				<h1>aprende euskera</h1>
-			</HomeLogoBox>
-			<CategoryList className={styles["home__categories"]} categoryAs="h2" />
-			<HomeArticleList
-				newArticles={newArticles}
-				highlightedArticles={highlightedArticles}
-			/>
-			<ButtonLink
-				href="articulos"
-				className={styles["home__button"]}
-				style={{ marginTop: "5rem" }}
-			>
-				Ver todos los artículos
-			</ButtonLink>
+			<div className={styles["home-container"]}>
+				<HomeLogoBox>
+					<PartekatuLogo />
+					<h1>aprende euskera</h1>
+				</HomeLogoBox>
+				<CategoryList className={styles["home__categories"]} categoryAs="h2" />
+				<HomeArticleList
+					newArticles={newArticles}
+					highlightedArticles={highlightedArticles}
+				/>
+				<ButtonLink
+					href="articulos"
+					className={styles["home__button"]}
+					style={{ marginTop: "5rem" }}
+				>
+					Ver todos los artículos
+				</ButtonLink>
+			</div>
 		</PageContainerBox>
 	);
 };
