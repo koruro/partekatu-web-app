@@ -17,19 +17,26 @@
 	--primary-light-2: #d1e2f7;
 
 	--secondary: #006bd6;
+	--secondary-highlighter: #609edb;
 
 	--clear: #f1f4f8;
 
 	--warn: #ffd56c;
 	--warn-c1: #f8de9c;
+	--warn-light: #fffac8;
 
 	--math: #dd0426;
 	--math-c1: #d9338c;
+	--math-highlighter: #d9485e;
+	--math-light: #f8cdd4;
 
 	--gramar: #8b3ab1;
 	--gramar-c1: #875dca;
+	--gramar-highlighter: #875dca;
 
 	--correct: #64b364;
+	--correct-highlighter: #9dd49d;
+	--correct-light: #cfe5d0;
 
 	--sand: #f7f7f0;
 
