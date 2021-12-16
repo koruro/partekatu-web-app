@@ -142,12 +142,11 @@ function addHeadingAd() {
 
 export class ArticleMarkdownParser {
 	private parser = () => {
-		return unified().use(remarkParse);
+		return unified().use(remarkParse).use(remarkMath);
 	};
 	private processor = () => {
 		return unified()
 			.use(addHeadingAd)
-			.use(remarkMath as any)
 			.use(remarkRehype, { allowDangerousHtml: true })
 			.use(rehypeRaw)
 			.use(rehypeFormat)
