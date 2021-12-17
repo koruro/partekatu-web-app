@@ -96,7 +96,6 @@ function deleteHeadingsId() {
 			// Delete ids
 			if (element.tagName === "h2") {
 				delete element.properties.id;
-				element._metadata = { isHeadingLink: true };
 			}
 
 			parseChildren(element.children);
@@ -127,8 +126,10 @@ function addHeadingAd() {
 				h2Index = i;
 
 				children.splice(h2Index, 0, {
-					type: "html",
-					value: '<div id="secondaryArticleAd"></div>',
+					type: "element",
+					tagName: "div",
+					properties: { id: "secondaryArticleAd" },
+					children: [],
 				});
 				return;
 			}
@@ -142,18 +143,20 @@ function addHeadingAd() {
 
 export class ArticleMarkdownParser {
 	private parser = () => {
-		return unified().use(remarkParse);
+		return unified().use(remarkParse).use(remarkMath);
 	};
 	private processor = () => {
-		return unified()
-			.use(addHeadingAd)
-			.use(remarkMath as any)
+		return (unified() as any)
 			.use(remarkRehype, { allowDangerousHtml: true })
 			.use(rehypeRaw)
+			.use(addHeadingAd)
 			.use(rehypeFormat)
 			.use(wrap, { selector: "table", wrapper: "div.table-container" })
 			.use(htmlElementsTransformer)
-			.use(rehypeAutoLink as any)
+			.use(rehypeAutoLink, {
+				behavior: "before",
+				properties: { isHeadingLink: "true" },
+			})
 			.use(deleteHeadingsId)
 			.use(rehypeKatex)
 			.use(rehypeMinify);
@@ -189,12 +192,14 @@ export class ArticleMarkdownParser {
 	public getBulletPoints(names?: string[]) {
 		const _bullets: BulletPoint[] = [];
 		let nameIndex = 0;
-		this.parsedTree.children.forEach((element: any) => {
-			if (!element._metadata) return;
-			if (!element._metadata.isHeadingLink) return;
+		this.parsedTree.children.forEach((element: any, index: number) => {
+			if (!element.properties) return;
+			if (!element.properties.isHeadingLink) return;
 
-			const targetId = element.children[0]?.properties?.id;
-			const name = names ? names[nameIndex] : element.children[1]?.value;
+			const targetId = element.properties?.id;
+			const name = names
+				? names[nameIndex]
+				: this.parsedTree.children[index + 1]?.children[0]?.value;
 
 			if (!targetId) return;
 
