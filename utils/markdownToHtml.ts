@@ -198,15 +198,16 @@ export class ArticleMarkdownParser {
 
 			const targetId = element.properties?.id;
 			const name = bullets
-				? bullets[nameIndex].name
+				? bullets[nameIndex]?.name
 				: this.parsedTree.children[index + 1]?.children[0]?.value;
 
+			const isFaq = bullets ? bullets[nameIndex]?.isFaq ?? false : false;
 			if (!targetId) return;
 
 			_bullets.push({
 				targetId,
-				name: name ?? "Test",
-				isFaq: bullets ? bullets[nameIndex].isFaq ?? false : false,
+				name: name ?? this.parsedTree.children[index + 1]?.children[0]?.value,
+				isFaq: isFaq ?? false,
 			});
 			nameIndex++;
 		});
