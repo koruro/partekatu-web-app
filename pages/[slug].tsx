@@ -53,9 +53,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 		await htmlContent.parse();
 		await referencesHtmlContent.parse();
 
-		const bullets = htmlContent.getBulletPoints(
-			article.bulletPoints?.map((bullet) => bullet.name)
-		);
+		const bullets = htmlContent.getBulletPoints(article.bulletPoints);
 
 		return {
 			props: {

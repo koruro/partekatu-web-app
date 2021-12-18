@@ -189,7 +189,7 @@ export class ArticleMarkdownParser {
 		return this.html;
 	}
 
-	public getBulletPoints(names?: string[]) {
+	public getBulletPoints(bullets?: BulletPoint[]) {
 		const _bullets: BulletPoint[] = [];
 		let nameIndex = 0;
 		this.parsedTree.children.forEach((element: any, index: number) => {
@@ -197,15 +197,17 @@ export class ArticleMarkdownParser {
 			if (!element.properties.isHeadingLink) return;
 
 			const targetId = element.properties?.id;
-			const name = names
-				? names[nameIndex]
+			const name = bullets
+				? bullets[nameIndex]?.name
 				: this.parsedTree.children[index + 1]?.children[0]?.value;
 
+			const isFaq = bullets ? bullets[nameIndex]?.isFaq ?? false : false;
 			if (!targetId) return;
 
 			_bullets.push({
 				targetId,
-				name: name ?? "Test",
+				name: name ?? this.parsedTree.children[index + 1]?.children[0]?.value,
+				isFaq: isFaq ?? false,
 			});
 			nameIndex++;
 		});

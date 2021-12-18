@@ -28,7 +28,14 @@ const ArticleBullets: React.FC<Props> = ({ bullet_points, infographic }) => {
 								}
 							)}
 						>
-							<a href={`#${bullet.targetId}`}>{bullet.name}</a>
+							<a
+								className={classNames({
+									["button-padding-1"]: bullet.isFaq,
+								})}
+								href={`#${bullet.targetId}`}
+							>
+								{bullet.name}
+							</a>
 						</li>
 					))}
 					{infographic && (
