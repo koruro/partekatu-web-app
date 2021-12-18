@@ -118,13 +118,19 @@
 }
 
 .article-bullet-points__bullet-container--faq {
+	margin-top: 1em;
 	display: block;
 }
 
 .article-bullet-points__bullet-container--faq a {
 	font-style: normal;
-	/* padding: 0.2rem 0.6rem; */
-	color: var(--science);
+	background-color: var(--gramar);
+	color: white;
+	border-radius: var(--rounded-l);
+}
+
+.article-bullet-points__bullet-container--faq a:hover {
+	color: white;
 }
 
 .article-bullet-points__bullet-container--faq::before {
