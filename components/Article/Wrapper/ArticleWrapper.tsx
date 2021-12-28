@@ -29,7 +29,7 @@ const ArticleWrapper: React.FC<Props> = ({
 				/>
 
 				<SideContainer>
-					<SideShare />
+					<SideShare title={article.seoMetadata.metaTitle} />
 					<ArticleBullets
 						bullet_points={article.bulletPoints}
 						infographic={article.infographic}

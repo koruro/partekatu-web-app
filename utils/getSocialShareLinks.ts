@@ -1,5 +1,5 @@
 const genSocialText = (title: string) => {
-	return `Visita nuestro artículo ${title}`;
+	return `${title}`;
 };
 
 export const getTwitterShareLink = (path: string, title: string) => {

@@ -41,8 +41,8 @@ const ArticleData: React.FC<Props> = ({
 				preamble={article.preamble}
 				emoji={article.emoji}
 				title={article.title}
-				altTitle={article.metadata.title_alt}
-				metaTitle={article.metadata.meta_title}
+				altTitle={article.seoMetadata.titleAlt}
+				metaTitle={article.seoMetadata.metaTitle}
 				category={article.category}
 				readingTime={getReadingTime(article.content, WPM)}
 				slug={article.slug}
@@ -54,7 +54,7 @@ const ArticleData: React.FC<Props> = ({
 			<ArticleReferences references={article.references} />
 			<Divider />
 			{showCitation && <ArticleCitation title={article.title} />}
-			{showSocials && <ArticleSocials title={article.title} />}
+			{showSocials && <ArticleSocials title={article.seoMetadata.metaTitle} />}
 			<ArticleRecommendations
 				recommendations={recommendations}
 				showSectionTitle={true}

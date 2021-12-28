@@ -11,7 +11,7 @@ import ArticleSectionHeader from "../Section/ArticleSectionHeader";
 import styles from "./styles.module.css";
 
 interface Props {
-	title: string;
+	title?: string;
 }
 
 const ArticleSocials: React.FC<Props> = ({ title }) => {
@@ -39,7 +39,7 @@ const ArticleSocials: React.FC<Props> = ({ title }) => {
 						<FaFacebookSquare size="42px" fill="#3b5998" />
 					</a>
 					<a
-						href={getTwitterShareLink(asPath, title)}
+						href={getTwitterShareLink(asPath, title ?? "")}
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="share with Twitter"
