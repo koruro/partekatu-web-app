@@ -212,6 +212,10 @@
 	background-color: var(--math-light);
 }
 
+.article-content .fill-blue {
+	background-color: #bad4f2;
+}
+
 .article-content .fill-green {
 	background-color: var(--correct-light);
 }
