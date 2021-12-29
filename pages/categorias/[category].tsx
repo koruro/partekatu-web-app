@@ -29,8 +29,8 @@ const CategoryPage: React.FC<Props> = ({
 		<>
 			<CustomHead
 				title={headTitle(category.title)}
-				metaTitle={category.seoMetadata?.meta_title}
-				metaDesc={category.seoMetadata?.meta_desc}
+				metaTitle={category.seoMetadata?.metaTitle}
+				metaDesc={category.seoMetadata?.metaDesc}
 			/>
 			<PageBox className="home">
 				<NavBar />

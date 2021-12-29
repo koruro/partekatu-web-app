@@ -1,10 +1,9 @@
 export interface ArticleMetadata {
-	title_alt: string;
-	meta_title: string;
+	[key: string]: any;
 }
 
 export interface SeoMetadata {
-	title_alt?: string;
-	meta_title?: string;
-	meta_desc?: string;
+	titleAlt?: string;
+	metaTitle?: string;
+	metaDesc?: string;
 }

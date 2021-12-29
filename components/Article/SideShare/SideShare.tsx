@@ -6,7 +6,11 @@ import {
 } from "../../../utils/getSocialShareLinks";
 import { useRouter } from "next/router";
 
-const SideShare: React.FC = () => {
+interface Props {
+	title?: string;
+}
+
+const SideShare: React.FC<Props> = ({ title }) => {
 	const { asPath } = useRouter();
 
 	return (
@@ -24,7 +28,7 @@ const SideShare: React.FC = () => {
 				</a>
 				<a
 					className="hoverable-elevate"
-					href={getTwitterShareLink(asPath, "")}
+					href={getTwitterShareLink(asPath, title ?? "")}
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="share with Twitter"
