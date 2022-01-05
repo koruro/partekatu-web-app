@@ -19,5 +19,11 @@ export interface Article {
 	metadata: ArticleMetadata;
 	seoMetadata: SeoMetadata;
 	category: Category;
-	referedArticles: Article[];
+	referedArticles: ReferedArticle[];
+}
+
+export interface ReferedArticle {
+	id: string | number;
+	slug: string;
+	title: string;
 }

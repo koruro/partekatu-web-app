@@ -1,5 +1,5 @@
 import { createClient, ContentfulClientApi, Entry } from "contentful";
-import { Article } from "../models/Article";
+import { Article, ReferedArticle } from "../models/Article";
 import { Category } from "../models/Category";
 import { Infographic } from "../models/Infographic";
 import {
@@ -34,11 +34,7 @@ export class ContentfulRepository implements ContentRepository {
 		if (data.items.length <= 0)
 			throw new Error(`No articles found under query ${JSON.stringify(query)}`);
 
-		const parsed = await this.client.parseEntries<any>(data);
-
-		const articles: Entry<any>[] = parsed.items.map((item) => item);
-
-		return articles.map((item) => this.mapArticleToDomain(item));
+		return data.items.map((item) => this.mapArticleToDomain(item));
 	}
 
 	async getNumArticles(query?: Query): Promise<number> {
@@ -265,7 +261,7 @@ export class ContentfulRepository implements ContentRepository {
 		return parsed;
 	}
 
-	private mapArticleToDomain(entry: Entry<any>, stack = 1): Article {
+	private mapArticleToDomain(entry: Entry<any>): Article {
 		const fields = entry.fields;
 		return {
 			id: entry.sys.id,
@@ -286,21 +282,24 @@ export class ContentfulRepository implements ContentRepository {
 			references: fields.references ?? null,
 			videoUrl: fields.videoUrl ?? null,
 			locale: entry.sys.locale ?? null,
-			category:
-				stack > 0
-					? fields.category && this.mapCategoryToDomain(fields.category)
-					: null,
+			category: fields.category && this.mapCategoryToDomain(fields.category),
 			infographic: fields.infographic
 				? this.mapInfograficToDomain(fields.infographic)
 				: null,
-			referedArticles:
-				stack > 0
-					? fields.referedArticles
-						? fields.referedArticles.map((article: any) =>
-								this.mapArticleToDomain(article, --stack)
-						  )
-						: null
-					: null,
+			referedArticles: fields.referedArticles
+				? fields.referedArticles.map((article: any) =>
+						this.mapReferedArticlesToDomain(article)
+				  )
+				: null,
+		};
+	}
+
+	private mapReferedArticlesToDomain(entry: Entry<any>): ReferedArticle {
+		const fields = entry.fields;
+		return {
+			id: entry.sys.id,
+			slug: fields.slug,
+			title: fields.title,
 		};
 	}
 
