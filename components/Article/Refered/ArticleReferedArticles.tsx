@@ -1,9 +1,9 @@
-import { Article } from "../../../models/Article";
+import { ReferedArticle } from "../../../models/Article";
 import ArticleSection from "../Section/ArticleSection";
 import styles from "./styles.module.css";
 
 interface Props {
-	articles: Article[];
+	articles: ReferedArticle[];
 }
 
 const ArticleReferedArticles: React.FC<Props> = ({ articles }) => {
