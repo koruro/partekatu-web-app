@@ -272,6 +272,26 @@
 	font-size: 1em;
 }
 
+.download-file {
+	background-color: var(--warn);
+	padding: 0.4rem 1rem;
+	text-align: center;
+	font-weight: bold;
+	border-radius: var(--rounded-s);
+	border: 2px solid transparent;
+	transition: background 0.05s ease;
+	width: fit-content;
+	display: block;
+	margin: auto;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+	filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.download-file:hover {
+	background-color: var(--warn-c1);
+}
+
 .amazon-referal {
 	background-color: #f4d078;
 	padding: 0.4rem 1rem;
