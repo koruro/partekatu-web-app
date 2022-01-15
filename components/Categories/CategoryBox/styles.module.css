@@ -4,6 +4,7 @@
 	font-size: 1rem;
 	font-weight: bold;
 	border-radius: var(--rounded-l);
+	display: inline-block;
 }
 
 .category--gramar {
