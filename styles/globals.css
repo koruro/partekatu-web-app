@@ -54,6 +54,22 @@
 
 	--tecnology: var(--primary);
 	--tecnology-c1: #3f9590;
+
+	--gramar-gradient: linear-gradient(
+		270deg,
+		var(--gramar) 3.12%,
+		var(--gramar-c1) 100%
+	);
+	--blog-gradient: linear-gradient(
+		270deg,
+		var(--blog) 3.12%,
+		var(--blog-c1) 100%
+	);
+	--vocabulary-gradient: linear-gradient(
+		270deg,
+		var(--vocabulary) 3.12%,
+		var(--vocabulary-c1) 100%
+	);
 }
 
 html,
@@ -122,3 +138,18 @@ a {
 	margin-bottom: 2px;
 }
 /* KATEX */
+.slide-down {
+	animation: slide1 1.5s ease-in-out infinite;
+	margin-left: 9px;
+}
+
+@keyframes slide1 {
+	0%,
+	100% {
+		transform: translate(0, 0);
+	}
+
+	50% {
+		transform: translate(0, 7px);
+	}
+}

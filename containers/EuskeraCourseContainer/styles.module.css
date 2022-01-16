@@ -1,29 +1,26 @@
 .euskera-course-container {
 	color: var(--text);
-	margin-top: 4rem;
+	margin-top: 2rem;
 }
 
 .euskera-course-container p {
-	font-size: 1.1em;
 	line-height: 32px;
+	font-size: 1.1em;
 }
 
 .euskera-course-container__welcome {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	justify-content: space-between;
 }
 
-.euskera-course-container__welcome span {
-}
-
 .euskera-course-container__welcome__image {
-	padding: 2rem;
+	padding: 1rem;
 	align-self: center;
 }
 
 .euskera-course-container__welcome__text {
-	padding: 2rem;
+	padding: 1rem;
 }
 
 .euskera-course-container__welcome__text p {
@@ -32,20 +29,30 @@
 
 .euskera-course-container__welcome__text h2 {
 	/* margin: 1; */
+	text-align: center;
 	font-size: 2.8em;
-	/* padding: 0.4rem 0;
-	background-image: linear-gradient(to right, var(--warn) 0%, var(--warn) 100%);
+}
+
+.euskera-course-container__welcome__text h2 span {
+	/* margin: 1; */
+	padding: 0.4rem 0;
+	background-image: linear-gradient(
+		to right,
+		var(--warn) 0%,
+		var(--warn-c1) 100%
+	);
 	background-repeat: repeat-x;
-	background-position: 0 100%;
+	background-position: 0 90%;
 	background-size: 100% 5px;
-	display: inline-block; */
+	display: inline-block;
 }
 
 .euskera-course-container__main {
+	padding: 1rem;
 }
 
 .euskera-course-container__main h1 {
-	font-size: 3em;
+	font-size: 3.2em;
 	text-align: center;
 }
 
@@ -54,18 +61,86 @@
 	background-image: linear-gradient(
 		to right,
 		var(--primary) 0%,
-		var(--primary) 100%
+		var(--primary-c1) 100%
 	);
 	background-repeat: repeat-x;
 	background-position: 0 90%;
 	background-size: 100% 5px;
 }
 
-.euskera-course-container__main ul {
-	list-style-type: none;
-	margin: 0;
+.euskera-course-container__main__category-grid {
+	display: grid;
+	grid-template-columns: 1fr;
 }
 
-.euskera-course-container__main li {
-	margin-bottom: 0.8rem;
+.euskera-course-container__main__category-box {
+	padding: 1rem;
+	color: white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.euskera-course-container__main__category-box h2 {
+	filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.euskera-course-container__main__down-button {
+	font-size: 1.2em;
+	display: inline-block;
+}
+
+.euskera-course-container__articles {
+	padding: 1rem;
+}
+
+.euskera-course-container__articles h2 {
+	text-align: center;
+	font-size: 2.8em;
+}
+
+.euskera-course-container__articles h2 span {
+	padding: 0.4rem 0;
+	background-image: linear-gradient(
+		to right,
+		var(--blog) 0%,
+		var(--blog-c1) 100%
+	);
+	background-repeat: repeat-x;
+	background-position: 0 90%;
+	background-size: 100% 5px;
+}
+
+.euskera-course-container__articles h3 {
+	font-size: 1.4em;
+	color: white;
+	padding: 0.6rem;
+	display: inline-block;
+}
+
+@media (min-width: 768px) {
+	.euskera-course-container__welcome {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: space-between;
+	}
+
+	.euskera-course-container__welcome h2 {
+		text-align: left;
+	}
+
+	.euskera-course-container__welcome__image {
+		padding: 2rem;
+		align-self: flex-end;
+	}
+
+	.euskera-course-container__welcome__text {
+		padding: 2rem;
+	}
+
+	.euskera-course-container__main__category-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }

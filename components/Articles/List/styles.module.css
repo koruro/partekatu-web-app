@@ -8,7 +8,7 @@
 }
 
 @media (min-width: 768px) {
-	.articles-list {
+	.articles-list--use-grid {
 		grid-template-columns: 1fr 1fr;
 	}
 }

@@ -8,21 +8,13 @@
 }
 
 .category--gramar {
-	background: linear-gradient(
-		270deg,
-		var(--gramar) 3.12%,
-		var(--gramar-c1) 100%
-	);
+	background: var(--gramar-gradient);
 }
 
 .category--blog {
-	background: linear-gradient(270deg, var(--blog) 3.12%, var(--blog-c1) 100%);
+	background: var(--blog-gradient);
 }
 
 .category--vocabulary {
-	background: linear-gradient(
-		270deg,
-		var(--vocabulary) 3.12%,
-		var(--vocabulary-c1) 100%
-	);
+	background: var(--vocabulary-gradient);
 }

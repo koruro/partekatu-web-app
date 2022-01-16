@@ -2,18 +2,29 @@ import ArticleCard from "../ArticleCard/ArticleCard";
 import ArticleSkeletonCard from "../ArticleCard/Skeleton/ArticleSkeletonCard";
 import styles from "./styles.module.css";
 import { Article } from "../../../models/Article";
+import classNames from "classnames";
 
 interface Props {
 	data: Article[];
 	isLoading?: boolean;
 	numFetched?: number;
 	highlightFirst?: boolean;
+	useGrid?: boolean;
 }
 
-const ArticleList: React.FC<Props> = ({ data, isLoading, numFetched }) => {
+const ArticleList: React.FC<Props> = ({
+	data,
+	isLoading,
+	numFetched,
+	useGrid,
+}) => {
 	if (isLoading)
 		return (
-			<div className={styles["articles-list"]}>
+			<div
+				className={classNames(styles["articles-list"], {
+					[`${styles["articles-list--use-grid"]}`]: useGrid ?? true,
+				})}
+			>
 				{[...Array(numFetched)].map((_, i) => (
 					<ArticleSkeletonCard key={i} />
 				))}
@@ -21,7 +32,11 @@ const ArticleList: React.FC<Props> = ({ data, isLoading, numFetched }) => {
 		);
 	if (!data) return null;
 	return (
-		<div className={styles["articles-list"]}>
+		<div
+			className={classNames(styles["articles-list"], {
+				[`${styles["articles-list--use-grid"]}`]: useGrid ?? true,
+			})}
+		>
 			{data.map((article) => (
 				<ArticleCard
 					key={article.id}
