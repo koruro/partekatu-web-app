@@ -1,0 +1,17 @@
+.article-skeleton-card {
+	min-width: 100px;
+	width: 100%;
+	height: 200px;
+	border-radius: var(--rounded-s);
+	background-color: lightgrey;
+}
+.article-skeleton-card__info {
+	margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+	.article-skeleton-card {
+		flex-direction: row;
+		backface-visibility: hidden;
+	}
+}

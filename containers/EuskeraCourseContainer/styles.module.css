@@ -1,6 +1,6 @@
 .euskera-course-container {
 	color: var(--text);
-	margin-top: 2rem;
+	margin-top: 6rem;
 }
 
 .euskera-course-container p {
@@ -20,6 +20,7 @@
 }
 
 .euskera-course-container__welcome__text {
+	background-color: white;
 	padding: 1rem;
 }
 
@@ -27,13 +28,14 @@
 	line-height: 32px;
 }
 
-.euskera-course-container__welcome__text h2 {
+.euskera-course-container__welcome__text__title {
 	/* margin: 1; */
 	text-align: center;
 	font-size: 2.8em;
+	font-weight: bold;
 }
 
-.euskera-course-container__welcome__text h2 span {
+.euskera-course-container__welcome__text__title span {
 	/* margin: 1; */
 	padding: 0.4rem 0;
 	background-image: linear-gradient(
@@ -82,7 +84,10 @@
 	justify-content: space-between;
 }
 
-.euskera-course-container__main__category-box h2 {
+.euskera-course-container__main__category-box__title {
+	font-weight: bold;
+	margin-top: 1rem;
+	font-size: 1.5em;
 	filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
@@ -95,12 +100,16 @@
 	padding: 1rem;
 }
 
-.euskera-course-container__articles h2 {
+.euskera-course-container__articles__title {
 	text-align: center;
-	font-size: 2.8em;
+	margin: 1rem;
+	display: block;
+	/* font-weight: bold; */
+	font-size: 3em;
+	font-style: italic;
 }
 
-.euskera-course-container__articles h2 span {
+.euskera-course-container__articles__title span {
 	padding: 0.4rem 0;
 	background-image: linear-gradient(
 		to right,
@@ -112,22 +121,23 @@
 	background-size: 100% 5px;
 }
 
-.euskera-course-container__articles h3 {
+.euskera-course-container__articles h2 {
 	font-size: 1.4em;
 	color: white;
 	padding: 0.6rem;
 	display: inline-block;
 }
 
+.euskera-course-container__articles__category-section {
+	margin-bottom: 3rem;
+}
+
 @media (min-width: 768px) {
 	.euskera-course-container__welcome {
 		display: grid;
+		column-gap: 2rem;
 		grid-template-columns: 1fr 1fr;
 		justify-content: space-between;
-	}
-
-	.euskera-course-container__welcome h2 {
-		text-align: left;
 	}
 
 	.euskera-course-container__welcome__image {
@@ -136,7 +146,7 @@
 	}
 
 	.euskera-course-container__welcome__text {
-		padding: 2rem;
+		padding: 1.4rem 3rem;
 	}
 
 	.euskera-course-container__main__category-grid {
