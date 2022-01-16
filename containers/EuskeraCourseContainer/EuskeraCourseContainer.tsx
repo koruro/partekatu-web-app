@@ -49,7 +49,7 @@ const EuskeraCourseContainer: React.FC<Props> = ({ articles }) => {
 								Aquí podrás aprender euskera online gratis y a tu ritmo
 							</strong>{" "}
 							mediante nuestros artículos en los que explicamos el idioma desde
-							0 de modo que hasta tus padres lo entenderían.
+							0 de modo que cualquiera lo entendería.
 						</p>
 						<p>
 							Para eso no es que hagamos magia: simplemente explicamos los
@@ -173,8 +173,7 @@ const EuskeraCourseContainer: React.FC<Props> = ({ articles }) => {
 						<p>
 							Y los artículos de las 3 categorías tienen algo en común:{" "}
 							<strong>
-								todo son lecciones están escritas desde la cercanía y con mucho
-								mimo…
+								todo son lecciones escritas desde la cercanía y con mucho mimo…
 							</strong>{" "}
 							Además, <strong>cada semana creamos nuevos artículos</strong> que
 							vamos añadiendo aquí.
