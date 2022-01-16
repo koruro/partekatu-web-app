@@ -7,7 +7,7 @@
 	--large-bp: 992px;
 
 	/* COLORS */
-	--text: #07252e;
+	--text: #363636;
 	--text-subtle: #64666a;
 
 	--primary: #1870d5;
@@ -54,6 +54,22 @@
 
 	--tecnology: var(--primary);
 	--tecnology-c1: #3f9590;
+
+	--gramar-gradient: linear-gradient(
+		270deg,
+		var(--gramar) 3.12%,
+		var(--gramar-c1) 100%
+	);
+	--blog-gradient: linear-gradient(
+		270deg,
+		var(--blog) 3.12%,
+		var(--blog-c1) 100%
+	);
+	--vocabulary-gradient: linear-gradient(
+		270deg,
+		var(--vocabulary) 3.12%,
+		var(--vocabulary-c1) 100%
+	);
 }
 
 html,
@@ -122,3 +138,53 @@ a {
 	margin-bottom: 2px;
 }
 /* KATEX */
+.slide-down {
+	animation: slide1 1.5s ease-in-out infinite;
+	margin-left: 9px;
+}
+
+.wave {
+	animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+	animation-duration: 2.5s; /* Change to speed up or slow down */
+	animation-iteration-count: infinite; /* Never stop waving :) */
+	transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+	display: inline-block;
+}
+
+@keyframes slide1 {
+	0%,
+	100% {
+		transform: translate(0, 0);
+	}
+
+	50% {
+		transform: translate(0, 7px);
+	}
+}
+
+@keyframes wave-animation {
+	0% {
+		transform: rotate(0deg);
+	}
+	10% {
+		transform: rotate(14deg);
+	} /* The following five values can be played with to make the waving more or less extreme */
+	20% {
+		transform: rotate(-8deg);
+	}
+	30% {
+		transform: rotate(14deg);
+	}
+	40% {
+		transform: rotate(-4deg);
+	}
+	50% {
+		transform: rotate(10deg);
+	}
+	60% {
+		transform: rotate(0deg);
+	} /* Reset for the last half to pause */
+	100% {
+		transform: rotate(0deg);
+	}
+}

@@ -2,6 +2,7 @@ import { createClient, ContentfulClientApi, Entry } from "contentful";
 import { Article, ReferedArticle } from "../models/Article";
 import { Category } from "../models/Category";
 import { Infographic } from "../models/Infographic";
+import { CategoriesEnum } from "../types/categories";
 import {
 	ContentRepository,
 	DEFAULT_PREVIEW_OPTIONS,
@@ -25,6 +26,30 @@ export class ContentfulRepository implements ContentRepository {
 			accessToken: previewToken,
 			host: "preview.contentful.com",
 		});
+	}
+
+	async getLandingPageArticles(): Promise<Record<CategoriesEnum, Article[]>> {
+		const data = await this.client.getEntry("WWWO7j1gTBfCmtam9RY75", {
+			include: 3,
+		});
+
+		const fields = data.fields as any;
+
+		const blog = fields.blogArticles.map((article: any) =>
+			this.mapArticleToDomain(article)
+		);
+		const voc = fields.vocabularyArticles.map((article: any) =>
+			this.mapArticleToDomain(article)
+		);
+		const grammar = fields.grammarArticles.map((article: any) =>
+			this.mapArticleToDomain(article)
+		);
+
+		return {
+			blog,
+			gramatica: grammar,
+			vocabulario: voc,
+		};
 	}
 
 	async getHighlightArticles(query?: Query): Promise<Article[]> {
