@@ -3,6 +3,7 @@ import ArticleSkeletonCard from "../ArticleCard/Skeleton/ArticleSkeletonCard";
 import styles from "./styles.module.css";
 import { Article } from "../../../models/Article";
 import classNames from "classnames";
+import MinimalArticleCard from "../MinimalArticleCard/MinimalArticleCard";
 
 interface Props {
 	data: Article[];
@@ -12,7 +13,7 @@ interface Props {
 	useGrid?: boolean;
 }
 
-const ArticleList: React.FC<Props> = ({
+const LandingArticleList: React.FC<Props> = ({
 	data,
 	isLoading,
 	numFetched,
@@ -38,7 +39,7 @@ const ArticleList: React.FC<Props> = ({
 			})}
 		>
 			{data.map((article) => (
-				<ArticleCard
+				<MinimalArticleCard
 					key={article.id}
 					banner={article.banner}
 					category={article.category}
@@ -53,4 +54,4 @@ const ArticleList: React.FC<Props> = ({
 	);
 };
 
-export default ArticleList;
+export default LandingArticleList;

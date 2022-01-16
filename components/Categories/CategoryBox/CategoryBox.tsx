@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 interface Props {
 	category: CategoriesEnum;
 	hoverAnimation?: boolean;
-	as?: "h2" | "p";
+	as?: "h2" | "span";
 }
 
 const CategoryBox: React.FC<
@@ -18,7 +18,7 @@ const CategoryBox: React.FC<
 		Props
 > = ({ category, hoverAnimation, as, ...props }) => {
 	return createElement(
-		as ?? "p",
+		as ?? "span",
 		{
 			className: classNames(
 				styles["category-box"],

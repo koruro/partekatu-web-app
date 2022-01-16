@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 interface Props {
 	className?: string;
-	categoryAs?: "h2" | "p";
+	categoryAs?: "h2" | "span";
 }
 
 const CategoryList: React.FC<Props> = ({ className, categoryAs }) => {
@@ -22,7 +22,7 @@ const CategoryList: React.FC<Props> = ({ className, categoryAs }) => {
 					href={`/categorias/${category}`}
 				>
 					<CategoryBox
-						as={categoryAs ?? "p"}
+						as={categoryAs ?? "span"}
 						category={category as CategoriesEnum}
 						hoverAnimation={true}
 					/>

@@ -27,4 +27,5 @@ export interface ContentRepository {
 	getArticleBySlug(slug: string, options?: PreviewOptions): Promise<Article>;
 	getCategories(query?: Query): Promise<Category[]>;
 	getCategoryBySlug(slug: string): Promise<Category>;
+	getLandingPageArticles(): Promise<Record<CategoriesEnum, Article[]>>;
 }
