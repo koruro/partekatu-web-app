@@ -27,7 +27,6 @@ const LegalPage: React.FC<Props> = ({ articles }) => {
 				metaTitle={metaTitle}
 				metaDesc={metaDesc}
 				imgUrl={imgUrl}
-				noIndex={true}
 			/>
 			<PageBox>
 				<NavBar />
