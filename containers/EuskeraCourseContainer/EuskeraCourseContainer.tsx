@@ -46,7 +46,7 @@ const EuskeraCourseContainer: React.FC<Props> = ({ articles }) => {
 						</p>
 						<p>
 							<strong>
-								Aquí podrás aprender euskera online gratis y a tu ritmo
+								Aquí podrás aprender euskera online, gratis y a tu ritmo
 							</strong>{" "}
 							mediante nuestros artículos en los que explicamos el idioma desde
 							0 de modo que cualquiera lo entendería.
