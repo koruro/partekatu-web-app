@@ -1,15 +1,16 @@
 .online-course-button {
 	position: relative;
+	padding: 0.8rem;
 	text-align: center;
 	z-index: 1;
-	background-color: white;
-	color: var(--primary);
+	background: linear-gradient(270deg, var(--warn) 3.12%, var(--warn-c1) 100%);
+	color: var(--text);
 	margin: 0;
 	font-size: 1rem;
 	font-weight: bold;
 	border-radius: var(--rounded-l);
 	display: inline-block;
-	border: 3px solid var(--primary);
+	border: 3px solid transparent;
 	box-sizing: border-box;
 	transition: color 250ms, border 250ms;
 	overflow: hidden;
@@ -24,13 +25,13 @@
 	height: 100%;
 	width: 0;
 	border-radius: var(--rounded-l);
-	background-color: var(--primary);
+	background-color: white;
 	z-index: -1;
 	transition: width 250ms;
 }
 
 .online-course-button:hover {
-	color: white;
+	/* color: white; */
 	border: 3px solid transparent;
 }
 
