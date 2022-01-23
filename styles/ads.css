@@ -1,0 +1,33 @@
+.sticky-add {
+	display: block;
+	text-align: center;
+	width: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+	max-width: 728px;
+	max-height: 50px;
+	margin: 0 auto;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+}
+
+.sticky-add section {
+	position: relative;
+}
+
+.sticky-add button {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	right: 0;
+	background-color: var(--primary);
+	color: white;
+	font-weight: 1000;
+	border: none;
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+	z-index: 1;
+}
