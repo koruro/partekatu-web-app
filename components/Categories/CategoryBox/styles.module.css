@@ -5,6 +5,7 @@
 	font-weight: bold;
 	border-radius: var(--rounded-l);
 	display: inline-block;
+	width: 100%;
 }
 
 .category--gramar {

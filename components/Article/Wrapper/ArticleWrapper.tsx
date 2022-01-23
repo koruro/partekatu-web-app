@@ -5,6 +5,9 @@ import ArticleBullets from "../BulletPoints/ArticleBullets";
 import SideContainer from "../SideContainer/SideContainer";
 import SideShare from "../SideShare/SideShare";
 import InfographicButton from "../Infographic/InfographicButton";
+import StickyFooterAd from "../../Ads/StickyFooterAd/StickyFooterAd";
+import StickyContainer from "../SideContainer/StickyContainer";
+import SidebarAd from "../../Ads/SidebarAd";
 
 interface Props {
 	article: Article;
@@ -34,8 +37,12 @@ const ArticleWrapper: React.FC<Props> = ({
 						bullet_points={article.bulletPoints}
 						infographic={article.infographic}
 					/>
+					<StickyContainer>
+						<SidebarAd />
+					</StickyContainer>
 				</SideContainer>
 			</div>
+			<StickyFooterAd />
 			{article.infographic && <InfographicButton />}
 		</>
 	);

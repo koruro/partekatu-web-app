@@ -24,7 +24,7 @@ const SideBar: React.FC<Props> = ({ onClose, isOpenned }) => {
 				)} ${isOpenned && styles["side-bar--openned"]}`}
 			>
 				<div className={styles["side-bar__content"]}>
-					<CategoryList className={styles["side-bar__categories"]} />
+					<CategoryList inColumn />
 				</div>
 			</div>
 			<div
