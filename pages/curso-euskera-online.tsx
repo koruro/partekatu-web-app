@@ -7,6 +7,7 @@ import EuskeraCourseContainer from "../containers/EuskeraCourseContainer/Euskera
 import { Article } from "../models/Article";
 import { articleRepository } from "../services/bootstrap";
 import { CategoriesEnum } from "../types/categories";
+import { genOnlineCourseStructuredData } from "../utils/structuredData";
 
 const headTitle = "El Curso de Euskera Online, Gratis y a tu manera";
 const metaTitle = "El Curso de Euskera Online, Gratis y a tu manera";
@@ -27,6 +28,12 @@ const LegalPage: React.FC<Props> = ({ articles }) => {
 				metaTitle={metaTitle}
 				metaDesc={metaDesc}
 				imgUrl={imgUrl}
+				structuredData={genOnlineCourseStructuredData({
+					headline: headTitle,
+					altTitle: metaTitle,
+					description: metaDesc,
+					image: imgUrl,
+				})}
 			/>
 			<PageBox>
 				<NavBar />
