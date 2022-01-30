@@ -10,8 +10,10 @@ import styles from "./styles.module.css";
 import Divider from "../../Shared/Divider/Divider";
 import { Article } from "../../../models/Article";
 import ArticleReferedArticles from "../Refered/ArticleReferedArticles";
-
-const WPM = 225;
+import {
+	getArticleWordCount,
+	getReadingTime,
+} from "../../../utils/articleMetrics";
 
 interface Props {
 	article: Article;
@@ -19,14 +21,6 @@ interface Props {
 	showCitation?: boolean;
 	showSocials?: boolean;
 }
-
-const getReadingTime = (content: string, wpm: number = 225) => {
-	// Calculates the estimated reading minutes
-	const words = content.trim().split(/\s+/).length;
-	const time = Math.ceil(words / wpm);
-
-	return time;
-};
 
 const ArticleData: React.FC<Props> = ({
 	article,
@@ -44,7 +38,7 @@ const ArticleData: React.FC<Props> = ({
 				altTitle={article.seoMetadata.titleAlt}
 				metaTitle={article.seoMetadata.metaTitle}
 				category={article.category}
-				readingTime={getReadingTime(article.content, WPM)}
+				readingTime={getReadingTime(getArticleWordCount(article.content))}
 				slug={article.slug}
 			/>
 			<ArticleContent content={article.content} />
