@@ -9,10 +9,10 @@ export const genArticleStructuredData = (article: Article): Object => {
 		headline: article.title,
 		alternativeHeadline: article.seoMetadata.metaTitle,
 		image: article.banner,
-		editor: "Xabier Madorran",
+		editor: "Xabier Madorran, Ander Benito",
 		author: {
 			"@type": "Organization",
-			url: "https://partekatu.com",
+			url: "https://partekatu.com/quienes-somos",
 			name: "Partekatu",
 		},
 		publisher: {
@@ -26,5 +26,38 @@ export const genArticleStructuredData = (article: Article): Object => {
 		dateCreated: formatDate(new Date(article.createdAt)),
 		dateModified: formatDate(new Date(article.publishedAt)),
 		description: article.description,
+	};
+};
+
+export const genOnlineCourseStructuredData = (args: {
+	image: string;
+	headline: string;
+	altTitle: string;
+	description: string;
+}): Object => {
+	return {
+		"@context": "https://schema.org",
+		"@type": "LearningResource",
+		headline: args.headline,
+		alternativeHeadline: args.altTitle,
+		image: args.image,
+		editor: "Xabier Madorran, Ander Benito",
+		author: {
+			"@type": "Organization",
+			url: "https://partekatu.com/quienes-somos",
+			name: "Partekatu",
+		},
+		publisher: {
+			"@type": "Organization",
+			name: "Partekatu",
+		},
+		url: `https://partekatu.com/curso-euskera-online`,
+		datePublished: formatDate(new Date("2022-01-10")),
+		dateCreated: formatDate(new Date("2022-01-10")),
+		dateModified: formatDate(new Date("2022-01-10")),
+		description: args.description,
+		teaches: "euskera",
+		educationalLevel: "beginner",
+		learningResourceType: "language",
 	};
 };
