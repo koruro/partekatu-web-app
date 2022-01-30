@@ -12,7 +12,7 @@ const OnlineCourse = () => {
 					"elevate-1"
 				)}
 			>
-				¡Curso Online!
+				Curso Online
 			</a>
 		</Link>
 	);

@@ -12,29 +12,10 @@
 	display: inline-block;
 	border: 3px solid transparent;
 	box-sizing: border-box;
-	transition: color 250ms, border 250ms;
+	transition: transform 0.25s;
 	overflow: hidden;
 }
 
-.online-course-button::before {
-	content: "";
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 0;
-	border-radius: var(--rounded-l);
-	background-color: white;
-	z-index: -1;
-	transition: width 250ms;
-}
-
 .online-course-button:hover {
-	/* color: white; */
-	border: 3px solid transparent;
-}
-
-.online-course-button:hover::before {
-	width: 100%;
+	transform: scale(0.9);
 }

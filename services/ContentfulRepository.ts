@@ -288,6 +288,7 @@ export class ContentfulRepository implements ContentRepository {
 
 	private mapArticleToDomain(entry: Entry<any>): Article {
 		const fields = entry.fields;
+
 		return {
 			id: entry.sys.id,
 			banner: fields.banner,
@@ -316,6 +317,8 @@ export class ContentfulRepository implements ContentRepository {
 						this.mapReferedArticlesToDomain(article)
 				  )
 				: null,
+			createdAt: entry.sys.createdAt,
+			publishedAt: entry.sys.updatedAt,
 		};
 	}
 
