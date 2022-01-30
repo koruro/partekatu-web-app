@@ -20,6 +20,8 @@ export interface Article {
 	seoMetadata: SeoMetadata;
 	category: Category;
 	referedArticles: ReferedArticle[];
+	createdAt: string;
+	publishedAt: string;
 }
 
 export interface ReferedArticle {

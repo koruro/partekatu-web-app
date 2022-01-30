@@ -6,6 +6,7 @@ import LoadingRing from "../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../components/Page/PageContainerBox/PageContainerBox";
 import { Article } from "../models/Article";
 import ErrorArticleContainer from "./Error/ErrorArticleContainer";
+import { genArticleStructuredData } from "../utils/structuredData";
 
 interface Props {
 	article: Article;
@@ -29,6 +30,7 @@ const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
 				metaTitle={article?.metadata.meta_title}
 				metaDesc={metaDesc}
 				imgUrl={metaImage}
+				structuredData={genArticleStructuredData(article)}
 			/>
 			<PageContainerBox breakLimit="xl">
 				<ArticleWrapper article={article} recommendations={recommendations} />

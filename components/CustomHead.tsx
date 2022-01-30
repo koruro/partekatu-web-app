@@ -9,6 +9,7 @@ interface Props {
 	imgUrl?: string;
 	noIndex?: boolean;
 	keywords?: string[];
+	structuredData?: Object;
 }
 
 const CustomHead: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const CustomHead: React.FC<Props> = ({
 	imgUrl,
 	noIndex,
 	keywords,
+	structuredData,
 }) => {
 	const { asPath } = useRouter();
 	return (
@@ -35,6 +37,12 @@ const CustomHead: React.FC<Props> = ({
 			<meta property="og:image" content={imgUrl ?? META_IMAGE} key="og:image" />
 			<link rel="canonical" href={`${SITE_URL}${asPath}`} />
 			{noIndex && <meta name="robots" content="noindex" />}
+			{structuredData && (
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+				></script>
+			)}
 		</Head>
 	);
 };
