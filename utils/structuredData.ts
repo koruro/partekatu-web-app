@@ -9,8 +9,16 @@ export const genArticleStructuredData = (article: Article): Object => {
 		headline: article.title,
 		alternativeHeadline: article.seoMetadata.metaTitle,
 		image: article.banner,
-		author: "Koruro",
-		publisher: "Koruro",
+		editor: "Xabier Madorran",
+		author: {
+			"@type": "Organization",
+			url: "https://partekatu.com",
+			name: "Partekatu",
+		},
+		publisher: {
+			"@type": "Organization",
+			name: "Partekatu",
+		},
 		genre: article.category.name,
 		wordcount: getArticleWordCount(article.content),
 		url: `https://partekatu.com/${article.slug}`,
