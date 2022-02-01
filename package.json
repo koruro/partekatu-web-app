@@ -19,6 +19,7 @@
 		"react-icons": "^4.3.1",
 		"react-lazy-hydration": "^0.1.0",
 		"react-loading-skeleton": "^3.0.1",
+		"react-markdown": "^8.0.0",
 		"react-paginate": "^7.1.5",
 		"react-tooltip": "^4.2.21",
 		"rehype-autolink-headings": "^6.1.0",
