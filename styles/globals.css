@@ -10,6 +10,10 @@
 	--text: #363636;
 	--text-subtle: #64666a;
 
+	/* SHADOWS */
+	--shadow-elevate-1: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+	--shadow-elevate-2: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.09));
+
 	--primary: #1870d5;
 	--primary-dark: #1357a6;
 	--primary-c1: #4db0b9;
@@ -103,11 +107,11 @@ a {
 }
 /** SHADOWS */
 .elevate-1 {
-	filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+	filter: var(--shadow-elevate-1);
 }
 
 .elevate-2 {
-	filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.09));
+	filter: var(--shadow-elevate-2);
 }
 
 .hoverable-elevate {

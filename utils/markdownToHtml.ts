@@ -1,4 +1,4 @@
-import { unified } from "unified";
+import { Processor, unified } from "unified";
 import rehypeFormat from "rehype-format";
 import remarkParse from "remark-parse";
 import remarkMath from "remark-math";
@@ -17,25 +17,50 @@ import {
 
 const wrap = require("rehype-wrap-all");
 
-export class ArticleMarkdownParser {
-	private parser = () => {
-		return unified().use(remarkParse).use(remarkMath);
-	};
-	private processor = () => {
-		return (unified() as any)
-			.use(remarkRehype, { allowDangerousHtml: true })
-			.use(rehypeRaw)
-			.use(addHeadingAd)
-			.use(rehypeFormat)
-			.use(wrap, { selector: "table", wrapper: "div.table-container" })
-			.use(htmlElementsTransformer)
-			.use(rehypeAutoLink, {
+const getRemarkProcessors = () => {
+	return [remarkMath];
+};
+const getRehypeProcessors = () => {
+	return [
+		[remarkRehype, { allowDangerousHtml: true }],
+		rehypeRaw,
+		addHeadingAd,
+		rehypeFormat,
+		[wrap, { selector: "table", wrapper: "div.table-container" }],
+		htmlElementsTransformer,
+		[
+			rehypeAutoLink,
+			{
 				behavior: "before",
 				properties: { isHeadingLink: "true" },
-			})
-			.use(deleteHeadingsId)
-			.use(rehypeKatex)
-			.use(rehypeMinify);
+			},
+		],
+		deleteHeadingsId,
+		rehypeKatex,
+	];
+};
+
+export class ArticleMarkdownParser {
+	private parser = () => {
+		const mainParser = unified().use(remarkParse);
+		const processors = getRemarkProcessors();
+
+		return processors.reduce((acc: Processor<any, any, any, void>, curr) => {
+			if (Array.isArray(curr)) {
+				return acc.use(curr[0], curr[1]);
+			}
+			return acc.use(curr);
+		}, mainParser);
+	};
+	private processor = () => {
+		const processors = getRehypeProcessors();
+
+		return processors.reduce((acc: Processor<any, any, any, void>, curr) => {
+			if (Array.isArray(curr)) {
+				return acc.use(curr[0], curr[1]);
+			}
+			return acc.use(curr);
+		}, unified());
 	};
 	private compiler = () => {
 		return unified().use(rehypeStringify, {

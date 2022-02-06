@@ -1,17 +1,7 @@
-import React from "react";
+import React, { Fragment, createElement } from "react";
 import LazyHydrate from "react-lazy-hydration";
-import ReactMarkdown from "react-markdown";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeFormat from "rehype-format";
-import rehypeKatex from "rehype-katex";
-import rehypeRaw from "rehype-raw";
-import remarkMath from "remark-math";
-import {
-	addHeadingAd,
-	deleteHeadingsId,
-	htmlElementsTransformer,
-} from "../../../utils/unifiedPlugins";
-import OnlineCourse from "../../Categories/OnlineCourse/OnlineCourse";
+import TranslatedSentence from "../../Sentences/TranslatedSentence";
+import RehypeReact from "./RehypeReact";
 const wrap = require("rehype-wrap-all");
 interface Props {
 	content: string;
@@ -19,10 +9,16 @@ interface Props {
 
 const ArticleContent: React.FC<Props> = ({ content }) => {
 	return (
-		<LazyHydrate ssrOnly>
-			<section className="article-content">
-				{/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
-				<ReactMarkdown
+		// <LazyHydrate ssrOnly>
+		<section className="article-content">
+			<TranslatedSentence>
+				<p>Atzera begiratzeak ez omen du ezertarako balio.</p>
+				<span>Mirar atras no debe servir de nada.</span>
+				<img src="https://images.unsplash.com/photo-1644091578502-9131622d68b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"></img>
+			</TranslatedSentence>
+			<RehypeReact htmlContent={content} />
+			{/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
+			{/* <ReactMarkdown
 					remarkPlugins={[remarkMath]}
 					rehypePlugins={[
 						rehypeRaw,
@@ -52,9 +48,9 @@ const ArticleContent: React.FC<Props> = ({ content }) => {
 					}}
 				>
 					{content}
-				</ReactMarkdown>
-			</section>
-		</LazyHydrate>
+				</ReactMarkdown> */}
+		</section>
+		// </LazyHydrate>
 	);
 };
 

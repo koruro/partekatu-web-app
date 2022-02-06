@@ -5,6 +5,7 @@ import {
 	getTwitterShareLink,
 } from "../../../utils/getSocialShareLinks";
 import { useRouter } from "next/router";
+import ShareButton from "../../Shared/ShareButton/ShareButton";
 
 interface Props {
 	title?: string;
@@ -17,24 +18,8 @@ const SideShare: React.FC<Props> = ({ title }) => {
 		<div className={`${styles["side-share"]} elevate-2`}>
 			<p>Compartir</p>
 			<div className={styles["side-share__icons"]}>
-				<a
-					className="hoverable-elevate"
-					href={getFacebookShareLink(asPath)}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="share with Facebook"
-				>
-					<FaFacebookF />
-				</a>
-				<a
-					className="hoverable-elevate"
-					href={getTwitterShareLink(asPath, title ?? "")}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="share with Twitter"
-				>
-					<FaTwitter />
-				</a>
+				<ShareButton social="facebook" path={asPath} title={title} />
+				<ShareButton social="twitter" path={asPath} title={title} />
 			</div>
 		</div>
 	);
