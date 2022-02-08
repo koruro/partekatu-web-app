@@ -14,7 +14,6 @@ const ArticleContent: React.FC<Props> = ({ content }) => {
 			<TranslatedSentence>
 				<p>Atzera begiratzeak ez omen du ezertarako balio.</p>
 				<span>Mirar atras no debe servir de nada.</span>
-				<img src="https://images.unsplash.com/photo-1644091578502-9131622d68b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"></img>
 			</TranslatedSentence>
 			<RehypeReact htmlContent={content} />
 			{/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}

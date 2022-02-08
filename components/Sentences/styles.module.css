@@ -55,6 +55,7 @@
 		from(rgba(0, 0, 0, 1)),
 		to(rgba(0, 0, 0, 0))
 	);
+	user-select: none;
 	/* -webkit-mask-image: -webkit-gradient(
 		linear,
 		left top,
@@ -65,9 +66,13 @@
 }
 
 .translated-sentence__share {
+	position: absolute;
 	display: flex;
 	justify-content: center;
-	gap: 5rem;
+	gap: 2rem;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 1;
 }
 
 .translated-sentence__share__button {

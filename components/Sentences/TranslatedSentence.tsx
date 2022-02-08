@@ -19,23 +19,6 @@ const TranslatedSentence: React.FC<Props> = ({ children }) => {
 				translatedSentece={translatedSentece}
 				imgSource={imgSource}
 			/>
-			<div className={styles["translated-sentence__share"]}>
-				<TranslatedShareButton social="facebook" />
-				<TranslatedShareButton social="twitter" />
-			</div>
-		</div>
-	);
-};
-
-interface TButtonProps {
-	social: SocialType;
-}
-
-const TranslatedShareButton: React.FC<TButtonProps> = ({ social }) => {
-	return (
-		<div className={styles["translated-sentence__share__button"]}>
-			<ShareButton social={social} path="as" />
-			<p>Compartir en {social}</p>
 		</div>
 	);
 };
