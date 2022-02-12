@@ -29,7 +29,12 @@ const createCustomElement = (
 };
 
 const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
-	console.log("PROCESSING");
+	let translatedSIndex = 0;
+
+	const incrementIndex = () => {
+		translatedSIndex++;
+	};
+
 	const processor = unified()
 		.use(rehypeParse, { fragment: true })
 		.use(rehypeReact, {
@@ -38,7 +43,12 @@ const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
 			components: {
 				div: createCustomElement((props, children) => {
 					if (props.className === "translated-sentence") {
-						return createElement(TranslatedSentence, null, children);
+						incrementIndex();
+						return createElement(
+							TranslatedSentence,
+							{ index: translatedSIndex },
+							children
+						);
 					}
 					return createElement("div", { ...props }, children);
 				}),

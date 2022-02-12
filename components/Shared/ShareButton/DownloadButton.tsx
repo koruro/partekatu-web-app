@@ -1,26 +1,25 @@
 interface Props {
-	getPath: () => string;
+	onClick: () => any;
 	hoverEffect?: boolean;
 	ariaLabel?: string;
 }
 
-const ShareButton: React.FC<Props> = ({
-	getPath,
+const DownloadButton: React.FC<Props> = ({
+	onClick,
 	children,
 	hoverEffect,
 	ariaLabel,
 }) => {
 	return (
-		<a
+		<button
 			className={hoverEffect ? "hoverable-elevate" : undefined}
-			href={getPath()}
-			target="_blank"
-			rel="noopener noreferrer"
+			onClick={onClick}
 			aria-label={ariaLabel}
+			style={{ cursor: "pointer", background: "none", border: "none" }}
 		>
 			{children}
-		</a>
+		</button>
 	);
 };
 
-export default ShareButton;
+export default DownloadButton;

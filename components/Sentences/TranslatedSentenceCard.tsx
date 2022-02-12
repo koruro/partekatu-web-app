@@ -1,17 +1,25 @@
-import ShareButton, { SocialType } from "../Shared/ShareButton/ShareButton";
+import { MutableRefObject } from "react";
 import PartekatuTear from "./PartekatuTear";
 import styles from "./styles.module.css";
 
 interface Props {
+	cardRef: MutableRefObject<any>;
 	originalSentence: string;
 	translatedSentece: string;
+	index?: number;
 	imgSource?: string;
 }
 
 const getRandomCardImage = (index?: number) => {
 	const images = [
 		"https://res.cloudinary.com/partekatu/image/upload/v1644355963/gzzte_c0m8bh.png",
-		"https://images.unsplash.com/photo-1644091578502-9131622d68b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+		"https://res.cloudinary.com/partekatu/image/upload/v1644683806/casitas_ksckpo.png",
+		"https://res.cloudinary.com/partekatu/image/upload/v1644683794/donos_tsavqa.png",
+		"https://res.cloudinary.com/partekatu/image/upload/v1644683800/pampl_mwl8fq.png",
+		"https://res.cloudinary.com/partekatu/image/upload/v1644683802/mar_uxmccc.png",
+		"https://res.cloudinary.com/partekatu/image/upload/v1644683798/peine_aulezj.png",
+		"https://res.cloudinary.com/partekatu/image/upload/v1644683796/guggen_efvi01.png",
+		"https://res.cloudinary.com/partekatu/image/upload/v1644683792/vaklit_bmjr0g.png",
 	];
 
 	let imageIndex = 0;
@@ -21,22 +29,19 @@ const getRandomCardImage = (index?: number) => {
 		imageIndex = index - images.length * factor;
 	} else {
 		imageIndex = Math.round(Math.random() * (images.length - 1));
-		console.log(imageIndex);
 	}
 	return images[imageIndex];
 };
 
 const TranslatedSentenceCard: React.FC<Props> = ({
+	cardRef,
 	originalSentence,
 	translatedSentece,
 	imgSource,
+	index,
 }) => {
 	return (
-		<div className={styles["translated-sentence__card"]}>
-			<div className={styles["translated-sentence__share"]}>
-				<TranslatedShareButton social="facebook" />
-				<TranslatedShareButton social="twitter" />
-			</div>
+		<div ref={cardRef} className={styles["translated-sentence__card"]}>
 			<div className={styles["translated-sentence__tears"]}>
 				<PartekatuTear
 					width={70}
@@ -54,20 +59,8 @@ const TranslatedSentenceCard: React.FC<Props> = ({
 			{imgSource ? (
 				<img src={imgSource}></img>
 			) : (
-				<img src={getRandomCardImage()}></img>
+				<img src={getRandomCardImage(index)}></img>
 			)}
-		</div>
-	);
-};
-
-interface TButtonProps {
-	social: SocialType;
-}
-
-const TranslatedShareButton: React.FC<TButtonProps> = ({ social }) => {
-	return (
-		<div className="elevate-1">
-			<ShareButton social={social} path="as" />
 		</div>
 	);
 };

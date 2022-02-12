@@ -1,5 +1,6 @@
 .translated-sentence__container {
-	margin-bottom: 1rem;
+	position: relative;
+	margin: 2rem 1rem;
 }
 
 .translated-sentence__card {
@@ -69,7 +70,7 @@
 	position: absolute;
 	display: flex;
 	justify-content: center;
-	gap: 2rem;
+	gap: 1rem;
 	bottom: 2rem;
 	right: 2rem;
 	z-index: 1;
