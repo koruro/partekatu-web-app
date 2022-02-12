@@ -17,3 +17,7 @@ export const getMailShareLink = (path: string, title: string) => {
 		title
 	)}`;
 };
+
+export const getWhatsappShareLink = (message: string) => {
+	return `https://wa.me/?text=${message}`;
+};

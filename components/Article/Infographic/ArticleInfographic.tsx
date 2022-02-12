@@ -4,6 +4,7 @@ import ArticleSectionHeader from "../Section/ArticleSectionHeader";
 import styles from "./styles.module.css";
 import LazyHydrate from "react-lazy-hydration";
 import { Infographic } from "../../../models/Infographic";
+import { generateDownloadFromUrl } from "../../../utils/download";
 
 interface Props {
 	infographic: Infographic;
@@ -12,20 +13,6 @@ interface Props {
 const ArticleInfographic: React.FC<Props> = ({ infographic }) => {
 	if (!infographic) return null;
 
-	const download = () => {
-		fetch(infographic.file.url).then((response) =>
-			response.arrayBuffer().then((buffer) => {
-				const format = infographic.file.contentType.split("/")[1];
-				const url = window.URL.createObjectURL(new Blob([buffer]));
-				const link = document.createElement("a");
-				link.href = url;
-				link.setAttribute("download", infographic.title + `.${format}`);
-				document.body.appendChild(link);
-				link.click();
-				document.body.removeChild(link);
-			})
-		);
-	};
 	return (
 		<LazyHydrate whenVisible>
 			<ArticleSection>
@@ -36,7 +23,16 @@ const ArticleInfographic: React.FC<Props> = ({ infographic }) => {
 					<div
 						className={styles["article-infographic__download-button-container"]}
 					>
-						<a download onClick={() => download()}>
+						<a
+							download
+							onClick={() => {
+								const format = infographic.file.contentType.split("/")[1];
+								generateDownloadFromUrl(
+									infographic.file.url,
+									`${infographic.title}.${format}`
+								);
+							}}
+						>
 							<FaDownload size="14px" color="white" />
 						</a>
 					</div>
