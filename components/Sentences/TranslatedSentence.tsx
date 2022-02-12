@@ -1,12 +1,14 @@
-import { getWhatsappShareLink } from "../../utils/getSocialShareLinks";
-import DownloadButton from "../Shared/ShareButton/DownloadButton";
+import {
+	getFacebookShareLink,
+	getTwitterShareLink,
+	getWhatsappShareLink,
+} from "../../utils/getSocialShareLinks";
 import ShareButton from "../Shared/ShareButton/ShareButton";
 import SocialIcon from "../Shared/SocialIcon";
 import styles from "./styles.module.css";
 import TranslatedSentenceCard from "./TranslatedSentenceCard";
-import domtoimage from "dom-to-image";
 import { useRef } from "react";
-import { generateDownloadFromUrl } from "../../utils/download";
+import { SITE_URL } from "../../utils/constants";
 
 interface Props {
 	index: number;
@@ -27,25 +29,30 @@ const TranslatedSentence: React.FC<Props> = ({ children, index }) => {
 			<div className={styles["translated-sentence__share"]}>
 				<ShareButton
 					getPath={() => {
-						const message = encodeURIComponent(
-							`${originalSentence}\n\n${translatedSentece}`
-						);
+						const message = encodeURIComponent(originalSentence);
 						return getWhatsappShareLink(message);
 					}}
 				>
 					<SocialIcon social="whatsapp"></SocialIcon>
 				</ShareButton>
-				<DownloadButton
-					onClick={() => {
-						domtoimage
-							.toPng(cardRef?.current as any, { style: { width: "100%" } })
-							.then((dataUrl) =>
-								generateDownloadFromUrl(dataUrl, "frase-euskera.png")
-							);
+				<ShareButton
+					getPath={() => {
+						const message = encodeURIComponent(
+							`${originalSentence}\n\nDesde ${SITE_URL}`
+						);
+						return getTwitterShareLink(message);
 					}}
 				>
-					<SocialIcon social="download"></SocialIcon>
-				</DownloadButton>
+					<SocialIcon social="twitter"></SocialIcon>
+				</ShareButton>
+				<ShareButton
+					getPath={() => {
+						const message = encodeURIComponent(originalSentence);
+						return getFacebookShareLink(message, SITE_URL);
+					}}
+				>
+					<SocialIcon social="facebook"></SocialIcon>
+				</ShareButton>
 			</div>
 			<TranslatedSentenceCard
 				cardRef={cardRef}

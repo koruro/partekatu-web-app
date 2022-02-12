@@ -1,4 +1,5 @@
-import { FaDownload, FaFacebookF, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaDownload, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { ImWhatsapp } from "react-icons/im";
 
 export type SocialType = "facebook" | "twitter" | "whatsapp" | "download";
 
@@ -15,11 +16,11 @@ const SocialIcon: React.FC<Props> = ({ social }) => {
 			return <FaTwitter fontSize={15} color="white" />;
 		}
 		if (social === "whatsapp") {
-			return <FaWhatsapp fontSize={20} color="white" />;
+			return <ImWhatsapp fontSize={15} color="white" />;
 		}
 
 		if (social === "download") {
-			return <FaDownload size={17} color="white" />;
+			return <FaDownload size={15} color="white" />;
 		}
 	};
 

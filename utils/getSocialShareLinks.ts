@@ -2,14 +2,14 @@ const genSocialText = (title: string) => {
 	return `${title}`;
 };
 
-export const getTwitterShareLink = (path: string, title: string) => {
-	return `https://twitter.com/intent/tweet?url=https://www.partekatu.com${path}&text=${genSocialText(
-		title
-	)}`;
+export const getTwitterShareLink = (text?: string, url?: string) => {
+	return `https://twitter.com/intent/tweet?${
+		url ? `url=${url}` : ""
+	}&text=${text}`;
 };
 
-export const getFacebookShareLink = (path: string) => {
-	return `https://www.facebook.com/sharer/sharer.php?u=https://www.partekatu.com${path}`;
+export const getFacebookShareLink = (text?: string, url?: string) => {
+	return `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${text}`;
 };
 
 export const getMailShareLink = (path: string, title: string) => {
