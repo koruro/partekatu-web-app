@@ -60,6 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 				article: {
 					...article,
 					content: htmlContent.getRawHtml(),
+					rawContent: article.content,
 					references: referencesHtmlContent.getRawHtml(),
 					bulletPoints: bullets,
 				},

@@ -19,9 +19,7 @@
 }
 
 .side-share__icons svg {
-	box-sizing: content-box;
-	color: white;
-	background-color: var(--primary);
-	border-radius: 100%;
-	padding: 7px;
+	/* box-sizing: content-box; */
+	/* border-radius: 100%; */
+	/* padding: 7px; */
 }
