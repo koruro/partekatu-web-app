@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import LazyHydrate from "react-lazy-hydration";
+import { SITE_URL } from "../../../utils/constants";
 import {
 	getFacebookShareLink,
 	getTwitterShareLink,
@@ -31,7 +32,11 @@ const ArticleSocials: React.FC<Props> = ({ title }) => {
 				</div>
 				<div className={styles["article-socials__icons"]}>
 					<a
-						href={getFacebookShareLink(asPath)}
+						href={getFacebookShareLink(
+							title ?? "",
+							"",
+							`${SITE_URL}${asPath}/`
+						)}
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="share with Facebook"
@@ -39,7 +44,7 @@ const ArticleSocials: React.FC<Props> = ({ title }) => {
 						<FaFacebookSquare size="42px" fill="#3b5998" />
 					</a>
 					<a
-						href={getTwitterShareLink(asPath, title ?? "")}
+						href={getTwitterShareLink(title ?? "", `${SITE_URL}${asPath}`)}
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="share with Twitter"

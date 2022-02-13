@@ -3,13 +3,22 @@ const genSocialText = (title: string) => {
 };
 
 export const getTwitterShareLink = (text?: string, url?: string) => {
+	const _text = text ? encodeURIComponent(text) : null;
 	return `https://twitter.com/intent/tweet?${
 		url ? `url=${url}` : ""
-	}&text=${text}`;
+	}&text=${_text}`;
 };
 
-export const getFacebookShareLink = (text?: string, url?: string) => {
-	return `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${text}`;
+export const getFacebookShareLink = (
+	title: string,
+	text?: string,
+	url?: string
+) => {
+	const _title = title ? encodeURIComponent(title) : null;
+	const _text = text ? encodeURIComponent(text) : null;
+	return `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${_title}&${
+		_text ? `quote=${_text}` : ""
+	}`;
 };
 
 export const getMailShareLink = (path: string, title: string) => {
@@ -19,5 +28,6 @@ export const getMailShareLink = (path: string, title: string) => {
 };
 
 export const getWhatsappShareLink = (message: string) => {
-	return `https://wa.me/?text=${message}`;
+	const _message = encodeURIComponent(message);
+	return `https://wa.me/?text=${_message}`;
 };

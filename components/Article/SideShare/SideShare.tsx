@@ -23,7 +23,7 @@ const SideShare: React.FC<Props> = ({ title }) => {
 				<ShareButton
 					hoverEffect
 					getPath={() =>
-						getFacebookShareLink(title ?? "", `${SITE_URL}${asPath}`)
+						getFacebookShareLink(title ?? "", undefined, `${SITE_URL}${asPath}`)
 					}
 				>
 					<SocialIcon social="facebook" />

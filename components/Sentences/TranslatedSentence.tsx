@@ -29,17 +29,15 @@ const TranslatedSentence: React.FC<Props> = ({ children, index }) => {
 			<div className={styles["translated-sentence__share"]}>
 				<ShareButton
 					getPath={() => {
-						const message = encodeURIComponent(originalSentence);
-						return getWhatsappShareLink(message);
+						return getWhatsappShareLink(originalSentence);
 					}}
 				>
 					<SocialIcon social="whatsapp"></SocialIcon>
 				</ShareButton>
 				<ShareButton
 					getPath={() => {
-						const message = encodeURIComponent(
-							`${originalSentence}\n\nDesde ${SITE_URL}`
-						);
+						const message = `${originalSentence}\n\nDesde ${SITE_URL}`;
+
 						return getTwitterShareLink(message);
 					}}
 				>
@@ -47,8 +45,11 @@ const TranslatedSentence: React.FC<Props> = ({ children, index }) => {
 				</ShareButton>
 				<ShareButton
 					getPath={() => {
-						const message = encodeURIComponent(originalSentence);
-						return getFacebookShareLink(message, SITE_URL);
+						return getFacebookShareLink(
+							"Frases en euskera",
+							originalSentence,
+							SITE_URL
+						);
 					}}
 				>
 					<SocialIcon social="facebook"></SocialIcon>
