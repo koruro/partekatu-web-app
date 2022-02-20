@@ -3,7 +3,10 @@ import PageContainerBox from "../components/Page/PageContainerBox/PageContainerB
 const CookiePolicyContainer = () => {
 	return (
 		<PageContainerBox breakLimit="md">
-			<section className="article-content" style={{ marginTop: "5rem" }}>
+			<section
+				className="article-content"
+				style={{ marginTop: "5rem", fontSize: "1.12em" }}
+			>
 				<h1>Política de Cookies</h1>
 				<p>
 					El acceso a este Sitio Web puede implicar la utilización de cookies.

@@ -3,7 +3,10 @@ import PageContainerBox from "../components/Page/PageContainerBox/PageContainerB
 const LegalAdvisorContainer = () => {
 	return (
 		<PageContainerBox breakLimit="md">
-			<section className="article-content" style={{ marginTop: "5rem" }}>
+			<section
+				className="article-content"
+				style={{ marginTop: "5rem", fontSize: "1.12em" }}
+			>
 				<h1>Aviso legal y términos de uso</h1>
 				<p>
 					En este espacio, el usuario, podrá encontrar toda la información

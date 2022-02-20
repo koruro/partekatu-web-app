@@ -4,7 +4,10 @@ import AboutUsSvg from "../components/Shared/AboutUsSvg";
 const AboutContainer = () => {
 	return (
 		<PageContainerBox breakLimit="md">
-			<section className="article-content" style={{ marginTop: "5rem" }}>
+			<section
+				className="article-content"
+				style={{ marginTop: "5rem", fontSize: "1.12em" }}
+			>
 				<h1>Sobre nosotros</h1>
 				<h2>Objetivo</h2>
 				<p>
