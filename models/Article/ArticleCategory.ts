@@ -1,23 +1,25 @@
-import { CategoriesEnum } from "../types/categories";
-import { isUndefinedOrNull } from "../utils/isUndefined";
-import { Entity } from "./Entity";
-import { Id } from "./Id";
-import { Locale } from "./LocaleData";
-import { SeoMetadata } from "./Metadata";
+import { CategoriesEnum } from "../../types/categories";
+import { isUndefinedOrNull } from "../../utils/isUndefined";
+import { Entity } from "../Entity";
+import { Id } from "../Id";
+import { Locale } from "../LocaleData";
 
-export interface Props {
+interface Props {
 	uidSlug: CategoriesEnum;
 	title: string;
 	slug: string;
 	description?: string;
 	locale: Locale;
-	seoMetadata: SeoMetadata;
 }
 
-export class Category extends Entity<Props> {
+export class ArticleCategory extends Entity<Props> {
 	private constructor(props: Props, id: Id) {
 		super(props, id);
 		this.checkForMissingAttribute("uidSlug");
+	}
+
+	get uidSlug() {
+		return this.props.uidSlug;
 	}
 
 	public static create(props: Props, id: Id) {
@@ -26,7 +28,6 @@ export class Category extends Entity<Props> {
 				slug: props.slug,
 				uidSlug: props.uidSlug,
 				locale: props.locale,
-				seoMetadata: props.seoMetadata,
 				title: props.title,
 				description: props.description,
 			},
