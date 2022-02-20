@@ -21,7 +21,7 @@ const AboutContainer = () => {
 				<h2>Quiénes somos</h2>
 				<div>
 					<strong>
-						Detrás de este proyecto estamos Detrás del proyecto estamos{" "}
+						Detrás del proyecto estamos{" "}
 						<a
 							href="https://www.linkedin.com/in/ander-benito/"
 							target="_blank"
