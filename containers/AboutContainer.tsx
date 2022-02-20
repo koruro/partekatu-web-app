@@ -4,7 +4,10 @@ import AboutUsSvg from "../components/Shared/AboutUsSvg";
 const AboutContainer = () => {
 	return (
 		<PageContainerBox breakLimit="md">
-			<section className="article-content" style={{ marginTop: "5rem" }}>
+			<section
+				className="article-content"
+				style={{ marginTop: "5rem", fontSize: "1.12em" }}
+			>
 				<h1>Sobre nosotros</h1>
 				<h2>Objetivo</h2>
 				<p>
@@ -21,7 +24,7 @@ const AboutContainer = () => {
 				<h2>Quiénes somos</h2>
 				<div>
 					<strong>
-						Detrás de este proyecto estamos Detrás del proyecto estamos{" "}
+						Detrás del proyecto estamos{" "}
 						<a
 							href="https://www.linkedin.com/in/ander-benito/"
 							target="_blank"
