@@ -6,6 +6,7 @@ import styles from "./styles.module.css";
 import { Article } from "../../models/Article";
 import HomeArticleList from "../../components/Articles/HomeArticleList/HomeArticlesList";
 import PartekatuLogo from "../../components/Shared/PartekatuLogo";
+import SurnameFinder from "../../components/Article/InteractiveComponents/SurnameFinder/SurnameFinder";
 
 interface Props {
 	newArticles: Article[];
@@ -24,6 +25,7 @@ const HomePageContainer: React.FC<Props> = ({
 					<h1>aprende euskera</h1>
 				</HomeLogoBox>
 				<CategoryList className={styles["home__categories"]} categoryAs="h2" />
+				<SurnameFinder />
 				<HomeArticleList
 					newArticles={newArticles}
 					highlightedArticles={highlightedArticles}

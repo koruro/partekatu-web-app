@@ -1,0 +1,31 @@
+.autocomplete {
+	position: absolute;
+	top: 30px;
+	z-index: 1;
+	background-color: white;
+	max-height: 200px;
+	border-radius: var(--rounded-s);
+	overflow-y: auto;
+	width: 100%;
+}
+
+.autocomplete ul {
+	margin: 0;
+	padding: 0.7rem;
+}
+
+.autocomplete li {
+	list-style: none;
+	padding-bottom: 0.5rem;
+}
+
+.autocomplete button {
+	text-align: left;
+	color: var(--text);
+	cursor: pointer;
+	font-style: italic;
+	font-size: 1.1rem;
+	border: none;
+	width: 100%;
+	background-color: transparent;
+}
