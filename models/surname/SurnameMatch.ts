@@ -1,15 +1,19 @@
+export interface SurnameAnalytics {
+	firstOnly: number;
+	secondOnly: number;
+	both: number;
+}
+
 export interface SurnameData {
-	normal: string;
-	academic: string;
-	normalStats: {
-		firstOnly: number;
-		secondOnly: number;
-		both: number;
+	surname: string;
+	isAcademic: boolean;
+	normal: {
+		surname: string;
+		analytics: SurnameAnalytics;
 	};
-	academicStats: {
-		firstOnly: number;
-		secondOnly: number;
-		both: number;
+	academic: {
+		surname: string;
+		analytics: SurnameAnalytics;
 	};
 }
 

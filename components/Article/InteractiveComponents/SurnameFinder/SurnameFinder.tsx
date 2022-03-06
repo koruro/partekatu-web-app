@@ -3,33 +3,35 @@ import {
 	SurnameData,
 	SurnameMatch,
 } from "../../../../models/surname/SurnameMatch";
+import { CustomSurnameAPIRepository } from "../../../../services/surname/CustomSurnameAPIRepository";
 import { MockSurnameAPIRepository } from "../../../../services/surname/MockSurnameAPIRepository";
 import Autocomplete from "./Autocomplete/Autocomplete";
 import CustomInput from "./Input/CustomInput";
 import styles from "./styles.module.css";
+import SurnameAnalysis from "./SurnameAnalysis/SurnameAnalysis";
 
 interface Props {}
 
-const repo = new MockSurnameAPIRepository();
+const repo = new CustomSurnameAPIRepository("http://localhost:4000");
 
 const SurnameFinder: React.FC<Props> = () => {
 	const [typedSurname, setTypedSurname] = useState<string>("");
 	const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [result, setResult] = useState<SurnameData | null>(null);
-	const [autoComplete, setAutoComplete] = useState<{ name: string }[] | null>(
-		null
-	);
+	const [autoComplete, setAutoComplete] = useState<
+		{ name: string }[] | undefined
+	>(undefined);
 
 	useEffect(() => {
-		repo.getSimilarSurnames(typedSurname).then((response) => {
-			if (!response) return;
-			if (response.length <= 0) {
-				setShowAutoComplete(false);
-			}
-
-			setShowAutoComplete(true);
-			setAutoComplete(response.map((r) => ({ name: r.surname })));
-		});
+		setIsLoading(true);
+		repo
+			.getSimilarSurnames(typedSurname)
+			.then((response) => {
+				setShowAutoComplete(true);
+				setAutoComplete(response.map((r) => ({ name: r.surname })));
+			})
+			.finally(() => setIsLoading(false));
 	}, [typedSurname]);
 
 	return (
@@ -39,12 +41,15 @@ const SurnameFinder: React.FC<Props> = () => {
 				onSubmit={(e) => {
 					e.preventDefault();
 
-					repo.getSurnameData(typedSurname).then((result) => setResult(result));
-					setShowAutoComplete(false);
+					repo
+						.getSurnameData(typedSurname)
+						.then((result) => setResult(result))
+						.finally(() => setShowAutoComplete(false));
 				}}
 			>
 				<CustomInput
 					placeholder="Busca un apellido..."
+					value={typedSurname}
 					onValueChange={(value) => {
 						setShowAutoComplete(true);
 						setTypedSurname(value);
@@ -57,7 +62,7 @@ const SurnameFinder: React.FC<Props> = () => {
 						setTypedSurname(e.target.value);
 					}}
 				></input> */}
-				{showAutoComplete && autoComplete && (
+				{showAutoComplete && (
 					<Autocomplete
 						matches={autoComplete}
 						onMatchClick={(match) => {
@@ -66,7 +71,9 @@ const SurnameFinder: React.FC<Props> = () => {
 					/>
 				)}
 			</form>
-			{result && <section>{JSON.stringify(result)}</section>}
+			{result && (
+				<SurnameAnalysis enteredSurname={typedSurname} data={result} />
+			)}
 		</div>
 	);
 };

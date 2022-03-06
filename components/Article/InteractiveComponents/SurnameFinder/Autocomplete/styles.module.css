@@ -7,16 +7,21 @@
 	border-radius: var(--rounded-s);
 	overflow-y: auto;
 	width: 100%;
+	padding: 0.7rem;
 }
 
 .autocomplete ul {
 	margin: 0;
-	padding: 0.7rem;
+	padding: 0;
 }
 
 .autocomplete li {
 	list-style: none;
 	padding-bottom: 0.5rem;
+}
+
+.autocomplete li:hover {
+	border-bottom: 2px solid red;
 }
 
 .autocomplete button {

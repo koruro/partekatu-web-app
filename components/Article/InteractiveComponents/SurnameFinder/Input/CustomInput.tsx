@@ -2,12 +2,16 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 
 interface Props {
+	value: string;
 	placeholder?: string;
 	onValueChange?: (value: string) => void;
 }
 
-const CustomInput: React.FC<Props> = ({ onValueChange, placeholder }) => {
-	const [value, setValue] = useState<string>("");
+const CustomInput: React.FC<Props> = ({
+	onValueChange,
+	placeholder,
+	value,
+}) => {
 	return (
 		<input
 			className={styles["custom-input"]}
@@ -16,7 +20,6 @@ const CustomInput: React.FC<Props> = ({ onValueChange, placeholder }) => {
 			onChange={(e) => {
 				const value = e.target.value;
 				if (onValueChange) onValueChange(value);
-				setValue(value);
 			}}
 		></input>
 	);
