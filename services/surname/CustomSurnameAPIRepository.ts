@@ -27,8 +27,33 @@ export class CustomSurnameAPIRepository implements SurnameAPIRepository {
 			);
 			const json = await response.json();
 
+			if (response.status === 500) {
+				return {
+					isBasque: false,
+					surname,
+					isAcademic: false,
+					academic: {
+						surname: "none",
+						analytics: {
+							firstOnly: 0,
+							secondOnly: 0,
+							both: 0,
+						},
+					},
+					normal: {
+						surname: "none",
+						analytics: {
+							firstOnly: 0,
+							secondOnly: 0,
+							both: 0,
+						},
+					},
+				};
+			}
+
 			return {
 				surname: json.surname,
+				isBasque: true,
 				isAcademic: json.isAcademic,
 				normal: {
 					surname: json.normal.surname,

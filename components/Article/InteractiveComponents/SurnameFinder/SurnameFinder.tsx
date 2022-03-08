@@ -19,9 +19,9 @@ const SurnameFinder: React.FC<Props> = () => {
 	const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [result, setResult] = useState<SurnameData | null>(null);
-	const [autoComplete, setAutoComplete] = useState<
-		{ name: string }[] | undefined
-	>(undefined);
+	const [autoComplete, setAutoComplete] = useState<SurnameMatch[] | undefined>(
+		undefined
+	);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -29,7 +29,7 @@ const SurnameFinder: React.FC<Props> = () => {
 			.getSimilarSurnames(typedSurname)
 			.then((response) => {
 				setShowAutoComplete(true);
-				setAutoComplete(response.map((r) => ({ name: r.surname })));
+				setAutoComplete(response);
 			})
 			.finally(() => setIsLoading(false));
 	}, [typedSurname]);
@@ -44,6 +44,7 @@ const SurnameFinder: React.FC<Props> = () => {
 					repo
 						.getSurnameData(typedSurname)
 						.then((result) => setResult(result))
+						.catch((e) => setResult(null))
 						.finally(() => setShowAutoComplete(false));
 				}}
 			>
@@ -62,17 +63,21 @@ const SurnameFinder: React.FC<Props> = () => {
 						setTypedSurname(e.target.value);
 					}}
 				></input> */}
-				{showAutoComplete && (
+				{/* {showAutoComplete && (
 					<Autocomplete
 						matches={autoComplete}
 						onMatchClick={(match) => {
 							setTypedSurname(match.name);
 						}}
 					/>
-				)}
+				)} */}
 			</form>
 			{result && (
-				<SurnameAnalysis enteredSurname={typedSurname} data={result} />
+				<SurnameAnalysis
+					enteredSurname={typedSurname}
+					data={result}
+					suggestions={autoComplete}
+				/>
 			)}
 		</div>
 	);

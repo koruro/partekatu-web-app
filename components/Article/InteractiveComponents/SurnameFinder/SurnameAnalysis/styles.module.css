@@ -1,0 +1,30 @@
+.title {
+	text-align: center;
+	font-size: 2em;
+}
+
+.title span {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.reference {
+	text-align: center;
+	font-style: italic;
+	color: var(--text-subtle);
+}
+
+.reference a {
+	color: var(--primary);
+}
+
+.in-addition {
+	text-align: center;
+	font-size: 2em;
+}
+
+.analytics {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-content: center;
+}

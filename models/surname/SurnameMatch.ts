@@ -6,6 +6,7 @@ export interface SurnameAnalytics {
 
 export interface SurnameData {
 	surname: string;
+	isBasque: boolean;
 	isAcademic: boolean;
 	normal: {
 		surname: string;
