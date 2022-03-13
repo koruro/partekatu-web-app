@@ -4,6 +4,11 @@ export interface SurnameAnalytics {
 	both: number;
 }
 
+export interface SurnameMatch {
+	surname: string;
+	similarity: number;
+}
+
 export interface SurnameData {
 	surname: string;
 	isBasque: boolean;
@@ -16,9 +21,5 @@ export interface SurnameData {
 		surname: string;
 		analytics: SurnameAnalytics;
 	};
-}
-
-export interface SurnameMatch {
-	surname: string;
-	similarity: number;
+	suggestions: SurnameMatch[];
 }

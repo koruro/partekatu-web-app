@@ -1,13 +1,13 @@
 .autocomplete {
 	position: absolute;
-	top: 30px;
+	top: 60px;
 	z-index: 1;
 	background-color: white;
 	max-height: 200px;
 	border-radius: var(--rounded-s);
 	overflow-y: auto;
 	width: 100%;
-	padding: 0.7rem;
+	/* padding: 0.7rem; */
 }
 
 .autocomplete ul {
@@ -16,18 +16,18 @@
 }
 
 .autocomplete li {
+	cursor: pointer;
 	list-style: none;
-	padding-bottom: 0.5rem;
+	padding: 0.5rem 1.2rem;
 }
 
 .autocomplete li:hover {
-	border-bottom: 2px solid red;
+	background-color: var(--primary-light-2);
 }
 
-.autocomplete button {
+.autocomplete__match {
 	text-align: left;
 	color: var(--text);
-	cursor: pointer;
 	font-style: italic;
 	font-size: 1.1rem;
 	border: none;

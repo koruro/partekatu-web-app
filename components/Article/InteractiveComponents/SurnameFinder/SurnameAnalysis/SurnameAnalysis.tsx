@@ -6,7 +6,6 @@ import styles from "./styles.module.css";
 
 interface Props {
 	data: SurnameData;
-	suggestions?: SurnameMatch[];
 	enteredSurname: string;
 }
 
@@ -40,11 +39,7 @@ const getAnalytics = (data: SurnameData) => {
 	return data.normal;
 };
 
-const SurnameAnalysis: React.FC<Props> = ({
-	data,
-	enteredSurname,
-	suggestions,
-}) => {
+const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 	const analytics = getAnalytics(data);
 	return (
 		<div>
@@ -73,30 +68,20 @@ const SurnameAnalysis: React.FC<Props> = ({
 				<>
 					<p className={styles["in-addition"]}>Además, en España...</p>
 					<div className={styles["analytics"]}>
-						<p>
-							{analytics.analytics.firstOnly} personas tienen {data.surname}{" "}
-							como primer apellido.
-						</p>
-						<p>
-							{analytics.analytics.secondOnly} personas tienen {data.surname}{" "}
-							como segundo apellido.
-						</p>
-						<p>
-							{analytics.analytics.both} personas tienen {data.surname} como
-							primer y segundo apellido.
-						</p>
+						<div className={styles["analytics__box"]}>
+							<p>{analytics.analytics.firstOnly} personas</p>
+							<span>tienen {data.surname} como primer apellido.</span>
+						</div>
+						<div className={styles["analytics__box"]}>
+							<p>{analytics.analytics.secondOnly} personas</p>
+							<span>tienen {data.surname} como segundo apellido.</span>
+						</div>
+						<div className={styles["analytics__box"]}>
+							<p>{analytics.analytics.both} personas</p>
+							<span>tienen {data.surname} como primer y segundo apellido.</span>
+						</div>
 					</div>
 				</>
-			)}
-			{suggestions && (
-				<div>
-					<p>Quizás te interese...</p>
-					<ul>
-						{suggestions.map((suggestion) => (
-							<li>{suggestion.surname}</li>
-						))}
-					</ul>
-				</div>
 			)}
 		</div>
 	);

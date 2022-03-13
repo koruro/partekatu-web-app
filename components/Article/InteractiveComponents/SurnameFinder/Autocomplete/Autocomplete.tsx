@@ -29,15 +29,8 @@ const Autocomplete: React.FC<Props> = ({ matches, onMatchClick, loading }) => {
 			) : (
 				<ul>
 					{matches.map((match, index) => (
-						<li key={index}>
-							<button
-								type="submit"
-								name="btn1"
-								value="wow"
-								onClick={() => onMatchClick(match)}
-							>
-								{match.name}
-							</button>
+						<li key={index} onClick={() => onMatchClick(match)}>
+							<div className={styles["autocomplete__match"]}>{match.name}</div>
 						</li>
 					))}
 				</ul>

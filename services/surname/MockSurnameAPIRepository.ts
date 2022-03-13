@@ -26,15 +26,15 @@ export class MockSurnameAPIRepository implements SurnameAPIRepository {
 			surname: surname,
 			isAcademic: true,
 			normal: {
-				firstOnly: 200,
-				secondOnly: 30,
-				both: 10,
+				analytics: { firstOnly: 200, secondOnly: 30, both: 10 },
+				surname: surname,
 			},
 			academic: {
-				firstOnly: 200,
-				secondOnly: 30,
-				both: 10,
+				analytics: { firstOnly: 200, secondOnly: 30, both: 10 },
+				surname: surname,
 			},
+			isBasque: true,
+			suggestions: [],
 		};
 	}
 }

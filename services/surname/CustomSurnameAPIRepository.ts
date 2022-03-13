@@ -48,6 +48,7 @@ export class CustomSurnameAPIRepository implements SurnameAPIRepository {
 							both: 0,
 						},
 					},
+					suggestions: await this.getSimilarSurnames(surname),
 				};
 			}
 
@@ -71,6 +72,7 @@ export class CustomSurnameAPIRepository implements SurnameAPIRepository {
 						both: json.academic.analytics.both,
 					},
 				},
+				suggestions: await this.getSimilarSurnames(surname),
 			};
 		} catch (error) {
 			throw error;

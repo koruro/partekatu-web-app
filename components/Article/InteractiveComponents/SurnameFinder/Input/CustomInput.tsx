@@ -5,12 +5,16 @@ interface Props {
 	value: string;
 	placeholder?: string;
 	onValueChange?: (value: string) => void;
+	onBlur?: () => void;
+	onFocus?: () => void;
 }
 
 const CustomInput: React.FC<Props> = ({
 	onValueChange,
 	placeholder,
 	value,
+	onBlur,
+	onFocus,
 }) => {
 	return (
 		<input
@@ -21,6 +25,8 @@ const CustomInput: React.FC<Props> = ({
 				const value = e.target.value;
 				if (onValueChange) onValueChange(value);
 			}}
+			onBlur={onBlur}
+			onFocus={onFocus}
 		></input>
 	);
 };
