@@ -39,9 +39,21 @@ Articles.getInitialProps = async ({ query }) => {
 	return {
 		queryProps: {
 			...query,
-			p: query.p ? parseInt(query.p as string) : 0,
+			p: parseQueryPage(query.p),
 		} as QueryProps,
 	};
+};
+
+const parseQueryPage = (page?: string | string[]): number => {
+	if (!page) return 0;
+
+	if (Array.isArray(page)) return 0;
+
+	try {
+		return parseInt(page as string);
+	} catch (error) {
+		return 0;
+	}
 };
 
 export default Articles;
