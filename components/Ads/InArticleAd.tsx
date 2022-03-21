@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 const InArticleAd: React.FC = () => {
 	useEffect(() => {
 		try {
-			((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-				{}
-			);
-		} catch (err) {
-			console.log(err);
-		}
+			if (typeof window !== "undefined") {
+				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
+					{}
+				);
+			}
+		} catch (err) {}
 	}, []);
 	return (
 		<div id="ezoic-pub-ad-placeholder-113">

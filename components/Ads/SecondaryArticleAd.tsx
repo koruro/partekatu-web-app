@@ -4,12 +4,12 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 const InArticleAd: React.FC = () => {
 	useEffect(() => {
 		try {
-			((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-				{}
-			);
-		} catch (err) {
-			console.log(err);
-		}
+			if (typeof window !== "undefined") {
+				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
+					{}
+				);
+			}
+		} catch (err) {}
 	}, []);
 
 	const isPageWide = useMediaQuery(`(min-width: 728px)`);
