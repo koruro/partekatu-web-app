@@ -9,6 +9,8 @@ import "../styles/article-content.css";
 import "../styles/loading.css";
 import "../styles/cookie-consent.css";
 import "../styles/ads.css";
+import ErrorBoundary from "../components/error/ErrorBoundary";
+import ClientErrorContainer from "../containers/Error/ClientErrorContainer";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -32,8 +34,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 					gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
 				`}
 			</Script>
-			<Component {...pageProps} />
-			<MyCookieConsent />
+			<ErrorBoundary fallback={() => <ClientErrorContainer />}>
+				<Component {...pageProps} />
+				<MyCookieConsent />
+			</ErrorBoundary>
 		</>
 	);
 }
