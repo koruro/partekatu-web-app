@@ -16,10 +16,9 @@ interface Props {
 	showCitation?: boolean;
 }
 
-const SidebarAd = dynamic(() => import("../../Ads/SidebarAd"), { ssr: false });
+const SidebarAd = dynamic(() => import("../../Ads/SidebarAd"));
 const StickyFooterAd = dynamic(
-	() => import("../../Ads/StickyFooterAd/StickyFooterAd"),
-	{ ssr: false }
+	() => import("../../Ads/StickyFooterAd/StickyFooterAd")
 );
 
 const ArticleWrapper: React.FC<Props> = ({
