@@ -15,11 +15,6 @@ const InArticleAd: React.FC = () => {
 	}, [asPath]);
 	return (
 		<div key="in-article-ad" id="in-article-ad">
-			<script
-				async
-				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8498524881106051"
-				crossOrigin="anonymous"
-			></script>
 			<ins
 				className="adsbygoogle"
 				style={{

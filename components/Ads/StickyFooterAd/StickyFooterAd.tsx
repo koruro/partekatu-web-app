@@ -1,19 +1,19 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-const StickyFooterAd: React.FC = () => {
-	const { asPath } = useRouter();
+interface Props {
+	enabled?: boolean;
+}
 
+const StickyFooterAd: React.FC<Props> = ({ enabled }) => {
 	useEffect(() => {
 		try {
-			if (typeof window !== "undefined") {
+			if (enabled) {
 				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
 					{}
 				);
-				console.log("sticky-footer loaded");
 			}
 		} catch (err) {}
-	}, [asPath]);
+	}, []);
 
 	return (
 		<div id="sticky-footer-ad" className="sticky-add">

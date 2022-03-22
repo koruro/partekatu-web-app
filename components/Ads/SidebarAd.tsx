@@ -1,26 +1,22 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-const SidebarAd: React.FC = () => {
-	const { asPath } = useRouter();
+interface Props {
+	enabled?: boolean;
+}
 
+const SidebarAd: React.FC<Props> = ({ enabled }) => {
 	useEffect(() => {
 		try {
-			if (typeof window !== "undefined") {
+			if (enabled) {
 				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
 					{}
 				);
-				console.log("sidebar loaded");
 			}
 		} catch (err) {}
-	}, [asPath]);
+	}, []);
+
 	return (
-		<div id="sidebar-ad" key="sidebar-ad">
-			<script
-				async
-				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8498524881106051"
-				crossOrigin="anonymous"
-			></script>
+		<div id="sidebar-ad" key="sidebar-ad" className="sidebar-ad">
 			<ins
 				className="adsbygoogle"
 				style={{ display: "block" }}

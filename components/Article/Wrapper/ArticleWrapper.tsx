@@ -6,8 +6,8 @@ import SideContainer from "../SideContainer/SideContainer";
 import SideShare from "../SideShare/SideShare";
 import InfographicButton from "../Infographic/InfographicButton";
 import StickyContainer from "../SideContainer/StickyContainer";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import dynamic from "next/dynamic";
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 interface Props {
 	article: Article;
@@ -16,9 +16,10 @@ interface Props {
 	showCitation?: boolean;
 }
 
-const SidebarAd = dynamic(() => import("../../Ads/SidebarAd"));
+const SidebarAd = dynamic(() => import("../../Ads/SidebarAd"), { ssr: false });
 const StickyFooterAd = dynamic(
-	() => import("../../Ads/StickyFooterAd/StickyFooterAd")
+	() => import("../../Ads/StickyFooterAd/StickyFooterAd"),
+	{ ssr: false }
 );
 
 const ArticleWrapper: React.FC<Props> = ({
@@ -45,10 +46,12 @@ const ArticleWrapper: React.FC<Props> = ({
 						bullet_points={article.bulletPoints}
 						infographic={article.infographic}
 					/>
-					<StickyContainer>{isPageWide && <SidebarAd />}</StickyContainer>
+					<StickyContainer>
+						{isPageWide && <SidebarAd enabled={true} />}
+					</StickyContainer>
 				</SideContainer>
 			</div>
-			{!isPageWide && <StickyFooterAd />}
+			{!isPageWide && <StickyFooterAd enabled={true} />}
 			{article.infographic && <InfographicButton />}
 		</>
 	);
