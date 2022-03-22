@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
 const InArticleAd: React.FC = () => {
+	const { asPath } = useRouter();
+
 	useEffect(() => {
 		try {
 			if (typeof window !== "undefined") {
@@ -9,9 +12,9 @@ const InArticleAd: React.FC = () => {
 				);
 			}
 		} catch (err) {}
-	}, []);
+	}, [asPath]);
 	return (
-		<div id="ezoic-pub-ad-placeholder-113">
+		<div key="in-article-ad" id="in-article-ad">
 			<script
 				async
 				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8498524881106051"

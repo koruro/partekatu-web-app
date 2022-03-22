@@ -8,6 +8,7 @@ import InfographicButton from "../Infographic/InfographicButton";
 import StickyFooterAd from "../../Ads/StickyFooterAd/StickyFooterAd";
 import StickyContainer from "../SideContainer/StickyContainer";
 import SidebarAd from "../../Ads/SidebarAd";
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 interface Props {
 	article: Article;
@@ -21,6 +22,8 @@ const ArticleWrapper: React.FC<Props> = ({
 	showCitation,
 	showSocials,
 }) => {
+	const isPageWide = useMediaQuery(`(min-width: 992px)`);
+
 	return (
 		<>
 			<div className={styles["article-wrapper"]}>
@@ -37,9 +40,7 @@ const ArticleWrapper: React.FC<Props> = ({
 						bullet_points={article.bulletPoints}
 						infographic={article.infographic}
 					/>
-					<StickyContainer>
-						<SidebarAd />
-					</StickyContainer>
+					<StickyContainer>{isPageWide && <SidebarAd />}</StickyContainer>
 				</SideContainer>
 			</div>
 			<StickyFooterAd />

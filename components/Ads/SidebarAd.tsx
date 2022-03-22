@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const SidebarAd: React.FC = () => {
+	const { asPath } = useRouter();
+
 	useEffect(() => {
 		try {
 			if (typeof window !== "undefined") {
@@ -9,9 +12,9 @@ const SidebarAd: React.FC = () => {
 				);
 			}
 		} catch (err) {}
-	}, []);
+	}, [asPath]);
 	return (
-		<div id="ezoic-pub-ad-placeholder-102">
+		<div id="sidebar-ad" key="sidebar-ad">
 			<script
 				async
 				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8498524881106051"
