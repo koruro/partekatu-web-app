@@ -1,7 +1,10 @@
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 const InArticleAd: React.FC = () => {
+	const { asPath } = useRouter();
+
 	useEffect(() => {
 		try {
 			if (typeof window !== "undefined") {
@@ -10,14 +13,14 @@ const InArticleAd: React.FC = () => {
 				);
 			}
 		} catch (err) {}
-	}, []);
+	}, [asPath]);
 
 	const isPageWide = useMediaQuery(`(min-width: 728px)`);
 
 	if (isPageWide) return null;
 
 	return (
-		<div id="ezoic-pub-ad-placeholder-114">
+		<div key="secondary-article-ad" id="secondary-article-ad">
 			<script
 				async
 				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8498524881106051"
