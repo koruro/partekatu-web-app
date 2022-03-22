@@ -1,9 +1,6 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const SidebarAd: React.FC = () => {
-	const { asPath } = useRouter();
-
 	useEffect(() => {
 		try {
 			if (typeof window !== "undefined") {
@@ -12,7 +9,7 @@ const SidebarAd: React.FC = () => {
 				);
 			}
 		} catch (err) {}
-	}, [asPath]);
+	}, []);
 	return (
 		<div id="sidebar-ad" key="sidebar-ad">
 			<script
