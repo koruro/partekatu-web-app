@@ -1,10 +1,6 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 const StickyFooterAd: React.FC = () => {
-	const { asPath } = useRouter();
-
 	useEffect(() => {
 		try {
 			if (typeof window !== "undefined") {
@@ -13,11 +9,7 @@ const StickyFooterAd: React.FC = () => {
 				);
 			}
 		} catch (err) {}
-	}, [asPath]);
-
-	const isPageWide = useMediaQuery(`(min-width: 728px)`);
-
-	if (isPageWide) return null;
+	}, []);
 
 	return (
 		<div id="sticky-footer-ad" key="sticky-footer-ad" className="sticky-add">
