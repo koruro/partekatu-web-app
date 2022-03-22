@@ -1,15 +1,19 @@
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const SidebarAd: React.FC = () => {
+	const { asPath } = useRouter();
+
 	useEffect(() => {
 		try {
 			if (typeof window !== "undefined") {
 				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
 					{}
 				);
+				console.log("sidebar loaded");
 			}
 		} catch (err) {}
-	}, []);
+	}, [asPath]);
 	return (
 		<div id="sidebar-ad" key="sidebar-ad">
 			<script
