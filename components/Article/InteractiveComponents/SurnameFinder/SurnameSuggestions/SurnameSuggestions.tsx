@@ -8,6 +8,7 @@ interface Props {
 
 const SurnameSuggestions: React.FC<Props> = ({ suggestions, hrefFactory }) => {
 	if (!suggestions) return null;
+	if (suggestions.length <= 0) return null;
 	return (
 		<div className={style["suggestions"]}>
 			<p>Quizás te interese:</p>

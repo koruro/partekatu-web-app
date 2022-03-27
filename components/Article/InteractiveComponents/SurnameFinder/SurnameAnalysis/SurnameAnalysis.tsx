@@ -1,7 +1,8 @@
 import {
+	SurnameAnalytics,
 	SurnameData,
-	SurnameMatch,
 } from "../../../../../models/surname/SurnameMatch";
+import { isNullOrUndefined } from "../../../../../utils/isNullOrUndefined";
 import styles from "./styles.module.css";
 
 interface Props {
@@ -12,38 +13,50 @@ interface Props {
 const loadText = (data: SurnameData, enteredSurname: string) => {
 	if (!data.isBasque) {
 		return (
-			<>
+			<p className={styles["title"]}>
 				El apellido <span>{enteredSurname}</span> no es de origen vasco
-			</>
+			</p>
 		);
 	}
 	if (data.isAcademic) {
 		return (
-			<>
-				El apellido <span>{data.academic.surname}</span> es considerado de
-				origen vasco
-			</>
+			<p className={styles["title"]}>
+				El apellido <span>{data.surname}</span> es considerado de origen vasco
+			</p>
 		);
 	}
-	return (
+	return data.relations.length < 1 ? (
+		<p className={styles["title"]}>
+			El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
+			recomienda <span>{data.relations[0]}</span> como forma académica correcta
+			del apellido
+		</p>
+	) : (
 		<>
-			El apellido <span>{data.normal.surname}</span> es vasco, pero
-			Euskaltzaindia recomienda <span>{data.academic.surname}</span> como forma
-			académica correcta del apellido
+			<p className={styles["title"]}>
+				El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
+				recomienda estas como formas académicas correctas del apellido:
+			</p>
+			<div className={styles["relations"]}>
+				<ul>
+					{data.relations.map((relation) => (
+						<li>{relation}</li>
+					))}
+				</ul>
+			</div>
 		</>
 	);
 };
 
-const getAnalytics = (data: SurnameData) => {
-	if (data.isAcademic) return data.academic;
-	return data.normal;
+const getAnalytics = (data: SurnameData): SurnameAnalytics => {
+	return data.analytics;
 };
 
 const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 	const analytics = getAnalytics(data);
 	return (
 		<div>
-			<p className={styles["title"]}>{loadText(data, enteredSurname)}</p>
+			{loadText(data, enteredSurname)}
 			<p className={styles["reference"]}>
 				según el documento{" "}
 				<a
@@ -66,21 +79,46 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 			</p>
 			{data.isBasque && (
 				<>
-					<p className={styles["in-addition"]}>Además, en España...</p>
-					<div className={styles["analytics"]}>
-						<div className={styles["analytics__box"]}>
-							<p>{analytics.analytics.firstOnly} personas</p>
-							<span>tienen {data.surname} como primer apellido.</span>
-						</div>
-						<div className={styles["analytics__box"]}>
-							<p>{analytics.analytics.secondOnly} personas</p>
-							<span>tienen {data.surname} como segundo apellido.</span>
-						</div>
-						<div className={styles["analytics__box"]}>
-							<p>{analytics.analytics.both} personas</p>
-							<span>tienen {data.surname} como primer y segundo apellido.</span>
-						</div>
-					</div>
+					{isNullOrUndefined(analytics.firstOnly) &&
+					isNullOrUndefined(analytics.secondOnly) &&
+					isNullOrUndefined(analytics.both) ? (
+						<p style={{ textAlign: "center", fontSize: "1.2rem" }}>
+							Euskaltzaindia no tiene los suficientes datos como para
+							determinlar la cantidad de personas que tienen este apellido
+						</p>
+					) : (
+						<>
+							<p className={styles["in-addition"]}>Además, en España...</p>
+							<div className={styles["analytics"]}>
+								<div className={styles["analytics__box"]}>
+									<p>{analytics.firstOnly} personas</p>
+									<span>tienen {data.surname} como primer apellido.</span>
+								</div>
+								<div className={styles["analytics__box"]}>
+									<p>{analytics.secondOnly} personas</p>
+									<span>tienen {data.surname} como segundo apellido.</span>
+								</div>
+								<div className={styles["analytics__box"]}>
+									{analytics.both === 0 ? (
+										<>
+											<p>{"<"} 20 personas</p>
+											<span>
+												No se han encontrado a más de 20 personas cuyos primer y
+												segundo apellido sean {data.surname}
+											</span>
+										</>
+									) : (
+										<>
+											<p>{analytics.both} personas</p>
+											<span>
+												tienen {data.surname} como primer y segundo apellido.
+											</span>
+										</>
+									)}
+								</div>
+							</div>
+						</>
+					)}
 				</>
 			)}
 		</div>

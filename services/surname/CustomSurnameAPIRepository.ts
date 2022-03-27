@@ -12,15 +12,18 @@ export class CustomSurnameAPIRepository implements SurnameAPIRepository {
 
 			const json = await response.json();
 
-			return json.data.map((r: any) => ({
+			const matches: SurnameMatch[] = json.data.map((r: any) => ({
 				surname: r.surname,
 				similarity: r.similarity,
 			}));
+
+			return matches.filter((match) => match.surname !== name);
 		} catch (error) {
 			return [];
 		}
 	}
 	async getSurnameData(surname: string): Promise<SurnameData> {
+		await sleep(1000);
 		try {
 			const response = await fetch(
 				`${this.baseUrl}/surname?surname=${surname}`
@@ -32,22 +35,12 @@ export class CustomSurnameAPIRepository implements SurnameAPIRepository {
 					isBasque: false,
 					surname,
 					isAcademic: false,
-					academic: {
-						surname: "none",
-						analytics: {
-							firstOnly: 0,
-							secondOnly: 0,
-							both: 0,
-						},
+					analytics: {
+						both: null,
+						firstOnly: null,
+						secondOnly: null,
 					},
-					normal: {
-						surname: "none",
-						analytics: {
-							firstOnly: 0,
-							secondOnly: 0,
-							both: 0,
-						},
-					},
+					relations: [],
 					suggestions: await this.getSimilarSurnames(surname),
 				};
 			}
@@ -56,23 +49,13 @@ export class CustomSurnameAPIRepository implements SurnameAPIRepository {
 				surname: json.surname,
 				isBasque: true,
 				isAcademic: json.isAcademic,
-				normal: {
-					surname: json.normal.surname,
-					analytics: {
-						firstOnly: json.normal.analytics.firstOnly,
-						secondOnly: json.normal.analytics.secondOnly,
-						both: json.normal.analytics.both,
-					},
+				analytics: {
+					firstOnly: json.analytics.firstOnly,
+					secondOnly: json.analytics.secondOnly,
+					both: json.analytics.both,
 				},
-				academic: {
-					surname: json.academic.surname,
-					analytics: {
-						firstOnly: json.academic.analytics.firstOnly,
-						secondOnly: json.academic.analytics.secondOnly,
-						both: json.academic.analytics.both,
-					},
-				},
-				suggestions: await this.getSimilarSurnames(surname),
+				relations: json.relations,
+				suggestions: await this.getSimilarSurnames(json.surname),
 			};
 		} catch (error) {
 			throw error;

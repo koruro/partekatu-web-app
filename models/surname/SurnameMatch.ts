@@ -1,7 +1,7 @@
 export interface SurnameAnalytics {
-	firstOnly: number;
-	secondOnly: number;
-	both: number;
+	firstOnly: number | null;
+	secondOnly: number | null;
+	both: number | null;
 }
 
 export interface SurnameMatch {
@@ -13,13 +13,7 @@ export interface SurnameData {
 	surname: string;
 	isBasque: boolean;
 	isAcademic: boolean;
-	normal: {
-		surname: string;
-		analytics: SurnameAnalytics;
-	};
-	academic: {
-		surname: string;
-		analytics: SurnameAnalytics;
-	};
+	analytics: SurnameAnalytics;
+	relations: string[];
 	suggestions: SurnameMatch[];
 }

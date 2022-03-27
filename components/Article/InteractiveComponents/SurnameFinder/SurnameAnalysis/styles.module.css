@@ -8,6 +8,22 @@
 	font-weight: bold;
 }
 
+.relations {
+	display: flex;
+	justify-content: center;
+}
+
+.relations li {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.relations li:before {
+	content: "\2705";
+	margin-left: -20px;
+	margin-right: 10px;
+}
+
 .reference {
 	text-align: center;
 	font-style: italic;
