@@ -34,6 +34,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 					gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
 				`}
 			</Script>
+			<Script
+				strategy="afterInteractive"
+				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8498524881106051"
+			></Script>
 			<ErrorBoundary fallback={() => <ClientErrorContainer />}>
 				<Component {...pageProps} />
 				<MyCookieConsent />

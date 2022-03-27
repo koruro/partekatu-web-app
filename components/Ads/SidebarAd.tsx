@@ -1,22 +1,22 @@
 import { useEffect } from "react";
 
-const SidebarAd: React.FC = () => {
+interface Props {
+	enabled?: boolean;
+}
+
+const SidebarAd: React.FC<Props> = ({ enabled }) => {
 	useEffect(() => {
 		try {
-			((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-				{}
-			);
-		} catch (err) {
-			console.log(err);
-		}
+			if (enabled) {
+				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
+					{}
+				);
+			}
+		} catch (err) {}
 	}, []);
+
 	return (
-		<div id="ezoic-pub-ad-placeholder-102">
-			<script
-				async
-				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8498524881106051"
-				crossOrigin="anonymous"
-			></script>
+		<div id="sidebar-ad" key="sidebar-ad" className="sidebar-ad">
 			<ins
 				className="adsbygoogle"
 				style={{ display: "block" }}

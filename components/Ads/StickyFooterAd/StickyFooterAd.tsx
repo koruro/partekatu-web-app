@@ -1,24 +1,22 @@
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
-import breakpoints from "../../../styles/breakpoints";
+import { useEffect } from "react";
 
-const StickyFooterAd: React.FC = () => {
+interface Props {
+	enabled?: boolean;
+}
+
+const StickyFooterAd: React.FC<Props> = ({ enabled }) => {
 	useEffect(() => {
 		try {
-			((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-				{}
-			);
-		} catch (err) {
-			console.log(err);
-		}
+			if (enabled) {
+				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
+					{}
+				);
+			}
+		} catch (err) {}
 	}, []);
 
-	const isPageWide = useMediaQuery(`(min-width: 728px)`);
-
-	if (isPageWide) return null;
-
 	return (
-		<div className="sticky-add">
+		<div id="sticky-footer-ad" className="sticky-add">
 			<section>
 				<ins
 					className="adsbygoogle"
