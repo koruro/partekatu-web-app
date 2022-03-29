@@ -26,10 +26,12 @@ export function htmlElementsTransformer(options = {}) {
 
 			// Add target blanc to anchor tangs
 			if (element.tagName === "a") {
+				const previousRels: string[] = element.properties?.rel ?? [];
+
 				element.properties = {
 					...element.properties,
 					target: "_blank",
-					rel: "noopener noreferrer",
+					rel: [...previousRels, "noopener", "noreferrer"],
 				};
 			}
 
