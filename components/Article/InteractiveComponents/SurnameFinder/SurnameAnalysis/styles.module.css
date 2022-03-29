@@ -37,7 +37,8 @@
 
 .in-addition {
 	text-align: center;
-	font-size: 1.7em;
+	font-style: italic;
+	font-size: 1.4em;
 }
 
 .analytics {
@@ -49,9 +50,11 @@
 
 .analytics__box {
 	background-color: var(--primary-light-2);
-	padding: 3rem 1rem;
+	padding: 3rem 2rem;
 	filter: var(--shadow-elevate-1);
 	text-align: center;
+	border-radius: var(--rounded-l);
+	line-height: 1.6rem;
 }
 
 .analytics__box:nth-child(2n) {
@@ -65,9 +68,20 @@
 	margin-bottom: 2rem;
 }
 
+.analytics-missing {
+	background-color: var(--warn-c1);
+	padding: 0.7rem 3rem;
+	border-radius: var(--rounded-l);
+}
+
 @media (min-width: 768px) {
 	.analytics {
 		grid-template-columns: 1fr 1fr 1fr;
 		column-gap: 1rem;
+	}
+
+	.analytics-missing {
+		width: 70%;
+		margin: auto;
 	}
 }

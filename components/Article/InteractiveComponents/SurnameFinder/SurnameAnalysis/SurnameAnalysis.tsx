@@ -3,6 +3,8 @@ import {
 	SurnameData,
 } from "../../../../../models/surname/SurnameMatch";
 import { isNullOrUndefined } from "../../../../../utils/isNullOrUndefined";
+import AnalyticsBox from "./AnalyticsBox";
+import AnalyticsMissing from "./AnalyticsMissing";
 import styles from "./styles.module.css";
 
 interface Props {
@@ -25,7 +27,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 			</p>
 		);
 	}
-	return data.relations.length < 1 ? (
+	return data.relations.length <= 1 ? (
 		<p className={styles["title"]}>
 			El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
 			recomienda <span>{data.relations[0]}</span> como forma académica correcta
@@ -39,8 +41,8 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 			</p>
 			<div className={styles["relations"]}>
 				<ul>
-					{data.relations.map((relation) => (
-						<li>{relation}</li>
+					{data.relations.map((relation, index) => (
+						<li key={index}>{relation}</li>
 					))}
 				</ul>
 			</div>
@@ -82,40 +84,26 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 					{isNullOrUndefined(analytics.firstOnly) &&
 					isNullOrUndefined(analytics.secondOnly) &&
 					isNullOrUndefined(analytics.both) ? (
-						<p style={{ textAlign: "center", fontSize: "1.2rem" }}>
-							Euskaltzaindia no tiene los suficientes datos como para
-							determinlar la cantidad de personas que tienen este apellido
-						</p>
+						<AnalyticsMissing />
 					) : (
 						<>
 							<p className={styles["in-addition"]}>Además, en España...</p>
 							<div className={styles["analytics"]}>
-								<div className={styles["analytics__box"]}>
-									<p>{analytics.firstOnly} personas</p>
-									<span>tienen {data.surname} como primer apellido.</span>
-								</div>
-								<div className={styles["analytics__box"]}>
-									<p>{analytics.secondOnly} personas</p>
-									<span>tienen {data.surname} como segundo apellido.</span>
-								</div>
-								<div className={styles["analytics__box"]}>
-									{analytics.both === 0 ? (
-										<>
-											<p>{"<"} 20 personas</p>
-											<span>
-												No se han encontrado a más de 20 personas cuyos primer y
-												segundo apellido sean {data.surname}
-											</span>
-										</>
-									) : (
-										<>
-											<p>{analytics.both} personas</p>
-											<span>
-												tienen {data.surname} como primer y segundo apellido.
-											</span>
-										</>
-									)}
-								</div>
+								<AnalyticsBox
+									surname={data.surname}
+									type="first"
+									data={data.analytics.firstOnly!}
+								/>
+								<AnalyticsBox
+									surname={data.surname}
+									type="second"
+									data={data.analytics.secondOnly!}
+								/>
+								<AnalyticsBox
+									surname={data.surname}
+									type="both"
+									data={data.analytics.both!}
+								/>
 							</div>
 						</>
 					)}

@@ -55,6 +55,28 @@ const SurnameFinder: React.FC<Props> = () => {
 		});
 	}, [typedSurname]);
 
+	const showAnalytics = () => {
+		if (resultIsLoading)
+			return (
+				<div style={{ display: "flex", justifyContent: "center" }}>
+					<LoadingRing />
+				</div>
+			);
+		if (!result) return null;
+
+		return (
+			<>
+				<SurnameAnalysis enteredSurname={typedSurname} data={result} />
+				<SurnameSuggestions
+					hrefFactory={(suggestion) =>
+						`${router.pathname}?surname=${suggestion.surname}`
+					}
+					suggestions={result?.suggestions}
+				/>
+			</>
+		);
+	};
+
 	return (
 		<div>
 			<form
@@ -106,22 +128,8 @@ const SurnameFinder: React.FC<Props> = () => {
 						}}
 					/>
 				)}
+				{showAnalytics()}
 			</form>
-			{result && !resultIsLoading ? (
-				<>
-					<SurnameAnalysis enteredSurname={typedSurname} data={result} />
-					<SurnameSuggestions
-						hrefFactory={(suggestion) =>
-							`${router.pathname}?surname=${suggestion.surname}`
-						}
-						suggestions={result?.suggestions}
-					/>
-				</>
-			) : (
-				<div style={{ display: "flex", justifyContent: "center" }}>
-					<LoadingRing />
-				</div>
-			)}
 		</div>
 	);
 };
