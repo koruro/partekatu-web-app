@@ -29,7 +29,13 @@ const Autocomplete: React.FC<Props> = ({ matches, onMatchClick, loading }) => {
 			) : (
 				<ul>
 					{matches.map((match, index) => (
-						<li key={index} onMouseDown={() => onMatchClick(match)}>
+						<li
+							key={index}
+							onMouseDown={(e) => {
+								e.preventDefault();
+								onMatchClick(match);
+							}}
+						>
 							{match.name}
 						</li>
 					))}
