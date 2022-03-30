@@ -7,7 +7,8 @@
 	border-radius: var(--rounded-s);
 	overflow-y: auto;
 	width: 100%;
-	/* padding: 0.7rem; */
+	filter: var(--shadow-elevate-2);
+	padding: 0.7rem;
 }
 
 .autocomplete ul {
@@ -19,19 +20,15 @@
 	cursor: pointer;
 	list-style: none;
 	padding: 0.5rem 1.2rem;
-	transition: background 0.08s ease-in-out;
-}
-
-.autocomplete li:hover {
-	background-color: var(--primary-light-2);
-}
-
-.autocomplete__match {
 	text-align: left;
 	color: var(--text);
 	font-style: italic;
 	font-size: 1.1rem;
 	border: none;
-	width: 100%;
 	background-color: transparent;
+	transition: background 0.08s ease-in-out;
+}
+
+.autocomplete li:hover {
+	background-color: var(--primary-light-2);
 }
