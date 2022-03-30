@@ -3,6 +3,7 @@ import {
 	SurnameData,
 } from "../../../../../models/surname/SurnameMatch";
 import { isNullOrUndefined } from "../../../../../utils/isNullOrUndefined";
+import SurnameAsset from "../SurnameAsset";
 import AnalyticsBox from "./AnalyticsBox";
 import AnalyticsMissing from "./AnalyticsMissing";
 import styles from "./styles.module.css";
@@ -15,26 +16,32 @@ interface Props {
 const loadText = (data: SurnameData, enteredSurname: string) => {
 	if (!data.isBasque) {
 		return (
-			<p className={styles["title"]}>
-				El apellido <span>{enteredSurname}</span> no es de origen vasco
-			</p>
+			<section>
+				<p className={styles["title"]}>
+					El apellido <span>{enteredSurname}</span> no es de origen vasco
+				</p>
+			</section>
 		);
 	}
 	if (data.isAcademic) {
 		return (
-			<p className={styles["title"]}>
-				El apellido <span>{data.surname}</span> es considerado de origen vasco
-			</p>
+			<section>
+				<p className={styles["title"]}>
+					El apellido <span>{data.surname}</span> es considerado de origen vasco
+				</p>
+			</section>
 		);
 	}
 	return data.relations.length <= 1 ? (
-		<p className={styles["title"]}>
-			El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
-			recomienda <span>{data.relations[0]}</span> como forma académica correcta
-			del apellido
-		</p>
+		<section>
+			<p className={styles["title"]}>
+				El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
+				recomienda <span>{data.relations[0]}</span> como forma académica
+				correcta del apellido
+			</p>
+		</section>
 	) : (
-		<>
+		<section>
 			<p className={styles["title"]}>
 				El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
 				recomienda estas como formas académicas correctas del apellido:
@@ -46,7 +53,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 					))}
 				</ul>
 			</div>
-		</>
+		</section>
 	);
 };
 
@@ -58,7 +65,10 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 	const analytics = getAnalytics(data);
 	return (
 		<div>
-			{loadText(data, enteredSurname)}
+			<div className={styles["main-title"]}>
+				<SurnameAsset />
+				{loadText(data, enteredSurname)}
+			</div>
 			<p className={styles["reference"]}>
 				según el documento{" "}
 				<a

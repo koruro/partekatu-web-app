@@ -1,4 +1,22 @@
+.main-title {
+	margin: 3rem 0;
+	display: grid;
+	grid-template-rows: 1fr;
+	align-items: center;
+}
+
+.main-title svg {
+	height: 200px;
+	margin: auto;
+	margin: 1.4rem auto;
+}
+
+.main-title section {
+	order: -1;
+}
+
 .title {
+	margin: 0;
 	text-align: center;
 	font-size: 2em;
 }
@@ -9,8 +27,14 @@
 }
 
 .relations {
+	margin: 1rem 0;
 	display: flex;
 	justify-content: center;
+}
+
+.relations ul {
+	margin: 0;
+	padding: 1.2rem;
 }
 
 .relations li {
@@ -84,5 +108,27 @@
 	.analytics-missing {
 		width: 70%;
 		margin: auto;
+	}
+
+	.main-title {
+		grid-template-columns: 170px 1fr;
+		column-gap: 5rem;
+	}
+
+	.relations {
+		margin: 1rem 0;
+		display: block;
+	}
+
+	.title {
+		text-align: left;
+	}
+
+	.main-title svg {
+		margin: 0;
+	}
+
+	.main-title section {
+		order: 1;
 	}
 }

@@ -27,6 +27,12 @@ const SurnameFinder: React.FC<Props> = () => {
 	const router = useRouter();
 
 	const handleOnSubmit = (surname: string) => {
+		router.push(router.pathname, {
+			query: {
+				...router.query,
+				surname: typedSurname,
+			},
+		});
 		setResultIsLoading(true);
 		setShowAutoComplete(false);
 		repo
@@ -50,7 +56,6 @@ const SurnameFinder: React.FC<Props> = () => {
 
 	useEffect(() => {
 		repo.getSimilarSurnames(typedSurname).then((response) => {
-			// setShowAutoComplete(true);
 			setMatches(response);
 		});
 	}, [typedSurname]);
@@ -83,12 +88,7 @@ const SurnameFinder: React.FC<Props> = () => {
 				className={styles["surname-finder__searchform"]}
 				onSubmit={(e) => {
 					e.preventDefault();
-					router.push(router.pathname, {
-						query: {
-							...router.query,
-							surname: typedSurname,
-						},
-					});
+
 					handleOnSubmit(typedSurname);
 				}}
 			>
@@ -100,29 +100,14 @@ const SurnameFinder: React.FC<Props> = () => {
 						setTypedSurname(value);
 					}}
 					onBlur={() => {
-						setTimeout(() => {
-							setShowAutoComplete(false);
-						}, 100);
+						setShowAutoComplete(false);
 					}}
 					onFocus={() => setShowAutoComplete(true)}
 				/>
-				{/* <input
-					value={typedSurname}
-					onChange={(e) => {
-						setShowAutoComplete(true);
-						setTypedSurname(e.target.value);
-					}}
-				></input> */}
 				{showAutoComplete && (
 					<Autocomplete
 						matches={matches?.map((a) => ({ name: a.surname }))}
 						onMatchClick={(match) => {
-							router.push(router.pathname, {
-								query: {
-									...router.query,
-									surname: match.name,
-								},
-							});
 							setTypedSurname(match.name);
 							handleOnSubmit(match.name);
 						}}

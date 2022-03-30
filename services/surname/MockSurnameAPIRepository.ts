@@ -23,17 +23,11 @@ export class MockSurnameAPIRepository implements SurnameAPIRepository {
 	}
 	async getSurnameData(surname: string): Promise<SurnameData> {
 		return {
+			isBasque: true,
 			surname: surname,
 			isAcademic: true,
-			normal: {
-				analytics: { firstOnly: 200, secondOnly: 30, both: 10 },
-				surname: surname,
-			},
-			academic: {
-				analytics: { firstOnly: 200, secondOnly: 30, both: 10 },
-				surname: surname,
-			},
-			isBasque: true,
+			analytics: { firstOnly: 200, secondOnly: 30, both: 10 },
+			relations: [],
 			suggestions: [],
 		};
 	}
