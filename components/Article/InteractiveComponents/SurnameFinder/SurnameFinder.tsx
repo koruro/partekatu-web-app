@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
-import { LegacyRef, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
 	SurnameData,
 	SurnameMatch,
 } from "../../../../models/surname/SurnameMatch";
-import { CustomSurnameAPIRepository } from "../../../../services/surname/CustomSurnameAPIRepository";
-import { MockSurnameAPIRepository } from "../../../../services/surname/MockSurnameAPIRepository";
+import { surnameRepository } from "../../../../services/bootstrap";
 import LoadingRing from "../../../Loading/Ring/LoadingRing";
 import Autocomplete from "./Autocomplete/Autocomplete";
 import CustomInput from "./Input/CustomInput";
@@ -14,8 +13,6 @@ import SurnameAnalysis from "./SurnameAnalysis/SurnameAnalysis";
 import SurnameSuggestions from "./SurnameSuggestions/SurnameSuggestions";
 
 interface Props {}
-
-const repo = new CustomSurnameAPIRepository("http://localhost:4000");
 
 const SurnameFinder: React.FC<Props> = () => {
 	const [typedSurname, setTypedSurname] = useState<string>("");
@@ -30,12 +27,12 @@ const SurnameFinder: React.FC<Props> = () => {
 		router.push(router.pathname, {
 			query: {
 				...router.query,
-				surname: typedSurname,
+				surname,
 			},
 		});
 		setResultIsLoading(true);
 		setShowAutoComplete(false);
-		repo
+		surnameRepository
 			.getSurnameData(surname)
 			.then((result) => {
 				setResult(result);
@@ -55,7 +52,7 @@ const SurnameFinder: React.FC<Props> = () => {
 	}, []);
 
 	useEffect(() => {
-		repo.getSimilarSurnames(typedSurname).then((response) => {
+		surnameRepository.getSimilarSurnames(typedSurname).then((response) => {
 			setMatches(response);
 		});
 	}, [typedSurname]);

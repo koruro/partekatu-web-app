@@ -1,5 +1,4 @@
 import { SurnameData, SurnameMatch } from "../../models/surname/SurnameMatch";
-import { sleep } from "../../utils/sleep";
 import { SurnameAPIRepository } from "./SurnameAPIRepository";
 
 export class CustomSurnameAPIRepository implements SurnameAPIRepository {
@@ -23,7 +22,6 @@ export class CustomSurnameAPIRepository implements SurnameAPIRepository {
 		}
 	}
 	async getSurnameData(surname: string): Promise<SurnameData> {
-		await sleep(1000);
 		try {
 			const response = await fetch(
 				`${this.baseUrl}/surname?surname=${surname}`

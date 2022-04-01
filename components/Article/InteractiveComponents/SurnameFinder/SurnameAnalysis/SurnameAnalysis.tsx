@@ -18,7 +18,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 		return (
 			<section>
 				<p className={styles["title"]}>
-					El apellido <span>{enteredSurname}</span> no es de origen vasco
+					El apellido <span>{data.surname}</span> no es de origen vasco
 				</p>
 			</section>
 		);
