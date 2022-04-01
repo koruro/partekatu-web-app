@@ -1,0 +1,34 @@
+.autocomplete {
+	position: absolute;
+	top: 60px;
+	z-index: 1;
+	background-color: white;
+	max-height: 200px;
+	border-radius: var(--rounded-s);
+	overflow-y: auto;
+	width: 100%;
+	filter: var(--shadow-elevate-2);
+	padding: 0.7rem;
+}
+
+.autocomplete ul {
+	margin: 0;
+	padding: 0;
+}
+
+.autocomplete li {
+	cursor: pointer;
+	list-style: none;
+	padding: 0.5rem 1.2rem;
+	text-align: left;
+	color: var(--text);
+	font-style: italic;
+	font-size: 1.1rem;
+	border: none;
+	background-color: transparent;
+	transition: background 0.08s ease-in-out;
+}
+
+.autocomplete li:hover {
+	background-color: var(--primary-light-2);
+}

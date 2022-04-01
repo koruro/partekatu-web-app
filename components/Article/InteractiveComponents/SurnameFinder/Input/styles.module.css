@@ -1,0 +1,13 @@
+.custom-input {
+	border: none;
+	font-size: 1em;
+	color: var(--text);
+	border-radius: var(--rounded-l);
+	padding: 0.7rem 1.4rem;
+	width: 100%;
+}
+
+.custom-input::placeholder {
+	color: var(--text-subtle);
+	font-style: italic;
+}
