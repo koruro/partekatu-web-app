@@ -86,7 +86,7 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 					rel="noopener noreferrer"
 				>
 					los criterios listados aquí
-				</a>
+				</a>{" "}
 				para determinarlo.
 			</p>
 			{data.isBasque && (
