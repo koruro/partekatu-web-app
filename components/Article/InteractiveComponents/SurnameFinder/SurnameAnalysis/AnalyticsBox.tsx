@@ -22,16 +22,23 @@ const AnalyticsBox: React.FC<Props> = ({ type, surname, data }) => {
 				<>
 					<p>{"<"} 20 personas</p>
 					<span>
-						No se han encontrado a más de 20 personas cuyos{" "}
-						{loadTextByType(type)}
-						apellido sean {surname}
+						No existen habitantes con{" "}
+						<i>
+							<b>{surname}</b>
+						</i>{" "}
+						como <b>primer y segundo apellido</b> o su frecuencia es inferior a
+						20 para el total nacional.
 					</span>
 				</>
 			) : (
 				<>
 					<p>{data} personas</p>
 					<span>
-						Tienen {surname} como {loadTextByType(type)} apellido.
+						Tienen{" "}
+						<i>
+							<b>{surname}</b>
+						</i>{" "}
+						como <b>{loadTextByType(type)} apellido</b>.
 					</span>
 				</>
 			)}

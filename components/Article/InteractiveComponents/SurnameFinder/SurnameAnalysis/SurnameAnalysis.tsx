@@ -27,32 +27,40 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 		return (
 			<section>
 				<p className={styles["title"]}>
-					El apellido <span>{data.surname}</span> es considerado de origen vasco
+					El apellido <span>{data.surname}</span> es considerado de origen
+					vasco,
 				</p>
 			</section>
 		);
 	}
-	return data.relations.length <= 1 ? (
+	return (
 		<section>
 			<p className={styles["title"]}>
-				El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
-				recomienda <span>{data.relations[0]}</span> como forma académica
-				correcta del apellido
+				El apellido <span>{data.surname}</span> es vasco.
 			</p>
-		</section>
-	) : (
-		<section>
-			<p className={styles["title"]}>
-				El apellido <span>{data.surname}</span> es vasco, pero Euskaltzaindia
-				recomienda estas como formas académicas correctas del apellido:
-			</p>
-			<div className={styles["relations"]}>
-				<ul>
-					{data.relations.map((relation, index) => (
-						<li key={index}>{relation}</li>
-					))}
-				</ul>
-			</div>
+			{data.relations.length <= 1 ? (
+				<p className={styles["correction"]}>
+					Euskaltzaindia recomienda{" "}
+					<i>
+						<b>{data.relations[0]}</b>
+					</i>{" "}
+					como forma académica correcta del apellido con grafía en euskera.
+				</p>
+			) : (
+				<>
+					<p className={styles["correction"]}>
+						Euskaltzaindia recomienda estos nombres como formas académicas
+						correctas del apellido con grafía en euskera.
+					</p>
+					<div className={styles["relations"]}>
+						<ul>
+							{data.relations.map((relation, index) => (
+								<li key={index}>{relation}</li>
+							))}
+						</ul>
+					</div>
+				</>
+			)}
 		</section>
 	);
 };
@@ -94,7 +102,7 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 					{isNullOrUndefined(analytics.firstOnly) &&
 					isNullOrUndefined(analytics.secondOnly) &&
 					isNullOrUndefined(analytics.both) ? (
-						<AnalyticsMissing />
+						<AnalyticsMissing surname={data.surname} />
 					) : (
 						<>
 							<p className={styles["in-addition"]}>Además, en España...</p>

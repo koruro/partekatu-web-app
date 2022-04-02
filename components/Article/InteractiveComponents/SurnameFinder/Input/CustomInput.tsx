@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import styles from "./styles.module.css";
 
 interface Props {
@@ -17,17 +18,21 @@ const CustomInput: React.FC<Props> = ({
 	onFocus,
 }) => {
 	return (
-		<input
-			className={styles["custom-input"]}
-			placeholder={placeholder}
-			value={value}
-			onChange={(e) => {
-				const value = e.target.value;
-				if (onValueChange) onValueChange(value);
-			}}
-			onBlur={onBlur}
-			onFocus={onFocus}
-		></input>
+		<div className={styles["custom-input"]}>
+			<input
+				placeholder={placeholder}
+				value={value}
+				onChange={(e) => {
+					const value = e.target.value;
+					if (onValueChange) onValueChange(value);
+				}}
+				onBlur={onBlur}
+				onFocus={onFocus}
+			></input>
+			<button className={styles["search-button"]} type="submit">
+				<FaSearch />
+			</button>
+		</div>
 	);
 };
 

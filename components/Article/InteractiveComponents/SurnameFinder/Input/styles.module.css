@@ -1,10 +1,40 @@
 .custom-input {
+	display: flex;
+	flex-direction: row;
 	border: none;
 	font-size: 1em;
 	color: var(--text);
 	border-radius: var(--rounded-l);
-	padding: 0.7rem 1.4rem;
+	/* padding: 0.7rem 1.4rem; */
 	width: 100%;
+	align-items: center;
+	overflow: hidden;
+	background-color: white;
+	filter: var(--shadow-elevate-1);
+}
+
+.custom-input input {
+	font-size: 1em;
+	color: var(--text);
+	outline: none;
+	border: none;
+	width: 100%;
+	padding: 0rem 1.4rem;
+}
+
+.search-button {
+	display: flex;
+	background-color: var(--primary-light-2);
+	color: var(--text);
+	padding: 0.7rem 1rem;
+	cursor: pointer;
+	border: none;
+	border-radius: var(--rounded-l);
+	transition: background-color 0.2s;
+}
+
+.search-button:hover {
+	background-color: var(--primary-light);
 }
 
 .custom-input::placeholder {

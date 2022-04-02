@@ -18,7 +18,12 @@
 .title {
 	margin: 0;
 	text-align: center;
-	font-size: 2em;
+	font-size: 2.4em;
+}
+
+.correction {
+	text-align: center;
+	font-size: 1.2rem;
 }
 
 .title span {
@@ -79,10 +84,7 @@
 	text-align: center;
 	border-radius: var(--rounded-l);
 	line-height: 1.6rem;
-}
-
-.analytics__box:nth-child(2n) {
-	background-color: #e8d1ed;
+	border: 4px solid var(--primary-light);
 }
 
 .analytics__box p {
@@ -93,10 +95,10 @@
 }
 
 .analytics-missing {
-	background-color: var(--warn-c1);
+	/* background-color: var(--warn-c1); */
 	padding: 0.7rem 3rem;
-	border-radius: var(--rounded-l);
-	filter: var(--shadow-elevate-1);
+	/* border-radius: var(--rounded-l); */
+	/* filter: var(--shadow-elevate-1); */
 }
 
 @media (min-width: 768px) {
@@ -121,6 +123,10 @@
 	}
 
 	.title {
+		text-align: left;
+	}
+
+	.correction {
 		text-align: left;
 	}
 

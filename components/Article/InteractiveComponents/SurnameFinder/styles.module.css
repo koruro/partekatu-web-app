@@ -1,3 +1,10 @@
+.surname-finder {
+	background-color: #fcfcfc;
+	padding: 2rem 4rem;
+	filter: var(--shadow-elevate-2);
+	border-radius: var(--rounded-l);
+}
+
 .surname-finder__searchform {
 	position: relative;
 }

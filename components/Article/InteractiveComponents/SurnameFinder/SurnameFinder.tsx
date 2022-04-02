@@ -24,6 +24,7 @@ const SurnameFinder: React.FC<Props> = () => {
 	const router = useRouter();
 
 	const handleOnSubmit = (surname: string) => {
+		if (!surname) return;
 		router.push(router.pathname, {
 			query: {
 				...router.query,
@@ -80,7 +81,7 @@ const SurnameFinder: React.FC<Props> = () => {
 	};
 
 	return (
-		<div>
+		<div className={styles["surname-finder"]}>
 			<form
 				className={styles["surname-finder__searchform"]}
 				onSubmit={(e) => {
