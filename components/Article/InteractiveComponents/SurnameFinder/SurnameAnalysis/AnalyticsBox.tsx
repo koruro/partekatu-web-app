@@ -27,8 +27,8 @@ const AnalyticsBox: React.FC<Props> = ({ type, surname, data }) => {
 						<i>
 							<b>{formatedNumber}</b>
 						</i>{" "}
-						como <b>primer y segundo apellido</b> o su frecuencia es inferior a
-						20 para el total nacional.
+						como <b>{loadTextByType(type)} apellido</b> o su frecuencia es
+						inferior a 20 para el total nacional.
 					</span>
 				</>
 			) : (
