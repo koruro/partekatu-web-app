@@ -84,7 +84,6 @@
 .analytics__box {
 	background-color: var(--primary-light-2);
 	padding: 3rem 2rem;
-	filter: var(--shadow-elevate-1);
 	text-align: center;
 	border-radius: var(--rounded-l);
 	line-height: 1.6rem;

@@ -1,9 +1,8 @@
 .surname-finder {
 	background-color: #fcfcfc;
 	padding: 2rem 1.2rem;
-	filter: var(--shadow-elevate-2);
 	border-radius: var(--rounded-l);
-	z-index: 1;
+	z-index: 2;
 	position: relative;
 	margin-bottom: 2rem;
 }

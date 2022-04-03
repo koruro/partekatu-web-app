@@ -10,7 +10,6 @@
 	align-items: center;
 	overflow: hidden;
 	background-color: white;
-	filter: var(--shadow-elevate-1);
 }
 
 .custom-input input {

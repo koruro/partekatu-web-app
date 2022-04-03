@@ -7,7 +7,6 @@
 	border-radius: var(--rounded-s);
 	overflow-y: auto;
 	width: 100%;
-	filter: var(--shadow-elevate-2);
 	padding: 0.7rem;
 }
 

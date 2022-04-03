@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import styles from "./styles.module.css";
@@ -18,7 +19,7 @@ const CustomInput: React.FC<Props> = ({
 	onFocus,
 }) => {
 	return (
-		<div className={styles["custom-input"]}>
+		<div className={classNames(styles["custom-input"], "elevate-1")}>
 			<input
 				placeholder={placeholder}
 				value={value}

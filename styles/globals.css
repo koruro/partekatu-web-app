@@ -108,11 +108,11 @@ a {
 }
 /** SHADOWS */
 .elevate-1 {
-	filter: var(--shadow-elevate-1);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .elevate-2 {
-	filter: var(--shadow-elevate-2);
+	box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.09);
 }
 
 .hoverable-elevate {

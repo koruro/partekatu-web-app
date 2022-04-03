@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import {
@@ -81,7 +82,7 @@ const SurnameFinder: React.FC<Props> = () => {
 	};
 
 	return (
-		<div className={styles["surname-finder"]}>
+		<div className={classNames(styles["surname-finder"], "elevate-2")}>
 			<p className={styles["surname-finder__preamble"]}>
 				<b>Introduce aquí</b> tu apellido y te diremos si es de{" "}
 				<b>origen vasco</b> 😉:

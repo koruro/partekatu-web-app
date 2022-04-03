@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import LoadingRing from "../../../../Loading/Ring/LoadingRing";
 import styles from "./styles.module.css";
 
@@ -16,7 +17,7 @@ const Autocomplete: React.FC<Props> = ({ matches, onMatchClick, loading }) => {
 	if (matches.length <= 0) return null;
 
 	return (
-		<div className={styles["autocomplete"]}>
+		<div className={classNames(styles["autocomplete"], "elevate-2")}>
 			{loading ? (
 				<div
 					style={{

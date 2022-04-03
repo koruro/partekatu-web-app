@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import styles from "./styles.module.css";
 
 type SurnameBoxType = "first" | "second" | "both";
@@ -18,7 +19,7 @@ const loadTextByType = (type: SurnameBoxType) => {
 const AnalyticsBox: React.FC<Props> = ({ type, surname, data }) => {
 	const formatedNumber = Intl.NumberFormat("es").format(data);
 	return (
-		<div className={styles["analytics__box"]}>
+		<div className={classNames(styles["analytics__box"], "elevate-2")}>
 			{data === 0 ? (
 				<>
 					<p>{"<"} 20 personas</p>
