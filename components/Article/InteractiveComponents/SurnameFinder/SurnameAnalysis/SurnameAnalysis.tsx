@@ -36,7 +36,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 	return (
 		<section>
 			<p className={styles["title"]}>
-				El apellido <span>{data.surname}</span> es vasco.
+				El apellido <span>{data.surname}</span> es de origen vasco.
 			</p>
 			{data.relations.length <= 1 ? (
 				<p className={styles["correction"]}>

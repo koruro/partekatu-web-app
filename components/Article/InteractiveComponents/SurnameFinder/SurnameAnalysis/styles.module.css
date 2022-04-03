@@ -43,6 +43,7 @@
 }
 
 .relations li {
+	list-style-type: none;
 	font-size: 1.2rem;
 	margin-bottom: 0.5rem;
 }
@@ -94,12 +95,7 @@
 	margin-bottom: 2rem;
 }
 
-.analytics-missing {
-	/* background-color: var(--warn-c1); */
-	padding: 0.7rem 3rem;
-	/* border-radius: var(--rounded-l); */
-	/* filter: var(--shadow-elevate-1); */
-}
+
 
 @media (min-width: 768px) {
 	.analytics {
@@ -110,6 +106,7 @@
 	.analytics-missing {
 		width: 70%;
 		margin: auto;
+		padding: 0.7rem 3rem;
 	}
 
 	.main-title {

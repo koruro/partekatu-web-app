@@ -3,6 +3,8 @@
 	padding: 2rem 4rem;
 	filter: var(--shadow-elevate-2);
 	border-radius: var(--rounded-l);
+	z-index: 1;
+	position: relative;
 }
 
 .surname-finder__searchform {
