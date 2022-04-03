@@ -16,6 +16,7 @@ const loadTextByType = (type: SurnameBoxType) => {
 };
 
 const AnalyticsBox: React.FC<Props> = ({ type, surname, data }) => {
+	const formatedNumber = Intl.NumberFormat("es").format(data);
 	return (
 		<div className={styles["analytics__box"]}>
 			{data === 0 ? (
@@ -24,7 +25,7 @@ const AnalyticsBox: React.FC<Props> = ({ type, surname, data }) => {
 					<span>
 						No existen habitantes con{" "}
 						<i>
-							<b>{surname}</b>
+							<b>{formatedNumber}</b>
 						</i>{" "}
 						como <b>primer y segundo apellido</b> o su frecuencia es inferior a
 						20 para el total nacional.
@@ -32,7 +33,7 @@ const AnalyticsBox: React.FC<Props> = ({ type, surname, data }) => {
 				</>
 			) : (
 				<>
-					<p>{data} personas</p>
+					<p>{formatedNumber} personas</p>
 					<span>
 						Tienen{" "}
 						<i>
