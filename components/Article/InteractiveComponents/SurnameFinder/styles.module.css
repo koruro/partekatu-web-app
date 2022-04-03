@@ -5,6 +5,7 @@
 	border-radius: var(--rounded-l);
 	z-index: 1;
 	position: relative;
+	margin-bottom: 2rem;
 }
 
 .surname-finder__searchform {
