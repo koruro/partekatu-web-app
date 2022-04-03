@@ -43,12 +43,14 @@
 }
 
 .relations li {
+	font-style: italic;
 	list-style-type: none;
 	font-size: 1.2rem;
 	margin-bottom: 0.5rem;
 }
 
 .relations li:before {
+	font-style: normal;
 	content: "\2705";
 	margin-left: -20px;
 	margin-right: 10px;

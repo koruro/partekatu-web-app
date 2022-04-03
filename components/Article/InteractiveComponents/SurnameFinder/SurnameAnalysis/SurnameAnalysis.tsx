@@ -2,6 +2,7 @@ import {
 	SurnameAnalytics,
 	SurnameData,
 } from "../../../../../models/surname/SurnameMatch";
+import { capitalize } from "../../../../../utils/capitalize";
 import { isNullOrUndefined } from "../../../../../utils/isNullOrUndefined";
 import SurnameAsset from "../SurnameAsset";
 import AnalyticsBox from "./AnalyticsBox";
@@ -13,12 +14,13 @@ interface Props {
 	enteredSurname: string;
 }
 
-const loadText = (data: SurnameData, enteredSurname: string) => {
+const loadText = (data: SurnameData) => {
+	const formatedSurname = capitalize(data.surname);
 	if (!data.isBasque) {
 		return (
 			<section>
 				<p className={styles["title"]}>
-					El apellido <span>{data.surname}</span> no es de origen vasco,
+					El apellido <span>{formatedSurname}</span> no es de origen vasco,
 				</p>
 			</section>
 		);
@@ -27,7 +29,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 		return (
 			<section>
 				<p className={styles["title"]}>
-					El apellido <span>{data.surname}</span> es vasco,
+					El apellido <span>{formatedSurname}</span> es vasco,
 				</p>
 			</section>
 		);
@@ -35,7 +37,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 	return (
 		<section>
 			<p className={styles["title"]}>
-				El apellido <span>{data.surname}</span> es de origen vasco.
+				El apellido <span>{formatedSurname}</span> es de origen vasco.
 			</p>
 			{data.relations.length <= 1 ? (
 				<p className={styles["correction"]}>
@@ -70,11 +72,12 @@ const getAnalytics = (data: SurnameData): SurnameAnalytics => {
 
 const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 	const analytics = getAnalytics(data);
+	const formatedSurname = capitalize(data.surname);
 	return (
 		<div>
 			<div className={styles["main-title"]}>
 				<SurnameAsset />
-				{loadText(data, enteredSurname)}
+				{loadText(data)}
 			</div>
 			<p className={styles["reference"]}>
 				según el documento{" "}
@@ -101,23 +104,23 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 					{isNullOrUndefined(analytics.firstOnly) &&
 					isNullOrUndefined(analytics.secondOnly) &&
 					isNullOrUndefined(analytics.both) ? (
-						<AnalyticsMissing surname={data.surname} />
+						<AnalyticsMissing surname={formatedSurname} />
 					) : (
 						<>
 							<p className={styles["in-addition"]}>Además, en España...</p>
 							<div className={styles["analytics"]}>
 								<AnalyticsBox
-									surname={data.surname}
+									surname={formatedSurname}
 									type="first"
 									data={data.analytics.firstOnly!}
 								/>
 								<AnalyticsBox
-									surname={data.surname}
+									surname={formatedSurname}
 									type="second"
 									data={data.analytics.secondOnly!}
 								/>
 								<AnalyticsBox
-									surname={data.surname}
+									surname={formatedSurname}
 									type="both"
 									data={data.analytics.both!}
 								/>

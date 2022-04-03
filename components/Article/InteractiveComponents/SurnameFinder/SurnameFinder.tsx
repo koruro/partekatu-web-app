@@ -84,7 +84,7 @@ const SurnameFinder: React.FC<Props> = () => {
 		<div className={styles["surname-finder"]}>
 			<p className={styles["surname-finder__preamble"]}>
 				<b>Introduce aquí</b> tu apellido y te diremos si es de{" "}
-				<b>origen vasco</b> 😉
+				<b>origen vasco</b> 😉:
 			</p>
 			<form
 				className={styles["surname-finder__searchform"]}
