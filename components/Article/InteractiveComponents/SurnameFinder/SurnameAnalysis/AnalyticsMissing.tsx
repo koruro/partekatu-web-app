@@ -9,8 +9,7 @@ const AnalyticsMissing: React.FC<Props> = ({ surname }) => {
 		<div className={styles["analytics-missing"]}>
 			<p style={{ textAlign: "center", fontSize: "1.2rem" }}>
 				Ahora, es un <b>apellido minoritario</b>: no existen habitantes con el
-				apellido
-				<b>{surname}</b> o su frecuencia es inferior a 20 para el total
+				apellido <b>{surname}</b> o su frecuencia es inferior a 20 para el total
 				nacional. Según las{" "}
 				<a
 					target="__blank"
