@@ -18,7 +18,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 		return (
 			<section>
 				<p className={styles["title"]}>
-					El apellido <span>{data.surname}</span> no es de origen vasco
+					El apellido <span>{data.surname}</span> no es de origen vasco,
 				</p>
 			</section>
 		);
@@ -27,8 +27,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 		return (
 			<section>
 				<p className={styles["title"]}>
-					El apellido <span>{data.surname}</span> es considerado de origen
-					vasco,
+					El apellido <span>{data.surname}</span> es vasco,
 				</p>
 			</section>
 		);
@@ -40,7 +39,7 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 			</p>
 			{data.relations.length <= 1 ? (
 				<p className={styles["correction"]}>
-					Euskaltzaindia recomienda{" "}
+					Sin embargo, <i>Euskaltzaindia</i> recomienda{" "}
 					<i>
 						<b>{data.relations[0]}</b>
 					</i>{" "}
@@ -49,8 +48,8 @@ const loadText = (data: SurnameData, enteredSurname: string) => {
 			) : (
 				<>
 					<p className={styles["correction"]}>
-						Euskaltzaindia recomienda estos nombres como formas académicas
-						correctas del apellido con grafía en euskera.
+						Sin embargo, <i>Euskaltzaindia</i> recomienda estos nombres como
+						formas académicas correctas del apellido con grafía en euskera.
 					</p>
 					<div className={styles["relations"]}>
 						<ul>
@@ -123,6 +122,13 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 									data={data.analytics.both!}
 								/>
 							</div>
+							<p className={styles["reference"]}>
+								Según las{" "}
+								<a href="https://www.ine.es/widgets/nombApell/index.shtml">
+									Estadísticas del Padrón Continuo del INE
+								</a>{" "}
+								a fecha 01/01/2020.
+							</p>
 						</>
 					)}
 				</>

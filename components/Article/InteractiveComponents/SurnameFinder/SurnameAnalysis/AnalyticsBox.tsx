@@ -25,7 +25,7 @@ const AnalyticsBox: React.FC<Props> = ({ type, surname, data }) => {
 					<span>
 						No existen habitantes con{" "}
 						<i>
-							<b>{formatedNumber}</b>
+							<b>{surname}</b>
 						</i>{" "}
 						como <b>{loadTextByType(type)} apellido</b> o su frecuencia es
 						inferior a 20 para el total nacional.
