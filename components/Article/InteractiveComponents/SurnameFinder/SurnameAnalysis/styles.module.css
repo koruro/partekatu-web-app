@@ -105,7 +105,7 @@
 
 @media (min-width: 768px) {
 	.analytics {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr;
 		column-gap: 1rem;
 	}
 

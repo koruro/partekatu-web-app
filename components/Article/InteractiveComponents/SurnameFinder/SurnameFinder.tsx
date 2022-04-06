@@ -26,12 +26,7 @@ const SurnameFinder: React.FC<Props> = () => {
 
 	const handleOnSubmit = (surname: string) => {
 		if (!surname) return;
-		router.push(router.pathname, {
-			query: {
-				...router.query,
-				surname,
-			},
-		});
+
 		setResultIsLoading(true);
 		setShowAutoComplete(false);
 		surnameRepository
@@ -73,7 +68,7 @@ const SurnameFinder: React.FC<Props> = () => {
 				<SurnameAnalysis enteredSurname={typedSurname} data={result} />
 				<SurnameSuggestions
 					hrefFactory={(suggestion) =>
-						`${router.pathname}?surname=${suggestion.surname}`
+						`${router.asPath}?surname=${suggestion.surname}`
 					}
 					suggestions={result?.suggestions}
 				/>
