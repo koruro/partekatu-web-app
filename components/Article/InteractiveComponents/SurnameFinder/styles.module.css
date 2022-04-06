@@ -1,0 +1,25 @@
+.surname-finder {
+	background-color: #fcfcfc;
+	padding: 2rem 1.2rem;
+	border-radius: var(--rounded-l);
+	z-index: 2;
+	position: relative;
+	margin-bottom: 2rem;
+}
+
+.surname-finder__searchform {
+	position: relative;
+}
+
+.surname-finder__preamble {
+	font-size: 1.2rem;
+	padding: 0 0.7rem;
+	margin: 0;
+	margin-bottom:  2rem;
+}
+
+@media (min-width: 768px) {
+	.surname-finder {
+		padding: 2rem 4rem;
+	}
+}

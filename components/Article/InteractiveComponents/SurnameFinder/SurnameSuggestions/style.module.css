@@ -1,0 +1,12 @@
+.suggestions {
+	margin-top: 4rem;
+}
+
+.suggestions p {
+	font-size: 1.2em;
+	font-style: italic;
+}
+
+.suggestions a {
+	color: var(--primary);
+}
