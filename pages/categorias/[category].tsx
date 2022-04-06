@@ -7,7 +7,7 @@ import PageBox from "../../components/Page/PageBox/PageBox";
 import CategoryContainer from "../../containers/Category/CategoryContainer";
 import { Article } from "../../models/Article";
 import { Category } from "../../models/Category";
-import { articleRepository } from "../../services/bootstrap";
+import { ContentRepositoryFactory } from "../../services/bootstrap";
 import { CategoriesEnum } from "../../types/categories";
 import { ArticleMarkdownParser } from "../../utils/markdownToHtml";
 
@@ -47,7 +47,8 @@ const CategoryPage: React.FC<Props> = ({
 
 // Get all categories paths
 export const getStaticPaths: GetStaticPaths = async () => {
-	const categories = await articleRepository.getCategories();
+	const repo = ContentRepositoryFactory.createRepo();
+	const categories = await repo.getCategories();
 
 	const paths = categories
 		.filter((category) => category.slug in CategoriesDict)
@@ -63,7 +64,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	try {
 		// Fetch article and recommendations data
 		// Fetch the category by slug
-		const category = await articleRepository.getCategoryBySlug(
+		const repo = ContentRepositoryFactory.createRepo();
+		const category = await repo.getCategoryBySlug(
 			(params?.category as string) ?? ""
 		);
 
@@ -94,7 +96,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 async function getHighlightArticles(category: CategoriesEnum) {
 	try {
-		return await articleRepository.getHighlightArticles({
+		const repo = ContentRepositoryFactory.createRepo();
+		return await repo.getHighlightArticles({
 			category,
 			limit: 2,
 		});
@@ -105,7 +108,8 @@ async function getHighlightArticles(category: CategoriesEnum) {
 
 async function getNewArticles(category: CategoriesEnum, exclude: Article[]) {
 	try {
-		return await articleRepository.getArticles({
+		const repo = ContentRepositoryFactory.createRepo();
+		return await repo.getArticles({
 			category,
 			limit: 4,
 			excludeSlugs: exclude.map((highlight) => highlight.slug),

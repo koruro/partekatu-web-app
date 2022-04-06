@@ -8,7 +8,7 @@ import { CategoriesEnum } from "../../types/categories";
 import PaginationBox from "../../components/Shared/Pagination/PaginationBox";
 import styles from "./styles.module.css";
 import PageContainerBox from "../../components/Page/PageContainerBox/PageContainerBox";
-import { articleRepository } from "../../services/bootstrap";
+import { ContentRepositoryFactory } from "../../services/bootstrap";
 
 const DEFAULT_FILTER = {
 	sortBy: "createdAt",
@@ -25,6 +25,7 @@ interface Props {
 	queryProps: QueryProps;
 }
 const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
+	const repo = ContentRepositoryFactory.createRepo();
 	const router = useRouter();
 	const [searchQuery, setSearchQuery] = useState<string>("");
 	const [filter, setFilter] = useState<typeof DEFAULT_FILTER>(DEFAULT_FILTER);
@@ -45,7 +46,7 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
 
 	useEffect(() => {
 		setArticlesLoading(true);
-		articleRepository
+		repo
 			.getArticles({
 				titleStartsWith: queryProps.c,
 				category: queryProps.cat,
@@ -61,7 +62,7 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
 	}, [queryProps.c, queryProps.p, filter, queryProps.cat]);
 
 	useEffect(() => {
-		articleRepository
+		repo
 			.getNumArticles({
 				category: queryProps.cat,
 				titleStartsWith: queryProps.c,

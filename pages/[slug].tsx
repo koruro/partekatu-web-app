@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar/NavBar";
 import PageBox from "../components/Page/PageBox/PageBox";
 import ArticleContainer from "../containers/ArticleContainer";
 import { Article } from "../models/Article";
-import { articleRepository } from "../services/bootstrap";
+import { ContentRepositoryFactory } from "../services/bootstrap";
 import { ArticleMarkdownParser } from "../utils/markdownToHtml";
 
 interface Props {
@@ -24,7 +24,8 @@ const ArticlePage: React.FC<Props> = ({ article, recommendations }) => {
 
 // Get all slug paths
 export const getStaticPaths: GetStaticPaths = async () => {
-	const slugs = await articleRepository.getArticleSlugs();
+	const repo = ContentRepositoryFactory.createRepo();
+	const slugs = await repo.getArticleSlugs();
 
 	const paths = slugs.map((param) => ({
 		params: param,
@@ -36,13 +37,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // Get static props
 export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 	try {
+		const repo = ContentRepositoryFactory.createRepo(preview);
 		// Fetch article and recommendations data
-		const article = await articleRepository.getArticleBySlug(
-			params!.slug as string,
-			{ preview }
-		);
+		const article = await repo.getArticleBySlug(params!.slug as string, {
+			preview,
+		});
 
-		const recommendations = await articleRepository.getArticles({
+		const recommendations = await repo.getArticles({
 			limit: 3,
 			excludeSlugs: [article.slug],
 		});

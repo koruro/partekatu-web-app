@@ -1,9 +1,12 @@
-import { ContentfulRepository } from "./ContentfulRepository";
+import { ContentfulRepositoryFactory } from "./articles/ContentfulRepositoryFactory";
+import { ContentRepositoryFactory } from "./articles/ContentRepositoryFactory";
 import { CustomSurnameAPIRepository } from "./surname/CustomSurnameAPIRepository";
 
-const articleRepository = new ContentfulRepository();
 const surnameRepository = new CustomSurnameAPIRepository(
 	process.env.NEXT_PUBLIC_KORURO_BACKEND_URL!
 );
 
-export { articleRepository, surnameRepository };
+const ContentRepositoryFactory: ContentRepositoryFactory =
+	new ContentfulRepositoryFactory();
+
+export { ContentRepositoryFactory, surnameRepository };

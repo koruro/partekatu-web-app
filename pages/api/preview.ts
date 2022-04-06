@@ -1,14 +1,15 @@
-import { articleRepository } from "../../services/bootstrap";
+import { ContentRepositoryFactory } from "../../services/bootstrap";
 
 export default async function preview(req: any, res: any) {
 	const { secret, slug } = req.query;
 
+	const repo = ContentRepositoryFactory.createRepo(true);
 	if (secret !== process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN || !slug) {
 		return res.status(401).json({ message: "Invalid token" });
 	}
 
 	// Fetch article and recommendations data
-	const article = await articleRepository.getArticleBySlug(slug as string, {
+	const article = await repo.getArticleBySlug(slug as string, {
 		preview: true,
 	});
 

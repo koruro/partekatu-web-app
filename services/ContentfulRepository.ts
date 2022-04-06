@@ -12,19 +12,22 @@ import {
 
 export class ContentfulRepository implements ContentRepository {
 	private readonly client: ContentfulClientApi;
-	private readonly previewClient?: ContentfulClientApi;
-	constructor() {
-		this.client = createClient({
-			space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
-			accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
-		});
-		const previewToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN!;
+	private readonly isPreview?: boolean;
 
-		if (!previewToken) return;
-		this.previewClient = createClient({
-			space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
-			accessToken: previewToken,
-			host: "preview.contentful.com",
+	constructor(space: string, accessToken: string, isPreview?: boolean) {
+		this.isPreview = isPreview;
+		if (isPreview) {
+			this.client = createClient({
+				space,
+				accessToken,
+				host: "preview.contentful.com",
+			});
+			return;
+		}
+
+		this.client = createClient({
+			space,
+			accessToken,
 		});
 	}
 
@@ -97,8 +100,8 @@ export class ContentfulRepository implements ContentRepository {
 		let data;
 
 		if (_options.preview) {
-			if (!this.previewClient) throw new Error(`No preview client defined`);
-			data = await this.previewClient.getEntries(_query);
+			if (!this.isPreview) throw new Error(`No preview client defined`);
+			data = await this.client.getEntries(_query);
 		} else {
 			data = await this.client.getEntries(_query);
 		}
@@ -288,12 +291,14 @@ export class ContentfulRepository implements ContentRepository {
 
 	private mapArticleToDomain(entry: Entry<any>): Article {
 		const fields = entry.fields;
+		const mockContent =
+			"# Hola que tal\n <div id='surname-finder'></div>\n## Este es un subtitle\n ";
 
 		return {
 			id: entry.sys.id,
 			banner: fields.banner,
 			bulletPoints: fields.bulletPoints ?? null,
-			content: fields.content ?? null,
+			content: mockContent ?? null,
 			description: fields.description ?? null,
 			emoji: fields.emoji ?? null,
 			metadata: fields.metadata ?? null,

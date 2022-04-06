@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 import PageBox from "../components/Page/PageBox/PageBox";
 import HomePageContainer from "../containers/Home/HomePageContainer";
 import { Article } from "../models/Article";
-import { articleRepository } from "../services/bootstrap";
+import { ContentRepositoryFactory } from "../services/bootstrap";
 
 const headTitle =
 	"Aprende euskera desde 0 de forma fácil y visual - partekatu.com";
@@ -53,7 +53,8 @@ export async function getServerSideProps(context: any) {
 
 async function getHighlightArticles() {
 	try {
-		return await articleRepository.getHighlightArticles({
+		const repo = ContentRepositoryFactory.createRepo();
+		return await repo.getHighlightArticles({
 			limit: 2,
 		});
 	} catch (error) {
@@ -63,7 +64,8 @@ async function getHighlightArticles() {
 
 async function getNewArticles(exclude: Article[]) {
 	try {
-		return await articleRepository.getArticles({
+		const repo = ContentRepositoryFactory.createRepo();
+		return await repo.getArticles({
 			limit: 4,
 			excludeSlugs: exclude.map((highlight) => highlight.slug),
 		});
