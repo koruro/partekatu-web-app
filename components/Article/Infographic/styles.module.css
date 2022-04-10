@@ -24,6 +24,7 @@
 	border-top-left-radius: 100%;
 	border-bottom-left-radius: 100%;
 	z-index: 100;
+	color: var(--text);
 }
 
 .article-infographic__download-button-container {
