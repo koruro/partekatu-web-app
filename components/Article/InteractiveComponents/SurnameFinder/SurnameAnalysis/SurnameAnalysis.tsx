@@ -14,13 +14,64 @@ interface Props {
 	enteredSurname: string;
 }
 
+const loadDocumentReferenceText = (isBasque: boolean) => {
+	if (isBasque) {
+		return (
+			<>
+				según el documento{" "}
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://www.euskaltzaindia.eus/dok/eaeb/eoda/deiturak.pdf"
+				>
+					“Euskal Deiturak”
+				</a>
+				, publicado por la Real Academia de la Lengua Vasca - Euskaltzaindia en
+				2005, que emplea{" "}
+				<a
+					href="https://www.euskaltzaindia.eus/dok/jagonet/DeituraIzendegia_eu.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					los criterios listados aquí
+				</a>{" "}
+				para determinarlo.
+			</>
+		);
+	}
+
+	return (
+		<>
+			Dicho registro se basa en el documento{" "}
+			<a
+				target="_blank"
+				rel="noopener noreferrer"
+				href="https://www.euskaltzaindia.eus/dok/eaeb/eoda/deiturak.pdf"
+			>
+				“Euskal Deiturak”
+			</a>
+			, publicado por la Real Academia de la Lengua Vasca - Euskaltzaindia en
+			2005, que emplea{" "}
+			<a
+				href="https://www.euskaltzaindia.eus/dok/jagonet/DeituraIzendegia_eu.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				los criterios listados aquí
+			</a>{" "}
+			para determinarlo.
+		</>
+	);
+};
+
 const loadText = (data: SurnameData) => {
 	const formatedSurname = capitalize(data.surname);
 	if (!data.isBasque) {
 		return (
 			<section>
 				<p className={styles["title"]}>
-					El apellido <span>{formatedSurname}</span> no es de origen vasco,
+					El apellido <span>{formatedSurname}</span> no está en nuestra base de
+					datos de apellidos con origen vasco.
 				</p>
 			</section>
 		);
@@ -80,25 +131,9 @@ const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
 				{loadText(data)}
 			</div>
 			<p className={styles["reference"]}>
-				según el documento{" "}
-				<a
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://www.euskaltzaindia.eus/dok/eaeb/eoda/deiturak.pdf"
-				>
-					“Euskal Deiturak”
-				</a>
-				, publicado por la Real Academia de la Lengua Vasca - Euskaltzaindia en
-				2005, que emplea{" "}
-				<a
-					href="https://www.euskaltzaindia.eus/dok/jagonet/DeituraIzendegia_eu.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					los criterios listados aquí
-				</a>{" "}
-				para determinarlo.
+				{loadDocumentReferenceText(data.isBasque)}
 			</p>
+
 			{data.isBasque && (
 				<>
 					{isNullOrUndefined(analytics.firstOnly) &&

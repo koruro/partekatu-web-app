@@ -68,7 +68,7 @@ const SurnameFinder: React.FC<Props> = () => {
 				<SurnameAnalysis enteredSurname={typedSurname} data={result} />
 				<SurnameSuggestions
 					hrefFactory={(suggestion) =>
-						`${router.asPath}?surname=${suggestion.surname}`
+						`/${router.query.slug}?surname=${suggestion.surname}`
 					}
 					suggestions={result?.suggestions}
 				/>
