@@ -26,7 +26,7 @@ const MinimalArticleCard: React.FC<Props> = ({
 	large,
 }) => {
 	return (
-		<a href={`/${slug}`}>
+		<a href={`/${slug}`} style={{ color: "var(--text)" }}>
 			<div
 				className={classNames(
 					styles["article-card"],
