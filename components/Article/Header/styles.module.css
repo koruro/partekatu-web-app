@@ -57,7 +57,7 @@
 	}
 
 	.article-header__info {
-		padding: 0;
+		padding: 1rem 0;
 		justify-content: flex-start;
 		align-items: center;
 	}

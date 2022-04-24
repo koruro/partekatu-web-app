@@ -3,6 +3,7 @@ import ArticleAuthor from "../Author/ArticleAuthor";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import CategoryBox from "../../Categories/CategoryBox/CategoryBox";
+import HeadingTitleAd from "../../Ads/HeadingTitleAd";
 
 interface Props {
 	title: string;
@@ -43,7 +44,10 @@ const ArticleHeader: React.FC<Props> = ({
 					</a>
 					<ArticleAuthor author="Partekatu" readingTime={readingTime} />
 				</div>
-				<p className={styles["article-header__preamble"]}>{preamble}</p>
+				{preamble && <HeadingTitleAd />}
+				{preamble && (
+					<p className={styles["article-header__preamble"]}>{preamble}</p>
+				)}
 				<div className={styles["article-header__banner-image"]}>
 					<Image
 						title={metaTitle}
