@@ -21,7 +21,7 @@
 	height: 30px;
 	list-style-type: none;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color 0.2s;
 }
 
 .pagination-box ul li a {
@@ -31,11 +31,15 @@
 }
 
 .pagination-box ul li:hover {
-	background-color: var(--primaryLight);
+	background-color: var(--primary-light-2);
 }
 
 .pagination-box ul .selected {
 	background-color: var(--primary);
+	color: white;
+}
+
+.pagination-box ul .selected  a{
 	color: white;
 }
 
