@@ -1,15 +1,12 @@
-import { MutableRefObject } from "react";
-import PartekatuTear from "./PartekatuTear";
 import styles from "./styles.module.css";
+import ImageCardShareList from "./ShareList/ImageCardShareList";
+import ImageCardTears from "./Tears/ImageCardTears";
+import { SocialType } from "../Shared/SocialIcon";
 
 interface Props {
-	cardRef: MutableRefObject<any>;
-	originalSentence: string;
-	translatedSentece: string;
-	index?: number;
-	imgSource?: string;
+	index: number;
+	sharePathFactory: (social: SocialType) => string;
 }
-
 const getRandomCardImage = (index?: number) => {
 	const images = [
 		"https://res.cloudinary.com/partekatu/image/upload/v1644355963/gzzte_c0m8bh.png",
@@ -33,36 +30,19 @@ const getRandomCardImage = (index?: number) => {
 	return images[imageIndex];
 };
 
-const TranslatedSentenceCard: React.FC<Props> = ({
-	cardRef,
-	originalSentence,
-	translatedSentece,
-	imgSource,
+const SentenceContainer: React.FC<Props> = ({
+	children,
 	index,
+	sharePathFactory,
 }) => {
 	return (
-		<div ref={cardRef} className={styles["translated-sentence__card"]}>
-			<div className={styles["translated-sentence__tears"]}>
-				<PartekatuTear
-					width={70}
-					style={{ position: "absolute", left: "0px" }}
-				/>
-				<PartekatuTear
-					width={70}
-					style={{ position: "absolute", left: "30px" }}
-				/>
-			</div>
-			<div className={styles["translated-sentence__sentence"]}>
-				<p>{originalSentence}</p>
-				<span>{translatedSentece}</span>
-			</div>
-			{imgSource ? (
-				<img src={imgSource}></img>
-			) : (
-				<img src={getRandomCardImage(index)}></img>
-			)}
+		<div className={styles["image-card__container"]}>
+			<ImageCardShareList sharePathFactory={sharePathFactory} />
+			<ImageCardTears />
+			<div>{children}</div>
+			<img src={getRandomCardImage(index)}></img>
 		</div>
 	);
 };
 
-export default TranslatedSentenceCard;
+export default SentenceContainer;

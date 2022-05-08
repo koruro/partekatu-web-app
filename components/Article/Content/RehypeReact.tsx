@@ -2,7 +2,9 @@ import { createElement, Fragment } from "react";
 import rehypeReact from "rehype-react";
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
-import TranslatedSentence from "../../Sentences/TranslatedSentence";
+import SentenceContainer from "../../Sentences/SentenceContainer";
+import TranslatedSentenceCard from "../../Sentences/TranslatedSentence/TranslatedSentenceCard";
+import PoemCard from "../../Sentences/Poem/PoemCard";
 
 interface Props {
 	htmlContent: string;
@@ -45,7 +47,15 @@ const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
 					if (props.className === "translated-sentence") {
 						incrementIndex();
 						return createElement(
-							TranslatedSentence,
+							TranslatedSentenceCard,
+							{ index: translatedSIndex },
+							children
+						);
+					}
+					if (props.className === "poem") {
+						incrementIndex();
+						return createElement(
+							PoemCard,
 							{ index: translatedSIndex },
 							children
 						);
