@@ -1,0 +1,23 @@
+.poem {
+	text-align: left;
+	font-style: italic;
+	padding: 2rem 4rem;
+	padding-bottom: 6rem;
+}
+
+.poem p {
+	text-align: center;
+	font-size: 1.2em;
+	line-height: 3rem;
+	color: var(--text-subtle);
+	display: block;
+	margin: 0;
+}
+
+.poem span {
+	text-align: center;
+	font-size: 1.2em;
+	line-height: 3rem;
+	color: var(--text-subtle);
+	display: block;
+}

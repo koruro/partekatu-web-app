@@ -322,6 +322,35 @@
 	font-size: 1em;
 }
 
+/* BENEFIS AND DRAWBACKS LISTS */
+.benefits-list ul {
+	list-style: none;
+	padding: 0;
+}
+
+.benefits-list  li {
+    padding-left: 1rem;
+}
+
+.benefits-list li::before {
+	content: "✅";
+	margin-right: 1rem;
+}
+
+.drawbacks-list ul {
+	list-style: none;
+	padding: 0;
+}
+
+.drawbacks-list  li {
+	padding-left: 1rem;
+}
+
+.drawbacks-list li::before {
+	content: "❌";
+	margin-right: 1rem;
+}
+
 .download-file {
 	background-color: var(--warn);
 	padding: 0.4rem 1rem;
@@ -365,6 +394,8 @@
 .amazon-referal:hover {
 	border: 2px solid var(--text-subtle);
 }
+
+
 
 @media (min-width: 992px) {
 	.article-content p {
