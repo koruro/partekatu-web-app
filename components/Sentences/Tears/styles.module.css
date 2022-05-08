@@ -1,0 +1,7 @@
+.image-card-tears {
+	z-index: 1;
+	position: absolute;
+	opacity: 15%;
+	top: 20px;
+	left: 20px;
+}

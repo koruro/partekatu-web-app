@@ -1,0 +1,25 @@
+.image-card-sentence-list {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 1;
+}
+
+.image-card-sentence-list__button {
+	display: flex;
+	align-items: center;
+	border: 3px solid var(--primary);
+	border-radius: var(--rounded-l);
+	background-color: white;
+	filter: var(--shadow-elevate-1);
+}
+
+.image-card-sentence-list__button p {
+	text-align: left;
+	color: var(--text-subtle);
+	font-size: 0.9em;
+	margin: 0 1.2rem 0 0.3em;
+}
