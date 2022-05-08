@@ -1,8 +1,6 @@
-import React, { Fragment, createElement } from "react";
 import LazyHydrate from "react-lazy-hydration";
-import TranslatedSentence from "../../Sentences/TranslatedSentence";
 import RehypeReact from "./RehypeReact";
-const wrap = require("rehype-wrap-all");
+
 interface Props {
 	content: string;
 }
