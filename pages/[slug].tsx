@@ -51,7 +51,9 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 		const referencesHtmlContent = new ArticleMarkdownParser(article.references);
 
 		await htmlContent.parse();
-		await referencesHtmlContent.parse();
+		await referencesHtmlContent.parse({
+			htmlElementTransformer: { anchor: { aditionalRel: ["nofollow"] } },
+		});
 
 		const bullets = htmlContent.getBulletPoints(article.bulletPoints);
 
