@@ -29,7 +29,6 @@ const getRehypeProcessors = (options?: RehypeProcessorsOptions) => {
 	return [
 		[remarkRehype, { allowDangerousHtml: true }],
 		rehypeRaw,
-		addHeadingAd,
 		rehypeFormat,
 		[wrap, { selector: "table", wrapper: "div.table-container" }],
 		[htmlElementsTransformer, { ...options?.htmlElementTransformer }],
