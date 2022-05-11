@@ -13,23 +13,28 @@ import {
 	addHeadingAd,
 	deleteHeadingsId,
 	htmlElementsTransformer,
+	HtmlElementsTransformerOptions,
 } from "./unifiedPlugins";
+
+interface RehypeProcessorsOptions {
+	htmlElementTransformer?: HtmlElementsTransformerOptions;
+}
 
 const wrap = require("rehype-wrap-all");
 
 const getRemarkProcessors = () => {
 	return [remarkMath];
 };
-const getRehypeProcessors = () => {
+const getRehypeProcessors = (options?: RehypeProcessorsOptions) => {
 	return [
 		[remarkRehype, { allowDangerousHtml: true }],
 		rehypeRaw,
 		addHeadingAd,
 		rehypeFormat,
 		[wrap, { selector: "table", wrapper: "div.table-container" }],
-		htmlElementsTransformer,
+		[htmlElementsTransformer, { ...options?.htmlElementTransformer }],
 		[
-			rehypeAutoLink,
+			rehypeAutoLink(),
 			{
 				behavior: "before",
 				properties: { isHeadingLink: "true" },
@@ -52,8 +57,8 @@ export class ArticleMarkdownParser {
 			return acc.use(curr);
 		}, mainParser);
 	};
-	private processor = () => {
-		const processors = getRehypeProcessors();
+	private processor = (options?: RehypeProcessorsOptions) => {
+		const processors = getRehypeProcessors(options);
 
 		return processors.reduce((acc: Processor<any, any, any, void>, curr) => {
 			if (Array.isArray(curr)) {
@@ -77,8 +82,8 @@ export class ArticleMarkdownParser {
 		this.tree = this.parser().parse(content);
 	}
 
-	public async parse() {
-		this.parsedTree = await this.processor().run(this.tree);
+	public async parse(options?: RehypeProcessorsOptions) {
+		this.parsedTree = await this.processor(options).run(this.tree);
 	}
 
 	public getRawHtml() {

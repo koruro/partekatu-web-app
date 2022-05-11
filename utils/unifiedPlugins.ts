@@ -1,4 +1,29 @@
-export function htmlElementsTransformer(options = {}) {
+export interface HtmlElementsTransformerOptions {
+	anchor?: {
+		aditionalRel?: string[];
+		useNoRefNoOp?: boolean;
+	};
+}
+
+export const DEFAULT_HTML_TRANSFORMER_OPTIONS: HtmlElementsTransformerOptions =
+	{
+		anchor: {
+			aditionalRel: [],
+			useNoRefNoOp: true,
+		},
+	};
+
+export function htmlElementsTransformer(
+	options?: HtmlElementsTransformerOptions
+) {
+	const _options: Required<HtmlElementsTransformerOptions> = {
+		anchor: Object.assign(
+			{},
+			DEFAULT_HTML_TRANSFORMER_OPTIONS.anchor,
+			options?.anchor
+		),
+	};
+
 	return transformer;
 
 	function transformer(tree: any, file: any) {
@@ -26,12 +51,16 @@ export function htmlElementsTransformer(options = {}) {
 
 			// Add target blanc to anchor tangs
 			if (element.tagName === "a") {
-				const previousRels: string[] = element.properties?.rel ?? [];
+				const previousRels: string[] = element?.properties?.rel ?? [];
+				const noOpNoRefRels = _options.anchor.useNoRefNoOp
+					? ["noopener", "noreferrer"]
+					: [];
+				const aditionalRels = _options.anchor.aditionalRel ?? [];
 
 				element.properties = {
 					...element.properties,
 					target: "_blank",
-					rel: [...previousRels, "noopener", "noreferrer"],
+					rel: [...previousRels, ...noOpNoRefRels, ...aditionalRels],
 				};
 			}
 
