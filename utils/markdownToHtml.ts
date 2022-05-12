@@ -33,7 +33,7 @@ const getRehypeProcessors = (options?: RehypeProcessorsOptions) => {
 		[wrap, { selector: "table", wrapper: "div.table-container" }],
 		[htmlElementsTransformer, { ...options?.htmlElementTransformer }],
 		[
-			rehypeAutoLink(),
+			rehypeAutoLink,
 			{
 				behavior: "before",
 				properties: { isHeadingLink: "true" },
