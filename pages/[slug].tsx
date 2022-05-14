@@ -8,71 +8,72 @@ import { articleRepository } from "../services/bootstrap";
 import { ArticleMarkdownParser } from "../utils/markdownToHtml";
 
 interface Props {
-	article: Article;
-	recommendations: Article[];
+  article: Article;
+  recommendations: Article[];
 }
 
 const ArticlePage: React.FC<Props> = ({ article, recommendations }) => {
-	return (
-		<PageBox>
-			<NavBar />
-			<ArticleContainer article={article} recommendations={recommendations} />
-			<Footer />
-		</PageBox>
-	);
+  return (
+    <PageBox>
+      <NavBar />
+      <ArticleContainer article={article} recommendations={recommendations} />
+      <Footer />
+    </PageBox>
+  );
 };
 
 // Get all slug paths
 export const getStaticPaths: GetStaticPaths = async () => {
-	const slugs = await articleRepository.getArticleSlugs();
+  const slugs = await articleRepository.getArticleSlugs();
 
-	const paths = slugs.map((param) => ({
-		params: param,
-	}));
+  const paths = slugs.map((param) => ({
+    params: param,
+  }));
 
-	return { paths, fallback: false };
+  return { paths, fallback: false };
 };
 
 // Get static props
 export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
-	try {
-		// Fetch article and recommendations data
-		const article = await articleRepository.getArticleBySlug(
-			params!.slug as string,
-			{ preview }
-		);
+  if (!params?.slug) throw new Error(`No slug param found`);
+  try {
+    // Fetch article and recommendations data
+    const article = await articleRepository.getArticleBySlug(
+      params.slug as string,
+      { preview }
+    );
 
-		const recommendations = await articleRepository.getArticles({
-			limit: 3,
-			excludeSlugs: [article.slug],
-		});
+    const recommendations = await articleRepository.getArticles({
+      limit: 3,
+      excludeSlugs: [article.slug],
+    });
 
-		const htmlContent = new ArticleMarkdownParser(article.content);
-		const referencesHtmlContent = new ArticleMarkdownParser(article.references);
+    const htmlContent = new ArticleMarkdownParser(article.content);
+    const referencesHtmlContent = new ArticleMarkdownParser(article.references);
 
-		await htmlContent.parse();
-		await referencesHtmlContent.parse({
-			htmlElementTransformer: { anchor: { aditionalRel: ["nofollow"] } },
-		});
+    await htmlContent.parse();
+    await referencesHtmlContent.parse({
+      htmlElementTransformer: { anchor: { aditionalRel: ["nofollow"] } },
+    });
 
-		const bullets = htmlContent.getBulletPoints(article.bulletPoints);
+    const bullets = htmlContent.getBulletPoints(article.bulletPoints);
 
-		return {
-			props: {
-				article: {
-					...article,
-					content: htmlContent.getRawHtml(),
-					rawContent: article.content,
-					references: referencesHtmlContent.getRawHtml(),
-					bulletPoints: bullets,
-				},
-				recommendations,
-			},
-		};
-	} catch (error) {
-		console.error(error);
-		return { props: {} };
-	}
+    return {
+      props: {
+        article: {
+          ...article,
+          content: htmlContent.getRawHtml(),
+          rawContent: article.content,
+          references: referencesHtmlContent.getRawHtml(),
+          bulletPoints: bullets,
+        },
+        recommendations,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return { props: {} };
+  }
 };
 
 export default ArticlePage;

@@ -2,73 +2,81 @@ import { createElement, Fragment } from "react";
 import rehypeReact from "rehype-react";
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
-import SentenceContainer from "../../Sentences/SentenceContainer";
 import TranslatedSentenceCard from "../../Sentences/TranslatedSentence/TranslatedSentenceCard";
 import PoemCard from "../../Sentences/Poem/PoemCard";
+import RiddleCard from "../../Sentences/Riddle/RiddleCard";
 
 interface Props {
-	htmlContent: string;
+  htmlContent: string;
 }
 
 const getNodeProps = (
-	node: any
+  node: any
 ): React.ClassAttributes<HTMLElement> & { [key: string]: any } => {
-	return {
-		id: node.id,
-		className: node.className,
-		style: node.style,
-	};
+  return {
+    id: node.id,
+    className: node.className,
+    style: node.style,
+  };
 };
 
 const createCustomElement = (
-	factory: (props: any, children: any[], node: any) => JSX.Element
+  factory: (props: any, children: any[], node: any) => JSX.Element
 ) => {
-	return (node: any) => {
-		const props = getNodeProps(node);
+  return (node: any) => {
+    const props = getNodeProps(node);
 
-		return factory(props, node.children, node);
-	};
+    return factory(props, node.children, node);
+  };
 };
 
 const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
-	let translatedSIndex = 0;
+  let translatedSIndex = 0;
 
-	const incrementIndex = () => {
-		translatedSIndex++;
-	};
+  const incrementIndex = () => {
+    translatedSIndex++;
+  };
 
-	const processor = unified()
-		.use(rehypeParse, { fragment: true })
-		.use(rehypeReact, {
-			createElement,
-			Fragment,
-			components: {
-				div: createCustomElement((props, children) => {
-					if (props.className === "translated-sentence") {
-						incrementIndex();
-						return createElement(
-							TranslatedSentenceCard,
-							{ index: translatedSIndex },
-							children
-						);
-					}
-					if (props.className === "poem") {
-						incrementIndex();
-						return createElement(
-							PoemCard,
-							{ index: translatedSIndex },
-							children
-						);
-					}
-					return createElement("div", { ...props }, children);
-				}),
-			},
-			passNode: true,
-		});
+  const processor = unified()
+    .use(rehypeParse, { fragment: true })
+    .use(rehypeReact, {
+      createElement,
+      Fragment,
+      components: {
+        div: createCustomElement((props, children) => {
+          if (props.className === "translated-sentence") {
+            incrementIndex();
+            return createElement(
+              TranslatedSentenceCard,
+              { index: translatedSIndex },
+              children
+            );
+          }
+          if (props.className === "poem") {
+            incrementIndex();
+            return createElement(
+              PoemCard,
+              { index: translatedSIndex },
+              children
+            );
+          }
+          if (props.className === "riddle") {
+            incrementIndex();
+            return createElement(
+              RiddleCard,
+              { index: translatedSIndex },
+              children
+            );
+          }
+          return createElement("div", { ...props }, children);
+        }),
+      },
+      passNode: true,
+    });
 
-	const processed = processor.processSync(htmlContent);
+  const processed = processor.processSync(htmlContent);
 
-	return processed.result;
+  return processed.result;
 };
 
 export default RehypeReact;
