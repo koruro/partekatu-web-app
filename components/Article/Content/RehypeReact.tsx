@@ -31,7 +31,7 @@ const createCustomElement = (
 };
 
 const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
-	let translatedSIndex = 0;
+	let translatedSIndex = Math.floor(Math.random() * 256);
 
 	const incrementIndex = () => {
 		translatedSIndex++;
