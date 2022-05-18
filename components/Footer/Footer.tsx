@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
 					<small>
 						&copy; partekatu.com está licenciada bajo{` `}
 						<a
-							href="https://creativecommons.org/licenses/by/4.0/deed.es"
+							href="https://creativecommons.org/licenses/by-nc/4.0/"
 							target="_blank"
 							rel="noopener noreferrer"
 						>

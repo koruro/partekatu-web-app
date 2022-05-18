@@ -35,7 +35,7 @@ const EuskeraCourseContainer: React.FC<Props> = ({ articles }) => {
 								styles["euskera-course-container__welcome__text__title"]
 							}
 						>
-							<span>¡Kaixo, lagun!</span> <div className="wave">👋</div>
+							<span>Kaixo, lagun!</span> <div className="wave">👋</div>
 						</span>
 						<p>
 							<strong>
