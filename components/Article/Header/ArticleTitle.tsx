@@ -2,21 +2,21 @@ import { createElement } from "react";
 import styles from "./styles.module.css";
 
 interface Props {
-	as: any;
+  as: any;
 }
 
 const ArticleTitle: React.FC<
-	Props &
-		React.DetailedHTMLProps<
-			React.HTMLAttributes<HTMLDivElement>,
-			HTMLDivElement
-		>
+  Props &
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLDivElement>,
+      HTMLDivElement
+    >
 > = ({ children, as, ...props }) => {
-	props = {
-		...props,
-		className: [styles["article-header__title"], props.className].join(" "),
-	};
-	return createElement(as, props, children);
+  props = {
+    ...props,
+    className: [styles["article-header__title"], props.className].join(" "),
+  };
+  return createElement(as, props, children);
 };
 
 export default ArticleTitle;

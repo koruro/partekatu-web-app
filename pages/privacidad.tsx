@@ -8,16 +8,16 @@ const headTitle = "Privacidad - partekatu.com";
 const metaTitle = "Información sobre la privacidad";
 
 const PrivacyPage = () => {
-	return (
-		<>
-			<CustomHead title={headTitle} metaTitle={metaTitle} noIndex={true} />
-			<PageBox>
-				<NavBar />
-				<PrivacyPolicyContainer />
-				<Footer />
-			</PageBox>
-		</>
-	);
+  return (
+    <>
+      <CustomHead title={headTitle} metaTitle={metaTitle} noIndex={true} />
+      <PageBox>
+        <NavBar />
+        <PrivacyPolicyContainer />
+        <Footer />
+      </PageBox>
+    </>
+  );
 };
 
 export default PrivacyPage;

@@ -1,18 +1,15 @@
-import LazyHydrate from "react-lazy-hydration";
 import RehypeReact from "./RehypeReact";
 
 interface Props {
-	content: string;
+  content: string;
 }
 
 const ArticleContent: React.FC<Props> = ({ content }) => {
-	return (
-		<LazyHydrate ssrOnly>
-			<section className="article-content">
-				<RehypeReact htmlContent={content} />
-			</section>
-		</LazyHydrate>
-	);
+  return (
+    <section className="article-content">
+      <RehypeReact htmlContent={content} />
+    </section>
+  );
 };
 
 export default ArticleContent;
