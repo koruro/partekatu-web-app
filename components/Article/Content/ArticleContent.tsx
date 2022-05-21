@@ -1,3 +1,4 @@
+import LazyHydrate from "react-lazy-hydration";
 import RehypeReact from "./RehypeReact";
 
 interface Props {
@@ -6,9 +7,11 @@ interface Props {
 
 const ArticleContent: React.FC<Props> = ({ content }) => {
   return (
-    <section className="article-content">
-      <RehypeReact htmlContent={content} />
-    </section>
+    <LazyHydrate whenVisible>
+      <section className="article-content">
+        <RehypeReact htmlContent={content} />
+      </section>
+    </LazyHydrate>
   );
 };
 
