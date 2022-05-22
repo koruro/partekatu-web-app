@@ -41,7 +41,7 @@ const ArticleData: React.FC<Props> = ({
         readingTime={getReadingTime(getArticleWordCount(article.content))}
         slug={article.slug}
       />
-      <ArticleContent content={article.content} />
+      <ArticleContent slug={article.slug} content={article.content} />
       <ArticleReferedArticles articles={article.referedArticles} />
       <ArticleInfographic infographic={article.infographic} />
       <ArticleVideo videoUrl={article.videoUrl} title={article.title} />
