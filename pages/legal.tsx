@@ -8,16 +8,16 @@ const headTitle = "Aviso Legal - partekatu.com";
 const metaTitle = "Información sobre aviso legal";
 
 const LegalPage = () => {
-	return (
-		<>
-			<CustomHead title={headTitle} metaTitle={metaTitle} noIndex={true} />
-			<PageBox>
-				<NavBar />
-				<LegalAdvisorContainer />
-				<Footer />
-			</PageBox>
-		</>
-	);
+  return (
+    <>
+      <CustomHead title={headTitle} metaTitle={metaTitle} noIndex={true} />
+      <PageBox>
+        <NavBar />
+        <LegalAdvisorContainer />
+        <Footer />
+      </PageBox>
+    </>
+  );
 };
 
 export default LegalPage;
