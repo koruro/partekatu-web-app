@@ -2,11 +2,11 @@ import dynamic from "next/dynamic";
 import { ComponentType } from "react";
 
 export const ComponentDict: {
-	[key: string]: {
-		getComponent: () => ComponentType<{}>;
-	};
+  [key: string]: {
+    getComponent: () => ComponentType<any>;
+  };
 } = {
-	"surname-finder": {
-		getComponent: () => dynamic(() => import("./SurnameFinder/SurnameFinder")),
-	},
+  "surname-finder": {
+    getComponent: () => dynamic(() => import("./SurnameFinder/SurnameFinder")),
+  },
 };

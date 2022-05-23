@@ -8,16 +8,16 @@ const headTitle = "Política de Cookies | partekatu.com";
 const metaTitle = "Información sobre la política de cookies";
 
 const LegalPage = () => {
-	return (
-		<>
-			<CustomHead title={headTitle} metaTitle={metaTitle} noIndex={true} />
-			<PageBox>
-				<NavBar />
-				<CookiePolicyContainer />
-				<Footer />
-			</PageBox>
-		</>
-	);
+  return (
+    <>
+      <CustomHead title={headTitle} metaTitle={metaTitle} noIndex={true} />
+      <PageBox>
+        <NavBar />
+        <CookiePolicyContainer />
+        <Footer />
+      </PageBox>
+    </>
+  );
 };
 
 export default LegalPage;

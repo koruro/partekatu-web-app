@@ -8,6 +8,12 @@
 	margin-bottom: 1rem;
 }
 
+.image-card__children {
+	padding: 2rem 4rem;
+	padding-bottom: 5rem;
+	transition: all 0.25s ease-in-out;
+}
+
 
 .image-card__container img {
 	position: absolute;

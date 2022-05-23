@@ -10,51 +10,51 @@ import dynamic from "next/dynamic";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 interface Props {
-	article: Article;
-	recommendations: Article[];
-	showSocials?: boolean;
-	showCitation?: boolean;
+  article: Article;
+  recommendations: Article[];
+  showSocials?: boolean;
+  showCitation?: boolean;
 }
 
 const SidebarAd = dynamic(() => import("../../Ads/SidebarAd"), { ssr: false });
 const StickyFooterAd = dynamic(
-	() => import("../../Ads/StickyFooterAd/StickyFooterAd"),
-	{ ssr: false }
+  () => import("../../Ads/StickyFooterAd/StickyFooterAd"),
+  { ssr: false }
 );
 
 const ArticleWrapper: React.FC<Props> = ({
-	article,
-	recommendations,
-	showCitation,
-	showSocials,
+  article,
+  recommendations,
+  showCitation,
+  showSocials,
 }) => {
-	const isPageWide = useMediaQuery(`(min-width: 992px)`);
+  const isPageWide = useMediaQuery(`(min-width: 992px)`);
 
-	return (
-		<>
-			<div className={styles["article-wrapper"]}>
-				<ArticleData
-					article={article}
-					recommendations={recommendations}
-					showCitation={showCitation}
-					showSocials={showSocials}
-				/>
+  return (
+    <>
+      <div className={styles["article-wrapper"]}>
+        <ArticleData
+          article={article}
+          recommendations={recommendations}
+          showCitation={showCitation}
+          showSocials={showSocials}
+        />
 
-				<SideContainer>
-					<SideShare title={article.seoMetadata.metaTitle} />
-					<ArticleBullets
-						bullet_points={article.bulletPoints}
-						infographic={article.infographic}
-					/>
-					<StickyContainer>
-						{isPageWide && <SidebarAd enabled={true} />}
-					</StickyContainer>
-				</SideContainer>
-			</div>
-			{!isPageWide && <StickyFooterAd enabled={true} />}
-			{article.infographic && <InfographicButton />}
-		</>
-	);
+        <SideContainer>
+          <SideShare title={article.seoMetadata.metaTitle} />
+          <ArticleBullets
+            bullet_points={article.bulletPoints}
+            infographic={article.infographic}
+          />
+          <StickyContainer>
+            {isPageWide && <SidebarAd enabled={true} />}
+          </StickyContainer>
+        </SideContainer>
+      </div>
+      {!isPageWide && <StickyFooterAd enabled={true} />}
+      {article.infographic && <InfographicButton />}
+    </>
+  );
 };
 
 export default ArticleWrapper;
