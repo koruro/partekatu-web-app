@@ -14,7 +14,7 @@
 	border: 3px solid var(--primary);
 	border-radius: var(--rounded-l);
 	background-color: white;
-	filter: var(--shadow-elevate-1);
+	box-shadow: var(--bshadow-elevate-1);
 }
 
 .image-card-sentence-list__button p {

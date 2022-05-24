@@ -11,8 +11,11 @@
 	--text-subtle: #64666a;
 
 	/* SHADOWS */
-	--shadow-elevate-1: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
-	--shadow-elevate-2: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.09));
+	--bshadow-elevate-1: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	--bshadow-elevate-2: 0px 5px 25px rgba(0, 0, 0, 0.09);
+
+	--shadow-elevate-1: drop-shadow(var(--bshadow-elevate-1));
+	--shadow-elevate-2: drop-shadow(var(--bshadow-elevate-2));
 
 	--primary: #1870d5;
 	--primary-dark: #1357a6;
@@ -112,11 +115,11 @@ a {
 }
 /** SHADOWS */
 .elevate-1 {
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--bshadow-elevate-1);
 }
 
 .elevate-2 {
-	box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.09);
+	box-shadow: var(--bshadow-elevate-2);
 }
 
 .hoverable-elevate {

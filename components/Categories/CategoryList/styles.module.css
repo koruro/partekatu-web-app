@@ -13,7 +13,6 @@
 	box-sizing: border-box;
 	background-color: transparent;
 	padding: 0;
-	border-radius: var(--rounded-l);
 	margin-right: 0rem;
 	margin-bottom: 1rem;
 }
@@ -38,6 +37,7 @@
 	.category-list-box {
 		background-color: var(--primary-light-2);
 		/* border: 3px solid var(--primary); */
+		box-shadow: var(--bshadow-elevate-1);
 		padding: 0.4rem 1rem;
 		border-radius: var(--rounded-l);
 	}
