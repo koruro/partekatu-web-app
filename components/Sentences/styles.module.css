@@ -14,8 +14,7 @@
 	transition: all 0.25s ease-in-out;
 }
 
-
-.image-card__container img {
+.image-card__image {
 	position: absolute;
 	bottom: 0;
 	width: 100%;

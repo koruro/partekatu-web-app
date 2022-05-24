@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import ImageCardShareList from "./ShareList/ImageCardShareList";
 import ImageCardTears from "./Tears/ImageCardTears";
 import { SocialType } from "../Shared/SocialIcon";
+import Image from "next/image";
 
 interface Props {
   index: number;
@@ -60,7 +61,14 @@ const SentenceContainer: React.FC<Props> = ({
       )}
       {_showTears && <ImageCardTears />}
       <div className={styles["image-card__children"]}>{children}</div>
-      <img src={getRandomCardImage(index)}></img>
+      <div className={styles["image-card__image"]}>
+        <Image
+          src={getRandomCardImage(index)}
+          alt=""
+          layout="fill"
+          objectFit="cover"
+        ></Image>
+      </div>
     </div>
   );
 };
