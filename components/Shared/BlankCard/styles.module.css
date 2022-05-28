@@ -1,0 +1,13 @@
+.blank-card__tag {
+	z-index: 1;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+@media (min-width: 768px) {
+	.blank-card__tag {
+		right: -10px;
+		top: -10px;
+	}
+}
