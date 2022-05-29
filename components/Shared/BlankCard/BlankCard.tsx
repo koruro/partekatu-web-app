@@ -1,17 +1,30 @@
 import React from "react";
-import { CategoriesEnum } from "../../../types/categories";
-import CategoryBox from "../../Categories/CategoryBox/CategoryBox";
 import styles from "./styles.module.css";
 
-const BlankCard: React.FC = ({ children }) => {
+interface BlankCardProps {
+  className?: string;
+  rounded?: "s" | "l";
+}
+
+const defaultClassName = "elevate-2";
+const defaultRounded = "s";
+
+const BlankCard: React.FC<BlankCardProps> = ({
+  children,
+  className,
+  rounded,
+}) => {
   return (
     <div
       style={{
         backgroundColor: "white",
-        borderRadius: "var(--rounded-s)",
+        borderRadius: `var(--rounded-${rounded ?? defaultRounded})`,
         position: "relative",
+        height: "100%",
       }}
-      className="elevate-2"
+      className={
+        className ? [defaultClassName, className].join(" ") : defaultClassName
+      }
     >
       {children}
     </div>
@@ -20,13 +33,19 @@ const BlankCard: React.FC = ({ children }) => {
 
 export default BlankCard;
 
-export const TaggedBlankCard: React.FC = ({ children }) => {
+interface TaggedBlankCardProps extends BlankCardProps {
+  renderTag: () => JSX.Element;
+}
+
+export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
+  children,
+  renderTag,
+  ...props
+}) => {
   return (
-    <div style={{ position: "relative" }}>
-      <div className={styles["blank-card__tag"]}>
-        <CategoryBox category={CategoriesEnum.BLOG} />
-      </div>
-      <BlankCard>{children}</BlankCard>
+    <div style={{ position: "relative", height: "100%" }}>
+      <div className={styles["blank-card__tag"]}>{renderTag()}</div>
+      <BlankCard {...props}>{children}</BlankCard>
     </div>
   );
 };

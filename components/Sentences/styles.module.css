@@ -1,11 +1,11 @@
-.image-card__container {
-	position: relative;
+.sentence-card__container {
+	/* position: relative; */
 	margin: 2rem 1rem;
-	background-color: white;
+	/* background-color: white;
 	border-radius: var(--rounded-l);
 	box-shadow: var(--bshadow-elevate-2);
 	overflow: hidden;
-	margin-bottom: 1rem;
+	margin-bottom: 1rem; */
 }
 
 .image-card__children {

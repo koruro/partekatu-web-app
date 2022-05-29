@@ -1,13 +1,10 @@
-import classNames from "classnames";
-import { createElement } from "react";
 import { CategoriesEnum } from "../../../types/categories";
+import TagBox, { TagBoxProps } from "../../Shared/TagBox/TagBox";
 import { CategoriesDict } from "../categories";
 import styles from "./styles.module.css";
 
-interface Props {
+interface Props extends TagBoxProps {
   category: CategoriesEnum;
-  hoverAnimation?: boolean;
-  as?: "h2" | "span";
 }
 
 const CategoryBox: React.FC<
@@ -16,19 +13,14 @@ const CategoryBox: React.FC<
     HTMLParagraphElement
   > &
     Props
-> = ({ category, hoverAnimation, as, ...props }) => {
-  return createElement(
-    as ?? "span",
-    {
-      className: classNames(
-        styles["category-box"],
-        "button-padding-1",
-        "elevate-1",
-        styles[`category--${CategoriesDict[category].slug}`],
-        { [styles["category-box_hover"]]: hoverAnimation }
-      ),
-    },
-    CategoriesDict[category].text
+> = ({ category, as }) => {
+  return (
+    <TagBox
+      as={as}
+      className={styles[`category--${CategoriesDict[category].slug}`]}
+    >
+      {CategoriesDict[category].text}
+    </TagBox>
   );
 };
 
