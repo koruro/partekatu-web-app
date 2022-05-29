@@ -5,6 +5,7 @@ import rehypeParse from "rehype-parse";
 import TranslatedSentenceCard from "../../Sentences/TranslatedSentence/TranslatedSentenceCard";
 import PoemCard from "../../Sentences/Poem/PoemCard";
 import RiddleCard from "../../Sentences/Riddle/RiddleCard";
+import VideoReviewCard from "../../Sentences/VideoReview/VideoReviewCard";
 
 interface Props {
   htmlContent: string;
@@ -67,6 +68,10 @@ const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
               { index: translatedSIndex },
               children
             );
+          }
+          if (props.className === "video-review") {
+            incrementIndex();
+            return createElement(VideoReviewCard, {}, children);
           }
           return createElement("div", { ...props }, children);
         }),

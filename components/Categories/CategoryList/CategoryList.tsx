@@ -34,7 +34,6 @@ const CategoryList: React.FC<Props> = ({ className, categoryAs, inColumn }) => {
             <CategoryBox
               as={categoryAs ?? "span"}
               category={category as CategoriesEnum}
-              hoverAnimation={true}
             />
           </a>
         ))}
