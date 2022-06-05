@@ -34,7 +34,7 @@ const BlankCard: React.FC<BlankCardProps> = ({
 export default BlankCard;
 
 interface TaggedBlankCardProps extends BlankCardProps {
-  renderTag: () => JSX.Element;
+  renderTag?: () => JSX.Element;
 }
 
 export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
@@ -44,7 +44,9 @@ export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
 }) => {
   return (
     <div style={{ position: "relative", height: "100%" }}>
-      <div className={styles["blank-card__tag"]}>{renderTag()}</div>
+      {renderTag && (
+        <div className={styles["blank-card__tag"]}>{renderTag()}</div>
+      )}
       <BlankCard {...props}>{children}</BlankCard>
     </div>
   );
