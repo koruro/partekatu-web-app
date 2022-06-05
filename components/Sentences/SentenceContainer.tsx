@@ -2,6 +2,8 @@ import styles from "./styles.module.css";
 import ImageCardShareList from "./ShareList/ImageCardShareList";
 import ImageCardTears from "./Tears/ImageCardTears";
 import { SocialType } from "../Shared/SocialIcon";
+import Image from "next/image";
+import BlankCard from "../Shared/BlankCard/BlankCard";
 
 interface Props {
   index: number;
@@ -54,14 +56,21 @@ const SentenceContainer: React.FC<Props> = ({
 }) => {
   const _showTears = showTears === undefined ? true : showTears;
   return (
-    <div className={styles["image-card__container"]}>
+    <BlankCard rounded="l" className={styles["sentence-card__container"]}>
       {sharePathFactory && (
         <ImageCardShareList sharePathFactory={sharePathFactory} />
       )}
       {_showTears && <ImageCardTears />}
       <div className={styles["image-card__children"]}>{children}</div>
-      <img src={getRandomCardImage(index)}></img>
-    </div>
+      <div className={styles["image-card__image"]}>
+        <Image
+          src={getRandomCardImage(index)}
+          alt=""
+          layout="fill"
+          objectFit="cover"
+        ></Image>
+      </div>
+    </BlankCard>
   );
 };
 
