@@ -1,8 +1,9 @@
 import VideoReview from "./VideoReview";
 
 const VideoReviewCard: React.FC = ({ children }) => {
-  const title = (children as any[]).find((c) => c.type === "h2")?.props
-    ?.children[0];
+  const title = (children as any[]).find(
+    (c) => c.type === "h2" || c.type === "h3"
+  )?.props?.children[0];
   const author = (children as any[]).find(
     (c) => c.props?.className === "author"
   )?.props?.children[0];
@@ -14,7 +15,7 @@ const VideoReviewCard: React.FC = ({ children }) => {
   )?.props?.children[0];
   const year = (children as any[]).find((c) => c.props?.className === "year")
     ?.props?.children[0];
-  const imgUrl = (children as any[]).find((c) => c.type === "img")?.props?.src;
+  const img = (children as any[]).find((c) => c.type === "img")?.props;
   const review = (children as any[])
     .filter((c) => c.type === "p")
     .map((c) => c?.props?.children);
@@ -31,7 +32,7 @@ const VideoReviewCard: React.FC = ({ children }) => {
       category={category}
       duration={duration}
       year={year}
-      imgUrl={imgUrl}
+      img={img}
       review={review}
       viewUrl={viewUrl}
       reviewUrl={reviewsUrl}

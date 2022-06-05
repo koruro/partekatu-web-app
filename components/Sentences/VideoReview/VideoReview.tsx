@@ -7,7 +7,7 @@ interface Props {
   author: string;
   year: string;
   duration: string;
-  imgUrl: string;
+  img: { src: string; alt: string; title: string };
   category: string;
   review: string[];
   viewUrl?: string;
@@ -19,7 +19,7 @@ const VideoReview: React.FC<Props> = ({
   author,
   year,
   duration,
-  imgUrl,
+  img,
   category,
   review,
   viewUrl,
@@ -31,10 +31,19 @@ const VideoReview: React.FC<Props> = ({
       rounded="l"
       renderTag={() => <TagBox>{category}</TagBox>}
     >
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       <span className={styles["video-review__author"]}>{author}</span>
       <div className={styles["video-review__corpus"]}>
-        <img src={imgUrl} />
+        {img && (
+          <img
+            src={img.src}
+            alt={img.alt}
+            title={img.title}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+
         <section>
           {review.map((r, i) => (
             <p key={i}>{r}</p>

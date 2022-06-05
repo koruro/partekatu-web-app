@@ -9,7 +9,7 @@
 	justify-self: center;
 }
 
-.video-review h2 {
+.video-review h3 {
 	background-color: transparent;
 	color: var(--text);
 	display: block;
