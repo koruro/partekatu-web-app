@@ -8,7 +8,7 @@ interface Props {
   year: string;
   duration: string;
   img: { src: string; alt: string; title: string };
-  category: string;
+  category?: string;
   review: string[];
   viewUrl?: string;
   reviewUrl?: string;
@@ -29,7 +29,7 @@ const VideoReview: React.FC<Props> = ({
     <TaggedBlankCard
       className={styles["video-review"]}
       rounded="l"
-      renderTag={() => <TagBox>{category}</TagBox>}
+      renderTag={category ? () => <TagBox>{category}</TagBox> : undefined}
     >
       <h3>{title}</h3>
       <span className={styles["video-review__author"]}>{author}</span>
