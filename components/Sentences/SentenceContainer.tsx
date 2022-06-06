@@ -63,12 +63,12 @@ const SentenceContainer: React.FC<Props> = ({
       {_showTears && <ImageCardTears />}
       <div className={styles["image-card__children"]}>{children}</div>
       <div className={styles["image-card__image"]}>
-        <Image
+        <img
           src={getRandomCardImage(index)}
           alt=""
-          layout="fill"
-          objectFit="cover"
-        ></Image>
+          decoding="async"
+          loading="lazy"
+        ></img>
       </div>
     </BlankCard>
   );

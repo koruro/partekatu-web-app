@@ -1,6 +1,6 @@
 .sentence-card__container {
 	/* position: relative; */
-	margin: 2rem 1rem;
+	margin: 2rem 0.5rem;
 	/* background-color: white;
 	border-radius: var(--rounded-l);
 	box-shadow: var(--bshadow-elevate-2);
@@ -14,7 +14,7 @@
 	transition: all 0.25s ease-in-out;
 }
 
-.image-card__image {
+.sentence-card__container img {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -34,7 +34,7 @@
 
 
 @media (min-width: 992px) {
-	.image-card__container {
-		margin: 2rem 1.6rem;
+	.sentence-card__container{
+		margin: 2rem 0rem;
 	}
 }
