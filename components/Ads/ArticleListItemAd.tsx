@@ -14,16 +14,14 @@ const ArticleListItemAd: React.FC = () => {
     } catch (err) {}
   }, [asPath]);
   return (
-    <div
-      key="article-list-item-ad"
-      id="article-list-item-ad"
-      style={{ maxHeight: "200px", width: "100%" }}
-    >
+    <div key="article-list-item-ad" id="article-list-item-ad">
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
+        data-ad-format="fluid"
+        data-ad-layout-key="-63+c5-t-4i+pg"
         data-ad-client="ca-pub-8498524881106051"
-        data-ad-slot="5681785441"
+        data-ad-slot="6522710932"
       ></ins>
     </div>
   );
