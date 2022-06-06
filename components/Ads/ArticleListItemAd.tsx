@@ -14,7 +14,11 @@ const ArticleListItemAd: React.FC = () => {
     } catch (err) {}
   }, [asPath]);
   return (
-    <div key="article-list-item-ad" id="article-list-item-ad">
+    <div
+      key="article-list-item-ad"
+      id="article-list-item-ad"
+      style={{ maxHeight: "200px" }}
+    >
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
