@@ -3,6 +3,7 @@ import ArticleSkeletonCard from "../ArticleCard/Skeleton/ArticleSkeletonCard";
 import styles from "./styles.module.css";
 import { Article } from "../../../models/Article";
 import classNames from "classnames";
+import ArticleListItemAd from "../../Ads/ArticleListItemAd";
 
 interface Props {
   data: Article[];
@@ -31,24 +32,26 @@ const ArticleList: React.FC<Props> = ({
       </div>
     );
   if (!data) return null;
+  const articles = data.map((article) => (
+    <ArticleCard
+      key={article.id}
+      banner={article.banner}
+      category={article.category}
+      emoji={article.emoji}
+      title={article.title}
+      altTitle={article.metadata.title_alt}
+      description={article.description}
+      slug={article.slug}
+    />
+  ));
+  articles.splice(2, 0, <ArticleListItemAd />);
   return (
     <div
       className={classNames(styles["articles-list"], {
         [`${styles["articles-list--use-grid"]}`]: useGrid ?? true,
       })}
     >
-      {data.map((article) => (
-        <ArticleCard
-          key={article.id}
-          banner={article.banner}
-          category={article.category}
-          emoji={article.emoji}
-          title={article.title}
-          altTitle={article.metadata.title_alt}
-          description={article.description}
-          slug={article.slug}
-        />
-      ))}
+      {articles}
     </div>
   );
 };
