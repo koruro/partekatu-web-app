@@ -17,15 +17,13 @@ const ArticleListItemAd: React.FC = () => {
     <div
       key="article-list-item-ad"
       id="article-list-item-ad"
-      style={{ maxHeight: "200px" }}
+      style={{ maxHeight: "200px", width: "100%" }}
     >
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-8498524881106051"
         data-ad-slot="5681785441"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
       ></ins>
     </div>
   );
