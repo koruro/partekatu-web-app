@@ -65,6 +65,7 @@ const SentenceContainer: React.FC<Props> = ({
       <div className={styles["image-card__image"]}>
         <img
           src={getRandomCardImage(index)}
+          alt=""
           decoding="async"
           loading="lazy"
         ></img>
