@@ -1,6 +1,6 @@
 .video-review {
 	padding: 2rem;
-	margin-bottom: 3rem;
+	margin: 2rem 0.5rem;
 }
 
 .video-review img{
@@ -59,6 +59,7 @@
 @media (min-width: 768px) {
 	.video-review {
 		padding: 2rem 3rem;
+		margin: 2rem 0;
 	}
 	
 	.video-review__corpus{
