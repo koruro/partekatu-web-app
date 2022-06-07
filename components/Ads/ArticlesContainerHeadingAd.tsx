@@ -26,8 +26,7 @@ const ArticlesContainerHeadingAd: React.FC = () => {
           display: "block",
           textAlign: "center",
         }}
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
+        data-ad-format="auto"
         data-full-width-responsive="true"
         data-ad-client="ca-pub-8498524881106051"
       ></ins>
