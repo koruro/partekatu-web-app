@@ -37,7 +37,6 @@ const ArticleListItemAd: React.FC = () => {
             height: "180px",
             maxHeight: "180px",
           }}
-          data-full-width-responsive="true"
           data-ad-client="ca-pub-8498524881106051"
         ></ins>
       </div>
