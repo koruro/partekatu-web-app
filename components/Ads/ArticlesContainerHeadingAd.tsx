@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
-const ArticleListItemAd: React.FC = () => {
+const ArticlesContainerHeadingAd: React.FC = () => {
   const { asPath } = useRouter();
 
   useEffect(() => {
@@ -14,12 +14,15 @@ const ArticleListItemAd: React.FC = () => {
     } catch (err) {}
   }, [asPath]);
   return (
-    <div key="article-list-item-ad" id="article-list-item-ad">
+    <div key="articles-heading-ad" id="articles-heading-ad">
       <ins
         className="adsbygoogle"
-        style={{ display: "block", height: "300px" }}
+        style={{
+          display: "block",
+          textAlign: "center",
+        }}
         data-ad-client="ca-pub-8498524881106051"
-        data-ad-slot="5681785441"
+        data-ad-slot="6787602106"
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
@@ -27,4 +30,4 @@ const ArticleListItemAd: React.FC = () => {
   );
 };
 
-export default ArticleListItemAd;
+export default ArticlesContainerHeadingAd;
