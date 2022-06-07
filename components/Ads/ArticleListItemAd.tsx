@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import { TaggedBlankCard } from "../Shared/BlankCard/BlankCard";
+import TagBox from "../Shared/TagBox/TagBox";
 
 const ArticleListItemAd: React.FC = () => {
   const { asPath } = useRouter();
@@ -14,24 +16,26 @@ const ArticleListItemAd: React.FC = () => {
     } catch (err) {}
   }, [asPath]);
   return (
-    <div
-      key="article-list-item-ad"
-      id="article-list-item-ad"
-      style={{ display: "block", width: "100%" }}
-    >
-      <ins
-        data-ad-slot="5681785441"
-        className="adsbygoogle"
-        style={{
-          display: "block",
-          textAlign: "center",
-          height: "180px",
-        }}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-        data-ad-client="ca-pub-8498524881106051"
-      ></ins>
-    </div>
+    <TaggedBlankCard renderTag={() => <TagBox>Anuncio</TagBox>}>
+      <div
+        key="article-list-item-ad"
+        id="article-list-item-ad"
+        style={{ display: "block", width: "100%", minHeight: "50px" }}
+      >
+        <ins
+          data-ad-slot="5681785441"
+          className="adsbygoogle"
+          style={{
+            display: "block",
+            textAlign: "center",
+            height: "180px",
+          }}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+          data-ad-client="ca-pub-8498524881106051"
+        ></ins>
+      </div>
+    </TaggedBlankCard>
   );
 };
 
