@@ -25,7 +25,7 @@ const ArticleListItemAd: React.FC = () => {
         style={{
           display: "block",
           textAlign: "center",
-          height: "300px",
+          height: "180px",
         }}
         data-ad-format="auto"
         data-full-width-responsive="true"

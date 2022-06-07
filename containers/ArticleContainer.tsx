@@ -9,35 +9,35 @@ import ErrorArticleContainer from "./Error/ErrorArticleContainer";
 import { genArticleStructuredData } from "../utils/structuredData";
 
 interface Props {
-	article: Article;
-	recommendations: Article[];
+  article: Article;
+  recommendations: Article[];
 }
 
 const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
-	const metaDesc = article?.description
-		? article?.description
-		: "Descripcion de ejemplo";
-	const metaImage = article.banner;
-	const router = useRouter();
+  const metaDesc = article?.description
+    ? article?.description
+    : "Descripcion de ejemplo";
+  const metaImage = article.banner;
+  const router = useRouter();
 
-	if (router.isFallback) return <LoadingRing />;
-	if (!article) return <ErrorArticleContainer />;
+  if (router.isFallback) return <LoadingRing />;
+  if (!article) return <ErrorArticleContainer />;
 
-	return (
-		<>
-			<CustomHead
-				title={article?.metadata.meta_title}
-				metaTitle={article?.metadata.meta_title}
-				metaDesc={metaDesc}
-				imgUrl={metaImage}
-				structuredData={genArticleStructuredData(article)}
-			/>
-			<PageContainerBox breakLimit="xl">
-				<ArticleWrapper article={article} recommendations={recommendations} />
-			</PageContainerBox>
-			<DynamicComponentLoader />
-		</>
-	);
+  return (
+    <>
+      <CustomHead
+        title={article?.metadata.meta_title}
+        metaTitle={article?.metadata.meta_title}
+        metaDesc={metaDesc}
+        imgUrl={metaImage}
+        structuredData={genArticleStructuredData(article)}
+      />
+      <PageContainerBox breakLimit="xl">
+        <ArticleWrapper article={article} recommendations={recommendations} />
+      </PageContainerBox>
+      <DynamicComponentLoader />
+    </>
+  );
 };
 
 export default ArticleContainer;
