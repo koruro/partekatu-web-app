@@ -20,7 +20,12 @@ const ArticleListItemAd: React.FC = () => {
       <div
         key="article-list-item-ad"
         id="article-list-item-ad"
-        style={{ display: "block", width: "100%", minHeight: "50px" }}
+        style={{
+          display: "block",
+          width: "100%",
+          minHeight: "50px",
+          maxHeight: "180px",
+        }}
       >
         <ins
           data-ad-slot="5681785441"
@@ -28,7 +33,9 @@ const ArticleListItemAd: React.FC = () => {
           style={{
             display: "block",
             textAlign: "center",
+            minHeight: "50px",
             height: "180px",
+            maxHeight: "180px",
           }}
           data-ad-format="auto"
           data-full-width-responsive="true"
