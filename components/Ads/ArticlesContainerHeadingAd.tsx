@@ -17,18 +17,19 @@ const ArticlesContainerHeadingAd: React.FC = () => {
     <div
       key="articles-heading-ad"
       id="articles-heading-ad"
-      style={{ maxWidth: "800px" }}
+      style={{ display: "block", width: "100%" }}
     >
       <ins
+        data-ad-slot="6787602106"
         className="adsbygoogle"
         style={{
           display: "block",
           textAlign: "center",
         }}
-        data-ad-client="ca-pub-8498524881106051"
-        data-ad-slot="6787602106"
-        data-ad-format="auto"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
         data-full-width-responsive="true"
+        data-ad-client="ca-pub-8498524881106051"
       ></ins>
     </div>
   );
