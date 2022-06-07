@@ -44,7 +44,7 @@ const ArticleList: React.FC<Props> = ({
       slug={article.slug}
     />
   ));
-  // articles.splice(2, 0, <ArticleListItemAd />);
+  articles.splice(2, 0, <ArticleListItemAd />);
   return (
     <div
       className={classNames(styles["articles-list"], {
