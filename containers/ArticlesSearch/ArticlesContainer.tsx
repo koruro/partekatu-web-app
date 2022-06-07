@@ -16,7 +16,7 @@ const DEFAULT_FILTER = {
   order: "DESC",
 };
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 8;
 
 const getNumPages = (totalArticles: number, pageSize: number) => {
   return Math.ceil(totalArticles / pageSize);
