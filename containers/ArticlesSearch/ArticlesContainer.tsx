@@ -131,9 +131,9 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
               nextLabel={">"}
               forcePage={queryProps.p ?? 0}
               initialPage={queryProps.p ?? 0}
-              marginPagesDisplayed={2}
+              marginPagesDisplayed={1}
               pageCount={getNumPages(numArticles, PAGE_SIZE)}
-              pageRangeDisplayed={5}
+              pageRangeDisplayed={3}
               onPageChange={(data) => {
                 router.push({
                   pathname: "/articulos",
