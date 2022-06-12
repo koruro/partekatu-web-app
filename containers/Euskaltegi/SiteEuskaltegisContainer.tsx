@@ -9,17 +9,20 @@ interface Props {
 const SiteEuskaltegisContainer: React.FC<Props> = ({ euskaltegis }) => {
   return (
     <PageContainerBox breakLimit="xl">
-      <div
-        style={{
-          padding: ".7rem",
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          rowGap: "1rem",
-        }}
-      >
-        {euskaltegis.map((euskaltegi, index) => (
-          <EuskaltegiCard key={index} euskaltegi={euskaltegi} />
-        ))}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 500px" }}>
+        <div style={{ background: "red" }}></div>
+        <div
+          style={{
+            padding: ".7rem",
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            rowGap: "1rem",
+          }}
+        >
+          {euskaltegis.map((euskaltegi, index) => (
+            <EuskaltegiCard key={index} euskaltegi={euskaltegi} />
+          ))}
+        </div>
       </div>
     </PageContainerBox>
   );

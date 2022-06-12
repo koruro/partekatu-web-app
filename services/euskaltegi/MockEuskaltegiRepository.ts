@@ -32,6 +32,20 @@ export class MockEuskaltegiRepository implements EuskaltegiRepository {
         websiteUrl: "https://udala.tolosa.eus/eu/aitzol-udal-euskaltegia",
         net: "AEK",
       },
+      {
+        province: "Gipuzkoa",
+        city: place,
+        address: "My adress",
+        imgUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/b/bc/IKAren_ikurra.jpg",
+        mailContact: "euskaltegi@email.com",
+        name: "Altza Euskaltegia",
+        phone: "943400316",
+        postalCode: "01005",
+        coordinates: { lat: 42, long: 23 },
+        websiteUrl: "https://udala.tolosa.eus/eu/aitzol-udal-euskaltegia",
+        net: "AEK",
+      },
     ];
   }
   async getAllPlaces(): Promise<string[]> {
