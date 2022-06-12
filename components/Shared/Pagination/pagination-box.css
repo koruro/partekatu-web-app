@@ -2,6 +2,7 @@
 	background-color: white;
 	border-radius: var(--rounded-l);
 	font-weight: bold;
+	width: 100%;
 }
 
 .pagination-box ul {
@@ -45,4 +46,11 @@
 
 .pagination-box ul .selected:hover {
 	background-color: var(--primary);
+}
+
+
+@media (min-width: 768px) {
+	.pagination-box {
+		width: fit-content;
+	}
 }

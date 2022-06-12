@@ -28,6 +28,7 @@ const HomePageContainer: React.FC<Props> = ({
           newArticles={newArticles}
           highlightedArticles={highlightedArticles}
         />
+
         <ButtonLink
           href="articulos"
           className={styles["home__button"]}

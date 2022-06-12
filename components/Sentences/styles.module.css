@@ -1,11 +1,11 @@
-.image-card__container {
-	position: relative;
-	margin: 2rem 1rem;
-	background-color: white;
+.sentence-card__container {
+	/* position: relative; */
+	margin: 2rem 0.5rem;
+	/* background-color: white;
 	border-radius: var(--rounded-l);
-	filter: var(--shadow-elevate-2);
+	box-shadow: var(--bshadow-elevate-2);
 	overflow: hidden;
-	margin-bottom: 1rem;
+	margin-bottom: 1rem; */
 }
 
 .image-card__children {
@@ -14,8 +14,7 @@
 	transition: all 0.25s ease-in-out;
 }
 
-
-.image-card__container img {
+.sentence-card__container img {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -29,20 +28,13 @@
 		from(rgba(0, 0, 0, 1)),
 		to(rgba(0, 0, 0, 0))
 	);
+	border-radius: 0 0 var(--rounded-l) var(--rounded-l);
 	user-select: none;
-	/* -webkit-mask-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		from(rgba(0, 0, 0, 1)),
-		to(rgba(0, 0, 0, 0))
-	); */
 }
 
 
-
 @media (min-width: 992px) {
-	.image-card__container {
-		margin: 2rem 1.6rem;
+	.sentence-card__container{
+		margin: 2rem 0rem;
 	}
 }

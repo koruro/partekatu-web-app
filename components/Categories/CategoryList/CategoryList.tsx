@@ -20,7 +20,7 @@ const CategoryList: React.FC<Props> = ({ className, categoryAs, inColumn }) => {
   return (
     <div className={classNames(styles["container"], className)}>
       <div
-        className={classNames(styles["category-list-box"], "elevate-2", {
+        className={classNames(styles["category-list-box"], {
           [styles["category-list-box--wrap"]]: !inColumn,
           [styles["category-list-box--column"]]: inColumn,
         })}
@@ -34,7 +34,6 @@ const CategoryList: React.FC<Props> = ({ className, categoryAs, inColumn }) => {
             <CategoryBox
               as={categoryAs ?? "span"}
               category={category as CategoriesEnum}
-              hoverAnimation={true}
             />
           </a>
         ))}

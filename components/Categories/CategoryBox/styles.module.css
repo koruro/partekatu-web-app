@@ -9,13 +9,13 @@
 }
 
 .category--gramar {
-	background: var(--gramar-gradient);
+	background: var(--gramar-gradient) !important;
 }
 
 .category--blog {
-	background: var(--blog-gradient);
+	background: var(--blog-gradient) !important;
 }
 
 .category--vocabulary {
-	background: var(--vocabulary-gradient);
+	background: var(--vocabulary-gradient) !important;
 }
