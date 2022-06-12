@@ -62,6 +62,11 @@
 	--tecnology: var(--primary);
 	--tecnology-c1: #3f9590;
 
+	--primary-gradient: linear-gradient(
+		270deg, 
+		var(--spanish) 3.12%, 
+		var(--spanish-c1) 100%
+	);
 	--gramar-gradient: linear-gradient(
 		270deg,
 		var(--gramar) 3.12%,
@@ -91,6 +96,8 @@ body {
 
 	background-color: #f4f5f9;
 }
+
+p { max-width: 75ch }
 
 a {
 	color: inherit;

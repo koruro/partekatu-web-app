@@ -85,7 +85,7 @@
 	.video-review img{
 		max-width: 280px;
 		margin: 0;
-		align-self: center;
+		align-self: start;
 		justify-self: self-start;
 	}
 }

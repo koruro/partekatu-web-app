@@ -8,6 +8,10 @@ export interface Coordinates {
   long: number;
 }
 
+export interface Rating {
+  stars: number;
+}
+
 export interface Euskaltegi {
   name: string;
   websiteUrl: string;
@@ -19,4 +23,5 @@ export interface Euskaltegi {
   postalCode: string;
   coordinates: Coordinates;
   imgUrl: string;
+  net: string;
 }
