@@ -18,14 +18,12 @@ const TagBox: React.FC<TagBoxProps> = ({
       style: {
         textTransform: "capitalize",
         color: "white",
-        background:
-          "linear-gradient(270deg, var(--spanish) 3.12%, var(--spanish-c1) 100%)",
+        background: "var(--primary-gradient)",
         margin: 0,
         fontSize: "1rem",
         fontWeight: "bold",
         borderRadius: "var(--rounded-l)",
         display: "inline-block",
-        width: "100%",
       },
       className: classNames("button-padding-1", "elevate-1", className),
       ...props,
