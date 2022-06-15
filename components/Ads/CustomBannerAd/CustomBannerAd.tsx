@@ -8,6 +8,7 @@ const CustomBannerAd = () => {
       target="__blank"
       rel="noopener noreferrer"
       className={styles["custom-banner-ad"]}
+      id="aek-banner"
     >
       <picture>
         <source
