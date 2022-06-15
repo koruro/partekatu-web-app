@@ -1,0 +1,5 @@
+.custom-banner-ad {
+	/* width: 100%; */
+	display: flex;
+	justify-content: center;
+}
