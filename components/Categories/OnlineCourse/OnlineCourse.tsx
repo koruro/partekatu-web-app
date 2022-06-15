@@ -11,6 +11,7 @@ const OnlineCourse = () => {
           "button-padding-1",
           "elevate-1"
         )}
+        id="online-course-button"
       >
         Curso Online
       </a>
