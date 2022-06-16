@@ -18,6 +18,7 @@ const CustomBannerAd = () => {
         <img
           src="https://res.cloudinary.com/koruro/image/upload/Banners/11_Aurematri_300X250_elebi_ljvcho.gif"
           alt="Prematricula curso aek oferta especial"
+          style={{ maxWidth: "100%" }}
         />
       </picture>
     </a>
