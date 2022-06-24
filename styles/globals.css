@@ -105,12 +105,14 @@ a {
 	text-decoration: none;
 }
 
+p { max-width: 75ch }
+
 * {
 	box-sizing: border-box;
 }
 
 .button-padding-1 {
-	padding: 0.4rem 1rem;
+	padding: 0.4rem 1.1rem;
 }
 
 .button-padding-1_5 {

@@ -24,7 +24,6 @@ const TagBox: React.FC<TagBoxProps> = ({
         fontWeight: "bold",
         borderRadius: "var(--rounded-l)",
         display: "inline-block",
-        // width: "fit-content",
       },
       className: classNames("button-padding-1", "elevate-1", className),
       ...props,
