@@ -5,7 +5,7 @@ export enum EuskaltegiAccess {
 
 export interface Coordinates {
   lat: number;
-  long: number;
+  lng: number;
 }
 
 export interface Rating {
@@ -24,4 +24,11 @@ export interface Euskaltegi {
   coordinates: Coordinates;
   imgUrl: string;
   net: string;
+  access: EuskaltegiAccess;
+  rating: Rating;
+  isPromoted?: boolean;
 }
+
+export const getFormatedName = (name: string) => {
+  return name.toLowerCase().replace(/ /g, "-");
+};

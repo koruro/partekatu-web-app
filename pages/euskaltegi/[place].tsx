@@ -5,7 +5,7 @@ import CustomHead from "../../components/CustomHead";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
-import SiteEuskaltegisContainer from "../../containers/Euskaltegi/SiteEuskaltegisContainer";
+import SiteEuskaltegisContainer from "../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
 import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";
 
@@ -52,8 +52,6 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
   try {
     // Fetch article and recommendations data
     const euskaltegis = await euskaltegiRepository.findManyByPlace(place);
-
-    console.log(euskaltegis);
 
     return {
       props: {

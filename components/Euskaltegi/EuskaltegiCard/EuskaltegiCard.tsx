@@ -1,12 +1,31 @@
 import classNames from "classnames";
-import Image from "next/image";
-import { Euskaltegi } from "../../../models/euskaltegi/Euskaltegi";
+import {
+  Euskaltegi,
+  getFormatedName,
+} from "../../../models/euskaltegi/Euskaltegi";
 import { capitalize } from "../../../utils/capitalize";
 import { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
 import { HiMail } from "react-icons/hi";
-import TagBox from "../../Shared/TagBox/TagBox";
 import styles from "./styles.module.css";
 import { BiWorld } from "react-icons/bi";
+import { FaPhone, FaMapMarker, FaMapPin } from "react-icons/fa";
+import RankStars from "../RankStars";
+
+const CardInfoRow: React.FC = ({ children }) => {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "16px 1fr",
+        gap: ".8rem",
+        alignItems: "center",
+        fontSize: "min(6vw, 1.1rem)",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
 interface Props {
   euskaltegi: Euskaltegi;
@@ -14,63 +33,104 @@ interface Props {
 
 const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
   return (
-    <TaggedBlankCard>
-      <div className={classNames(styles["euskaltegi-card"])}>
-        <div className={styles["euskaltegi-card__image"]}>
-          <img title={"title"} alt={"altTitle"} src={euskaltegi.imgUrl} />
-        </div>
+    <TaggedBlankCard rounded="m">
+      <div
+        className={classNames(styles["euskaltegi-card"], {
+          [`${styles["euskaltegi-card--is_promoted"]}`]: euskaltegi.isPromoted,
+        })}
+      >
+        <a
+          href={`#${getFormatedName(euskaltegi.name)}`}
+          id={`${getFormatedName(euskaltegi.name)}`}
+        ></a>
         <h3>{euskaltegi.name}</h3>
-        <div style={{ padding: "0 1rem" }}>
-          <span>{euskaltegi.net}</span>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span>
-              {euskaltegi.address}, {capitalize(euskaltegi.city)},{" "}
-              {capitalize(euskaltegi.province)}
-            </span>
-            <span>{euskaltegi.phone}</span>
-            <div
-              style={{
-                display: "flex",
-                margin: "auto",
-                gap: "1rem",
-                marginTop: "1rem",
-              }}
-            >
-              <a
-                className="button-padding-1 elevate-1"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: ".5em",
-                  color: "white",
-                  fontWeight: "bold",
-                  fontSize: "1.2rem",
-                  borderRadius: "var(--rounded-l)",
-                  background: "var(--gramar-gradient)",
-                }}
-                target="__blank"
-                href={euskaltegi.websiteUrl}
-              >
-                <BiWorld /> Visitar
-              </a>
-              <a
-                className="button-padding-1 elevate-1"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: ".5em",
-                  color: "white",
-                  fontWeight: "bold",
-                  fontSize: "1.2rem",
-                  borderRadius: "var(--rounded-l)",
-                  background: "#ff514f",
-                }}
-                href={`mailto:${euskaltegi.mailContact}`}
-              >
-                <HiMail /> Contacto
-              </a>
-            </div>
+        <div
+          style={{
+            display: "flex",
+            gap: "2rem",
+            margin: ".4rem 0",
+            marginBottom: "2rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              gap: ".6rem",
+              color: "var(--text-subtle)",
+            }}
+          >
+            <span style={{ color: "#FE994F" }}>{euskaltegi.access}</span>
+            <span>{euskaltegi.net}</span>
           </div>
+          <RankStars stars={euskaltegi.rating.stars} />
+        </div>
+        <div
+          // style={{
+          //   display: "grid",
+          //   gridTemplateColumns: "min(20vw, 113px) 1fr",
+          //   columnGap: "1.4rem",
+          // }}
+          className={styles["euskaltegi-card__body"]}
+        >
+          <div className={styles["euskaltegi-card__image"]}>
+            <img title={"title"} alt={"altTitle"} src={euskaltegi.imgUrl} />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              padding: "1rem 0",
+              gap: ".4rem",
+            }}
+          >
+            <CardInfoRow>
+              <FaMapMarker color="var(--primary)" />
+              <span>
+                {euskaltegi.address}, {capitalize(euskaltegi.city)}
+              </span>
+            </CardInfoRow>
+
+            <CardInfoRow>
+              <FaMapPin color="var(--primary)" />
+              <span>{euskaltegi.postalCode}</span>
+            </CardInfoRow>
+            <CardInfoRow>
+              <FaPhone color="var(--primary)" />
+              <span>{euskaltegi.phone}</span>
+            </CardInfoRow>
+            <CardInfoRow>
+              <HiMail color="var(--primary)" />
+              <span>{euskaltegi.mailContact}</span>
+            </CardInfoRow>
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            margin: "auto",
+            gap: "1rem",
+            marginTop: "1rem",
+          }}
+          className="hoverable-elevate"
+        >
+          <a
+            className="button-padding-1 elevate-1"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: ".5em",
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "1.2rem",
+              borderRadius: "var(--rounded-l)",
+              background: "var(--gramar-gradient)",
+            }}
+            target="__blank"
+            href={euskaltegi.websiteUrl}
+          >
+            <BiWorld /> Visitar
+          </a>
         </div>
       </div>
     </TaggedBlankCard>

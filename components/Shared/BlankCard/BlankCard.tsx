@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 interface BlankCardProps {
   className?: string;
-  rounded?: "s" | "l";
+  rounded?: "s" | "m" | "l";
 }
 
 const defaultClassName = "elevate-2";
@@ -43,7 +43,7 @@ export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
   ...props
 }) => {
   return (
-    <div style={{ position: "relative", height: "100%" }}>
+    <div style={{ position: "relative" }}>
       {renderTag && (
         <div className={styles["blank-card__tag"]}>{renderTag()}</div>
       )}

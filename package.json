@@ -10,6 +10,7 @@
 		"generate:sitemap": "node ./scripts/generate-sitemap.js"
 	},
 	"dependencies": {
+		"@react-google-maps/api": "^2.12.0",
 		"@sentry/nextjs": "^6.19.0",
 		"classnames": "^2.3.1",
 		"contentful": "^9.1.4",

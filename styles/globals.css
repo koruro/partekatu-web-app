@@ -1,6 +1,7 @@
 :root {
 	/* ROUND */
 	--rounded-s: 7px;
+	--rounded-m: 12px;
 	--rounded-l: 32px;
 
 	/* BREAKPOINTS */
@@ -61,6 +62,9 @@
 
 	--tecnology: var(--primary);
 	--tecnology-c1: #3f9590;
+
+	--gold-1: #FFD600;
+	--gold-2: #FDBA55;
 
 	--primary-gradient: linear-gradient(
 		270deg, 
