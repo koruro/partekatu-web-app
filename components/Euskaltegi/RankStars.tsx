@@ -9,9 +9,9 @@ const RankStars: React.FC<Props> = ({ stars }) => {
   const abs = Math.floor(stars);
 
   return (
-    <div>
-      {[...Array(abs)].map((val) => (
-        <FaStar key={val} color={color} />
+    <div style={{ fontSize: "1.1rem" }}>
+      {[...Array(abs)].map((val, i) => (
+        <FaStar key={i} color={color} />
       ))}
       {stars - abs > 0 && <FaStarHalfAlt color={color} />}
     </div>

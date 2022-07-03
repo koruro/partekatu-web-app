@@ -52,7 +52,7 @@ export class MockEuskaltegiRepository implements EuskaltegiRepository {
         coordinates: { lat: 43.1603306, lng: -2.7845025 },
         websiteUrl: "https://udala.tolosa.eus/eu/aitzol-udal-euskaltegia",
         net: "AEK",
-        access: EuskaltegiAccess.PRIVATE,
+        access: EuskaltegiAccess.PUBLIC,
         rating: { stars: 3.5 },
         isPromoted: true,
       },

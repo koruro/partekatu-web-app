@@ -10,6 +10,7 @@ import styles from "./styles.module.css";
 import { BiWorld } from "react-icons/bi";
 import { FaPhone, FaMapMarker, FaMapPin } from "react-icons/fa";
 import RankStars from "../RankStars";
+import EuskaltegiAccess from "../EuskaltegiAccess/EuskaltegiAccess";
 
 const CardInfoRow: React.FC = ({ children }) => {
   return (
@@ -20,6 +21,7 @@ const CardInfoRow: React.FC = ({ children }) => {
         gap: ".8rem",
         alignItems: "center",
         fontSize: "min(6vw, 1.1rem)",
+        color: "var(--text-subtle)",
       }}
     >
       {children}
@@ -59,7 +61,7 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
               color: "var(--text-subtle)",
             }}
           >
-            <span style={{ color: "#FE994F" }}>{euskaltegi.access}</span>
+            <EuskaltegiAccess access={euskaltegi.access} />
             <span>{euskaltegi.net}</span>
           </div>
           <RankStars stars={euskaltegi.rating.stars} />
@@ -81,7 +83,7 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
               flexDirection: "column",
               justifyContent: "center",
               padding: "1rem 0",
-              gap: ".4rem",
+              gap: ".6rem",
             }}
           >
             <CardInfoRow>

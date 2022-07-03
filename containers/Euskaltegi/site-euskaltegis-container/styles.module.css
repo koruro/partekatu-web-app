@@ -1,10 +1,14 @@
 .euskaltegis-container {
-  display: block;
   margin-top: 5rem;
 }
 
+.euskaltegis-container__body {
+  display: block;
+  margin-top: 3rem;
+}
+
 @media (min-width: 1024px) {
-  .euskaltegis-container {
+  .euskaltegis-container__body {
     display: grid;
     column-gap: 1rem;
     grid-template-columns: clamp(500px, 50vw, 700px) 1fr;

@@ -7,6 +7,7 @@ import {
 } from "../../models/euskaltegi/Euskaltegi";
 import RankStars from "../../components/Euskaltegi/RankStars";
 import { useRouter } from "next/router";
+import EuskaltegiAccess from "../../components/Euskaltegi/EuskaltegiAccess/EuskaltegiAccess";
 
 interface Props {
   euskaltegis: Euskaltegi[];
@@ -14,7 +15,7 @@ interface Props {
 
 const containerStyle = {
   width: "100%",
-  height: "600px",
+  height: "100%",
 };
 
 const MyMap: React.FC<Props> = ({ euskaltegis }) => {
@@ -30,15 +31,19 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
     const bounds = new window.google.maps.LatLngBounds();
 
     for (const euskaltegi of euskaltegis) {
-      const s = ReactDOMServer.renderToString(
+      const stars = ReactDOMServer.renderToString(
         <RankStars stars={euskaltegi.rating.stars} />
+      );
+      const access = ReactDOMServer.renderToString(
+        <EuskaltegiAccess access={euskaltegi.access} />
       );
       const contentString =
         '<div id="content">' +
         '<div id="siteNotice">' +
         "</div>" +
         `<h1 id="firstHeading" class="firstHeading">${euskaltegi.name}</h1>` +
-        `<div>${s}</div>` +
+        `<div>${euskaltegi.net} ${access}</div>` +
+        `<div>${stars}</div>` +
         '<div id="bodyContent">' +
         `<div style="display:grid;grid-template-columns:90px 1fr;">` +
         `<div"><img style="max-width:100%;" src="${euskaltegi.imgUrl}" /></div>` +
