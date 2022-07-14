@@ -14,7 +14,7 @@ import {
   HtmlElementsTransformerOptions,
   htmlElementsTransformer,
 } from "./unified-plugins/htmlElementsTransformer";
-import { addSecondaryArticleAd } from "./unified-plugins/addHeadingAd";
+import { addSecondaryArticleAd } from "./unified-plugins/addSecondaryArticleAd";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const wrap = require("rehype-wrap-all");
 
