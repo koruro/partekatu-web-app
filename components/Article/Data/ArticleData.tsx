@@ -14,6 +14,7 @@ import {
   getArticleWordCount,
   getReadingTime,
 } from "../../../utils/articleMetrics";
+import PreInfographicAd from "../../Ads/PreInfographicAd";
 
 interface Props {
   article: Article;
@@ -43,6 +44,7 @@ const ArticleData: React.FC<Props> = ({
       />
       <ArticleContent slug={article.slug} content={article.content} />
       <ArticleReferedArticles articles={article.referedArticles} />
+      {article.infographic && <PreInfographicAd />}
       <ArticleInfographic infographic={article.infographic} />
       <ArticleVideo videoUrl={article.videoUrl} title={article.title} />
       <ArticleReferences references={article.references} />
