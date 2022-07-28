@@ -6,8 +6,8 @@ interface Props {
 }
 
 const accessColor: Record<EuskaltegiAccessEnum, string> = {
-  PRIVATE: "#FE994F",
-  PUBLIC: "var(--blog-c1)",
+  private: "#FE994F",
+  public: "var(--blog-c1)",
 };
 const EuskaltegiAccess: React.FC<Props> = ({ access }) => {
   return (

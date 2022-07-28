@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: ParsedUrlQuery;
     locale?: string | undefined;
   }[] = locations.map((location) => ({
-    params: { location: location.name },
+    params: { location: location.name.toLowerCase() },
   }));
 
   return { paths, fallback: false };

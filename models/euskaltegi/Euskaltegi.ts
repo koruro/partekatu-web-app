@@ -1,6 +1,6 @@
 export enum EuskaltegiAccess {
-  PUBLIC = "PUBLIC",
-  PRIVATE = "PRIVATE",
+  PUBLIC = "public",
+  PRIVATE = "private",
 }
 
 export interface Coordinates {

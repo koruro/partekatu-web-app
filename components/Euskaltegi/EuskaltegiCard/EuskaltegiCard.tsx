@@ -4,7 +4,7 @@ import {
   getFormatedName,
 } from "../../../models/euskaltegi/Euskaltegi";
 import { capitalize } from "../../../utils/capitalize";
-import { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
+import BlankCard, { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
 import { HiMail } from "react-icons/hi";
 import styles from "./styles.module.css";
 import { BiWorld } from "react-icons/bi";
@@ -46,6 +46,14 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
           id={`${getFormatedName(euskaltegi.name)}`}
         ></a>
         <h3>{euskaltegi.name}</h3>
+        <span
+          style={{
+            marginTop: ".4rem",
+            color: "var(--text-subtle)",
+          }}
+        >
+          {euskaltegi.net}
+        </span>
         <div
           style={{
             display: "flex",
@@ -62,7 +70,6 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
             }}
           >
             <EuskaltegiAccess access={euskaltegi.access} />
-            <span>{euskaltegi.net}</span>
           </div>
           <div
             style={{
