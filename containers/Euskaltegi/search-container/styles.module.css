@@ -1,0 +1,34 @@
+.euskaltegis-search-container {
+  margin-top: 2rem;
+}
+
+.euskaltegis-search-container h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 3rem; 
+}
+
+.euskaltegis-search-container form {
+  padding: 0 1rem;
+}
+
+.euskaltegis-search-container__copy-text {
+    font-size: 1.5em;
+    color: var(--text-subtle);
+    text-align: center;
+    padding: 0 2.2rem;
+    margin-bottom: 5rem;
+  }
+
+@media (min-width: 1024px) {
+  .euskaltegis-search-container h1 {
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 5rem;
+  }
+
+  .euskaltegis-search-container form {
+    padding: 0;
+  }
+}

@@ -22,10 +22,7 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
           <div>
             <h1>🏫 Euskaltegis en {capitalize(location.name)}</h1>
             <div className={styles["euskaltegis-container__banner-img"]}>
-              <img
-                style={{ width: "100%", objectFit: "cover" }}
-                src={location.imgUrl}
-              />
+              <img style={{ objectFit: "cover" }} src={location.imgUrl} />
             </div>
             <p>
               Estos son los euskaltegis que hemos encontrado en{" "}
@@ -46,6 +43,7 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
               flexDirection: "column",
               gap: "1rem",
             }}
+            className={styles["euskaltegis-container__list"]}
           >
             {euskaltegis
               .sort((e) => -+(e.isPromoted ?? false))

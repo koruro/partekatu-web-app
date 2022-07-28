@@ -3,6 +3,7 @@ import {
   EuskaltegiAccess,
   Location,
 } from "../../models/euskaltegi/Euskaltegi";
+import { TextMatch } from "../../models/TextMatch";
 import { EuskaltegiRepository } from "./EuskaltegiRepository";
 
 const locations: Location[] = [
@@ -21,6 +22,9 @@ const locations: Location[] = [
 ];
 
 export class MockEuskaltegiRepository implements EuskaltegiRepository {
+  async getLocationMatches(name: string): Promise<TextMatch[]> {
+    throw new Error("Method not implemented.");
+  }
   async getLocationInfo(name: string): Promise<Location | undefined> {
     return locations.find((l) => l.name === name);
   }

@@ -1,16 +1,10 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import * as ReactDOMServer from "react-dom/server";
-import {
-  Euskaltegi,
-  getFormatedName,
-} from "../../models/euskaltegi/Euskaltegi";
-import RankStars from "../../components/Euskaltegi/RankStars";
+import { getFormatedName, Location } from "../../models/euskaltegi/Euskaltegi";
 import { useRouter } from "next/router";
-import EuskaltegiAccess from "../../components/Euskaltegi/EuskaltegiAccess/EuskaltegiAccess";
 
 interface Props {
-  euskaltegis: Euskaltegi[];
+  locations: Location[];
 }
 
 const containerStyle = {
@@ -18,7 +12,7 @@ const containerStyle = {
   height: "100%",
 };
 
-const MyMap: React.FC<Props> = ({ euskaltegis }) => {
+const LocationMap: React.FC<Props> = ({ locations }) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyAKtcRC_LOfsTOR3S22DUi70pxWRCMBY1c",
@@ -30,37 +24,29 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
   const onLoad = React.useCallback(function callback(map: google.maps.Map) {
     const bounds = new window.google.maps.LatLngBounds();
 
-    for (const euskaltegi of euskaltegis) {
-      const stars = ReactDOMServer.renderToString(
-        <RankStars stars={euskaltegi.rating.score} />
-      );
-      const access = ReactDOMServer.renderToString(
-        <EuskaltegiAccess access={euskaltegi.access} />
-      );
+    for (const location of locations) {
       const contentString =
         '<div id="content">' +
         '<div id="siteNotice">' +
         "</div>" +
-        `<h4 style="font-size:1.2rem;" id="firstHeading" class="firstHeading">${euskaltegi.name}</h4>` +
-        `<div>${euskaltegi.net} ${access}</div>` +
-        `<div>${stars}</div>` +
+        `<h4 style="font-size:1.2rem;" id="firstHeading" class="firstHeading">${location.name}</h4>` +
         '<div id="bodyContent">' +
         `<div style="display:grid;grid-template-columns:90px 1fr;">` +
-        `<div"><img style="max-width:100%;" src="${euskaltegi.imgUrl}" /></div>` +
+        `<div"><img style="max-width:100%;" src="${location.imgUrl}" /></div>` +
         `</div>` +
         "</div>" +
         "</div>";
 
-      bounds.extend(euskaltegi.coordinates);
+      bounds.extend(location.coordinates);
       const infowindow = new window.google.maps.InfoWindow({
-        position: euskaltegi.coordinates,
+        position: location.coordinates,
         content: contentString,
       });
 
       const marker = new window.google.maps.Marker({
-        position: euskaltegi.coordinates,
+        position: location.coordinates,
         map,
-        title: euskaltegi.name,
+        title: location.name,
       });
 
       marker.addListener("mouseover", () => {
@@ -76,10 +62,9 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
       });
 
       marker.addListener("click", () => {
-        router.push(`#${getFormatedName(euskaltegi.name)}`);
+        router.push(`#${getFormatedName(location.name)}`);
       });
     }
-    // const bounds2 = new window.google.maps.LatLngBounds({ lat: 43, lng: 23 });
 
     map.fitBounds(bounds);
     setMap(map);
@@ -102,4 +87,4 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
   );
 };
 
-export default React.memo(MyMap);
+export default React.memo(LocationMap);

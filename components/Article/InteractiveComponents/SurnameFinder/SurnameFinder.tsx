@@ -5,6 +5,7 @@ import {
   SurnameData,
   SurnameMatch,
 } from "../../../../models/surname/SurnameMatch";
+import { TextMatch } from "../../../../models/TextMatch";
 import { surnameRepository } from "../../../../services/bootstrap";
 import LoadingRing from "../../../Loading/Ring/LoadingRing";
 import Autocomplete from "./Autocomplete/Autocomplete";
@@ -18,7 +19,7 @@ const SurnameFinder: React.FC = () => {
   const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false);
   const [result, setResult] = useState<SurnameData | null>(null);
   const [resultIsLoading, setResultIsLoading] = useState<boolean>(false);
-  const [matches, setMatches] = useState<SurnameMatch[] | undefined>(undefined);
+  const [matches, setMatches] = useState<TextMatch[] | undefined>(undefined);
 
   const router = useRouter();
 
@@ -48,7 +49,9 @@ const SurnameFinder: React.FC = () => {
 
   useEffect(() => {
     surnameRepository.getSimilarSurnames(typedSurname).then((response) => {
-      setMatches(response);
+      setMatches(
+        response.map((r) => ({ similarity: r.similarity, text: r.surname }))
+      );
     });
   }, [typedSurname]);
 
@@ -102,10 +105,13 @@ const SurnameFinder: React.FC = () => {
         />
         {showAutoComplete && (
           <Autocomplete
-            matches={matches?.map((a) => ({ name: a.surname }))}
+            matches={matches?.map((a) => ({
+              text: a.text,
+              similarity: a.similarity,
+            }))}
             onMatchClick={(match) => {
-              setTypedSurname(match.name);
-              handleOnSubmit(match.name);
+              setTypedSurname(match.text);
+              handleOnSubmit(match.text);
             }}
           />
         )}

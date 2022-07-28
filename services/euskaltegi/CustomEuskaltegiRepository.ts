@@ -1,8 +1,17 @@
 import { Euskaltegi, Location } from "../../models/euskaltegi/Euskaltegi";
+import { TextMatch } from "../../models/TextMatch";
 import { EuskaltegiRepository } from "./EuskaltegiRepository";
 
 export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   constructor(private baseUrl: string) {}
+  async getLocationMatches(name: string): Promise<TextMatch[]> {
+    return [
+      {
+        text: name,
+        similarity: 1,
+      },
+    ];
+  }
 
   async getEuskaltegisInLocation(location: string): Promise<Euskaltegi[]> {
     try {
