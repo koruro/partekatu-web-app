@@ -12,4 +12,7 @@ export const ComponentDict: {
   articleAd: {
     getComponent: () => dynamic(() => import("../../Ads/InArticleAd")),
   },
+  secondaryArticleAd: {
+    getComponent: () => dynamic(() => import("../../Ads/SecondaryArticleAd")),
+  },
 };

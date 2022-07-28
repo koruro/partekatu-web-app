@@ -4,7 +4,6 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import CategoryBox from "../../Categories/CategoryBox/CategoryBox";
 import HeadingTitleAd from "../../Ads/HeadingTitleAd";
-import CustomBannerAd from "../../Ads/CustomBannerAd/CustomBannerAd";
 
 interface Props {
   title: string;
@@ -20,14 +19,12 @@ interface Props {
 
 const ArticleHeader: React.FC<Props> = ({
   banner,
-  emoji,
   preamble,
   title,
   altTitle,
   category,
   metaTitle,
   readingTime,
-  slug,
 }) => {
   return (
     <header className={styles["article-header"]}>
@@ -48,7 +45,7 @@ const ArticleHeader: React.FC<Props> = ({
           </div>
         </>
       </LazyHydrate>
-      {preamble && <CustomBannerAd />}
+      {preamble && <HeadingTitleAd />}
       {preamble && (
         <p className={styles["article-header__preamble"]}>{preamble}</p>
       )}

@@ -44,7 +44,9 @@ const ArticleList: React.FC<Props> = ({
       slug={article.slug}
     />
   ));
-  articles.splice(2, 0, <ArticleListItemAd />);
+  if (articles.length >= 2) {
+    articles.splice(2, 0, <ArticleListItemAd />);
+  }
   return (
     <div
       className={classNames(styles["articles-list"], {

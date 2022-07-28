@@ -9,12 +9,12 @@ import rehypeRaw from "rehype-raw";
 import rehypeMinify from "rehype-preset-minify";
 import rehypeAutoLink from "rehype-autolink-headings";
 import { BulletPoint } from "../models/BulletPoint";
+import { deleteHeadingsId } from "./unified-plugins/deleteHeadingId";
 import {
-  addHeadingAd,
-  deleteHeadingsId,
-  htmlElementsTransformer,
   HtmlElementsTransformerOptions,
-} from "./unifiedPlugins";
+  htmlElementsTransformer,
+} from "./unified-plugins/htmlElementsTransformer";
+import { addSecondaryArticleAd } from "./unified-plugins/addSecondaryArticleAd";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const wrap = require("rehype-wrap-all");
 
@@ -30,6 +30,7 @@ const getRehypeProcessors = (options?: RehypeProcessorsOptions) => {
     [remarkRehype, { allowDangerousHtml: true }],
     rehypeRaw,
     rehypeFormat,
+    addSecondaryArticleAd,
     [wrap, { selector: "table", wrapper: "div.table-container" }],
     [htmlElementsTransformer, { ...options?.htmlElementTransformer }],
     [
