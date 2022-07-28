@@ -9,7 +9,7 @@ export interface Coordinates {
 }
 
 export interface Rating {
-  stars: number;
+  score: number;
 }
 
 export interface Euskaltegi {
@@ -27,6 +27,12 @@ export interface Euskaltegi {
   access: EuskaltegiAccess;
   rating: Rating;
   isPromoted?: boolean;
+}
+
+export interface Location {
+  name: string;
+  imgUrl: string;
+  coordinates: Coordinates;
 }
 
 export const getFormatedName = (name: string) => {

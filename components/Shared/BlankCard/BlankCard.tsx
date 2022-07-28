@@ -43,7 +43,7 @@ export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
   ...props
 }) => {
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", height: "100%" }}>
       {renderTag && (
         <div className={styles["blank-card__tag"]}>{renderTag()}</div>
       )}

@@ -6,20 +6,24 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
 import SiteEuskaltegisContainer from "../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
-import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
+import { Euskaltegi, Location } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";
 
 interface Props {
   euskaltegis: Euskaltegi[];
+  location: Location;
 }
 
-const EuskaltegiPlacePage: React.FC<Props> = ({ euskaltegis }) => {
+const EuskaltegiPlacePage: React.FC<Props> = ({ euskaltegis, location }) => {
   return (
     <>
       <CustomHead title={""} metaTitle={"headTitle"} metaDesc={"metaDesc"} />
       <PageBox>
         <NavBar />
-        <SiteEuskaltegisContainer euskaltegis={euskaltegis} />
+        <SiteEuskaltegisContainer
+          euskaltegis={euskaltegis}
+          location={location}
+        />
         <Footer />
       </PageBox>
     </>
@@ -30,32 +34,41 @@ export default EuskaltegiPlacePage;
 
 // Get all slug paths
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = await euskaltegiRepository.getAllPlaces();
+  const locations = await euskaltegiRepository.getAllLocations();
 
   const paths: {
     params: ParsedUrlQuery;
     locale?: string | undefined;
-  }[] = slugs.map((slug) => ({
-    params: { place: slug },
+  }[] = locations.map((location) => ({
+    params: { location: location.name },
   }));
 
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
-  if (!params?.place) throw new Error(`No place param found`);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params?.location) throw new Error(`No location param found`);
 
-  const place = params.place;
+  const location = params.location;
 
-  if (typeof place !== "string") throw new Error(`No place param found`);
+  if (typeof location !== "string") throw new Error(`No location param found`);
+
+  // Get location data
+  const locationData = await euskaltegiRepository.getLocationInfo(location);
+
+  if (!locationData)
+    throw Error(`No location data found for location ${location}`);
 
   try {
     // Fetch article and recommendations data
-    const euskaltegis = await euskaltegiRepository.findManyByPlace(place);
+    const euskaltegis = await euskaltegiRepository.getEuskaltegisInLocation(
+      location
+    );
 
     return {
       props: {
         euskaltegis,
+        location: locationData,
       },
     };
   } catch (error) {

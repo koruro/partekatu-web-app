@@ -3,7 +3,7 @@
 	overflow: hidden;
 	display: grid;
 	grid-template-columns: 1fr;
-	/* position: relative; */
+	position: relative;
 	padding: 1.2rem;
 	border-left: var(--left-space) solid transparent;
 	box-sizing: border-box;
@@ -24,7 +24,12 @@
 
 .euskaltegi-card h3{
 	font-size: 2rem;
-	margin: 0
+	margin: 0;
+}
+
+.euskaltegi-card a:target {
+	position: relative;
+	top: -12rem;
 }
 
 .euskaltegi-card__image {

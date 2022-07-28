@@ -64,7 +64,22 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
             <EuskaltegiAccess access={euskaltegi.access} />
             <span>{euskaltegi.net}</span>
           </div>
-          <RankStars stars={euskaltegi.rating.stars} />
+          <div
+            style={{
+              display: "flex",
+              gap: ".4rem",
+            }}
+          >
+            <span
+              style={{
+                fontWeight: "bold",
+                color: "#FFD600",
+              }}
+            >
+              {euskaltegi.rating.score}
+            </span>
+            <RankStars stars={euskaltegi.rating.score} />
+          </div>
         </div>
         <div
           // style={{

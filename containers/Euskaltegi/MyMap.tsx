@@ -32,7 +32,7 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
 
     for (const euskaltegi of euskaltegis) {
       const stars = ReactDOMServer.renderToString(
-        <RankStars stars={euskaltegi.rating.stars} />
+        <RankStars stars={euskaltegi.rating.score} />
       );
       const access = ReactDOMServer.renderToString(
         <EuskaltegiAccess access={euskaltegi.access} />

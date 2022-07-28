@@ -1,28 +1,38 @@
 import StickyContainer from "../../../components/Article/SideContainer/StickyContainer";
 import EuskaltegiCard from "../../../components/Euskaltegi/EuskaltegiCard/EuskaltegiCard";
 import PageContainerBox from "../../../components/Page/PageContainerBox/PageContainerBox";
-import { Euskaltegi } from "../../../models/euskaltegi/Euskaltegi";
+import { Euskaltegi, Location } from "../../../models/euskaltegi/Euskaltegi";
+import { capitalize } from "../../../utils/capitalize";
 import MyMap from "../MyMap";
 import styles from "./styles.module.css";
 
 interface Props {
   euskaltegis: Euskaltegi[];
+  location: Location;
 }
 
-const SiteEuskaltegisContainer: React.FC<Props> = ({ euskaltegis }) => {
+const SiteEuskaltegisContainer: React.FC<Props> = ({
+  euskaltegis,
+  location,
+}) => {
   return (
     <PageContainerBox breakLimit="xl">
       <div className={styles["euskaltegis-container"]}>
-        <h1>Euskaltegis en Tolosa</h1>
-        <div>
+        <h1>🏫 Euskaltegis en {capitalize(location.name)}</h1>
+        <div className={styles["euskaltegis-container__banner-img"]}>
           <img
-            style={{ maxWidth: "100%" }}
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bilbao_-_Guggenheim_46.jpg/640px-Bilbao_-_Guggenheim_46.jpg"
+            style={{ maxWidth: "100%", objectFit: "cover" }}
+            src={location.imgUrl}
           />
         </div>
+        <p>
+          Estos son los euskaltegis que hemos encontrado en{" "}
+          {capitalize(location.name)}. Echa un vistazo en el mapa justo debajo
+          😉.
+        </p>
         <div className={styles["euskaltegis-container__body"]}>
           <div>
-            <h3>¡Encuéntralos en el mapa!</h3>
+            <h3 style={{ padding: "0 1rem" }}>🗺️ ¡Encuéntralos en el mapa!</h3>
             <StickyContainer>
               <div style={{ height: "min(600px, 70vh)", marginBottom: "2rem" }}>
                 <MyMap euskaltegis={euskaltegis}></MyMap>
