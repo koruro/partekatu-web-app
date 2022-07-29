@@ -5,12 +5,22 @@ import { EuskaltegiRepository } from "./EuskaltegiRepository";
 export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   constructor(private baseUrl: string) {}
   async getLocationMatches(name: string): Promise<TextMatch[]> {
-    return [
-      {
-        text: name,
-        similarity: 1,
-      },
-    ];
+    try {
+      const response = await fetch(
+        `${this.baseUrl}/euskaltegi/matches/${name}`
+      );
+
+      const json = await response.json();
+
+      const matches: TextMatch[] = json.data.map((r: any) => ({
+        text: r.text,
+        similarity: r.similarity,
+      }));
+
+      return matches.filter((match) => match.text !== name);
+    } catch (error) {
+      return [];
+    }
   }
 
   async getEuskaltegisInLocation(location: string): Promise<Euskaltegi[]> {
