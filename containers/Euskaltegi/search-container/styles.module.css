@@ -9,7 +9,8 @@
 }
 
 .euskaltegis-search-container form {
-  padding: 0 1rem;
+  margin: 3rem 1rem;
+  position: relative;
 }
 
 .euskaltegis-search-container__copy-text {

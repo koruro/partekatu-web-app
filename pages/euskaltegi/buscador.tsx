@@ -19,7 +19,7 @@ const EuskaltegiSearchPage: React.FC<{ locations: Location[] }> = ({
   return (
     <>
       <CustomHead title={headTitle} metaTitle={headTitle} metaDesc={metaDesc} />
-      <PageBox>
+      <PageBox className="euskaltegi-home">
         <NavBar />
         <EuskaltegiSearchContainer initialLocations={locations} />
         <Footer />

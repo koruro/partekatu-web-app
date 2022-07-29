@@ -40,7 +40,6 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ initialLocations }) => {
           router.push(locationInfo.name.toLowerCase());
         }
       })
-      // .catch((e) => setResult(null))
       .finally(() => {
         setResultIsLoading(false);
       });
@@ -69,10 +68,6 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ initialLocations }) => {
             e.preventDefault();
 
             handleOnSubmit(typedSite);
-          }}
-          style={{
-            margin: "3rem 0",
-            position: "relative",
           }}
         >
           <CustomInput

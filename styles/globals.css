@@ -97,7 +97,6 @@ body {
 		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
-
 	background-color: #f4f5f9;
 }
 
@@ -113,6 +112,12 @@ p { max-width: 75ch }
 
 * {
 	box-sizing: border-box;
+}
+
+.euskaltegi-home {
+	background: url("/clouds_1.png") no-repeat;
+	background-size: 800px;
+	background-position: center 35%;
 }
 
 .button-padding-1 {
@@ -152,9 +157,14 @@ p { max-width: 75ch }
 	font-size: 1.1rem;
 	line-height: 2;
 }
+
 @media (min-width: 768px) {
 	.katex {
 		font-size: 1.2rem;
+	}
+	.euskaltegi-home {
+		background-size: 1200px;
+		background-position: center 36%;
 	}
 }
 
