@@ -2,7 +2,6 @@ import styles from "./styles.module.css";
 import ImageCardShareList from "./ShareList/ImageCardShareList";
 import ImageCardTears from "./Tears/ImageCardTears";
 import { SocialType } from "../Shared/SocialIcon";
-import Image from "next/image";
 import BlankCard from "../Shared/BlankCard/BlankCard";
 
 interface Props {

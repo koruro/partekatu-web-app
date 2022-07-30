@@ -4,7 +4,7 @@ import {
   getFormatedName,
 } from "../../../models/euskaltegi/Euskaltegi";
 import { capitalize } from "../../../utils/capitalize";
-import BlankCard, { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
+import { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
 import { HiMail } from "react-icons/hi";
 import styles from "./styles.module.css";
 import { BiWorld } from "react-icons/bi";

@@ -4,7 +4,6 @@ import CustomHead from "../../components/CustomHead";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
-import ArticlesContainer from "../../containers/ArticlesSearch/ArticlesContainer";
 import EuskaltegiSearchContainer from "../../containers/Euskaltegi/search-container/EuskaltegiSearchContainer";
 import { Location } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";

@@ -1,10 +1,7 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import {
-  SurnameData,
-  SurnameMatch,
-} from "../../../../models/surname/SurnameMatch";
+import { SurnameData } from "../../../../models/surname/SurnameMatch";
 import { TextMatch } from "../../../../models/TextMatch";
 import { surnameRepository } from "../../../../services/bootstrap";
 import LoadingRing from "../../../Loading/Ring/LoadingRing";
@@ -33,7 +30,7 @@ const SurnameFinder: React.FC = () => {
       .then((result) => {
         setResult(result);
       })
-      .catch((e) => setResult(null))
+      .catch(() => setResult(null))
       .finally(() => {
         setResultIsLoading(false);
       });

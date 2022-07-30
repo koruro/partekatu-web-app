@@ -1,7 +1,5 @@
 import NextErrorComponent from "next/error";
-
 import * as Sentry from "@sentry/nextjs";
-import { NextPageContext } from "next";
 
 const MyError = ({ statusCode, hasGetInitialPropsRun, err }) => {
   if (!hasGetInitialPropsRun && err) {

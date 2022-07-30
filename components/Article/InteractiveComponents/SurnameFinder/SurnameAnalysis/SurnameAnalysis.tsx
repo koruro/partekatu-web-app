@@ -121,7 +121,7 @@ const getAnalytics = (data: SurnameData): SurnameAnalytics => {
   return data.analytics;
 };
 
-const SurnameAnalysis: React.FC<Props> = ({ data, enteredSurname }) => {
+const SurnameAnalysis: React.FC<Props> = ({ data }) => {
   const analytics = getAnalytics(data);
   const formatedSurname = capitalize(data.surname);
   return (
