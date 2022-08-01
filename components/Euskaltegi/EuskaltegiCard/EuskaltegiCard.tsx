@@ -8,7 +8,7 @@ import { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
 import { HiMail } from "react-icons/hi";
 import styles from "./styles.module.css";
 import { BiWorld } from "react-icons/bi";
-import { FaPhone, FaMapMarker, FaMapPin } from "react-icons/fa";
+import { FaPhone, FaMapMarker } from "react-icons/fa";
 import RankStars from "../RankStars";
 import EuskaltegiAccess from "../EuskaltegiAccess/EuskaltegiAccess";
 
@@ -59,7 +59,7 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
             display: "flex",
             gap: "2rem",
             margin: ".4rem 0",
-            marginBottom: "2rem",
+            marginBottom: "0.7rem",
           }}
         >
           <div
@@ -104,20 +104,15 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "1rem 0",
               gap: ".6rem",
             }}
           >
             <CardInfoRow>
               <FaMapMarker color="var(--primary)" />
               <span>
-                {euskaltegi.address}, {capitalize(euskaltegi.city)}
+                {euskaltegi.address}, {euskaltegi.postalCode},{" "}
+                {capitalize(euskaltegi.city)}
               </span>
-            </CardInfoRow>
-
-            <CardInfoRow>
-              <FaMapPin color="var(--primary)" />
-              <span>{euskaltegi.postalCode}</span>
             </CardInfoRow>
             <CardInfoRow>
               <FaPhone color="var(--primary)" />
@@ -134,7 +129,7 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
             display: "flex",
             margin: "auto",
             gap: "1rem",
-            marginTop: "1rem",
+            marginTop: "2rem",
           }}
           className="hoverable-elevate"
         >

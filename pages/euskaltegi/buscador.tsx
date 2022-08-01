@@ -5,22 +5,22 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
 import EuskaltegiSearchContainer from "../../containers/Euskaltegi/search-container/EuskaltegiSearchContainer";
-import { Location } from "../../models/euskaltegi/Euskaltegi";
+import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";
 
 const headTitle = "Todos los artículos de partekatu.com";
 const metaDesc =
   "En Partekatu tenemos artículos de todo lo que puedas necesitar en torno al euskera ¡Simplemente busca lo que necesites y aprende!";
 
-const EuskaltegiSearchPage: React.FC<{ locations: Location[] }> = ({
-  locations,
+const EuskaltegiSearchPage: React.FC<{ euskaltegis: Euskaltegi[] }> = ({
+  euskaltegis,
 }) => {
   return (
     <>
       <CustomHead title={headTitle} metaTitle={headTitle} metaDesc={metaDesc} />
       <PageBox className="euskaltegi-home">
         <NavBar />
-        <EuskaltegiSearchContainer initialLocations={locations} />
+        <EuskaltegiSearchContainer euskaltegis={euskaltegis} />
         <Footer />
       </PageBox>
     </>
@@ -30,7 +30,7 @@ const EuskaltegiSearchPage: React.FC<{ locations: Location[] }> = ({
 export default EuskaltegiSearchPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const locations = await euskaltegiRepository.getAllLocations();
+  const euskaltegis = await euskaltegiRepository.getAllEuskaltegis();
 
-  return { props: { locations } };
+  return { props: { euskaltegis } };
 };

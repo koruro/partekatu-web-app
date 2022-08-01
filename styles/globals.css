@@ -117,7 +117,7 @@ p { max-width: 75ch }
 .euskaltegi-home {
 	background: url("/clouds_1.png") no-repeat;
 	background-size: 800px;
-	background-position: center 35%;
+	background-position: center 410px;
 }
 
 .button-padding-1 {
@@ -164,7 +164,7 @@ p { max-width: 75ch }
 	}
 	.euskaltegi-home {
 		background-size: 1200px;
-		background-position: center 36%;
+		background-position: center 300px;
 	}
 }
 

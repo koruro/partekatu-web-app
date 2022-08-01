@@ -29,6 +29,7 @@ const ArticleCard: React.FC<Props> = ({
   return (
     <a href={`/${slug}`}>
       <TaggedBlankCard
+        expand
         className="hoverable-elevate"
         renderTag={() => <CategoryBox category={category.slug} />}
       >

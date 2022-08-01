@@ -31,8 +31,8 @@ export interface Euskaltegi {
 
 export interface Location {
   name: string;
-  imgUrl: string;
   coordinates: Coordinates;
+  imgUrl?: string;
 }
 
 export const getFormatedName = (name: string) => {

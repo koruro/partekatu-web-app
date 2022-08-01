@@ -2,23 +2,29 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Autocomplete from "../../../components/Article/InteractiveComponents/SurnameFinder/Autocomplete/Autocomplete";
 import CustomInput from "../../../components/Article/InteractiveComponents/SurnameFinder/Input/CustomInput";
+import EuskaltegiCard from "../../../components/Euskaltegi/EuskaltegiCard/EuskaltegiCard";
+import EuskaltegiFillableCard from "../../../components/Euskaltegi/EuskaltegiFillableCard/EuskaltegiFillableCard";
 import LoadingRing from "../../../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../../../components/Page/PageContainerBox/PageContainerBox";
-import { Location } from "../../../models/euskaltegi/Euskaltegi";
+import { Euskaltegi, Location } from "../../../models/euskaltegi/Euskaltegi";
 import { TextMatch } from "../../../models/TextMatch";
 import { euskaltegiRepository } from "../../../services/bootstrap";
 import LocationMap from "../LocationMap";
+import MyMap from "../EuskaltegisMap";
 import styles from "./styles.module.css";
 
 interface Props {
-  initialLocations: Location[];
+  euskaltegis: Euskaltegi[];
 }
 
-const EuskaltegiSearchContainer: React.FC<Props> = ({ initialLocations }) => {
+const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
   const [typedSite, setTypedSite] = useState<string>("");
   const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false);
   const [matches, setMatches] = useState<TextMatch[] | undefined>(undefined);
   const [resultIsLoading, setResultIsLoading] = useState<boolean>(false);
+  const [selectedEuskaltegi, setSelectedEuskaltegi] = useState<
+    Euskaltegi | undefined
+  >(undefined);
   const router = useRouter();
 
   useEffect(() => {
@@ -38,6 +44,10 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ initialLocations }) => {
       .then((locationInfo) => {
         if (locationInfo) {
           router.push(locationInfo.name.toLowerCase());
+        } else {
+          euskaltegiRepository
+            .getExternalLocationInfo(location)
+            .then(console.log);
         }
       })
       .finally(() => {
@@ -99,11 +109,15 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ initialLocations }) => {
             fontWeight: "bold",
           }}
         >
-          🗺️ O encuentra tu sitio en el mapa
+          🗺️ O encuentra tu euskaltegi en el mapa
         </p>
         <div style={{ height: "min(600px, 70vh)", marginBottom: "2rem" }}>
-          <LocationMap locations={initialLocations}></LocationMap>
+          <MyMap
+            euskaltegis={euskaltegis}
+            onMarkerClick={(euskaltegi) => setSelectedEuskaltegi(euskaltegi)}
+          ></MyMap>
         </div>
+        <EuskaltegiFillableCard euskaltegi={selectedEuskaltegi} />
       </div>
     </PageContainerBox>
   );

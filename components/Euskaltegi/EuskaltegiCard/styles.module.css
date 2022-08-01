@@ -43,7 +43,6 @@
 
 .euskaltegi-card__image img {
 	border-radius: var(--rounded-s);
-	object-fit: cover;
 	max-width: 100%;
 }
 
@@ -55,6 +54,11 @@
 	}
 
 	.euskaltegi-card__image {
+		max-height: 100px;
 		max-width: 100%;
+	}
+
+	.euskaltegi-card__image img {
+		object-fit: contain;
 	}
 }

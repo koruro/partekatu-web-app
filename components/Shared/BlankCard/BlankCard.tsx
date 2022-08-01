@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 
 interface BlankCardProps {
   className?: string;
+  expand?: boolean;
   rounded?: "s" | "m" | "l";
 }
 
@@ -13,6 +14,7 @@ const BlankCard: React.FC<BlankCardProps> = ({
   children,
   className,
   rounded,
+  expand,
 }) => {
   return (
     <div
@@ -20,7 +22,7 @@ const BlankCard: React.FC<BlankCardProps> = ({
         backgroundColor: "white",
         borderRadius: `var(--rounded-${rounded ?? defaultRounded})`,
         position: "relative",
-        height: "100%",
+        height: expand ? "100%" : "unset",
       }}
       className={
         className ? [defaultClassName, className].join(" ") : defaultClassName
@@ -43,7 +45,9 @@ export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
   ...props
 }) => {
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{ position: "relative", height: props.expand ? "100%" : "unset" }}
+    >
       {renderTag && (
         <div className={styles["blank-card__tag"]}>{renderTag()}</div>
       )}

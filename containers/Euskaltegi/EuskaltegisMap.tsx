@@ -1,16 +1,17 @@
 import React from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import * as ReactDOMServer from "react-dom/server";
 import {
-  Euskaltegi,
-  getFormatedName,
-} from "../../models/euskaltegi/Euskaltegi";
+  GoogleMap,
+  MarkerClusterer,
+  useJsApiLoader,
+} from "@react-google-maps/api";
+import * as ReactDOMServer from "react-dom/server";
+import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
 import RankStars from "../../components/Euskaltegi/RankStars";
-import { useRouter } from "next/router";
 import EuskaltegiAccess from "../../components/Euskaltegi/EuskaltegiAccess/EuskaltegiAccess";
 
 interface Props {
   euskaltegis: Euskaltegi[];
+  onMarkerClick: (euskaltegi: Euskaltegi) => void;
 }
 
 const containerStyle = {
@@ -18,19 +19,18 @@ const containerStyle = {
   height: "100%",
 };
 
-const MyMap: React.FC<Props> = ({ euskaltegis }) => {
+const EuskaltegisMap: React.FC<Props> = ({ euskaltegis, onMarkerClick }) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyAKtcRC_LOfsTOR3S22DUi70pxWRCMBY1c",
   });
 
   const [, setMap] = React.useState<google.maps.Map | null>(null);
-  const router = useRouter();
 
   const onLoad = React.useCallback(function callback(map: google.maps.Map) {
     const bounds = new window.google.maps.LatLngBounds();
 
-    for (const euskaltegi of euskaltegis) {
+    const markers = euskaltegis.map((euskaltegi) => {
       const stars = ReactDOMServer.renderToString(
         <RankStars stars={euskaltegi.rating.score} />
       );
@@ -59,8 +59,8 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
 
       const marker = new window.google.maps.Marker({
         position: euskaltegi.coordinates,
-        map,
         title: euskaltegi.name,
+        map,
       });
 
       marker.addListener("mouseover", () => {
@@ -76,10 +76,11 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
       });
 
       marker.addListener("click", () => {
-        router.push(`#${getFormatedName(euskaltegi.name)}`);
+        onMarkerClick(euskaltegi);
       });
-    }
-    // const bounds2 = new window.google.maps.LatLngBounds({ lat: 43, lng: 23 });
+
+      return marker;
+    });
 
     map.fitBounds(bounds);
     setMap(map);
@@ -102,4 +103,4 @@ const MyMap: React.FC<Props> = ({ euskaltegis }) => {
   );
 };
 
-export default React.memo(MyMap);
+export default React.memo(EuskaltegisMap);
