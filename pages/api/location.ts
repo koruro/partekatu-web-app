@@ -6,13 +6,21 @@ export default async function handler(
 ) {
   const { name } = req.query;
   const data = await fetch(
-    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,geometry,rating,name&input=${name}&inputtype=textquery&key=AIzaSyAKtcRC_LOfsTOR3S22DUi70pxWRCMBY1c`
+    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,geometry,rating,name,type&input=${name}&inputtype=textquery&key=AIzaSyAKtcRC_LOfsTOR3S22DUi70pxWRCMBY1c`
   ).then((res) => res.json());
 
   if (!data.candidates)
     return res.status(400).json({ message: "No candidates found" });
 
-  const candidate = data.candidates[0];
+  const filteredCandidates = data.candidates.filter((candidate: any) =>
+    candidate.types.includes("locality")
+  );
+
+  const candidate = filteredCandidates[0];
+
+  if (!candidate)
+    return res.status(400).json({ message: "No candidates found" });
+
   res.status(200).json({
     name: candidate.name,
     coordinates: {

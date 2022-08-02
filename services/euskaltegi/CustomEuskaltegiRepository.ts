@@ -65,13 +65,22 @@ export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   }
 
   async getExternalLocationInfo(name: string): Promise<Location | undefined> {
-    const data = await fetch(
-      `http://localhost:3000/api/location?name=${name}`
-    ).then((res) => res.json());
-    return {
-      name: data.name,
-      coordinates: data.coordinates,
-    };
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/location?name=${name}`
+      ).then(async (res) => ({ status: res.status, data: await res.json() }));
+
+      const data = res.data;
+
+      if (res.status !== 200) return;
+
+      return {
+        name: data.name,
+        coordinates: data.coordinates,
+      };
+    } catch (error) {
+      return;
+    }
   }
   async getLocationMatches(name: string): Promise<TextMatch[]> {
     try {
