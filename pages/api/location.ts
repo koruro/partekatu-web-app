@@ -6,7 +6,7 @@ export default async function handler(
 ) {
   const { name } = req.query;
   const data = await fetch(
-    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,geometry,rating,name,type&input=${name}&inputtype=textquery&key=AIzaSyAKtcRC_LOfsTOR3S22DUi70pxWRCMBY1c`
+    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,geometry,rating,name,type&input=${name}&inputtype=textquery&key=${process.env.PRIVATE_GOOGLE_MAPS_API_KEY}`
   ).then((res) => res.json());
 
   if (!data.candidates)

@@ -23,7 +23,7 @@ const containerStyle = {
 const EuskaltegisMap: React.FC<Props> = ({ euskaltegis, onMarkerClick }) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyAKtcRC_LOfsTOR3S22DUi70pxWRCMBY1c",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
   });
 
   const [, setMap] = React.useState<google.maps.Map | null>(null);
