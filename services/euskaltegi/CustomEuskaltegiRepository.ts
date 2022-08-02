@@ -1,4 +1,8 @@
-import { Euskaltegi, Location } from "../../models/euskaltegi/Euskaltegi";
+import {
+  Coordinates,
+  Euskaltegi,
+  Location,
+} from "../../models/euskaltegi/Euskaltegi";
 import { TextMatch } from "../../models/TextMatch";
 import { EuskaltegiRepository } from "./EuskaltegiRepository";
 
@@ -27,6 +31,23 @@ function restToEuskaltegiMapper(d: any): Euskaltegi {
 
 export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   constructor(private baseUrl: string) {}
+  async getNearbyEuskaltegis(coordinates: Coordinates): Promise<Euskaltegi[]> {
+    try {
+      const response = await fetch(
+        `${this.baseUrl}/euskaltegi/euskaltegis/nearby?lat=${coordinates.lat}&lng=${coordinates.lng}`
+      );
+
+      const json = await response.json();
+
+      const data = json.data;
+      if (!data) throw new Error(`No data found`);
+
+      return data.map(restToEuskaltegiMapper);
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
   async getAllEuskaltegis(): Promise<Euskaltegi[]> {
     try {
       const response = await fetch(`${this.baseUrl}/euskaltegi/euskaltegis`);

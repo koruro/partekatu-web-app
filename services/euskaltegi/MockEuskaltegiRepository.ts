@@ -1,4 +1,5 @@
 import {
+  Coordinates,
   Euskaltegi,
   EuskaltegiAccess,
   Location,
@@ -74,6 +75,9 @@ const locations: Location[] = [
 ];
 
 export class MockEuskaltegiRepository implements EuskaltegiRepository {
+  getNearbyEuskaltegis(coordinates: Coordinates): Promise<Euskaltegi[]> {
+    throw new Error("Method not implemented.");
+  }
   async getAllEuskaltegis(): Promise<Euskaltegi[]> {
     return genEuskaltegis("Vitoria");
   }
