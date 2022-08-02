@@ -30,6 +30,11 @@ const CardInfoRow: React.FC = ({ children }) => {
   );
 };
 
+const getEuskaltegiFullAddress = (euskaltegi: Euskaltegi) =>
+  [euskaltegi.address, euskaltegi.postalCode, capitalize(euskaltegi.city)]
+    .filter((s) => s !== "" || s !== undefined)
+    .join(", ");
+
 interface Props {
   euskaltegi: Euskaltegi;
 }
@@ -107,10 +112,7 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
           >
             <CardInfoRow>
               <FaMapMarker color="var(--primary)" />
-              <span>
-                {euskaltegi.address}, {euskaltegi.postalCode},{" "}
-                {capitalize(euskaltegi.city)}
-              </span>
+              <span>{getEuskaltegiFullAddress(euskaltegi)}</span>
             </CardInfoRow>
             <CardInfoRow>
               <FaPhone color="var(--primary)" />
