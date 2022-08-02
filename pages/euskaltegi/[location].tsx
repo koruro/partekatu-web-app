@@ -59,20 +59,29 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!locationData)
     throw Error(`No location data found for location ${location}`);
 
-  try {
-    // Fetch article and recommendations data
-    const euskaltegis = await euskaltegiRepository.getEuskaltegisInLocation(
-      location
-    );
+  // Fetch article and recommendations data
+  const euskaltegis = await euskaltegiRepository.getEuskaltegisInLocation(
+    location
+  );
 
+  // If there are no euskaltegis in this location, find nearby ones
+  if (euskaltegis.length <= 0) {
+    const nearbyEuskaltegis = await euskaltegiRepository.getNearbyEuskaltegis(
+      locationData.coordinates,
+      10
+    );
     return {
       props: {
-        euskaltegis,
+        euskaltegis: nearbyEuskaltegis,
         location: locationData,
       },
     };
-  } catch (error) {
-    console.error(error);
-    return { props: {} };
   }
+
+  return {
+    props: {
+      euskaltegis,
+      location: locationData,
+    },
+  };
 };

@@ -31,10 +31,13 @@ function restToEuskaltegiMapper(d: any): Euskaltegi {
 
 export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   constructor(private baseUrl: string) {}
-  async getNearbyEuskaltegis(coordinates: Coordinates): Promise<Euskaltegi[]> {
+  async getNearbyEuskaltegis(
+    coordinates: Coordinates,
+    radius = 20
+  ): Promise<Euskaltegi[]> {
     try {
       const response = await fetch(
-        `${this.baseUrl}/euskaltegi/euskaltegis/nearby?lat=${coordinates.lat}&lng=${coordinates.lng}`
+        `${this.baseUrl}/euskaltegi/euskaltegis/nearby?lat=${coordinates.lat}&lng=${coordinates.lng}&radius=${radius}`
       );
 
       const json = await response.json();
