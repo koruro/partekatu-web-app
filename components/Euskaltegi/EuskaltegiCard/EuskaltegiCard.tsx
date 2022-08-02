@@ -11,6 +11,7 @@ import { BiWorld } from "react-icons/bi";
 import { FaPhone, FaMapMarker } from "react-icons/fa";
 import RankStars from "../RankStars";
 import EuskaltegiAccess from "../EuskaltegiAccess/EuskaltegiAccess";
+import { getEuskaltegiImgUrl } from "../getEuskaltegiImgUrl";
 
 const CardInfoRow: React.FC = ({ children }) => {
   return (
@@ -88,16 +89,13 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
             <RankStars stars={euskaltegi.rating.score} />
           </div>
         </div>
-        <div
-          // style={{
-          //   display: "grid",
-          //   gridTemplateColumns: "min(20vw, 113px) 1fr",
-          //   columnGap: "1.4rem",
-          // }}
-          className={styles["euskaltegi-card__body"]}
-        >
+        <div className={styles["euskaltegi-card__body"]}>
           <div className={styles["euskaltegi-card__image"]}>
-            <img title={"title"} alt={"altTitle"} src={euskaltegi.imgUrl} />
+            <img
+              title={"title"}
+              alt={"altTitle"}
+              src={getEuskaltegiImgUrl(euskaltegi)}
+            />
           </div>
           <div
             style={{

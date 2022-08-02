@@ -41,8 +41,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   if (!locationInfo) throw new Error(`No location info found`);
 
-  console.log(locationInfo);
-
   const euskaltegis = await euskaltegiRepository.getNearbyEuskaltegis(
     locationInfo.coordinates
   );

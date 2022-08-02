@@ -8,6 +8,7 @@ import * as ReactDOMServer from "react-dom/server";
 import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
 import RankStars from "../../components/Euskaltegi/RankStars";
 import EuskaltegiAccess from "../../components/Euskaltegi/EuskaltegiAccess/EuskaltegiAccess";
+import { getEuskaltegiImgUrl } from "../../components/Euskaltegi/getEuskaltegiImgUrl";
 
 interface Props {
   euskaltegis: Euskaltegi[];
@@ -46,7 +47,9 @@ const EuskaltegisMap: React.FC<Props> = ({ euskaltegis, onMarkerClick }) => {
         `<div>${stars}</div>` +
         '<div id="bodyContent">' +
         `<div style="display:grid;grid-template-columns:90px 1fr;">` +
-        `<div"><img style="max-width:100%;" src="${euskaltegi.imgUrl}" /></div>` +
+        `<div"><img style="max-width:100%;" src="${getEuskaltegiImgUrl(
+          euskaltegi
+        )}" /></div>` +
         `</div>` +
         "</div>" +
         "</div>";
