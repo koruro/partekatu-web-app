@@ -8,6 +8,8 @@ export const getExternalLocationInfo = async (
     `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,geometry,rating,name,type&input=${name}&inputtype=textquery&key=${key}`
   ).then((res) => res.json());
 
+  console.log(data);
+
   if (!data.candidates) return;
 
   const filteredCandidates = data.candidates.filter((candidate: any) =>
