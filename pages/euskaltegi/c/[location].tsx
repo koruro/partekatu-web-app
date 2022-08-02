@@ -6,6 +6,7 @@ import PageBox from "../../../components/Page/PageBox/PageBox";
 import SiteEuskaltegisContainer from "../../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
 import { Euskaltegi, Location } from "../../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../../services/bootstrap";
+import { getExternalLocationInfo } from "../../../services/euskaltegi/getExternalLocationInfo";
 
 const EuskaltegiFallbackLocationPlacePage: React.FC<{
   location: Location;
@@ -34,9 +35,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const location = params.location;
 
   if (typeof location !== "string") throw new Error(`No location param found`);
+  if (!process.env.PRIVATE_GOOGLE_MAPS_API_KEY)
+    throw new Error(`No places API Key provided`);
 
-  const locationInfo = await euskaltegiRepository.getExternalLocationInfo(
-    location
+  const locationInfo = await getExternalLocationInfo(
+    location,
+    process.env.PRIVATE_GOOGLE_MAPS_API_KEY
   );
 
   if (!locationInfo) throw new Error(`No location info found`);

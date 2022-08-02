@@ -10,7 +10,6 @@ export interface EuskaltegiRepository {
   getAllLocations(): Promise<Location[]>;
   getAllEuskaltegis(): Promise<Euskaltegi[]>;
   getLocationInfo(name: string): Promise<Location | undefined>;
-  getExternalLocationInfo(name: string): Promise<Location | undefined>;
   getLocationMatches(name: string): Promise<TextMatch[]>;
   getNearbyEuskaltegis(
     coordinates: Coordinates,

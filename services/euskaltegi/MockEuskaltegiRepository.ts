@@ -81,9 +81,6 @@ export class MockEuskaltegiRepository implements EuskaltegiRepository {
   async getAllEuskaltegis(): Promise<Euskaltegi[]> {
     return genEuskaltegis("Vitoria");
   }
-  async getExternalLocationInfo(name: string): Promise<Location | undefined> {
-    return;
-  }
   async getLocationMatches(name: string): Promise<TextMatch[]> {
     return [];
   }
