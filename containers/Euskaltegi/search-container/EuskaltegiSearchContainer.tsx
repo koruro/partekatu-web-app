@@ -2,14 +2,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Autocomplete from "../../../components/Article/InteractiveComponents/SurnameFinder/Autocomplete/Autocomplete";
 import CustomInput from "../../../components/Article/InteractiveComponents/SurnameFinder/Input/CustomInput";
-import EuskaltegiCard from "../../../components/Euskaltegi/EuskaltegiCard/EuskaltegiCard";
 import EuskaltegiFillableCard from "../../../components/Euskaltegi/EuskaltegiFillableCard/EuskaltegiFillableCard";
 import LoadingRing from "../../../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../../../components/Page/PageContainerBox/PageContainerBox";
-import { Euskaltegi, Location } from "../../../models/euskaltegi/Euskaltegi";
+import { Euskaltegi } from "../../../models/euskaltegi/Euskaltegi";
 import { TextMatch } from "../../../models/TextMatch";
 import { euskaltegiRepository } from "../../../services/bootstrap";
-import LocationMap from "../LocationMap";
 import MyMap from "../EuskaltegisMap";
 import styles from "./styles.module.css";
 
