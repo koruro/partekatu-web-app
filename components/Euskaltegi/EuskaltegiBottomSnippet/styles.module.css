@@ -1,0 +1,10 @@
+.euskaltegi-snippet__body {
+	padding: 0 1rem;
+	line-height: 1.4rem;
+}
+
+@media (min-width: 768px) {
+	.euskaltegi-snippet__body {
+		padding: 0;
+	}
+}

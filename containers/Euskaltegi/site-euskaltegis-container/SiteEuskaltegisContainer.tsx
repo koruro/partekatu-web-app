@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { useRouter } from "next/router";
 import StickyContainer from "../../../components/Article/SideContainer/StickyContainer";
+import ArticleCard from "../../../components/Articles/ArticleCard/ArticleCard";
+import EuskaltegiBottomSnippet from "../../../components/Euskaltegi/EuskaltegiBottomSnippet/EuskaltegiBottomSnippet";
 import EuskaltegiCard from "../../../components/Euskaltegi/EuskaltegiCard/EuskaltegiCard";
 import { getRandomFallbackLocationImage } from "../../../components/Euskaltegi/getRandomFallbackLocationImage";
 import PageContainerBox from "../../../components/Page/PageContainerBox/PageContainerBox";
+import { Article } from "../../../models/Article";
 import {
   Euskaltegi,
   getFormatedName,
@@ -15,12 +18,14 @@ import styles from "./styles.module.css";
 
 interface Props {
   euskaltegis: Euskaltegi[];
+  articleRecommendations: Article[];
   location: Location;
 }
 
 const SiteEuskaltegisContainer: React.FC<Props> = ({
   euskaltegis,
   location,
+  articleRecommendations,
 }) => {
   const router = useRouter();
   return (
@@ -33,9 +38,11 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
               <img
                 style={{ objectFit: "cover" }}
                 src={location.imgUrl ?? getRandomFallbackLocationImage()}
+                alt={`Encuentra euskaltegis en ${location.name}`}
+                title={`Euskaltegis en ${location.name}`}
               />
             </div>
-            <p>
+            <p className={styles["euskaltegis-container__sub-title"]}>
               Estos son los euskaltegis que hemos encontrado en{" "}
               {capitalize(location.name)}. Echa un vistazo en el mapa justo
               debajo 😉.
@@ -78,6 +85,9 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
               ))}
           </div>
         </div>
+        <EuskaltegiBottomSnippet
+          articleRecommendations={articleRecommendations}
+        />
       </div>
     </PageContainerBox>
   );

@@ -7,16 +7,25 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
 import SiteEuskaltegisContainer from "../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
+import { Article } from "../../models/Article";
 import { Euskaltegi, Location } from "../../models/euskaltegi/Euskaltegi";
-import { euskaltegiRepository } from "../../services/bootstrap";
+import {
+  articleRepository,
+  euskaltegiRepository,
+} from "../../services/bootstrap";
 import { getNearbyOrNearest } from "../../services/euskaltegi/getEuskaltegisOrNearby";
 
 interface Props {
   euskaltegis: Euskaltegi[];
   location: Location;
+  articleRecommendations: Article[];
 }
 
-const EuskaltegiPlacePage: React.FC<Props> = ({ euskaltegis, location }) => {
+const EuskaltegiPlacePage: React.FC<Props> = ({
+  euskaltegis,
+  location,
+  articleRecommendations,
+}) => {
   return (
     <>
       <CustomHead
@@ -28,6 +37,7 @@ const EuskaltegiPlacePage: React.FC<Props> = ({ euskaltegis, location }) => {
       <PageBox>
         <NavBar />
         <SiteEuskaltegisContainer
+          articleRecommendations={articleRecommendations}
           euskaltegis={euskaltegis}
           location={location}
         />
@@ -60,6 +70,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (typeof location !== "string") throw new Error(`No location param found`);
 
+  const articleRecommendations = await articleRepository.getArticles({
+    limit: 3,
+  });
+
   // Get location data
   const locationData = await euskaltegiRepository.getLocationInfo(location);
 
@@ -81,6 +95,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       props: {
         euskaltegis: nearbyEuskaltegis,
         location: locationData,
+        articleRecommendations,
       },
     };
   }
@@ -89,6 +104,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       euskaltegis,
       location: locationData,
+      articleRecommendations,
     },
   };
 };

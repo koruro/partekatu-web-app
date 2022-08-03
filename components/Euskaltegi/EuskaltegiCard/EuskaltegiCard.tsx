@@ -69,22 +69,24 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
           >
             <EuskaltegiAccess access={euskaltegi.access} />
           </div>
-          <div
-            style={{
-              display: "flex",
-              gap: ".4rem",
-            }}
-          >
-            <span
+          {euskaltegi.rating.score > 0 && (
+            <div
               style={{
-                fontWeight: "bold",
-                color: "#FFD600",
+                display: "flex",
+                gap: ".4rem",
               }}
             >
-              {euskaltegi.rating.score}
-            </span>
-            <RankStars stars={euskaltegi.rating.score} />
-          </div>
+              <span
+                style={{
+                  fontWeight: "bold",
+                  color: "#FFD600",
+                }}
+              >
+                {euskaltegi.rating.score}
+              </span>
+              <RankStars stars={euskaltegi.rating.score} />
+            </div>
+          )}
         </div>
         <div className={styles["euskaltegi-card__body"]}>
           <div className={styles["euskaltegi-card__image"]}>

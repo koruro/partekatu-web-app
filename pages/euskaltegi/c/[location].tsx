@@ -5,15 +5,20 @@ import Footer from "../../../components/Footer/Footer";
 import NavBar from "../../../components/NavBar/NavBar";
 import PageBox from "../../../components/Page/PageBox/PageBox";
 import SiteEuskaltegisContainer from "../../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
+import { Article } from "../../../models/Article";
 import { Euskaltegi, Location } from "../../../models/euskaltegi/Euskaltegi";
-import { euskaltegiRepository } from "../../../services/bootstrap";
+import {
+  articleRepository,
+  euskaltegiRepository,
+} from "../../../services/bootstrap";
 import { getNearbyOrNearest } from "../../../services/euskaltegi/getEuskaltegisOrNearby";
 import { getExternalLocationInfo } from "../../../services/euskaltegi/getExternalLocationInfo";
 
 const EuskaltegiFallbackLocationPlacePage: React.FC<{
   location: Location;
   euskaltegis: Euskaltegi[];
-}> = ({ euskaltegis, location }) => {
+  articleRecommendations: Article[];
+}> = ({ euskaltegis, location, articleRecommendations }) => {
   return (
     <>
       <CustomHead
@@ -28,6 +33,7 @@ const EuskaltegiFallbackLocationPlacePage: React.FC<{
         <SiteEuskaltegisContainer
           euskaltegis={euskaltegis}
           location={location}
+          articleRecommendations={articleRecommendations}
         />
         <Footer />
       </PageBox>
@@ -43,6 +49,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const location = params.location;
 
   if (typeof location !== "string") throw new Error(`No location param found`);
+
+  const articleRecommendations = await articleRepository.getArticles({
+    limit: 3,
+  });
   if (!process.env.PRIVATE_GOOGLE_MAPS_API_KEY)
     throw new Error(`No places API Key provided`);
 
@@ -58,5 +68,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     locationInfo.coordinates
   );
 
-  return { props: { location: locationInfo, euskaltegis } };
+  return {
+    props: { location: locationInfo, euskaltegis, articleRecommendations },
+  };
 };
