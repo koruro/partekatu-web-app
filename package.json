@@ -10,6 +10,7 @@
 		"generate:sitemap": "node ./scripts/generate-sitemap.js"
 	},
 	"dependencies": {
+		"@googlemaps/markerclusterer": "^2.0.10",
 		"@react-google-maps/api": "^2.12.0",
 		"@sentry/nextjs": "^6.19.0",
 		"classnames": "^2.3.1",
@@ -42,8 +43,8 @@
 	},
 	"devDependencies": {
 		"@types/node": "16.11.6",
-		"@types/react": "17.0.34",
-		"@types/react-dom": "^17.0.11",
+		"@types/react": "^18.0.15",
+		"@types/react-dom": "^18.0.6",
 		"@types/react-paginate": "^7.1.1",
 		"@typescript-eslint/eslint-plugin": "^5.23.0",
 		"@typescript-eslint/parser": "^5.23.0",

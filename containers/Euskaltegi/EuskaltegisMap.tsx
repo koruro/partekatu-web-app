@@ -1,9 +1,6 @@
 import React from "react";
-import {
-  GoogleMap,
-  MarkerClusterer,
-  useJsApiLoader,
-} from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import * as ReactDOMServer from "react-dom/server";
 import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
 import RankStars from "../../components/Euskaltegi/RankStars";
@@ -63,7 +60,6 @@ const EuskaltegisMap: React.FC<Props> = ({ euskaltegis, onMarkerClick }) => {
       const marker = new window.google.maps.Marker({
         position: euskaltegi.coordinates,
         title: euskaltegi.name,
-        map,
       });
 
       marker.addListener("mouseover", () => {
@@ -84,6 +80,8 @@ const EuskaltegisMap: React.FC<Props> = ({ euskaltegis, onMarkerClick }) => {
 
       return marker;
     });
+
+    new MarkerClusterer({ markers, map });
 
     map.fitBounds(bounds);
     setMap(map);
