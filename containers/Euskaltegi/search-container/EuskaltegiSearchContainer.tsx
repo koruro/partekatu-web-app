@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Autocomplete from "../../../components/Article/InteractiveComponents/SurnameFinder/Autocomplete/Autocomplete";
@@ -63,6 +64,10 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
 
   return (
     <PageContainerBox>
+      <div className={styles["euskaltegis-search-container__women_images"]}>
+        <img src="/woman_drawing_2.png" alt="women drawing"></img>
+        <img src="/woman_drawing_1.png" alt="women drawing"></img>
+      </div>
       <div className={styles["euskaltegis-search-container"]}>
         <h1>Encuentra tu Euskaltegi</h1>
         <p className={styles["euskaltegis-search-container__copy-text"]}>
