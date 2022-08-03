@@ -60,10 +60,10 @@
   dependencies:
     fast-deep-equal "^3.1.3"
 
-"@googlemaps/markerclusterer@2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@googlemaps/markerclusterer/-/markerclusterer-2.0.7.tgz#de27b9853fafa58c30420b82a9bb9d28a0de0ee7"
-  integrity sha512-/xADL31ERrNoVsF+O2A+H+obxOki4DHPQkU/STS5gFG6ZZVpvNV4WLisW2aOlOsH3rUXSq3MFjqFOEDXSQcvog==
+"@googlemaps/markerclusterer@2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@googlemaps/markerclusterer/-/markerclusterer-2.0.8.tgz#39f037e60a1c62cd9f04d529ea9c4f286af4ec6f"
+  integrity sha512-l/Z3nxTE55iaWDB8NL/HpFdYht2x0khPaJI9pD7KDbfHeZaZyG8yT6xi2cZ0Lb2VvgKFb3OtNKRMpAuS4xm2rg==
   dependencies:
     fast-deep-equal "^3.1.3"
     supercluster "^7.1.3"
@@ -190,16 +190,16 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@react-google-maps/api@2.12.0":
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-2.12.0.tgz#1509ca9697e06b0bf20a038695f3a543943f1783"
-  integrity sha512-BqsclJ9p2I6yZa++0R3oEcneECcH7PFsULhn8UDlWQ9uNAQR/aqvqGb9SXYvdpIAOJdk3E737iTrGhFg4j5Ucw==
+"@react-google-maps/api@^2.12.0":
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-2.12.1.tgz#e8221e190a8909261d5f2f128ca72bdf54f14700"
+  integrity sha512-XvZWUkRa0JSvtkyV8UgDkuccPuhvjr/E6WQZK/662H2MAiZ6qFDPc0g7E87GJmEftr9Q5SKLsDzlaZ6jx65RVg==
   dependencies:
     "@googlemaps/js-api-loader" "1.14.3"
-    "@googlemaps/markerclusterer" "2.0.7"
+    "@googlemaps/markerclusterer" "2.0.8"
     "@react-google-maps/infobox" "2.11.8"
     "@react-google-maps/marker-clusterer" "2.11.8"
-    "@types/google.maps" "3.49.1"
+    "@types/google.maps" "3.49.2"
     invariant "2.2.4"
 
 "@react-google-maps/infobox@2.11.8":
@@ -358,10 +358,10 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/google.maps@3.49.1":
-  version "3.49.1"
-  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.49.1.tgz#863cc43e11008eed5eed22eb2153528fac6cd435"
-  integrity sha512-Sbl5anucT7LUcUxXsRxkCozHdXIkUiY+Tyru+OVl5rot0+VIZuuulmABC7X+nF7rL7BRTAguSBSAD/e/AfIkkA==
+"@types/google.maps@3.49.2":
+  version "3.49.2"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.49.2.tgz#9640491ec3aa96c9de1466894117ce81c02588df"
+  integrity sha512-ZO1qWciukqED9qcUNW7OaPXWnTlT+tO3WcYkmudZyQW2BqD7TlMFRrdqSCoqfwKhERCwBA5A/YZt/g5A3BqgLQ==
 
 "@types/hast@^2.0.0", "@types/hast@^2.3.2":
   version "2.3.4"
@@ -3213,7 +3213,7 @@ regexpp@^3.1.0, regexpp@^3.2.0:
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
 
-rehype-autolink-headings@^6.1.0:
+rehype-autolink-headings@6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/rehype-autolink-headings/-/rehype-autolink-headings-6.1.1.tgz#0cb874a56f3de6ead1c2268d7f0fc5006f244db5"
   integrity sha512-NMYzZIsHM3sA14nC5rAFuUPIOfg+DFmf9EY1YMhaNlB7+3kK/ZlE6kqPfuxr1tsJ1XWkTrMtMoyHosU70d35mA==
@@ -3464,16 +3464,16 @@ rehype-preset-minify@6.0.0:
     rehype-sort-attribute-values "^4.0.0"
     rehype-sort-attributes "^4.0.0"
 
-rehype-raw@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/rehype-raw/-/rehype-raw-6.1.0.tgz#78ba31d8725fe98467ca1acbbd65e2d0040b46e1"
-  integrity sha512-12j2UiiYJgZFdjnHDny77NY5BF3eW4Jsl0vtgL1DWdTzcHjPpbhumU+GtPUdivEWwQc8x9OdEuO0oxaGz7Tvyg==
+rehype-raw@6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/rehype-raw/-/rehype-raw-6.1.1.tgz#81bbef3793bd7abacc6bf8335879d1b6c868c9d4"
+  integrity sha512-d6AKtisSRtDRX4aSPsJGTfnzrX2ZkHQLE5kiUuGOeEoLpbEulFF4hj0mLPbsa+7vmguDKOVVEQdHKDSwoaIDsQ==
   dependencies:
     "@types/hast" "^2.0.0"
     hast-util-raw "^7.2.0"
     unified "^10.0.0"
 
-rehype-react@^7.0.4:
+rehype-react@7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/rehype-react/-/rehype-react-7.1.1.tgz#e0403019f6dc8c434751c3dd51edf4a08fa75920"
   integrity sha512-6yaitxM95JFsuTA74OH54OyvTAeRqR4/A6f45S2sEk2FEG04iGgsObcmEIFQRsjK9pfAhc74lR4iGf/W2G/sBw==
@@ -3585,7 +3585,7 @@ rehype-stringify@9.0.2:
     hast-util-to-html "^8.0.0"
     unified "^10.0.0"
 
-rehype-wrap-all@^1.1.0:
+rehype-wrap-all@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/rehype-wrap-all/-/rehype-wrap-all-1.1.0.tgz#10fadb8ef16b8b8ec8bb832d9595c5e66b925217"
   integrity sha512-AFiCZqyJXnD2NF4ZjuVpW9aZuD+bz5YdkIF+bL66jmExdh6efgb9LAtUx+Rw1puMwRPGPqBXXYl9bEzi59Cq8g==
@@ -3604,10 +3604,10 @@ remark-gfm@3.0.1:
     micromark-extension-gfm "^2.0.0"
     unified "^10.0.0"
 
-remark-html@15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/remark-html/-/remark-html-15.0.0.tgz#9e5b8abefa82f232c995e611906c0ab6690c2d96"
-  integrity sha512-Fsk04zueun0u3aM3dbwfVDRTOeEco0H4Dc3hWyv7XKra8smQQJEqnD0sFhQVe9v1KxYvzVcJ6ioXtuLux2SvJA==
+remark-html@15.0.1:
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/remark-html/-/remark-html-15.0.1.tgz#199cc78656d857834de0304c4b54a773f3272078"
+  integrity sha512-7ta5UPRqj8nP0GhGMYUAghZ/DRno7dgq7alcW90A7+9pgJsXzGJlFgwF8HOP1b1tMgT3WwbeANN+CaTimMfyNQ==
   dependencies:
     "@types/mdast" "^3.0.0"
     hast-util-sanitize "^4.0.0"
@@ -3625,16 +3625,7 @@ remark-math@5.1.0:
     micromark-extension-math "^2.0.0"
     unified "^10.0.0"
 
-remark-parse@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/remark-parse/-/remark-parse-10.0.0.tgz#65e2b2b34d8581d36b97f12a2926bb2126961cb4"
-  integrity sha512-07ei47p2Xl7Bqbn9H2VYQYirnAFJPwdMuypdozWsSbnmrkgA2e2sZLZdnDNrrsxR4onmIzH/J6KXqKxCuqHtPQ==
-  dependencies:
-    "@types/mdast" "^3.0.0"
-    mdast-util-from-markdown "^1.0.0"
-    unified "^10.0.0"
-
-remark-parse@^10.0.0:
+remark-parse@10.0.1, remark-parse@^10.0.0:
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/remark-parse/-/remark-parse-10.0.1.tgz#6f60ae53edbf0cf38ea223fe643db64d112e0775"
   integrity sha512-1fUyHr2jLsVOkhbvPRBJ5zTKZZyD6yZzYaWCS6BPBdQ8vEMBCH+9zNCDA6tET/zHCi/jLqjCWtlJZUPk+DbnFw==
@@ -4031,20 +4022,7 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-unified@10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/unified/-/unified-10.1.1.tgz#345e349e3ab353ab612878338eb9d57b4dea1d46"
-  integrity sha512-v4ky1+6BN9X3pQrOdkFIPWAaeDsHPE1svRDxq7YpTc2plkIqFMwukfqM+l0ewpP9EfwARlt9pPFAeWYhHm8X9w==
-  dependencies:
-    "@types/unist" "^2.0.0"
-    bail "^2.0.0"
-    extend "^3.0.0"
-    is-buffer "^2.0.0"
-    is-plain-obj "^4.0.0"
-    trough "^2.0.0"
-    vfile "^5.0.0"
-
-unified@^10.0.0:
+unified@10.1.2, unified@^10.0.0:
   version "10.1.2"
   resolved "https://registry.yarnpkg.com/unified/-/unified-10.1.2.tgz#b1d64e55dafe1f0b98bb6c719881103ecf6c86df"
   integrity sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==
