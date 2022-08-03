@@ -8,7 +8,7 @@ import EuskaltegiSearchContainer from "../../containers/Euskaltegi/search-contai
 import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";
 
-const headTitle = "Todos los artículos de partekatu.com";
+const headTitle = "Buscador de euskaltegis";
 const metaDesc =
   "En Partekatu tenemos artículos de todo lo que puedas necesitar en torno al euskera ¡Simplemente busca lo que necesites y aprende!";
 

@@ -7,7 +7,7 @@ import { capitalize } from "../../../utils/capitalize";
 import { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
 import { HiMail } from "react-icons/hi";
 import styles from "./styles.module.css";
-import { BiWorld } from "react-icons/bi";
+import { BiPhone, BiWorld } from "react-icons/bi";
 import { FaPhone, FaMapMarker } from "react-icons/fa";
 import RankStars from "../RankStars";
 import EuskaltegiAccess from "../EuskaltegiAccess/EuskaltegiAccess";
@@ -52,14 +52,6 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
           id={`${getFormatedName(euskaltegi.name)}`}
         ></a>
         <h3>{euskaltegi.name}</h3>
-        <span
-          style={{
-            marginTop: ".4rem",
-            color: "var(--text-subtle)",
-          }}
-        >
-          {euskaltegi.net}
-        </span>
         <div
           style={{
             display: "flex",
@@ -131,10 +123,9 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
             gap: "1rem",
             marginTop: "2rem",
           }}
-          className="hoverable-elevate"
         >
           <a
-            className="button-padding-1 elevate-1"
+            className="button-padding-1 elevate-1 hoverable-elevate"
             style={{
               display: "flex",
               alignItems: "center",
@@ -149,6 +140,23 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
             href={euskaltegi.websiteUrl}
           >
             <BiWorld /> Visitar
+          </a>
+          <a
+            className="button-padding-1 elevate-1 hoverable-elevate"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: ".5em",
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "1.2rem",
+              borderRadius: "var(--rounded-l)",
+              background: "var(--vocabulary-gradient)",
+            }}
+            target="__blank"
+            href={`tel:+34${euskaltegi.phone}`}
+          >
+            <BiPhone /> Llamar
           </a>
         </div>
       </div>

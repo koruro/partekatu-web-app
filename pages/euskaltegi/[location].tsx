@@ -2,12 +2,14 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 import React from "react";
 import CustomHead from "../../components/CustomHead";
+import { getRandomFallbackLocationImage } from "../../components/Euskaltegi/getRandomFallbackLocationImage";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
 import SiteEuskaltegisContainer from "../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
 import { Euskaltegi, Location } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";
+import { getNearbyOrNearest } from "../../services/euskaltegi/getEuskaltegisOrNearby";
 
 interface Props {
   euskaltegis: Euskaltegi[];
@@ -17,7 +19,12 @@ interface Props {
 const EuskaltegiPlacePage: React.FC<Props> = ({ euskaltegis, location }) => {
   return (
     <>
-      <CustomHead title={""} metaTitle={"headTitle"} metaDesc={"metaDesc"} />
+      <CustomHead
+        title={`Los mejores euskaltegis en ${location.name}`}
+        metaTitle={`Los mejores euskaltegis en ${location.name}`}
+        imgUrl={location.imgUrl ?? getRandomFallbackLocationImage()}
+        metaDesc={`¿Quieres aprender euskera? Descubre los euskaltegis más recomendados en ${location.name} mediante nuestro mapa con valoraciones, datos de contacto y más.`}
+      />
       <PageBox>
         <NavBar />
         <SiteEuskaltegisContainer
@@ -66,9 +73,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   // If there are no euskaltegis in this location, find nearby ones
   if (euskaltegis.length <= 0) {
-    const nearbyEuskaltegis = await euskaltegiRepository.getNearbyEuskaltegis(
-      locationData.coordinates,
-      10
+    const nearbyEuskaltegis = await getNearbyOrNearest(
+      euskaltegiRepository,
+      locationData.coordinates
     );
     return {
       props: {

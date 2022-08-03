@@ -75,6 +75,12 @@ const locations: Location[] = [
 ];
 
 export class MockEuskaltegiRepository implements EuskaltegiRepository {
+  getNearestEuskaltegis(
+    coordinates: Coordinates,
+    limit?: number | undefined
+  ): Promise<Euskaltegi[]> {
+    throw new Error("Method not implemented.");
+  }
   getNearbyEuskaltegis(coordinates: Coordinates): Promise<Euskaltegi[]> {
     throw new Error("Method not implemented.");
   }

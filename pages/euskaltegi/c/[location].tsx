@@ -1,11 +1,13 @@
 import { GetServerSideProps } from "next";
 import CustomHead from "../../../components/CustomHead";
+import { getRandomFallbackLocationImage } from "../../../components/Euskaltegi/getRandomFallbackLocationImage";
 import Footer from "../../../components/Footer/Footer";
 import NavBar from "../../../components/NavBar/NavBar";
 import PageBox from "../../../components/Page/PageBox/PageBox";
 import SiteEuskaltegisContainer from "../../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
 import { Euskaltegi, Location } from "../../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../../services/bootstrap";
+import { getNearbyOrNearest } from "../../../services/euskaltegi/getEuskaltegisOrNearby";
 import { getExternalLocationInfo } from "../../../services/euskaltegi/getExternalLocationInfo";
 
 const EuskaltegiFallbackLocationPlacePage: React.FC<{
@@ -14,7 +16,13 @@ const EuskaltegiFallbackLocationPlacePage: React.FC<{
 }> = ({ euskaltegis, location }) => {
   return (
     <>
-      <CustomHead title={""} metaTitle={"headTitle"} metaDesc={"metaDesc"} />
+      <CustomHead
+        title={`Los mejores euskaltegis en ${location.name}`}
+        metaTitle={`Los mejores euskaltegis en ${location.name}`}
+        metaDesc={`¿Quieres aprender euskera? Descubre los euskaltegis más recomendados en ${location.name} mediante nuestro mapa con valoraciones, datos de contacto y más.`}
+        imgUrl={location.imgUrl ?? getRandomFallbackLocationImage()}
+        noIndex
+      />
       <PageBox>
         <NavBar />
         <SiteEuskaltegisContainer
@@ -45,7 +53,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   if (!locationInfo) throw new Error(`No location info found`);
 
-  const euskaltegis = await euskaltegiRepository.getNearbyEuskaltegis(
+  const euskaltegis = await getNearbyOrNearest(
+    euskaltegiRepository,
     locationInfo.coordinates
   );
 

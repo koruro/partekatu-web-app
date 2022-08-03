@@ -31,9 +31,29 @@ function restToEuskaltegiMapper(d: any): Euskaltegi {
 
 export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   constructor(private baseUrl: string) {}
+  async getNearestEuskaltegis(
+    coordinates: Coordinates,
+    limit?: number | undefined
+  ): Promise<Euskaltegi[]> {
+    try {
+      const response = await fetch(
+        `${this.baseUrl}/euskaltegi/euskaltegis/nearest?lat=${coordinates.lat}&lng=${coordinates.lng}&limit=${limit}`
+      );
+
+      const json = await response.json();
+
+      const data = json.data;
+      if (!data) throw new Error(`No data found`);
+
+      return data.map(restToEuskaltegiMapper);
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
   async getNearbyEuskaltegis(
     coordinates: Coordinates,
-    radius = 20
+    radius = 5
   ): Promise<Euskaltegi[]> {
     try {
       const response = await fetch(

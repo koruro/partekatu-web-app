@@ -15,4 +15,8 @@ export interface EuskaltegiRepository {
     coordinates: Coordinates,
     radius?: number
   ): Promise<Euskaltegi[]>;
+  getNearestEuskaltegis(
+    coordinates: Coordinates,
+    limit?: number
+  ): Promise<Euskaltegi[]>;
 }
