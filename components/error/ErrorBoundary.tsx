@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 interface Props {
   fallback: () => JSX.Element;
@@ -8,7 +8,7 @@ interface State {
   hasError: boolean;
 }
 
-class ErrorBoundary extends React.Component<Props, State> {
+class ErrorBoundary extends React.Component<PropsWithChildren<Props>, State> {
   constructor(props: Props) {
     super(props);
 

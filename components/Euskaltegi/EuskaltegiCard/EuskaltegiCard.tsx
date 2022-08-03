@@ -12,8 +12,9 @@ import { FaPhone, FaMapMarker } from "react-icons/fa";
 import RankStars from "../RankStars";
 import EuskaltegiAccess from "../EuskaltegiAccess/EuskaltegiAccess";
 import { getEuskaltegiImgUrl } from "../getEuskaltegiImgUrl";
+import { PropsWithChildren } from "react";
 
-const CardInfoRow: React.FC = ({ children }) => {
+const CardInfoRow: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div
       style={{

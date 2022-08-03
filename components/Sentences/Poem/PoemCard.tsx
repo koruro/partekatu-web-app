@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { SITE_URL } from "../../../utils/constants";
 import {
   getFacebookShareLink,
@@ -29,7 +29,7 @@ const sharePathFactory =
     return getWhatsappShareLink(poem);
   };
 
-const PoemCard: React.FC<Props> = ({ index, children }) => {
+const PoemCard: React.FC<PropsWithChildren<Props>> = ({ index, children }) => {
   const { asPath } = useRouter();
   const poem = (children as any[])
     .map((c) => c?.props?.children?.join(" "))

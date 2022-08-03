@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { SITE_URL } from "../../../utils/constants";
 import {
   getTwitterShareLink,
@@ -27,7 +27,10 @@ const sharePathFactory = (sentence: string) => (social: SocialType) => {
   return getWhatsappShareLink(sentence);
 };
 
-const TranslatedSentenceCard: React.FC<Props> = ({ index, children }) => {
+const TranslatedSentenceCard: React.FC<PropsWithChildren<Props>> = ({
+  index,
+  children,
+}) => {
   const originalSentence = (children as any[]).find((c) => c.type === "p")
     ?.props?.children;
 

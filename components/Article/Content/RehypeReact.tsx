@@ -39,8 +39,8 @@ const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
   };
 
   const processor = unified()
-    .use(rehypeParse, { fragment: true })
-    .use(rehypeReact, {
+    .use(rehypeParse as any, { fragment: true })
+    .use(rehypeReact as any, {
       createElement,
       Fragment,
       components: {
@@ -81,7 +81,7 @@ const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
 
   const processed = processor.processSync(htmlContent);
 
-  return processed.result;
+  return processed.result as any;
 };
 
 export default RehypeReact;

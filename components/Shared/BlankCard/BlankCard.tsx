@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import styles from "./styles.module.css";
 
 interface BlankCardProps {
@@ -10,7 +10,7 @@ interface BlankCardProps {
 const defaultClassName = "elevate-2";
 const defaultRounded = "s";
 
-const BlankCard: React.FC<BlankCardProps> = ({
+const BlankCard: React.FC<PropsWithChildren<BlankCardProps>> = ({
   children,
   className,
   rounded,
@@ -39,11 +39,9 @@ interface TaggedBlankCardProps extends BlankCardProps {
   renderTag?: () => JSX.Element;
 }
 
-export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
-  children,
-  renderTag,
-  ...props
-}) => {
+export const TaggedBlankCard: React.FC<
+  PropsWithChildren<TaggedBlankCardProps>
+> = ({ children, renderTag, ...props }) => {
   return (
     <div
       style={{ position: "relative", height: props.expand ? "100%" : "unset" }}

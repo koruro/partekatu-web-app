@@ -47,7 +47,7 @@ const getRehypeProcessors = (options?: RehypeProcessorsOptions) => {
 
 export class ArticleMarkdownParser {
   private parser = () => {
-    const mainParser = unified().use(remarkParse);
+    const mainParser = unified().use(remarkParse as any);
     const processors = getRemarkProcessors();
 
     return processors.reduce((acc: Processor<any, any, any, void>, curr) => {
@@ -68,7 +68,7 @@ export class ArticleMarkdownParser {
     }, unified());
   };
   private compiler = () => {
-    return unified().use(rehypeStringify, {
+    return unified().use(rehypeStringify as any, {
       quoteSmart: true,
       closeSelfClosing: true,
     });

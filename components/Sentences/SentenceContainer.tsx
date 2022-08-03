@@ -3,6 +3,7 @@ import ImageCardShareList from "./ShareList/ImageCardShareList";
 import ImageCardTears from "./Tears/ImageCardTears";
 import { SocialType } from "../Shared/SocialIcon";
 import BlankCard from "../Shared/BlankCard/BlankCard";
+import { PropsWithChildren } from "react";
 
 interface Props {
   index: number;
@@ -47,7 +48,7 @@ const getRandomCardImage = (index?: number) => {
   return images[imageIndex];
 };
 
-const SentenceContainer: React.FC<Props> = ({
+const SentenceContainer: React.FC<PropsWithChildren<Props>> = ({
   children,
   index,
   showTears,
