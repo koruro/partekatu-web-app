@@ -3,11 +3,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Autocomplete from "../../../components/Article/InteractiveComponents/SurnameFinder/Autocomplete/Autocomplete";
 import CustomInput from "../../../components/Article/InteractiveComponents/SurnameFinder/Input/CustomInput";
-import EuskaltegiBottomSnippet from "../../../components/Euskaltegi/EuskaltegiBottomSnippet/EuskaltegiBottomSnippet";
 import EuskaltegiFillableCard from "../../../components/Euskaltegi/EuskaltegiFillableCard/EuskaltegiFillableCard";
 import LoadingRing from "../../../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../../../components/Page/PageContainerBox/PageContainerBox";
-import { Article } from "../../../models/Article";
 import { Euskaltegi } from "../../../models/euskaltegi/Euskaltegi";
 import { TextMatch } from "../../../models/TextMatch";
 import { euskaltegiRepository } from "../../../services/bootstrap";
@@ -16,13 +14,9 @@ import styles from "./styles.module.css";
 
 interface Props {
   euskaltegis: Euskaltegi[];
-  articleRecommendations: Article[];
 }
 
-const EuskaltegiSearchContainer: React.FC<Props> = ({
-  euskaltegis,
-  articleRecommendations,
-}) => {
+const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
   const [typedSite, setTypedSite] = useState<string>("");
   const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false);
   const [matches, setMatches] = useState<TextMatch[] | undefined>(undefined);
@@ -125,9 +119,6 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({
           ></MyMap>
         </div>
         <EuskaltegiFillableCard euskaltegi={selectedEuskaltegi} />
-        <EuskaltegiBottomSnippet
-          articleRecommendations={articleRecommendations}
-        />
       </div>
     </PageContainerBox>
   );
