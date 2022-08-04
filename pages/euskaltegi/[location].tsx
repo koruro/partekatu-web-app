@@ -13,6 +13,7 @@ import {
   articleRepository,
   euskaltegiRepository,
 } from "../../services/bootstrap";
+import { EuskaltegiFoundCode } from "../../services/euskaltegi/EuskaltegiFoundCode";
 import { getNearbyOrNearest } from "../../services/euskaltegi/getEuskaltegisOrNearby";
 
 interface Props {
@@ -37,6 +38,7 @@ const EuskaltegiPlacePage: React.FC<Props> = ({
       <PageBox>
         <NavBar />
         <SiteEuskaltegisContainer
+          foundCode={EuskaltegiFoundCode.FOUND_IN_LOCATION}
           articleRecommendations={articleRecommendations}
           euskaltegis={euskaltegis}
           location={location}
@@ -63,7 +65,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   if (!params?.location) throw new Error(`No location param found`);
 
   const location = params.location;
@@ -87,7 +89,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   // If there are no euskaltegis in this location, find nearby ones
   if (euskaltegis.length <= 0) {
-    const nearbyEuskaltegis = await getNearbyOrNearest(
+    const [nearbyEuskaltegis] = await getNearbyOrNearest(
       euskaltegiRepository,
       locationData.coordinates
     );

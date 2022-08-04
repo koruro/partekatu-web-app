@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { useRouter } from "next/router";
 import StickyContainer from "../../../components/Article/SideContainer/StickyContainer";
-import ArticleCard from "../../../components/Articles/ArticleCard/ArticleCard";
 import EuskaltegiBottomSnippet from "../../../components/Euskaltegi/EuskaltegiBottomSnippet/EuskaltegiBottomSnippet";
 import EuskaltegiCard from "../../../components/Euskaltegi/EuskaltegiCard/EuskaltegiCard";
 import { getRandomFallbackLocationImage } from "../../../components/Euskaltegi/getRandomFallbackLocationImage";
@@ -12,20 +11,44 @@ import {
   getFormatedName,
   Location,
 } from "../../../models/euskaltegi/Euskaltegi";
+import { EuskaltegiFoundCode } from "../../../services/euskaltegi/EuskaltegiFoundCode";
 import { capitalize } from "../../../utils/capitalize";
 import EuskaltegisMap from "../EuskaltegisMap";
 import styles from "./styles.module.css";
 
 interface Props {
   euskaltegis: Euskaltegi[];
+  foundCode: EuskaltegiFoundCode;
   articleRecommendations: Article[];
   location: Location;
 }
+
+const getSubtitleByFoundCode = (
+  code: EuskaltegiFoundCode,
+  location: Location
+) => {
+  if (code === EuskaltegiFoundCode.FOUND_NEAREST)
+    return (
+      <>
+        No hemos encontrado ningún euskaltegi cerca de{" "}
+        {capitalize(location.name)}. Así que te mostramos los euskaltegis más
+        cercanos que hemos podido encontrar 😉.
+      </>
+    );
+
+  return (
+    <>
+      Estos son los euskaltegis que hemos encontrado en{" "}
+      {capitalize(location.name)}. Echa un vistazo en el mapa justo debajo 😉.
+    </>
+  );
+};
 
 const SiteEuskaltegisContainer: React.FC<Props> = ({
   euskaltegis,
   location,
   articleRecommendations,
+  foundCode,
 }) => {
   const router = useRouter();
   return (
@@ -43,9 +66,7 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
               />
             </div>
             <p className={styles["euskaltegis-container__sub-title"]}>
-              Estos son los euskaltegis que hemos encontrado en{" "}
-              {capitalize(location.name)}. Echa un vistazo en el mapa justo
-              debajo 😉.
+              {getSubtitleByFoundCode(foundCode, location)}
             </p>
             <h3 style={{ padding: "0 1rem" }}>🗺️ ¡Encuéntralos en el mapa!</h3>
             <StickyContainer>

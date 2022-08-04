@@ -4,6 +4,7 @@ import { getRandomFallbackLocationImage } from "../../../components/Euskaltegi/g
 import Footer from "../../../components/Footer/Footer";
 import NavBar from "../../../components/NavBar/NavBar";
 import PageBox from "../../../components/Page/PageBox/PageBox";
+import LocationNotFoundContainer from "../../../containers/Euskaltegi/LocationNotFoundContainer/LocationNotFoundContainer";
 import SiteEuskaltegisContainer from "../../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
 import { Article } from "../../../models/Article";
 import { Euskaltegi, Location } from "../../../models/euskaltegi/Euskaltegi";
@@ -11,30 +12,48 @@ import {
   articleRepository,
   euskaltegiRepository,
 } from "../../../services/bootstrap";
+import { EuskaltegiFoundCode } from "../../../services/euskaltegi/EuskaltegiFoundCode";
 import { getNearbyOrNearest } from "../../../services/euskaltegi/getEuskaltegisOrNearby";
 import { getExternalLocationInfo } from "../../../services/euskaltegi/getExternalLocationInfo";
 
 const EuskaltegiFallbackLocationPlacePage: React.FC<{
-  location: Location;
-  euskaltegis: Euskaltegi[];
+  searchedLocation: string;
+  foundCode: EuskaltegiFoundCode;
+  location?: Location;
+  euskaltegis?: Euskaltegi[];
   articleRecommendations: Article[];
-}> = ({ euskaltegis, location, articleRecommendations }) => {
+}> = ({
+  euskaltegis,
+  location,
+  articleRecommendations,
+  searchedLocation,
+  foundCode,
+}) => {
   return (
     <>
-      <CustomHead
-        title={`Los mejores euskaltegis en ${location.name}`}
-        metaTitle={`Los mejores euskaltegis en ${location.name}`}
-        metaDesc={`¿Quieres aprender euskera? Descubre los euskaltegis más recomendados en ${location.name} mediante nuestro mapa con valoraciones, datos de contacto y más.`}
-        imgUrl={location.imgUrl ?? getRandomFallbackLocationImage()}
-        noIndex
-      />
+      {location ? (
+        <CustomHead
+          title={`Los mejores euskaltegis en ${location.name}`}
+          metaTitle={`Los mejores euskaltegis en ${location.name}`}
+          metaDesc={`¿Quieres aprender euskera? Descubre los euskaltegis más recomendados en ${location.name} mediante nuestro mapa con valoraciones, datos de contacto y más.`}
+          imgUrl={location.imgUrl ?? getRandomFallbackLocationImage()}
+          noIndex
+        />
+      ) : (
+        <CustomHead title={`Busca los mejores euskaltegis`} noIndex />
+      )}
       <PageBox>
         <NavBar />
-        <SiteEuskaltegisContainer
-          euskaltegis={euskaltegis}
-          location={location}
-          articleRecommendations={articleRecommendations}
-        />
+        {location && euskaltegis ? (
+          <SiteEuskaltegisContainer
+            foundCode={foundCode}
+            euskaltegis={euskaltegis}
+            location={location}
+            articleRecommendations={articleRecommendations}
+          />
+        ) : (
+          <LocationNotFoundContainer searchedLocation={searchedLocation} />
+        )}
         <Footer />
       </PageBox>
     </>
@@ -61,14 +80,23 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     process.env.PRIVATE_GOOGLE_MAPS_API_KEY
   );
 
-  if (!locationInfo) throw new Error(`No location info found`);
+  if (!locationInfo)
+    return {
+      props: { searchedLocation: location, articleRecommendations },
+    };
 
-  const euskaltegis = await getNearbyOrNearest(
+  const [euskaltegis, foundCode] = await getNearbyOrNearest(
     euskaltegiRepository,
     locationInfo.coordinates
   );
 
   return {
-    props: { location: locationInfo, euskaltegis, articleRecommendations },
+    props: {
+      foundCode,
+      searchedLocation: location,
+      location: locationInfo,
+      euskaltegis,
+      articleRecommendations,
+    },
   };
 };
