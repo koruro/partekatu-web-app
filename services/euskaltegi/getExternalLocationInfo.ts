@@ -5,7 +5,7 @@ export const getExternalLocationInfo = async (
   key: string
 ): Promise<Location | undefined> => {
   const data = await fetch(
-    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,geometry,rating,name,type&input=${name}&inputtype=textquery&key=${key}&locationbias=circle%3A100000%4042.81772%2C%20-2.306`
+    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=place_id,geometry,rating,name,type&input=${name}&inputtype=textquery&key=${key}&locationbias=rectangle%3A36.4445%2C%20-9.7099%7C43.32509%2C%203.4639`
   ).then((res) => res.json());
 
   console.log(data);
