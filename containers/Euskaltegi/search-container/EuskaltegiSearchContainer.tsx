@@ -88,7 +88,7 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({
           }}
         >
           <CustomInput
-            placeholder="🏫  Introduce aquí el lugar..."
+            placeholder="🏫  Introduce el lugar. ej. Bilbao, Donosti, Vitoria..."
             value={typedSite}
             onValueChange={(value) => {
               setShowAutoComplete(true);
