@@ -1,0 +1,47 @@
+.euskaltegis-container {
+  margin-top: 2rem;
+}
+
+.euskaltegis-container h1 {
+  font-size: 2.8em;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.euskaltegis-container__sub-title {
+  color: var(--text-subtle);
+  text-align: center;
+  padding: 0 1rem;
+  font-size: 1.12em;
+}
+
+.euskaltegis-container__banner-img {
+  text-align: center;
+}
+
+.euskaltegis-container__banner-img img {
+  max-height: 250px;
+  width: 100%;
+  filter: drop-shadow(4px 4px 0px var(--primary-light-2));
+}
+
+.euskaltegis-container__body {
+  display: block;
+  margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .euskaltegis-container {
+    margin-top: 3rem;
+  }
+
+  .euskaltegis-container__list {
+    margin-top: 7rem;
+  }
+
+  .euskaltegis-container__body {
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: clamp(500px, 50vw, 700px) 1fr;
+  }
+}

@@ -1,4 +1,3 @@
-import Skeleton from "react-loading-skeleton";
 import styles from "./styles.module.css";
 
 const ArticleSkeletonCard = () => {

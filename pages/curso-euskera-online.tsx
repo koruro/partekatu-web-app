@@ -45,7 +45,7 @@ const LegalPage: React.FC<Props> = ({ articles }) => {
 };
 
 // Get static props
-export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     // Fetch article and recommendations data
     const landingArticles = await articleRepository.getLandingPageArticles();

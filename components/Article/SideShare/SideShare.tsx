@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import {
   getFacebookShareLink,
   getTwitterShareLink,

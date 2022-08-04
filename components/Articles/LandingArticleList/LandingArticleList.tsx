@@ -1,4 +1,3 @@
-import ArticleCard from "../ArticleCard/ArticleCard";
 import ArticleSkeletonCard from "../ArticleCard/Skeleton/ArticleSkeletonCard";
 import styles from "./styles.module.css";
 import { Article } from "../../../models/Article";

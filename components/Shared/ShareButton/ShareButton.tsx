@@ -1,10 +1,12 @@
+import { PropsWithChildren } from "react";
+
 interface Props {
   getPath: () => string;
   hoverEffect?: boolean;
   ariaLabel?: string;
 }
 
-const ShareButton: React.FC<Props> = ({
+const ShareButton: React.FC<PropsWithChildren<Props>> = ({
   getPath,
   children,
   hoverEffect,
