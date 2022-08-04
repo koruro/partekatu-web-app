@@ -27,19 +27,18 @@ const getSubtitleByFoundCode = (
   code: EuskaltegiFoundCode,
   location: Location
 ) => {
-  if (code === EuskaltegiFoundCode.FOUND_NEAREST)
+  if (code === EuskaltegiFoundCode.FOUND_IN_LOCATION)
     return (
       <>
-        No hemos encontrado ningún euskaltegi cerca de{" "}
-        {capitalize(location.name)}. Así que te mostramos los euskaltegis más
-        cercanos que hemos podido encontrar 😉.
+        Estos son los euskaltegis que hemos encontrado en{" "}
+        {capitalize(location.name)}. Echa un vistazo en el mapa justo debajo 😉.
       </>
     );
-
   return (
     <>
-      Estos son los euskaltegis que hemos encontrado en{" "}
-      {capitalize(location.name)}. Echa un vistazo en el mapa justo debajo 😉.
+      No hemos encontrado ningún euskaltegi cerca de {capitalize(location.name)}
+      . Así que te mostramos los euskaltegis más cercanos que hemos podido
+      encontrar 😉.
     </>
   );
 };
