@@ -41,7 +41,7 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
     euskaltegiRepository
       .getLocationInfo(location)
       .then((locationInfo) => {
-        if (locationInfo) {
+        if (locationInfo && locationInfo.toIndex) {
           router.push(locationInfo.name.toLowerCase());
         } else {
           router.push(`c/${location.toLowerCase()}`);

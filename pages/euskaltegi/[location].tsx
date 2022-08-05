@@ -14,7 +14,7 @@ import {
   euskaltegiRepository,
 } from "../../services/bootstrap";
 import { EuskaltegiFoundCode } from "../../services/euskaltegi/EuskaltegiFoundCode";
-import { getNearbyOrNearest } from "../../services/euskaltegi/getEuskaltegisOrNearby";
+import { getInLocationNearbyOrNearest } from "../../services/euskaltegi/getEuskaltegisOrNearby";
 
 interface Props {
   euskaltegis: Euskaltegi[];
@@ -54,11 +54,12 @@ export default EuskaltegiPlacePage;
 // Get all slug paths
 export const getStaticPaths: GetStaticPaths = async () => {
   const locations = await euskaltegiRepository.getAllLocations();
+  const filtered = locations.filter((location) => location.toIndex);
 
   const paths: {
     params: ParsedUrlQuery;
     locale?: string | undefined;
-  }[] = locations.map((location) => ({
+  }[] = filtered.map((location) => ({
     params: { location: location.name.toLowerCase() },
   }));
 
@@ -83,24 +84,10 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     throw Error(`No location data found for location ${location}`);
 
   // Fetch article and recommendations data
-  const euskaltegis = await euskaltegiRepository.getEuskaltegisInLocation(
-    location
+  const [euskaltegis] = await getInLocationNearbyOrNearest(
+    euskaltegiRepository,
+    locationData
   );
-
-  // If there are no euskaltegis in this location, find nearby ones
-  if (euskaltegis.length <= 0) {
-    const [nearbyEuskaltegis] = await getNearbyOrNearest(
-      euskaltegiRepository,
-      locationData.coordinates
-    );
-    return {
-      props: {
-        euskaltegis: nearbyEuskaltegis,
-        location: locationData,
-        articleRecommendations,
-      },
-    };
-  }
 
   return {
     props: {

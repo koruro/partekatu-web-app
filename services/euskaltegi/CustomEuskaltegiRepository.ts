@@ -29,6 +29,18 @@ function restToEuskaltegiMapper(d: any): Euskaltegi {
   };
 }
 
+function restToLocationMapper(d: any): Location {
+  return {
+    name: d.name,
+    imgUrl: d.imgUrl === "" ? null : d.imgUrl,
+    coordinates: {
+      lat: d.coordinates.lat,
+      lng: d.coordinates.lng,
+    },
+    toIndex: d.toIndex,
+  };
+}
+
 export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   constructor(private baseUrl: string) {}
   async getNearestEuskaltegis(
@@ -133,14 +145,7 @@ export class CustomEuskaltegiRepository implements EuskaltegiRepository {
       const data = json.data;
       if (!data) throw new Error(`No data found`);
 
-      return data.map((d: any) => ({
-        name: d.name,
-        imgUrl: d.imgUrl,
-        coordinates: {
-          lat: d.coordinates.lat,
-          lng: d.coordinates.lng,
-        },
-      }));
+      return data.map(restToLocationMapper);
     } catch (error) {
       console.error(error);
       return [];
@@ -157,14 +162,7 @@ export class CustomEuskaltegiRepository implements EuskaltegiRepository {
       const data = json.data;
       if (!data) return;
 
-      return {
-        name: data.name,
-        imgUrl: data.imgUrl,
-        coordinates: {
-          lat: data.coordinates.lat,
-          lng: data.coordinates.lng,
-        },
-      };
+      return restToLocationMapper(data);
     } catch (error) {
       console.error(error);
       return;

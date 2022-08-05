@@ -1,4 +1,8 @@
-import { Coordinates, Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
+import {
+  Coordinates,
+  Euskaltegi,
+  Location,
+} from "../../models/euskaltegi/Euskaltegi";
 import { EuskaltegiFoundCode } from "./EuskaltegiFoundCode";
 import { EuskaltegiRepository } from "./EuskaltegiRepository";
 
@@ -16,4 +20,17 @@ export const getNearbyOrNearest = async (
   }
 
   return [nearbyEuskaltegis, EuskaltegiFoundCode.FOUND_NEARBY];
+};
+
+export const getInLocationNearbyOrNearest = async (
+  repo: EuskaltegiRepository,
+  location: Location
+): Promise<[Euskaltegi[], EuskaltegiFoundCode]> => {
+  const euskaltegis = await repo.getEuskaltegisInLocation(location.name);
+
+  if (euskaltegis.length <= 0) {
+    return await getNearbyOrNearest(repo, location.coordinates);
+  }
+
+  return [euskaltegis, EuskaltegiFoundCode.FOUND_IN_LOCATION];
 };

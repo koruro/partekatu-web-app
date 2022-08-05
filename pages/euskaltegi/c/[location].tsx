@@ -13,7 +13,10 @@ import {
   euskaltegiRepository,
 } from "../../../services/bootstrap";
 import { EuskaltegiFoundCode } from "../../../services/euskaltegi/EuskaltegiFoundCode";
-import { getNearbyOrNearest } from "../../../services/euskaltegi/getEuskaltegisOrNearby";
+import {
+  getInLocationNearbyOrNearest,
+  getNearbyOrNearest,
+} from "../../../services/euskaltegi/getEuskaltegisOrNearby";
 import { getExternalLocationInfo } from "../../../services/euskaltegi/getExternalLocationInfo";
 
 const EuskaltegiFallbackLocationPlacePage: React.FC<{
@@ -72,23 +75,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const articleRecommendations = await articleRepository.getArticles({
     limit: 3,
   });
-  if (!process.env.PRIVATE_GOOGLE_MAPS_API_KEY)
-    throw new Error(`No places API Key provided`);
 
-  const locationInfo = await getExternalLocationInfo(
-    location,
-    process.env.PRIVATE_GOOGLE_MAPS_API_KEY
-  );
+  const searchResult = await _getEuskaltegisAndLocation(location);
+  if (!searchResult)
+    return { props: { searchedLocation: location, articleRecommendations } };
 
-  if (!locationInfo)
-    return {
-      props: { searchedLocation: location, articleRecommendations },
-    };
-
-  const [euskaltegis, foundCode] = await getNearbyOrNearest(
-    euskaltegiRepository,
-    locationInfo.coordinates
-  );
+  const [locationInfo, euskaltegis, foundCode] = searchResult;
 
   return {
     props: {
@@ -100,3 +92,41 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
   };
 };
+
+async function _getEuskaltegisAndLocation(
+  locationName: string
+): Promise<[Location, Euskaltegi[], EuskaltegiFoundCode] | undefined> {
+  // Try to get location info from own db
+  const locationData = await euskaltegiRepository.getLocationInfo(locationName);
+
+  // If no locationData is found, get it from Google Places API and find nearby euskaltegis
+  if (!locationData) return _getExternalInfoAndEuskaltegis(locationName);
+
+  // If locationData is found. The location is indexed in our DB. Therefore some euskaltegis must be found
+  const [euskaltegis, foundCode] = await getInLocationNearbyOrNearest(
+    euskaltegiRepository,
+    locationData
+  );
+  return [locationData, euskaltegis, foundCode];
+}
+
+async function _getExternalInfoAndEuskaltegis(
+  locationName: string
+): Promise<[Location, Euskaltegi[], EuskaltegiFoundCode] | undefined> {
+  if (!process.env.PRIVATE_GOOGLE_MAPS_API_KEY)
+    throw new Error(`No places API Key provided`);
+
+  const locationInfo = await getExternalLocationInfo(
+    locationName,
+    process.env.PRIVATE_GOOGLE_MAPS_API_KEY
+  );
+
+  if (!locationInfo) return;
+
+  const [euskaltegis, foundCode] = await getNearbyOrNearest(
+    euskaltegiRepository,
+    locationInfo.coordinates
+  );
+
+  return [locationInfo, euskaltegis, foundCode];
+}

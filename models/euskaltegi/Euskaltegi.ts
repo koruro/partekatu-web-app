@@ -33,6 +33,7 @@ export interface Location {
   name: string;
   coordinates: Coordinates;
   imgUrl?: string;
+  toIndex: boolean;
 }
 
 export const getFormatedName = (name: string) => {
