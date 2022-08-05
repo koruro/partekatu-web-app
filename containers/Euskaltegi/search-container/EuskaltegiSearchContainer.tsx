@@ -1,13 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import Autocomplete from "../../../components/Article/InteractiveComponents/SurnameFinder/Autocomplete/Autocomplete";
+import { useState } from "react";
 import CustomInput from "../../../components/Article/InteractiveComponents/SurnameFinder/Input/CustomInput";
 import EuskaltegiFillableCard from "../../../components/Euskaltegi/EuskaltegiFillableCard/EuskaltegiFillableCard";
 import LoadingRing from "../../../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../../../components/Page/PageContainerBox/PageContainerBox";
 import { Euskaltegi } from "../../../models/euskaltegi/Euskaltegi";
-import { TextMatch } from "../../../models/TextMatch";
 import { euskaltegiRepository } from "../../../services/bootstrap";
 import MyMap from "../EuskaltegisMap";
 import styles from "./styles.module.css";
@@ -18,33 +16,24 @@ interface Props {
 
 const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
   const [typedSite, setTypedSite] = useState<string>("");
-  const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false);
-  const [matches, setMatches] = useState<TextMatch[] | undefined>(undefined);
   const [resultIsLoading, setResultIsLoading] = useState<boolean>(false);
   const [selectedEuskaltegi, setSelectedEuskaltegi] = useState<
     Euskaltegi | undefined
   >(undefined);
   const router = useRouter();
 
-  useEffect(() => {
-    if (!typedSite) return;
-    euskaltegiRepository.getLocationMatches(typedSite).then((response) => {
-      setMatches(response);
-    });
-  }, [typedSite]);
-
   const handleOnSubmit = (location: string) => {
     if (!location) return;
+    const cleanedLocation = location.trim();
 
     setResultIsLoading(true);
-    setShowAutoComplete(false);
     euskaltegiRepository
-      .getLocationInfo(location)
+      .getLocationInfo(cleanedLocation)
       .then((locationInfo) => {
         if (locationInfo && locationInfo.toIndex) {
           router.push(locationInfo.name.toLowerCase());
         } else {
-          router.push(`c/${location.toLowerCase()}`);
+          router.push(`c/${cleanedLocation.toLowerCase()}`);
         }
       })
       .finally(() => {
@@ -85,22 +74,9 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
             placeholder="🏫  Introduce el lugar. ej. Bilbao, Donosti, Vitoria-Gasteiz..."
             value={typedSite}
             onValueChange={(value) => {
-              setShowAutoComplete(true);
               setTypedSite(value);
             }}
-            onBlur={() => {
-              setShowAutoComplete(false);
-            }}
-            onFocus={() => setShowAutoComplete(true)}
           />
-          {showAutoComplete && (
-            <Autocomplete
-              matches={typedSite ? matches : undefined}
-              onMatchClick={(match) => {
-                handleOnSubmit(match.text);
-              }}
-            />
-          )}
         </form>
         {showAnalytics()}
         <p
