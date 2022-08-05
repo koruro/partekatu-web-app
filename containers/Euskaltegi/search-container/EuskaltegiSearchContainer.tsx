@@ -5,7 +5,10 @@ import CustomInput from "../../../components/Article/InteractiveComponents/Surna
 import EuskaltegiFillableCard from "../../../components/Euskaltegi/EuskaltegiFillableCard/EuskaltegiFillableCard";
 import LoadingRing from "../../../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../../../components/Page/PageContainerBox/PageContainerBox";
-import { Euskaltegi } from "../../../models/euskaltegi/Euskaltegi";
+import {
+  Euskaltegi,
+  getParsedLocationUrlName,
+} from "../../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../../services/bootstrap";
 import MyMap from "../EuskaltegisMap";
 import styles from "./styles.module.css";
@@ -31,9 +34,9 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
       .getLocationInfo(cleanedLocation)
       .then((locationInfo) => {
         if (locationInfo && locationInfo.toIndex) {
-          router.push(locationInfo.name.toLowerCase());
+          router.push(getParsedLocationUrlName(locationInfo.name));
         } else {
-          router.push(`c/${cleanedLocation.toLowerCase()}`);
+          router.push(`c/${getParsedLocationUrlName(cleanedLocation)}`);
         }
       })
       .finally(() => {

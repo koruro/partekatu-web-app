@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import {
   Euskaltegi,
-  getFormatedName,
+  getParsedEuskaltegiUrlName,
 } from "../../../models/euskaltegi/Euskaltegi";
 import { capitalize } from "../../../utils/capitalize";
 import { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
@@ -49,8 +49,8 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
         })}
       >
         <a
-          href={`#${getFormatedName(euskaltegi.name)}`}
-          id={`${getFormatedName(euskaltegi.name)}`}
+          href={`#${getParsedEuskaltegiUrlName(euskaltegi.name)}`}
+          id={`${getParsedEuskaltegiUrlName(euskaltegi.name)}`}
         ></a>
         <h3>{euskaltegi.name}</h3>
         <div

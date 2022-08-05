@@ -71,21 +71,24 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const location = params.location;
 
   if (typeof location !== "string") throw new Error(`No location param found`);
+  const locationName = location.replace(/-/g, " ");
 
   const articleRecommendations = await articleRepository.getArticles({
     limit: 3,
   });
 
-  const searchResult = await _getEuskaltegisAndLocation(location);
+  const searchResult = await _getEuskaltegisAndLocation(locationName);
   if (!searchResult)
-    return { props: { searchedLocation: location, articleRecommendations } };
+    return {
+      props: { searchedLocation: locationName, articleRecommendations },
+    };
 
   const [locationInfo, euskaltegis, foundCode] = searchResult;
 
   return {
     props: {
       foundCode,
-      searchedLocation: location,
+      searchedLocation: locationName,
       location: locationInfo,
       euskaltegis,
       articleRecommendations,

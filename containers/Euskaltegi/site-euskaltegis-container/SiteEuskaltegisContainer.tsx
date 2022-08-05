@@ -8,7 +8,7 @@ import PageContainerBox from "../../../components/Page/PageContainerBox/PageCont
 import { Article } from "../../../models/Article";
 import {
   Euskaltegi,
-  getFormatedName,
+  getParsedEuskaltegiUrlName,
   Location,
 } from "../../../models/euskaltegi/Euskaltegi";
 import { EuskaltegiFoundCode } from "../../../services/euskaltegi/EuskaltegiFoundCode";
@@ -81,7 +81,9 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
                 <EuskaltegisMap
                   euskaltegis={euskaltegis}
                   onMarkerClick={(euskaltegi) =>
-                    router.push(`#${getFormatedName(euskaltegi.name)}`)
+                    router.push(
+                      `#${getParsedEuskaltegiUrlName(euskaltegi.name)}`
+                    )
                   }
                 />
               </div>

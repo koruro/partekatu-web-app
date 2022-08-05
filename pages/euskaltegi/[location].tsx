@@ -8,7 +8,11 @@ import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
 import SiteEuskaltegisContainer from "../../containers/Euskaltegi/site-euskaltegis-container/SiteEuskaltegisContainer";
 import { Article } from "../../models/Article";
-import { Euskaltegi, Location } from "../../models/euskaltegi/Euskaltegi";
+import {
+  Euskaltegi,
+  getParsedLocationUrlName,
+  Location,
+} from "../../models/euskaltegi/Euskaltegi";
 import {
   articleRepository,
   euskaltegiRepository,
@@ -60,7 +64,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: ParsedUrlQuery;
     locale?: string | undefined;
   }[] = filtered.map((location) => ({
-    params: { location: location.name.toLowerCase() },
+    params: { location: getParsedLocationUrlName(location.name) },
   }));
 
   return { paths, fallback: false };
@@ -78,7 +82,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   });
 
   // Get location data
-  const locationData = await euskaltegiRepository.getLocationInfo(location);
+  const locationData = await euskaltegiRepository.getLocationInfo(
+    location.replace(/-/g, " ")
+  );
 
   if (!locationData)
     throw Error(`No location data found for location ${location}`);

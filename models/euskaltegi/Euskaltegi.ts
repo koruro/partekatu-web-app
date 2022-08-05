@@ -36,6 +36,9 @@ export interface Location {
   toIndex: boolean;
 }
 
-export const getFormatedName = (name: string) => {
+export const getParsedLocationUrlName = (locationName: string) =>
+  locationName.trim().toLowerCase().replace(/ /g, "-");
+
+export const getParsedEuskaltegiUrlName = (name: string) => {
   return name.toLowerCase().replace(/ /g, "-");
 };
