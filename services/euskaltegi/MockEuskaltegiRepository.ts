@@ -65,12 +65,14 @@ const locations: Location[] = [
     coordinates: { lat: 43.1603306, lng: -2.7845025 },
     imgUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Tolosako_udaletxea_2.jpg/640px-Tolosako_udaletxea_2.jpg",
+    toIndex: true,
   },
   {
     name: "donostia",
     coordinates: { lat: 43.1603306, lng: -2.7845025 },
     imgUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/San_Sebastian_Donostia_Panoramic_1190583.jpg/640px-San_Sebastian_Donostia_Panoramic_1190583.jpg",
+    toIndex: true,
   },
 ];
 

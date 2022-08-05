@@ -26,5 +26,6 @@ export const getExternalLocationInfo = async (
       lat: candidate.geometry.location.lat,
       lng: candidate.geometry.location.lng,
     },
+    toIndex: false,
   };
 };
