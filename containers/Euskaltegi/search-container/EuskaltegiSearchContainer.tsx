@@ -69,9 +69,9 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
         <img src="/woman_drawing_1.png" alt="women drawing"></img>
       </div>
       <div className={styles["euskaltegis-search-container"]}>
-        <h1>Encuentra tu Euskaltegi</h1>
+        <h1>Encuentra tu euskaltegi</h1>
         <p className={styles["euskaltegis-search-container__copy-text"]}>
-          Introduce un lugar y nosotros te buscaremos los euskaltegis mas
+          ¡Introduce tu ubicación y nosotros te buscaremos los euskaltegis más
           cercanos! 😉
         </p>
         <form
@@ -82,7 +82,7 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
           }}
         >
           <CustomInput
-            placeholder="🏫  Introduce el lugar. ej. Bilbao, Donosti, Vitoria..."
+            placeholder="🏫  Introduce el lugar. ej. Bilbao, Donosti, Vitoria-Gasteiz..."
             value={typedSite}
             onValueChange={(value) => {
               setShowAutoComplete(true);

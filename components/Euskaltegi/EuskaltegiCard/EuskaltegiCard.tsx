@@ -140,6 +140,7 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
               background: "var(--gramar-gradient)",
             }}
             target="__blank"
+            rel="noopener noreferrer nofollow"
             href={euskaltegi.websiteUrl}
           >
             <BiWorld /> Visitar
@@ -156,7 +157,6 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
               borderRadius: "var(--rounded-l)",
               background: "var(--vocabulary-gradient)",
             }}
-            target="__blank"
             href={`tel:+34${euskaltegi.phone}`}
           >
             <BiPhone /> Llamar

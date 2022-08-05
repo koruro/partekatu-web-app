@@ -36,8 +36,8 @@ const getSubtitleByFoundCode = (
     );
   return (
     <>
-      No hemos encontrado ningún euskaltegi cerca de {capitalize(location.name)}
-      . Así que te mostramos los euskaltegis más cercanos que hemos podido
+      ¡Vaya! Parece que no hay ningún euskaltegi en {capitalize(location.name)}
+      ... Así que aquí tienes los euskaltegis más cercanos que hemos podido
       encontrar 😉.
     </>
   );
@@ -67,7 +67,15 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
             <p className={styles["euskaltegis-container__sub-title"]}>
               {getSubtitleByFoundCode(foundCode, location)}
             </p>
-            <h3 style={{ padding: "0 1rem" }}>🗺️ ¡Encuéntralos en el mapa!</h3>
+            <p
+              style={{
+                padding: "0 1rem",
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+              }}
+            >
+              🗺️ ¡Encuéntralos en el mapa!
+            </p>
             <StickyContainer>
               <div style={{ height: "min(600px, 70vh)" }}>
                 <EuskaltegisMap
@@ -77,16 +85,20 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
                   }
                 />
               </div>
-              <p
-                style={{
-                  color: "var(--text)",
-                  textAlign: "left",
-                }}
-              >
-                ¿No sabes qué <b>euskaltegi</b> elegir? Pásate por{" "}
-                <a href="/euskaltegi/buscador">nuestra guía</a> para elegir un
-                euskaltegi.
-              </p>
+              <div className={styles["euskaltegis-container__more-info"]}>
+                <p
+                  style={{
+                    color: "var(--text)",
+                    textAlign: "left",
+                  }}
+                >
+                  ¿No sabes qué <b>euskaltegi</b> elegir? Pásate por{" "}
+                  <a href="/euskaltegi/buscador">
+                    <b>nuestra guía</b>
+                  </a>{" "}
+                  para elegir un euskaltegi.
+                </p>
+              </div>
             </StickyContainer>
           </div>
           <div

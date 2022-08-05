@@ -22,20 +22,25 @@ const EuskaltegiBottomSnippet: React.FC<{
       </h2>
       <div className={styles["euskaltegi-snippet__body"]}>
         <p>
-          Humm... Parece que estás intentando aprender Euskera. Haz click{" "}
+          Y, <b>¡Escucha!</b> Ir al euskaltegi es una gran forma de aprender
+          euskera, pero que sepas que{" "}
+          <b>también puedes aprender euskera online gratis en nuestra web.</b>
+        </p>
+        <p>
+          Para ello tenemos un{" "}
           <a
             href="/curso-euskera-online"
             target="__blank"
             rel="noopener noreferrer"
+            style={{ textDecoration: "underline" }}
           >
-            en este enlace
+            curso de euskera online
           </a>{" "}
-          para acceder a nuestro <b>curso online</b> para que vayas avanzando en
-          tus lecciones mientras encuentras un <b>euskaltegi</b>.
+          con el que podrás ir aprendiendo euskera a tu ritmo 😉.
         </p>
         <p>
-          Aquí podras encontrar todo tipo de artículos para guiarte en el
-          idioma. Abajo te dejamos algunos para que les eches un vistazo 😉.
+          Y, ya de paso, aquí abajo te dejamos{" "}
+          <b>varios artículos sobre el euskera que tal vez te interesen:</b>
         </p>
         <div style={{ display: "grid", rowGap: "1rem", maxWidth: "800px" }}>
           {articleRecommendations.map((article) => (
