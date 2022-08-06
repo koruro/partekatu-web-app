@@ -8,9 +8,9 @@ import EuskaltegiSearchContainer from "../../containers/Euskaltegi/search-contai
 import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";
 
-const headTitle = "Buscador de euskaltegis";
+const headTitle = "Buscador de Euskaltegis";
 const metaDesc =
-  "En Partekatu tenemos artículos de todo lo que puedas necesitar en torno al euskera ¡Simplemente busca lo que necesites y aprende!";
+  "Una de las mejores formas de aprender euskera es los apuntándote a un euskaltegi o academia de euskera ¡Descubre cuáles tienes cerca con nuestro buscador!";
 
 const EuskaltegiSearchPage: React.FC<{
   euskaltegis: Euskaltegi[];

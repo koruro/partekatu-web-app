@@ -1,5 +1,9 @@
 import { GetServerSideProps } from "next";
 import CustomHead from "../../../components/CustomHead";
+import {
+  getEuskaltegiSiteHeadTitle,
+  getEuskaltegiSiteMetaDesc,
+} from "../../../components/Euskaltegi/euskaltegiSiteMetadata";
 import { getRandomFallbackLocationImage } from "../../../components/Euskaltegi/getRandomFallbackLocationImage";
 import Footer from "../../../components/Footer/Footer";
 import NavBar from "../../../components/NavBar/NavBar";
@@ -36,9 +40,9 @@ const EuskaltegiFallbackLocationPlacePage: React.FC<{
     <>
       {location ? (
         <CustomHead
-          title={`Los mejores euskaltegis en ${location.name}`}
-          metaTitle={`Los mejores euskaltegis en ${location.name}`}
-          metaDesc={`¿Quieres aprender euskera? Descubre los euskaltegis más recomendados en ${location.name} mediante nuestro mapa con valoraciones, datos de contacto y más.`}
+          title={getEuskaltegiSiteHeadTitle(location.name)}
+          metaTitle={getEuskaltegiSiteHeadTitle(location.name)}
+          metaDesc={getEuskaltegiSiteMetaDesc(location.name)}
           imgUrl={location.imgUrl ?? getRandomFallbackLocationImage()}
           noIndex
         />

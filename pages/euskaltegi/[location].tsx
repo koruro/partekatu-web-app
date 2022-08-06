@@ -2,6 +2,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 import React from "react";
 import CustomHead from "../../components/CustomHead";
+import {
+  getEuskaltegiSiteHeadTitle,
+  getEuskaltegiSiteMetaDesc,
+} from "../../components/Euskaltegi/euskaltegiSiteMetadata";
 import { getRandomFallbackLocationImage } from "../../components/Euskaltegi/getRandomFallbackLocationImage";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
@@ -34,10 +38,10 @@ const EuskaltegiPlacePage: React.FC<Props> = ({
   return (
     <>
       <CustomHead
-        title={`Los mejores euskaltegis en ${location.name}`}
-        metaTitle={`Los mejores euskaltegis en ${location.name}`}
+        title={getEuskaltegiSiteHeadTitle(location.name)}
+        metaTitle={getEuskaltegiSiteHeadTitle(location.name)}
         imgUrl={location.imgUrl ?? getRandomFallbackLocationImage()}
-        metaDesc={`¿Quieres aprender euskera? Descubre los euskaltegis más recomendados en ${location.name} mediante nuestro mapa con valoraciones, datos de contacto y más.`}
+        metaDesc={getEuskaltegiSiteMetaDesc(location.name)}
       />
       <PageBox>
         <NavBar />
