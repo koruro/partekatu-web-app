@@ -6,8 +6,6 @@
 .side-container__inner {
 	position: sticky;
 	top: 8rem;
-	display: grid;
-	row-gap: 2em;
 }
 
 @media (min-width: 992px) {

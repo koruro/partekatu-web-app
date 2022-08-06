@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import SentenceContainer from "../SentenceContainer";
 import Riddle from "./Riddle";
 
@@ -6,7 +6,10 @@ interface Props {
   index: number;
 }
 
-const RiddleCard: React.FC<Props> = ({ index, children }) => {
+const RiddleCard: React.FC<PropsWithChildren<Props>> = ({
+  index,
+  children,
+}) => {
   const riddle = (children as JSX.Element[])
     .filter((el) => el.type === "p")
     .map((el) => el.props.children);

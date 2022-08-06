@@ -35,7 +35,7 @@ const Home: NextPage<Props> = ({ newArticles, highlightedArticles }) => {
   );
 };
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps() {
   try {
     const highlightedArticles = await getHighlightArticles();
     const newArticles = await getNewArticles(highlightedArticles);

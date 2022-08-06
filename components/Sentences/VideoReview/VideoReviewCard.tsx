@@ -1,6 +1,7 @@
+import { PropsWithChildren } from "react";
 import VideoReview from "./VideoReview";
 
-const VideoReviewCard: React.FC = ({ children }) => {
+const VideoReviewCard: React.FC<PropsWithChildren> = ({ children }) => {
   const title = (children as any[]).find(
     (c) => c.type === "h2" || c.type === "h3"
   )?.props?.children[0];

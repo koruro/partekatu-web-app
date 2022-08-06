@@ -1,0 +1,64 @@
+.euskaltegi-card {
+	--left-space: 8px;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1fr;
+	position: relative;
+	padding: 1.2rem;
+	border-left: var(--left-space) solid transparent;
+	box-sizing: border-box;
+	border-radius: var(--rounded-m);
+}
+
+.euskaltegi-card__body {
+	display: grid;
+	grid-template-columns: 1fr;
+	row-gap: 1rem;
+}
+
+.euskaltegi-card--is_promoted {
+	background: 
+	linear-gradient(rgb(255, 255, 255) 0 0) padding-box, /*this is your grey background*/
+	linear-gradient(var(--gold-1),var(--gold-2)) border-box;
+}
+
+.euskaltegi-card h3{
+	font-size: 2rem;
+	margin: 0;
+}
+
+.euskaltegi-card a:target {
+	position: relative;
+	top: -12rem;
+}
+
+.euskaltegi-card__image {
+	display:flex;
+	align-self: center;
+	justify-self: center;
+	/* position: relative; */
+	max-width: 50%;
+	justify-content: center;
+}
+
+.euskaltegi-card__image img {
+	border-radius: var(--rounded-s);
+	max-width: 100%;
+}
+
+@media (min-width: 768px) {
+	.euskaltegi-card__body {
+		display: grid;
+		grid-template-columns: 113px 1fr;
+		column-gap: 1.2rem;
+	}
+
+	.euskaltegi-card__image {
+		max-height: 100px;
+		max-width: 100%;
+	}
+
+	.euskaltegi-card__image img {
+		object-fit: contain;
+	}
+}

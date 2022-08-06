@@ -1,14 +1,11 @@
 import classNames from "classnames";
+import { TextMatch } from "../../../../../models/TextMatch";
 import LoadingRing from "../../../../Loading/Ring/LoadingRing";
 import styles from "./styles.module.css";
 
-interface Match {
-  name: string;
-}
-
 interface Props {
-  onMatchClick: (match: Match) => void;
-  matches?: Match[];
+  onMatchClick: (match: TextMatch) => void;
+  matches?: TextMatch[];
   loading?: boolean;
 }
 
@@ -37,7 +34,7 @@ const Autocomplete: React.FC<Props> = ({ matches, onMatchClick, loading }) => {
                 onMatchClick(match);
               }}
             >
-              {match.name}
+              {match.text}
             </li>
           ))}
         </ul>

@@ -1,8 +1,5 @@
-import Image from "next/image";
 import classNames from "classnames";
-import CategoryBox from "../../Categories/CategoryBox/CategoryBox";
 import styles from "./styles.module.css";
-import { getMinifiedImage } from "../../../utils/getMinifiedImage";
 
 interface Props {
   slug: string;
@@ -15,16 +12,7 @@ interface Props {
   large?: boolean;
 }
 
-const MinimalArticleCard: React.FC<Props> = ({
-  banner,
-  category,
-  emoji,
-  title,
-  altTitle,
-  description,
-  slug,
-  large,
-}) => {
+const MinimalArticleCard: React.FC<Props> = ({ emoji, title, slug, large }) => {
   return (
     <a href={`/${slug}`} style={{ color: "var(--text)" }}>
       <div

@@ -1,9 +1,4 @@
 import Link from "next/link";
-import {
-  FaFacebookSquare,
-  FaTwitterSquare,
-  FaInstagramSquare,
-} from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import styles from "./styles.module.css";
 import LazyHydrate from "react-lazy-hydration";

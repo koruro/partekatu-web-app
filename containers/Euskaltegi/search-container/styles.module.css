@@ -1,0 +1,59 @@
+.euskaltegis-search-container {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.euskaltegis-search-container__women_images {
+  display: none;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  max-width: 1500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-52%, -50%);
+}
+
+.euskaltegis-search-container__women_images img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
+
+.euskaltegis-search-container h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 3rem; 
+}
+
+.euskaltegis-search-container form {
+  margin: 3rem 1rem;
+  position: relative;
+}
+
+.euskaltegis-search-container__copy-text {
+    font-size: 1.5em;
+    color: var(--text-subtle);
+    text-align: center;
+    padding: 0 2.2rem;
+    margin-bottom: 5rem;
+  }
+
+@media (min-width: 1024px) {
+  .euskaltegis-search-container h1 {
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 5rem;
+  }
+
+  .euskaltegis-search-container form {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1500px) {
+  .euskaltegis-search-container__women_images {
+    display: flex;
+  }
+}

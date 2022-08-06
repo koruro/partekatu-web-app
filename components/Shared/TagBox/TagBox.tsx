@@ -1,12 +1,12 @@
 import classNames from "classnames";
-import { createElement } from "react";
+import { createElement, PropsWithChildren } from "react";
 
 export interface TagBoxProps {
   className?: string;
   as?: "h2" | "span";
 }
 
-const TagBox: React.FC<TagBoxProps> = ({
+const TagBox: React.FC<PropsWithChildren<TagBoxProps>> = ({
   children,
   as,
   className,

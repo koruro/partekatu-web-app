@@ -1,9 +1,3 @@
-import { SITE_URL } from "../../../utils/constants";
-import {
-  getFacebookShareLink,
-  getTwitterShareLink,
-  getWhatsappShareLink,
-} from "../../../utils/getSocialShareLinks";
 import ShareButton from "../../Shared/ShareButton/ShareButton";
 import SocialIcon, { SocialType } from "../../Shared/SocialIcon";
 import styles from "./styles.module.css";

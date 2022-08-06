@@ -84,7 +84,7 @@ const SearchBar: React.FC<Props> = ({
             <option selected value={""}>
               Categorías
             </option>
-            {Object.keys(CategoriesDict).map((category, index) => (
+            {Object.keys(CategoriesDict).map((category) => (
               <option key={category} value={category}>
                 {CategoriesDict[category as CategoriesEnum].text}
               </option>

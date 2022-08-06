@@ -1,18 +1,20 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import styles from "./styles.module.css";
 
 interface BlankCardProps {
   className?: string;
-  rounded?: "s" | "l";
+  expand?: boolean;
+  rounded?: "s" | "m" | "l";
 }
 
 const defaultClassName = "elevate-2";
 const defaultRounded = "s";
 
-const BlankCard: React.FC<BlankCardProps> = ({
+const BlankCard: React.FC<PropsWithChildren<BlankCardProps>> = ({
   children,
   className,
   rounded,
+  expand,
 }) => {
   return (
     <div
@@ -20,7 +22,7 @@ const BlankCard: React.FC<BlankCardProps> = ({
         backgroundColor: "white",
         borderRadius: `var(--rounded-${rounded ?? defaultRounded})`,
         position: "relative",
-        height: "100%",
+        height: expand ? "100%" : "unset",
       }}
       className={
         className ? [defaultClassName, className].join(" ") : defaultClassName
@@ -37,13 +39,13 @@ interface TaggedBlankCardProps extends BlankCardProps {
   renderTag?: () => JSX.Element;
 }
 
-export const TaggedBlankCard: React.FC<TaggedBlankCardProps> = ({
-  children,
-  renderTag,
-  ...props
-}) => {
+export const TaggedBlankCard: React.FC<
+  PropsWithChildren<TaggedBlankCardProps>
+> = ({ children, renderTag, ...props }) => {
   return (
-    <div style={{ position: "relative", height: "100%" }}>
+    <div
+      style={{ position: "relative", height: props.expand ? "100%" : "unset" }}
+    >
       {renderTag && (
         <div className={styles["blank-card__tag"]}>{renderTag()}</div>
       )}
