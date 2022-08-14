@@ -44,14 +44,11 @@ const EuskaltegiCard: React.FC<Props> = ({ euskaltegi }) => {
   return (
     <TaggedBlankCard rounded="m">
       <div
+        id={`${getParsedEuskaltegiUrlName(euskaltegi.name)}`}
         className={classNames(styles["euskaltegi-card"], {
           [`${styles["euskaltegi-card--is_promoted"]}`]: euskaltegi.isPromoted,
         })}
       >
-        <a
-          href={`#${getParsedEuskaltegiUrlName(euskaltegi.name)}`}
-          id={`${getParsedEuskaltegiUrlName(euskaltegi.name)}`}
-        ></a>
         <h3>{euskaltegi.name}</h3>
         <div
           style={{

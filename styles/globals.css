@@ -98,6 +98,7 @@ body {
 	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
 	background-color: #f4f5f9;
+	scroll-padding-top: 6rem;
 }
 
 p { max-width: 75ch }
