@@ -37,7 +37,11 @@ const generateCard = (euskaltegi?: Euskaltegi) => {
 };
 
 const EuskaltegiFillableCard: React.FC<Props> = ({ euskaltegi }) => {
-  return <div style={{ margin: "1rem" }}>{generateCard(euskaltegi)}</div>;
+  return (
+    <div id="card" style={{ margin: "1rem" }}>
+      {generateCard(euskaltegi)}
+    </div>
+  );
 };
 
 export default EuskaltegiFillableCard;
