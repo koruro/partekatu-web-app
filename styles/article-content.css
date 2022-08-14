@@ -47,7 +47,7 @@
 
 .article-content a:target {
 	position: relative;
-	top: -12rem;
+	top: -1rem;
 }
 
 .article-content blockquote {
