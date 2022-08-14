@@ -39,7 +39,6 @@ const ArticleWrapper: React.FC<Props> = ({
           showCitation={showCitation}
           showSocials={showSocials}
         />
-
         <SideContainer>
           <SideShare title={article.seoMetadata.metaTitle} />
           <ArticleBullets

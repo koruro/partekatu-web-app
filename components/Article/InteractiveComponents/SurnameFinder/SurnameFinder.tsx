@@ -42,7 +42,7 @@ const SurnameFinder: React.FC = () => {
 
     setTypedSurname(querySurname as string);
     handleOnSubmit(querySurname as string);
-  }, []);
+  }, [router.query.surname]);
 
   useEffect(() => {
     surnameRepository.getSimilarSurnames(typedSurname).then((response) => {

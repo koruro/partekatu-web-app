@@ -17,8 +17,9 @@ const NavBar: React.FC = () => {
   const isPageWide = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
 
   useEffect(() => {
-    setIsOpen(isOpen && !isPageWide);
+    setIsOpen((isOpen) => isOpen && !isPageWide);
   }, [isPageWide]);
+
   return (
     <LazyHydrate whenVisible>
       <>
