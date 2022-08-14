@@ -94,7 +94,10 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
         <div style={{ height: "min(600px, 70vh)", marginBottom: "2rem" }}>
           <MyMap
             euskaltegis={euskaltegis}
-            onMarkerClick={(euskaltegi) => setSelectedEuskaltegi(euskaltegi)}
+            onMarkerClick={(euskaltegi) => {
+              setSelectedEuskaltegi(euskaltegi);
+              router.push("#card");
+            }}
           ></MyMap>
         </div>
         <EuskaltegiFillableCard euskaltegi={selectedEuskaltegi} />

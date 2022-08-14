@@ -80,18 +80,17 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const location = params.location;
 
   if (typeof location !== "string") throw new Error(`No location param found`);
+  const locationName = location.replace(/-/g, " ");
 
   const articleRecommendations = await articleRepository.getArticles({
     limit: 3,
   });
 
   // Get location data
-  const locationData = await euskaltegiRepository.getLocationInfo(
-    location.replace(/-/g, " ")
-  );
+  const locationData = await euskaltegiRepository.getLocationInfo(locationName);
 
   if (!locationData)
-    throw Error(`No location data found for location ${location}`);
+    throw Error(`No location data found for location ${locationName}`);
 
   // Fetch article and recommendations data
   const [euskaltegis] = await getInLocationNearbyOrNearest(
