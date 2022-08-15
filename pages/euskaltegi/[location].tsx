@@ -93,7 +93,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     throw Error(`No location data found for location ${locationName}`);
 
   // Fetch article and recommendations data
-  const [euskaltegis] = await getInLocationNearbyOrNearest(
+  const [euskaltegis, code] = await getInLocationNearbyOrNearest(
     euskaltegiRepository,
     locationData
   );
@@ -103,6 +103,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       euskaltegis,
       location: locationData,
       articleRecommendations,
+      code,
     },
   };
 };
