@@ -50,7 +50,9 @@ const ArticleCitation: React.FC<Props> = ({ title }) => {
             data-for="copyTooltip"
             data-tip="Click para copiar la cita!"
             aria-label="Copiar cita"
-            onClick={() => copyCitation(citationRef.current!.innerHTML)}
+            onClick={() =>
+              citationRef.current && copyCitation(citationRef.current.innerHTML)
+            }
           >
             <ReactTooltip id="copyTooltip" effect="solid" />
             <FaCopy size="18px"></FaCopy>
