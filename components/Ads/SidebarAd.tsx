@@ -13,7 +13,7 @@ const SidebarAd: React.FC<Props> = ({ enabled }) => {
         );
       }
     } catch (err) {}
-  }, []);
+  }, [enabled]);
 
   return (
     <div id="sidebar-ad" key="sidebar-ad" className="sidebar-ad">

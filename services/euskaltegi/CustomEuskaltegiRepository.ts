@@ -65,7 +65,7 @@ export class CustomEuskaltegiRepository implements EuskaltegiRepository {
   }
   async getNearbyEuskaltegis(
     coordinates: Coordinates,
-    radius = 5
+    radius = 2
   ): Promise<Euskaltegi[]> {
     try {
       const response = await fetch(

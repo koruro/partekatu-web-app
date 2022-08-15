@@ -13,7 +13,7 @@ const StickyFooterAd: React.FC<Props> = ({ enabled }) => {
         );
       }
     } catch (err) {}
-  }, []);
+  }, [enabled]);
 
   return (
     <div id="sticky-footer-ad" className="sticky-add">
