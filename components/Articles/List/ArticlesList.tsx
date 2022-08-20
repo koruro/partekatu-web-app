@@ -3,7 +3,6 @@ import ArticleSkeletonCard from "../ArticleCard/Skeleton/ArticleSkeletonCard";
 import styles from "./styles.module.css";
 import { Article } from "../../../models/Article";
 import classNames from "classnames";
-import ArticleListItemAd from "../../Ads/ArticleListItemAd";
 
 interface Props {
   data: Article[];
@@ -44,9 +43,6 @@ const ArticleList: React.FC<Props> = ({
       slug={article.slug}
     />
   ));
-  if (articles.length >= 2) {
-    articles.splice(2, 0, <ArticleListItemAd />);
-  }
   return (
     <div
       className={classNames(styles["articles-list"], {

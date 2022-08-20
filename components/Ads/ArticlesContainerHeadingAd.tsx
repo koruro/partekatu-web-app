@@ -17,7 +17,10 @@ const ArticlesContainerHeadingAd: React.FC = () => {
     <div
       key="articles-heading-ad"
       id="articles-heading-ad"
-      style={{ display: "block", width: "100%" }}
+      style={{
+        display: "block",
+        maxWidth: "75ch",
+      }}
     >
       <ins
         data-ad-slot="6787602106"
