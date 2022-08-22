@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ArticleRecommendations from "../../components/Article/ArticleRecommendations";
+import CustomHead from "../../components/CustomHead";
 import FlexCenterBox from "../../components/Page/FlexCenterBox/FlexCenterBox";
 import Logo404 from "../../components/Shared/Logo404";
 import { Article } from "../../models/Article";
@@ -19,6 +20,7 @@ const ErrorArticleContainer = () => {
 
   return (
     <FlexCenterBox>
+      <CustomHead title="Aquí no hay nada" noIndex />
       <div className={styles["error-container"]}>
         <h1>
           <Logo404 width="120px" />

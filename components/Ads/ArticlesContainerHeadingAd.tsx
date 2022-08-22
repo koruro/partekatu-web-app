@@ -20,6 +20,7 @@ const ArticlesContainerHeadingAd: React.FC = () => {
       style={{
         display: "block",
         maxWidth: "75ch",
+        minHeight: "140px",
       }}
     >
       <ins
