@@ -14,7 +14,13 @@ const ArticlesContainerHeadingAd: React.FC = () => {
     } catch (err) {}
   }, [asPath]);
   return (
-    <div key="articles-heading-ad" id="articles-heading-ad">
+    <div
+      key="articles-heading-ad"
+      id="articles-heading-ad"
+      style={{
+        width: "100%",
+      }}
+    >
       <ins
         className="adsbygoogle"
         style={{
