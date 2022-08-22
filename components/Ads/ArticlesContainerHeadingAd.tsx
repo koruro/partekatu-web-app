@@ -29,7 +29,7 @@ const ArticlesContainerHeadingAd: React.FC = () => {
           display: "block",
           textAlign: "center",
         }}
-        data-ad-format="auto"
+        data-ad-format="fluid"
         data-full-width-responsive="true"
         data-ad-client="ca-pub-8498524881106051"
       ></ins>
