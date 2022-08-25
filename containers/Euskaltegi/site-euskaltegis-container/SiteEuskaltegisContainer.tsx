@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { useRouter } from "next/router";
+import EuskaltegiSiteHeadingAd from "../../../components/Ads/EuskaltegiSiteHeadingAd";
 import StickyContainer from "../../../components/Article/SideContainer/StickyContainer";
 import EuskaltegiBottomSnippet from "../../../components/Euskaltegi/EuskaltegiBottomSnippet/EuskaltegiBottomSnippet";
 import EuskaltegiCard from "../../../components/Euskaltegi/EuskaltegiCard/EuskaltegiCard";
@@ -56,6 +57,10 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
         <div className={styles["euskaltegis-container__body"]}>
           <div>
             <h1>🏫 Euskaltegis en {capitalize(location.name)}</h1>
+            <EuskaltegiSiteHeadingAd />
+            <p className={styles["euskaltegis-container__sub-title"]}>
+              {getSubtitleByFoundCode(foundCode, location)}
+            </p>
             <div className={styles["euskaltegis-container__banner-img"]}>
               <img
                 style={{ objectFit: "cover" }}
@@ -64,9 +69,6 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
                 title={`Euskaltegis en ${location.name}`}
               />
             </div>
-            <p className={styles["euskaltegis-container__sub-title"]}>
-              {getSubtitleByFoundCode(foundCode, location)}
-            </p>
             <p
               style={{
                 padding: "0 1rem",

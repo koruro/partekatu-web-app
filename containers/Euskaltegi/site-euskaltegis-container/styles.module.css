@@ -46,7 +46,7 @@
 }
 
 .euskaltegis-container__banner-img img {
-  max-height: 250px;
+  max-height: 200px;
   width: 100%;
   filter: drop-shadow(4px 4px 0px var(--primary-light-2));
 }
@@ -57,6 +57,14 @@
 }
 
 @media (min-width: 1024px) {
+  .euskaltegis-container h1 {
+    text-align: left;
+  }
+
+  .euskaltegis-container__sub-title {
+    text-align: left;
+  }
+
   .euskaltegis-container {
     margin-top: 3rem;
   }
