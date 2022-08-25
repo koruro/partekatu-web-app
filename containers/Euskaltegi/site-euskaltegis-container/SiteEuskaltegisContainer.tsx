@@ -94,11 +94,10 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
                     textAlign: "left",
                   }}
                 >
-                  ¿No sabes qué <b>euskaltegi</b> elegir? Pásate por{" "}
-                  <a href="/euskaltegi/buscador">
-                    <b>nuestra guía</b>
-                  </a>{" "}
-                  para elegir un euskaltegi.
+                  ¿No sabes qué <b>euskaltegi</b> elegir? Pásate por nuestra{" "}
+                  <a href="/euskaltegi">
+                    <b>guía para elegir un euskaltegi</b>.
+                  </a>
                 </p>
               </div>
             </StickyContainer>
