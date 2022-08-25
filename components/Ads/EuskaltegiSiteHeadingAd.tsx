@@ -19,12 +19,11 @@ const EuskaltegiSiteHeadingAd: React.FC = () => {
         className="adsbygoogle"
         style={{
           display: "block",
-          textAlign: "center",
         }}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
         data-ad-client="ca-pub-8498524881106051"
         data-ad-slot="7258577022"
-        data-ad-format="fluid"
-        data-full-width-responsive="true"
       ></ins>
     </div>
   );
