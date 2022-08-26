@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { CategoriesDict } from "../../components/Categories/categories";
 import CustomHead from "../../components/CustomHead";
+import { getEuskaltegiFakeArticle } from "../../components/Euskaltegi/getEuskaltegiFakeArticle";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
@@ -94,10 +95,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 async function getHighlightArticles(category: CategoriesEnum) {
   try {
-    return await articleRepository.getHighlightArticles({
+    const articles = await articleRepository.getHighlightArticles({
       category,
       limit: 2,
     });
+    // If is BLOG category insert fake euskaltegi article
+    if (category === CategoriesEnum.BLOG) {
+      articles.unshift(getEuskaltegiFakeArticle());
+      if (articles.length > 2) {
+        articles.splice(articles.length - 1, 1);
+      }
+      return articles;
+    }
+    return articles;
   } catch (error) {
     return [];
   }
