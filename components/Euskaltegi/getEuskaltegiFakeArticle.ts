@@ -3,7 +3,7 @@ import { CategoriesEnum } from "../../types/categories";
 
 export const getEuskaltegiFakeArticle = (): Article => ({
   id: "1034",
-  emoji: "🏫",
+  emoji: "🔍",
   locale: "es",
   infographic: "",
   title: "Buscador de euskaltegis",
