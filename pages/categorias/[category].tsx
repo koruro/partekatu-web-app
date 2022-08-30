@@ -94,10 +94,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 async function getHighlightArticles(category: CategoriesEnum) {
   try {
-    return await articleRepository.getHighlightArticles({
+    const articles = await articleRepository.getHighlightArticles({
       category,
       limit: 2,
     });
+
+    return articles;
   } catch (error) {
     return [];
   }

@@ -4,10 +4,6 @@ import styles from "./styles.module.css";
 interface Props {
   slug: string;
   title: string;
-  altTitle?: string;
-  description: string;
-  category: any;
-  banner: string;
   emoji: string;
   large?: boolean;
 }
