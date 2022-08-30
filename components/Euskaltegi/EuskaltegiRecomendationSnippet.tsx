@@ -1,6 +1,6 @@
 import React from "react";
 import { Article } from "../../models/Article";
-import ArticleCard from "../Articles/ArticleCard/ArticleCard";
+import MinimalArticleCard from "../Articles/MinimalArticleCard/MinimalArticleCard";
 
 const EuskaltegiRecomendationSnippet: React.FC<{ article: Article }> = ({
   article,
@@ -8,30 +8,25 @@ const EuskaltegiRecomendationSnippet: React.FC<{ article: Article }> = ({
   return (
     <section
       style={{
-        alignSelf: "flex-start",
-        maxWidth: "700px",
-        marginTop: "2rem",
+        margin: "auto",
+        marginTop: "3rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       <p
         style={{
-          color: "white",
-          fontSize: "1.2em",
-          fontWeight: "bold",
-          backgroundColor: "var(--primary)",
-          padding: "0.3rem 0.7rem",
-          display: "inline-block",
+          color: "var(--text-subtle)",
+          fontSize: "1.1em",
+          fontStyle: "italic",
         }}
       >
         También tenemos para ti
       </p>
-      <ArticleCard
-        banner={article.banner}
-        category={article.category}
+      <MinimalArticleCard
         emoji={article.emoji}
         title={article.title}
-        altTitle={article.metadata.title_alt}
-        description={article.description}
         slug={article.slug}
       />
     </section>
