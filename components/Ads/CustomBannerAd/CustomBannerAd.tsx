@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 const CustomBannerAd = () => {
   return (
     <a
-      href="https://www.aek.eus/es-es/blog-1/en-marcha-la-prematricula-del-proximo-curso-oferta-especial"
+      href="https://aek.eus/es-es/bidelaguna"
       target="__blank"
       rel="noopener noreferrer"
       className={styles["custom-banner-ad"]}
@@ -13,11 +13,11 @@ const CustomBannerAd = () => {
       <picture>
         <source
           media="(min-width: 768px)"
-          srcSet="https://res.cloudinary.com/koruro/image/upload/v1655318038/Banners/10_Aurematri_970X250_elebi_xvdgyr.gif"
+          srcSet="/promotions/aek_970X250.gif"
         />
         <img
-          src="https://res.cloudinary.com/koruro/image/upload/Banners/11_Aurematri_300X250_elebi_ljvcho.gif"
-          alt="Prematricula curso aek oferta especial"
+          src="/promotions/aek_300X250.gif"
+          alt="AEK Iragarkia"
           style={{ maxWidth: "100%" }}
         />
       </picture>
