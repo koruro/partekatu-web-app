@@ -10,15 +10,15 @@ const CustomBannerAd = () => {
       className={styles["custom-banner-ad"]}
       id="aek-banner"
     >
-      <picture>
+      <picture style={{ width: "100%" }}>
         <source
-          media="(min-width: 768px)"
+          media="(min-width: 520px)"
           srcSet="/promotions/aek_970X250.gif"
         />
         <img
           src="/promotions/aek_300X250.gif"
           alt="AEK Iragarkia"
-          style={{ maxWidth: "100%" }}
+          style={{ width: "100%" }}
         />
       </picture>
     </a>
