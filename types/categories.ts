@@ -1,5 +1,5 @@
 export enum CategoriesEnum {
-	GRAMAR = "gramatica",
-	VOCABULARY = "vocabulario",
-	BLOG = "blog",
+  GRAMAR = "gramatica",
+  VOCABULARY = "vocabulario",
+  BLOG = "blog",
 }

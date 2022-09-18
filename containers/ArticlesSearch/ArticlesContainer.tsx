@@ -9,17 +9,22 @@ import PaginationBox from "../../components/Shared/Pagination/PaginationBox";
 import styles from "./styles.module.css";
 import PageContainerBox from "../../components/Page/PageContainerBox/PageContainerBox";
 import { articleRepository } from "../../services/bootstrap";
+import ArticlesContainerHeadingAd from "../../components/Ads/ArticlesContainerHeadingAd";
+import { getEuskaltegiFakeArticle } from "../../components/Euskaltegi/getEuskaltegiFakeArticle";
+import EuskaltegiRecomendationSnippet from "../../components/Euskaltegi/EuskaltegiRecomendationSnippet";
 
 const DEFAULT_FILTER = {
   sortBy: "createdAt",
   order: "DESC",
 };
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 8;
 
 const getNumPages = (totalArticles: number, pageSize: number) => {
   return Math.ceil(totalArticles / pageSize);
 };
+
+const euskaltegiFinderArticle = getEuskaltegiFakeArticle();
 
 interface Props {
   queryProps: QueryProps;
@@ -74,6 +79,7 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
     <PageContainerBox breakLimit="xl">
       <div className={styles["articles-search"]}>
         <h1>Todos nuestros artículos sobre el euskera</h1>
+        <ArticlesContainerHeadingAd />
         <SearchBar
           onSubmit={(e) => {
             e.preventDefault();
@@ -146,6 +152,7 @@ const ArticlesContainer: React.FC<Props> = ({ queryProps }) => {
             />
           </PaginationBox>
         )}
+        <EuskaltegiRecomendationSnippet article={euskaltegiFinderArticle} />
       </div>
     </PageContainerBox>
   );

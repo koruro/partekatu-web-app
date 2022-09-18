@@ -9,17 +9,18 @@ const EuskaltegiBottomSnippet: React.FC<{
 }> = ({ articleRecommendations }) => {
   return (
     <section style={{ fontSize: "1.1rem", marginTop: "2rem" }}>
-      <h2
+      <span
         style={{
           color: "white",
           fontSize: "1.5em",
+          fontWeight: "bold",
           backgroundColor: "var(--primary)",
           padding: "0.3rem 0.7rem",
           display: "inline-block",
         }}
       >
         ¡Aprende Euskera!
-      </h2>
+      </span>
       <div className={styles["euskaltegi-snippet__body"]}>
         <p>
           Y, <b>¡Escucha!</b> Ir al euskaltegi es una gran forma de aprender

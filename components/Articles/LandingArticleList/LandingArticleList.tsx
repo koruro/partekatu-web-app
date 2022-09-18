@@ -40,12 +40,8 @@ const LandingArticleList: React.FC<Props> = ({
       {data.map((article) => (
         <MinimalArticleCard
           key={article.id}
-          banner={article.banner}
-          category={article.category}
           emoji={article.emoji}
           title={article.title}
-          altTitle={article.metadata.title_alt}
-          description={article.description}
           slug={article.slug}
         />
       ))}

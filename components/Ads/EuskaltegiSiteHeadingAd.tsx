@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
-const ArticlesContainerHeadingAd: React.FC = () => {
+const EuskaltegiSiteHeadingAd: React.FC = () => {
   const { asPath } = useRouter();
 
   useEffect(() => {
@@ -14,27 +14,19 @@ const ArticlesContainerHeadingAd: React.FC = () => {
     } catch (err) {}
   }, [asPath]);
   return (
-    <div
-      key="articles-heading-ad"
-      id="articles-heading-ad"
-      style={{
-        width: "100%",
-      }}
-    >
+    <div key="heading-euskaltegi-site-ad" id="heading-euskaltegi-site-ad">
       <ins
         className="adsbygoogle"
         style={{
           display: "block",
-          textAlign: "center",
         }}
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
+        data-ad-format="auto"
         data-full-width-responsive="true"
         data-ad-client="ca-pub-8498524881106051"
-        data-ad-slot="6787602106"
+        data-ad-slot="7258577022"
       ></ins>
     </div>
   );
 };
 
-export default ArticlesContainerHeadingAd;
+export default EuskaltegiSiteHeadingAd;
