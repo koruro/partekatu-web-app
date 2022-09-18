@@ -17,7 +17,7 @@ const HomePageContainer: React.FC<Props> = ({
 }) => {
   return (
     <PageContainerBox breakLimit="xl">
-      <div>
+      <div style={{ padding: "0 1rem" }}>
         <HomeLogoBox>
           <PartekatuLogo />
           <h1>aprende euskera</h1>
