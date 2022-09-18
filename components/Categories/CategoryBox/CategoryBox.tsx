@@ -13,9 +13,10 @@ const CategoryBox: React.FC<
     HTMLParagraphElement
   > &
     Props
-> = ({ category, as }) => {
+> = ({ category, as, ...props }) => {
   return (
     <TagBox
+      {...props}
       as={as}
       className={styles[`category--${CategoriesDict[category].slug}`]}
     >

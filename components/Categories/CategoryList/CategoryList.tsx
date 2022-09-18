@@ -37,6 +37,7 @@ const CategoryList: React.FC<
             href={`/categorias/${category}`}
           >
             <CategoryBox
+              style={{ width: "100%", textAlign: "center" }}
               as={categoryAs ?? "span"}
               category={category as CategoriesEnum}
             />

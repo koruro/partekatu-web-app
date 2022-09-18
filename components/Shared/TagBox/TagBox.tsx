@@ -1,16 +1,17 @@
 import classNames from "classnames";
-import { createElement, PropsWithChildren } from "react";
+import { createElement, CSSProperties, PropsWithChildren } from "react";
 
 export interface TagBoxProps {
   className?: string;
   as?: "h2" | "span";
+  style?: CSSProperties;
 }
 
 const TagBox: React.FC<PropsWithChildren<TagBoxProps>> = ({
   children,
   as,
   className,
-  ...props
+  style,
 }) => {
   return createElement(
     as ?? "span",
@@ -24,9 +25,9 @@ const TagBox: React.FC<PropsWithChildren<TagBoxProps>> = ({
         fontWeight: "bold",
         borderRadius: "var(--rounded-l)",
         display: "inline-block",
+        ...style,
       },
       className: classNames("button-padding-1", "elevate-1", className),
-      ...props,
     },
     children
   );
