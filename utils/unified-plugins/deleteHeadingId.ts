@@ -15,7 +15,8 @@ export function deleteHeadingsId() {
       if (element.type !== "element") continue;
 
       if (element.tagName === "a") {
-        element.properties.id = element.properties.href.substring(1);
+        const id = element.properties.href.substring(1);
+        element.properties.id = id;
       }
 
       // Delete ids

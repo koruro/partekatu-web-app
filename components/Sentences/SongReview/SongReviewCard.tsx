@@ -2,6 +2,9 @@ import { PropsWithChildren } from "react";
 import SongReview from "./SongReview";
 
 const SongReviewCard: React.FC<PropsWithChildren> = ({ children }) => {
+  const anchorLink = (children as any[]).find(
+    (c) => c.props?.isheadinglink === "true"
+  );
   const titleElement = (children as any[]).find(
     (c) => c.type === "h2" || c.type === "h3"
   );
@@ -34,6 +37,7 @@ const SongReviewCard: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <SongReview
+      anchorLink={anchorLink}
       title={titleElement}
       author={author}
       category={category}

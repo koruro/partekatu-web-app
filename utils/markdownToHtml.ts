@@ -6,7 +6,6 @@ import remarkRehype from "remark-rehype";
 import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
 import rehypeRaw from "rehype-raw";
-import rehypeMinify from "rehype-preset-minify";
 import rehypeAutoLink from "rehype-autolink-headings";
 import { BulletPoint } from "../models/BulletPoint";
 import { deleteHeadingsId } from "./unified-plugins/deleteHeadingId";
@@ -15,6 +14,8 @@ import {
   htmlElementsTransformer,
 } from "./unified-plugins/htmlElementsTransformer";
 import { addSecondaryArticleAd } from "./unified-plugins/addSecondaryArticleAd";
+import { visit } from "unist-util-visit";
+import { decodeHeadingId } from "./unified-plugins/encodeHeadingId";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const wrap = require("rehype-wrap-all");
 
@@ -102,21 +103,22 @@ export class ArticleMarkdownParser {
   public getBulletPoints(bullets?: BulletPoint[]) {
     const _bullets: BulletPoint[] = [];
     let nameIndex = 0;
-    this.parsedTree.children.forEach((element: any, index: number) => {
+
+    visit(this.parsedTree, (element) => {
       if (!element.properties) return;
       if (!element.properties.isHeadingLink) return;
 
       const targetId = element.properties?.id;
       const name = bullets
         ? bullets[nameIndex]?.name
-        : this.parsedTree.children[index + 1]?.children[0]?.value;
+        : decodeHeadingId(element.properties.id);
 
       const isFaq = bullets ? bullets[nameIndex]?.isFaq ?? false : false;
       if (!targetId) return;
 
       _bullets.push({
         targetId,
-        name: name ?? this.parsedTree.children[index + 1]?.children[0]?.value,
+        name: name ?? decodeHeadingId(element.properties.id),
         isFaq: isFaq ?? false,
       });
       nameIndex++;

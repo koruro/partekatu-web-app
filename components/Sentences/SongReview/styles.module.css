@@ -26,11 +26,14 @@
 	display: grid;
 	column-gap: 1rem;
 	grid-template-columns: 1fr;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
+}
+
+.song-review__corpus p {
+	padding: 0;
 }
 
 .song-review__choruses {
-	margin-top: 1rem;
 	display: grid;
 	row-gap: 2rem;
 	grid-template-columns: 1fr;

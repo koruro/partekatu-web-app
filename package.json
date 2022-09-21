@@ -39,7 +39,8 @@
 		"remark-math": "5.1.0",
 		"remark-parse": "10.0.1",
 		"remark-rehype": "10.0.1",
-		"unified": "10.1.2"
+		"unified": "10.1.2",
+		"unist-util-visit": "4.1.1"
 	},
 	"devDependencies": {
 		"@types/node": "16.11.6",
