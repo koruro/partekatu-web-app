@@ -3,6 +3,7 @@ import TagBox from "../../Shared/TagBox/TagBox";
 import styles from "./styles.module.css";
 
 interface Props {
+  anchorLink: JSX.Element;
   title: JSX.Element;
   author: string;
   video: { src: string; alt: string; title: string };
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const SongReview: React.FC<Props> = ({
+  anchorLink,
   title,
   author,
   video,
@@ -27,6 +29,7 @@ const SongReview: React.FC<Props> = ({
       rounded="l"
       renderTag={category ? () => <TagBox>{category}</TagBox> : undefined}
     >
+      {anchorLink}
       {title}
       <span className={styles["song-review__author"]}>{author}</span>
       <div className={styles["song-review__corpus"]}>
@@ -52,21 +55,21 @@ const SongReview: React.FC<Props> = ({
             <p key={i}>{r}</p>
           ))}
         </section>
-        {vasqueChorus.length > 0 && spanishChorus.length > 0 && (
-          <div className={styles["song-review__choruses"]}>
-            <div style={{ fontStyle: "italic" }}>
-              {vasqueChorus.map((sen, i) => (
-                <p key={i}>{sen}</p>
-              ))}
-            </div>
-            <div>
-              {spanishChorus.map((sen, i) => (
-                <p key={i}>{sen}</p>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
+      {vasqueChorus.length > 0 && spanishChorus.length > 0 && (
+        <div className={styles["song-review__choruses"]}>
+          <div style={{ fontStyle: "italic" }}>
+            {vasqueChorus.map((sen, i) => (
+              <p key={i}>{sen}</p>
+            ))}
+          </div>
+          <div>
+            {spanishChorus.map((sen, i) => (
+              <p key={i}>{sen}</p>
+            ))}
+          </div>
+        </div>
+      )}
     </TaggedBlankCard>
   );
 };
