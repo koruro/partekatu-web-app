@@ -3,7 +3,7 @@ import TagBox from "../../Shared/TagBox/TagBox";
 import styles from "./styles.module.css";
 
 interface Props {
-  title: string;
+  title: JSX.Element;
   author: string;
   video: { src: string; alt: string; title: string };
   category?: string;
@@ -27,7 +27,7 @@ const SongReview: React.FC<Props> = ({
       rounded="l"
       renderTag={category ? () => <TagBox>{category}</TagBox> : undefined}
     >
-      <h3>{title}</h3>
+      {title}
       <span className={styles["song-review__author"]}>{author}</span>
       <div className={styles["song-review__corpus"]}>
         <div style={{ position: "relative", paddingTop: "56.25%" }}>

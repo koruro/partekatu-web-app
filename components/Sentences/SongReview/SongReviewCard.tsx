@@ -2,9 +2,9 @@ import { PropsWithChildren } from "react";
 import SongReview from "./SongReview";
 
 const SongReviewCard: React.FC<PropsWithChildren> = ({ children }) => {
-  const title = (children as any[]).find(
+  const titleElement = (children as any[]).find(
     (c) => c.type === "h2" || c.type === "h3"
-  )?.props?.children[0];
+  );
   const author = (children as any[]).find(
     (c) => c.props?.className === "author"
   )?.props?.children[0];
@@ -34,7 +34,7 @@ const SongReviewCard: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <SongReview
-      title={title}
+      title={titleElement}
       author={author}
       category={category}
       video={video}

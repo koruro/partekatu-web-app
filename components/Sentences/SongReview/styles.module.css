@@ -3,7 +3,7 @@
 	margin: 2rem 0.5rem;
 }
 
-.song-review h3 {
+.song-review h3, .song-review h2 {
 	background-color: transparent;
 	color: var(--text);
 	display: block;
