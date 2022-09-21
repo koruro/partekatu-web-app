@@ -118,7 +118,7 @@ export class ArticleMarkdownParser {
 
       _bullets.push({
         targetId,
-        name: name,
+        name: name ?? decodeHeadingId(element.properties.id),
         isFaq: isFaq ?? false,
       });
       nameIndex++;
