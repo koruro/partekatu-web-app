@@ -1,3 +1,5 @@
+import { encodeHeadingId } from "./encodeHeadingId";
+
 export interface HtmlElementsTransformerOptions {
   anchor?: {
     aditionalRel?: string[];
@@ -66,22 +68,12 @@ export function htmlElementsTransformer(
 
       // Add id slug to h2
       if (element.tagName === "h2") {
-        //Remove question marks
-        let slug = element.children[0].value
-          .toLowerCase()
-          .replace(/[\?¿!¡]/gm, "");
+        const rawValue = element.children[0].value;
 
-        //Remove tildes
-        slug = slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-        // Remove parenthesis
-        slug = slug.replace(/[{()}]/g, "");
-
-        //Remove every other symbol
-        slug = slug.replace(/\W/g, "-");
         element.properties = {
           ...element.properties,
-          id: slug,
+          id: encodeHeadingId(rawValue),
+          rawValue,
         };
       }
 
