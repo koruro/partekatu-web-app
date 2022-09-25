@@ -5,19 +5,30 @@ import CustomHead from "../components/CustomHead";
 import LoadingRing from "../components/Loading/Ring/LoadingRing";
 import PageContainerBox from "../components/Page/PageContainerBox/PageContainerBox";
 import { Article } from "../models/Article";
+import { Article as NewArticle } from "../models/article/Article";
 import ErrorArticleContainer from "./Error/ErrorArticleContainer";
 import { genArticleStructuredData } from "../utils/structuredData";
+import { BulletPoint } from "../models/BulletPoint";
 
 interface Props {
-  article: Article;
+  article: NewArticle;
+  bulletPoints: BulletPoint[];
+  articleHTMLContent: string;
+  referencesHtmlContent: string | null;
   recommendations: Article[];
 }
 
-const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
+const ArticleContainer: React.FC<Props> = ({
+  article,
+  recommendations,
+  articleHTMLContent,
+  bulletPoints,
+  referencesHtmlContent,
+}) => {
   const metaDesc = article?.description
     ? article?.description
     : "Descripcion de ejemplo";
-  const metaImage = article.banner;
+  const metaImage = article.banner.url;
   const router = useRouter();
 
   if (router.isFallback) return <LoadingRing />;
@@ -26,14 +37,20 @@ const ArticleContainer: React.FC<Props> = ({ article, recommendations }) => {
   return (
     <>
       <CustomHead
-        title={article?.metadata.meta_title}
-        metaTitle={article?.metadata.meta_title}
+        title={article.seoMetadata.titleAlt.unwrapOr("")}
+        metaTitle={article.seoMetadata.metaTitle.unwrapOr("")}
         metaDesc={metaDesc}
         imgUrl={metaImage}
         structuredData={genArticleStructuredData(article)}
       />
       <PageContainerBox breakLimit="xl">
-        <ArticleWrapper article={article} recommendations={recommendations} />
+        <ArticleWrapper
+          articleHTMLContent={articleHTMLContent}
+          bulletPoints={bulletPoints}
+          referencesHtmlContent={referencesHtmlContent}
+          article={article}
+          recommendations={recommendations}
+        />
       </PageContainerBox>
       <DynamicComponentLoader />
     </>

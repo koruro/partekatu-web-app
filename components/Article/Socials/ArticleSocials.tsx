@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import LazyHydrate from "react-lazy-hydration";
+import { Option, some } from "rorjs";
 import { SITE_URL } from "../../../utils/constants";
 import {
   getFacebookShareLink,
@@ -12,11 +13,12 @@ import ArticleSectionHeader from "../Section/ArticleSectionHeader";
 import styles from "./styles.module.css";
 
 interface Props {
-  title?: string;
+  title: Option<string>;
 }
 
 const ArticleSocials: React.FC<Props> = ({ title }) => {
   const { asPath } = useRouter();
+  const _title = title.orElse(() => some("")).unwrapOr("");
 
   return (
     <LazyHydrate ssrOnly>
@@ -32,11 +34,7 @@ const ArticleSocials: React.FC<Props> = ({ title }) => {
         </div>
         <div className={styles["article-socials__icons"]}>
           <a
-            href={getFacebookShareLink(
-              title ?? "",
-              "",
-              `${SITE_URL}${asPath}/`
-            )}
+            href={getFacebookShareLink(_title, "", `${SITE_URL}${asPath}/`)}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="share with Facebook"
@@ -44,7 +42,7 @@ const ArticleSocials: React.FC<Props> = ({ title }) => {
             <FaFacebookSquare size="42px" fill="#3b5998" />
           </a>
           <a
-            href={getTwitterShareLink(title ?? "", `${SITE_URL}${asPath}`)}
+            href={getTwitterShareLink(_title, `${SITE_URL}${asPath}`)}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="share with Twitter"

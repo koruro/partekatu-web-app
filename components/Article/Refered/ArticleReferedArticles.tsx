@@ -8,6 +8,7 @@ interface Props {
 
 const ArticleReferedArticles: React.FC<Props> = ({ articles }) => {
   if (!articles) return null;
+  if (articles.length <= 0) return null;
   return (
     <ArticleSection className={styles["article-refered-articles"]}>
       <p>

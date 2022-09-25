@@ -1,5 +1,6 @@
 import ArticleData from "../Data/ArticleData";
 import { Article } from "../../../models/Article";
+import { Article as NewArticle } from "../../../models/article/Article";
 import styles from "./styles.module.css";
 import ArticleBullets from "../BulletPoints/ArticleBullets";
 import SideContainer from "../SideContainer/SideContainer";
@@ -8,10 +9,14 @@ import InfographicButton from "../Infographic/InfographicButton";
 import StickyContainer from "../SideContainer/StickyContainer";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import { BulletPoint } from "../../../models/BulletPoint";
 
 interface Props {
-  article: Article;
+  article: NewArticle;
   recommendations: Article[];
+  bulletPoints: BulletPoint[];
+  articleHTMLContent: string;
+  referencesHtmlContent: string | null;
   showSocials?: boolean;
   showCitation?: boolean;
 }
@@ -25,6 +30,9 @@ const StickyFooterAd = dynamic(
 const ArticleWrapper: React.FC<Props> = ({
   article,
   recommendations,
+  articleHTMLContent,
+  bulletPoints,
+  referencesHtmlContent,
   showCitation,
   showSocials,
 }) => {
@@ -35,14 +43,17 @@ const ArticleWrapper: React.FC<Props> = ({
       <div className={styles["article-wrapper"]}>
         <ArticleData
           article={article}
+          articleHTMLContent={articleHTMLContent}
+          bulletPoints={bulletPoints}
+          referencesHtmlContent={referencesHtmlContent}
           recommendations={recommendations}
           showCitation={showCitation}
           showSocials={showSocials}
         />
         <SideContainer>
-          <SideShare title={article.seoMetadata.metaTitle} />
+          <SideShare title={article.seoMetadata.metaTitle.unwrap()} />
           <ArticleBullets
-            bullet_points={article.bulletPoints}
+            bullet_points={bulletPoints}
             infographic={article.infographic}
           />
           <StickyContainer>

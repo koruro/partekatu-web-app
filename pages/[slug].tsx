@@ -1,22 +1,43 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import { Option, some } from "rorjs";
 import Footer from "../components/Footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
 import PageBox from "../components/Page/PageBox/PageBox";
 import ArticleContainer from "../containers/ArticleContainer";
 import { Article } from "../models/Article";
+import {
+  deserializeArticle,
+  serializeArticle,
+} from "../models/article/mappers/articleSerializer";
+import { BulletPoint } from "../models/BulletPoint";
 import { articleRepository } from "../services/bootstrap";
 import { ArticleMarkdownParser } from "../utils/markdownToHtml";
 
 interface Props {
-  article: Article;
+  article: any;
+  bulletPoints: BulletPoint[];
+  articleHTMLContent: string;
+  referencesHtmlContent: string | null;
   recommendations: Article[];
 }
 
-const ArticlePage: React.FC<Props> = ({ article, recommendations }) => {
+const ArticlePage: React.FC<Props> = ({
+  article,
+  bulletPoints,
+  articleHTMLContent,
+  referencesHtmlContent,
+  recommendations,
+}) => {
   return (
     <PageBox>
       <NavBar />
-      <ArticleContainer article={article} recommendations={recommendations} />
+      <ArticleContainer
+        article={deserializeArticle(article)}
+        articleHTMLContent={articleHTMLContent}
+        bulletPoints={bulletPoints}
+        referencesHtmlContent={referencesHtmlContent}
+        recommendations={recommendations}
+      />
       <Footer />
     </PageBox>
   );
@@ -49,31 +70,46 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
     });
 
     const htmlContent = new ArticleMarkdownParser(article.content);
-    const referencesHtmlContent = new ArticleMarkdownParser(article.references);
 
     await htmlContent.parse();
-    await referencesHtmlContent.parse({
-      htmlElementTransformer: { anchor: { aditionalRel: ["nofollow"] } },
-    });
 
-    const bullets = htmlContent.getBulletPoints(article.bulletPoints);
+    const bulletPoints = htmlContent.getBulletPoints(
+      article.bulletPoints.unwrapOrUndefined()
+    );
+
+    const returnedProps = {
+      article: serializeArticle(article),
+      bulletPoints,
+      articleHTMLContent: htmlContent.getRawHtml(),
+      referencesHTMLContent: await getReferenceHTMLContent(
+        article.references
+      ).then((p) => p.unwrapOr(null)),
+      recommendations,
+    };
 
     return {
-      props: {
-        article: {
-          ...article,
-          content: htmlContent.getRawHtml(),
-          rawContent: article.content,
-          references: referencesHtmlContent.getRawHtml(),
-          bulletPoints: bullets,
-        },
-        recommendations,
-      },
+      props: returnedProps,
     };
   } catch (error) {
     console.error(error);
     return { props: {} };
   }
 };
+
+async function getReferenceHTMLContent(
+  references: Option<string>
+): Promise<Option<string>> {
+  if (references.isNone()) return references;
+
+  const val = references.getValue();
+
+  const referencesHtmlContent = new ArticleMarkdownParser(val);
+
+  await referencesHtmlContent.parse({
+    htmlElementTransformer: { anchor: { aditionalRel: ["nofollow"] } },
+  });
+
+  return some(referencesHtmlContent.getRawHtml());
+}
 
 export default ArticlePage;

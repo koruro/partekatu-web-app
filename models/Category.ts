@@ -1,4 +1,4 @@
-import { SeoMetadata } from "./Metadata";
+import { SeoMetadata } from "./metadata/Metadata";
 
 export interface Category {
   id: string;
