@@ -9,6 +9,9 @@ export const ComponentDict: {
   "surname-finder": {
     getComponent: () => dynamic(() => import("./SurnameFinder/SurnameFinder")),
   },
+  "name-finder": {
+    getComponent: () => dynamic(() => import("./NameFinder/NameFinder")),
+  },
   articleAd: {
     getComponent: () => dynamic(() => import("../../Ads/InArticleAd")),
   },

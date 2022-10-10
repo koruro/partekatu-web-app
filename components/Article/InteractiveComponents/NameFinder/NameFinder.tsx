@@ -1,5 +1,3 @@
-import classNames from "classnames";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import {
   getNameOriginText,
@@ -20,7 +18,7 @@ import { switchOrigin } from "./utils";
 
 const NameFinder: React.FC = () => {
   const [typedName, setTypedName] = useState<string>("");
-  const [origin, setOrigin] = useState<NameOrigin>(NameOrigin.Vasque);
+  const [origin, setOrigin] = useState<NameOrigin>(NameOrigin.Spanish);
   const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false);
   const [result, setResult] = useState<
     NameTranslationDataResponse | undefined

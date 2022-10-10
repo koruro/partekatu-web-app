@@ -7,6 +7,7 @@ import PoemCard from "../../Sentences/Poem/PoemCard";
 import RiddleCard from "../../Sentences/Riddle/RiddleCard";
 import VideoReviewCard from "../../Sentences/VideoReview/VideoReviewCard";
 import SongReviewCard from "../../Sentences/SongReview/SongReviewCard";
+import NameInfoCardContainer from "../../Sentences/NameInfoCard/NameInfoCardContainer";
 
 interface Props {
   htmlContent: string;
@@ -77,6 +78,14 @@ const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
           if (props.className === "song-review") {
             incrementIndex();
             return createElement(SongReviewCard, {}, children);
+          }
+          if (props.className === "name-info-card") {
+            incrementIndex();
+            return createElement(
+              NameInfoCardContainer,
+              { index: translatedSIndex },
+              children
+            );
           }
           return createElement("div", { ...props }, children);
         }),
