@@ -1,0 +1,17 @@
+.name-info-card {
+	text-align: left;
+}
+
+.name-info-card p {
+	margin: 0;
+	font-size: 1.1em;
+	margin-bottom: 1em;
+	color: var(--text-subtle);
+}
+
+.name-info-card h4 {
+	font-size: 1.8em;
+	color: var(--text);
+	display: block;
+	font-style: italic;
+}
