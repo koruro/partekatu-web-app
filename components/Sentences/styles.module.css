@@ -8,6 +8,15 @@
 	margin-bottom: 1rem; */
 }
 
+.sentence-card__container--medium-image .image-card__children {
+	padding-bottom: 3rem;
+}
+
+.sentence-card__container--medium-image img {
+	height: 60px !important;
+}
+
+
 .image-card__children {
 	padding: 2rem 4rem;
 	padding-bottom: 5rem;

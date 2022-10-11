@@ -4,11 +4,13 @@ import ImageCardTears from "./Tears/ImageCardTears";
 import { SocialType } from "../Shared/SocialIcon";
 import BlankCard from "../Shared/BlankCard/BlankCard";
 import { PropsWithChildren } from "react";
+import classNames from "classnames";
 
 interface Props {
   index: number;
   showTears?: boolean;
   sharePathFactory?: (social: SocialType) => string;
+  imageSize?: "l" | "m";
 }
 const getRandomCardImage = (index?: number) => {
   const images = [
@@ -53,10 +55,17 @@ const SentenceContainer: React.FC<PropsWithChildren<Props>> = ({
   index,
   showTears,
   sharePathFactory,
+  imageSize = "l",
 }) => {
   const _showTears = showTears === undefined ? true : showTears;
   return (
-    <BlankCard rounded="l" className={styles["sentence-card__container"]}>
+    <BlankCard
+      rounded="l"
+      className={classNames(styles["sentence-card__container"], {
+        [`${styles["sentence-card__container--medium-image"]}`]:
+          imageSize === "m",
+      })}
+    >
       {sharePathFactory && (
         <ImageCardShareList sharePathFactory={sharePathFactory} />
       )}

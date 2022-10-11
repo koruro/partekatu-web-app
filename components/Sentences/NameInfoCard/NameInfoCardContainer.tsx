@@ -11,7 +11,7 @@ const NameInfoCardContainer: React.FC<PropsWithChildren<Props>> = ({
   children,
 }) => {
   return (
-    <SentenceContainer index={index}>
+    <SentenceContainer showTears={false} index={index} imageSize="m">
       <NameInfoCard>{children}</NameInfoCard>
     </SentenceContainer>
   );
