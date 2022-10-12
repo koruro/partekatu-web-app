@@ -12,11 +12,12 @@ export class CustomNameTranslationAPIRepository
   constructor(private baseUrl: string) {}
   async getSimilarNames(
     origin: NameOrigin,
+    destination: NameOrigin,
     name?: string | undefined
   ): Promise<NameMatch[]> {
     try {
       const response = await fetch(
-        `${this.baseUrl}/name-translations/matches/${name}?origin=${origin}`
+        `${this.baseUrl}/name-translations/matches/${name}?origin=${origin}&destination=${destination}`
       );
 
       const json = await response.json();

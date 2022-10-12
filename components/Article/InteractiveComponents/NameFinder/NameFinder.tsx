@@ -67,7 +67,7 @@ const NameFinder: React.FC = () => {
   useEffect(() => {
     if (typedName === "") return;
     nameTranslationsRepository
-      .getSimilarNames(origin, typedName)
+      .getSimilarNames(origin, switchOrigin(origin), typedName)
       .then((response) => {
         setMatches(
           response.map((r) => ({ similarity: r.similarity, text: r.name }))

@@ -36,6 +36,7 @@ export class MockNameTranslationsAPIRepository
   }
   async getSimilarNames(
     origin: NameOrigin,
+    destination: NameOrigin,
     name?: string | undefined
   ): Promise<NameMatch[]> {
     return [{ name: "Xabierto", similarity: 1 }];
