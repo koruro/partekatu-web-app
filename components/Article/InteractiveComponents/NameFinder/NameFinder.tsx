@@ -16,6 +16,22 @@ import { capitalize } from "../../../../utils/capitalize";
 import NameInput from "./NameInput/NameInput";
 import { switchOrigin } from "./utils";
 
+const getMissingNameTranslationText = (name: string, origin: NameOrigin) => (
+  <section>
+    <p
+      style={{
+        fontSize: "1.2rem",
+        textAlign: "center",
+        marginInline: "auto",
+      }}
+      className={styles["title"]}
+    >
+      ¡Vaya 🤷‍♂️! No tenemos ningún equivalente en{" "}
+      <b>{getNameOriginText(switchOrigin(origin))}</b> del nombre <b>{name}</b>
+    </p>
+  </section>
+);
+
 const NameFinder: React.FC = () => {
   const [typedName, setTypedName] = useState<string>("");
   const [origin, setOrigin] = useState<NameOrigin>(NameOrigin.Spanish);
@@ -69,21 +85,7 @@ const NameFinder: React.FC = () => {
 
     if (!result) return null;
     if (isNameTranslationDataError(result))
-      return (
-        <section>
-          <p
-            style={{
-              fontSize: "1.2rem",
-              textAlign: "center",
-              marginInline: "auto",
-            }}
-            className={styles["title"]}
-          >
-            Vaya. El nombre <b>{result.inputName}</b> no tiene ninguna
-            traducción al {getNameOriginText(origin)}
-          </p>
-        </section>
-      );
+      return getMissingNameTranslationText(typedName, origin);
 
     const translationOrigin = switchOrigin(result.origin);
     const translations = result.translations.filter(
@@ -91,21 +93,7 @@ const NameFinder: React.FC = () => {
     );
 
     if (translations.length <= 0) {
-      return (
-        <section>
-          <p
-            style={{
-              fontSize: "1.2rem",
-              textAlign: "center",
-              marginInline: "auto",
-            }}
-            className={styles["title"]}
-          >
-            Vaya. El nombre <b>{result.name}</b> no tiene ninguna traducción al{" "}
-            {getNameOriginText(translationOrigin)}
-          </p>
-        </section>
-      );
+      return getMissingNameTranslationText(result.name, result.origin);
     }
 
     return (
