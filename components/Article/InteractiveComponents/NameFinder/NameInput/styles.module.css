@@ -19,10 +19,26 @@
 	border: none;
 	padding: 0rem 1rem;
 	flex-grow: 1;
+	width: 100%;
 }
 
 .custom-input img {
 	mix-blend-mode: normal;
+	max-width: none;
+}
+
+.search-button {
+	background-color: var(--primary-light-2);
+	color: var(--text);
+	padding: 0.7rem 1rem;
+	cursor: pointer;
+	border: none;
+	border-radius: var(--rounded-l);
+	transition: background-color 0.2s;
+}
+
+.search-button:hover {
+	background-color: var(--primary-light);
 }
 
 .custom-input::placeholder {

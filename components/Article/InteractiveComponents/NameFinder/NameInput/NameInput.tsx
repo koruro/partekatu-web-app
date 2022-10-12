@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
+import { FaSearch } from "react-icons/fa";
 import { TbArrowsLeftRight } from "react-icons/tb";
 import { NameOrigin } from "../../../../../models/name-translations/NameMatch";
 import { getFlagFromOrigin, switchOrigin } from "../utils";
@@ -50,6 +51,9 @@ const NameInput: React.FC<
         }}
         {...props}
       ></input>
+      <button className={styles["search-button"]} type="submit">
+        <FaSearch />
+      </button>
     </div>
   );
 };
