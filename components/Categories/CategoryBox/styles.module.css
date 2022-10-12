@@ -19,3 +19,7 @@
 .category--vocabulary {
 	background: var(--vocabulary-gradient) !important;
 }
+
+.category--basque-culture {
+	background: var(--primary-gradient) !important;
+}

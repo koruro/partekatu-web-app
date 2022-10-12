@@ -20,4 +20,9 @@ export const CategoriesDict: Record<
     color: colors.light.education,
     slug: "blog",
   },
+  [CategoriesEnum.BASQUE_CULTURE]: {
+    text: "Cultura",
+    color: "",
+    slug: "basque-culture",
+  },
 };
