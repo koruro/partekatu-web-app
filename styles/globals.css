@@ -55,7 +55,7 @@
 	--blog-c1: #72b646;
 
 	--spanish: var(--secondary);
-	--spanish-c1: #3d71af;
+	--spanish-c1: #64a9ed;
 
 	--utilities: #6495ed;
 	--utilities-c1: #64a9ed;
@@ -68,7 +68,7 @@
 
 	--primary-gradient: linear-gradient(
 		270deg, 
-		var(--spanish) 3.12%, 
+		var(--spanish) 3.12%,
 		var(--spanish-c1) 100%
 	);
 	--gramar-gradient: linear-gradient(
