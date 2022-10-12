@@ -35,6 +35,10 @@
 	border-bottom: 4px solid var(--vocabulary);
 }
 
+.category-container__title__underline--basque-culture {
+	border-bottom: 4px solid var(--primary);
+}
+
 @media (min-width: 992px) {
 	.category-container__description {
 		padding: 0;

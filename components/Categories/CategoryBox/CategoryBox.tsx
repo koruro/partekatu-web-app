@@ -7,6 +7,14 @@ interface Props extends TagBoxProps {
   category: CategoriesEnum;
 }
 
+const getCategoryClassName = (category: CategoriesEnum) => {
+  const categoryData = CategoriesDict[category];
+
+  if (!categoryData) return;
+
+  return styles[`category--${categoryData.slug}`];
+};
+
 const CategoryBox: React.FC<
   React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLParagraphElement>,
@@ -15,11 +23,7 @@ const CategoryBox: React.FC<
     Props
 > = ({ category, as, ...props }) => {
   return (
-    <TagBox
-      {...props}
-      as={as}
-      className={styles[`category--${CategoriesDict[category].slug}`]}
-    >
+    <TagBox {...props} as={as} className={getCategoryClassName(category)}>
       {CategoriesDict[category].text}
     </TagBox>
   );
