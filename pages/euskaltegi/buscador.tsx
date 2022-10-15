@@ -5,7 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import PageBox from "../../components/Page/PageBox/PageBox";
 import EuskaltegiSearchContainer from "../../containers/Euskaltegi/search-container/EuskaltegiSearchContainer";
-import { Euskaltegi } from "../../models/euskaltegi/Euskaltegi";
+import { Euskaltegi, Location } from "../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../services/bootstrap";
 
 const headTitle = "Buscador de Euskaltegis";
@@ -14,13 +14,17 @@ const metaDesc =
 
 const EuskaltegiSearchPage: React.FC<{
   euskaltegis: Euskaltegi[];
-}> = ({ euskaltegis }) => {
+  locations: Location[];
+}> = ({ euskaltegis, locations }) => {
   return (
     <>
       <CustomHead title={headTitle} metaTitle={headTitle} metaDesc={metaDesc} />
       <PageBox className="euskaltegi-home">
         <NavBar />
-        <EuskaltegiSearchContainer euskaltegis={euskaltegis} />
+        <EuskaltegiSearchContainer
+          euskaltegis={euskaltegis}
+          locations={locations}
+        />
         <Footer />
       </PageBox>
     </>
@@ -31,6 +35,7 @@ export default EuskaltegiSearchPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   const euskaltegis = await euskaltegiRepository.getAllEuskaltegis();
+  const locations = await euskaltegiRepository.getAllLocations();
 
-  return { props: { euskaltegis } };
+  return { props: { euskaltegis, locations } };
 };

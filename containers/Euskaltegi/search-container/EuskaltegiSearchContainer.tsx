@@ -8,6 +8,7 @@ import PageContainerBox from "../../../components/Page/PageContainerBox/PageCont
 import {
   Euskaltegi,
   getParsedLocationUrlName,
+  Location,
 } from "../../../models/euskaltegi/Euskaltegi";
 import { euskaltegiRepository } from "../../../services/bootstrap";
 import MyMap from "../EuskaltegisMap";
@@ -15,9 +16,13 @@ import styles from "./styles.module.css";
 
 interface Props {
   euskaltegis: Euskaltegi[];
+  locations: Location[];
 }
 
-const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
+const EuskaltegiSearchContainer: React.FC<Props> = ({
+  euskaltegis,
+  locations,
+}) => {
   const [typedSite, setTypedSite] = useState<string>("");
   const [resultIsLoading, setResultIsLoading] = useState<boolean>(false);
   const [selectedEuskaltegi, setSelectedEuskaltegi] = useState<
@@ -102,6 +107,49 @@ const EuskaltegiSearchContainer: React.FC<Props> = ({ euskaltegis }) => {
         </div>
         <EuskaltegiFillableCard euskaltegi={selectedEuskaltegi} />
       </div>
+      <section
+        style={{
+          marginTop: "2rem",
+
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <h2
+          style={{
+            color: "white",
+            fontSize: "1.5em",
+            fontWeight: "bold",
+            backgroundColor: "var(--primary)",
+            padding: "0.3rem 0.7rem",
+            display: "inline-block",
+            marginBottom: "2rem",
+          }}
+        >
+          ¡Aquí tienes algunas de las ubicaciones!
+        </h2>
+        <div
+          style={{
+            padding: "0 1rem",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
+          {locations.map((l, i) => (
+            <a
+              key={i}
+              href={getParsedLocationUrlName(l.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{l.name}</span>
+            </a>
+          ))}
+        </div>
+      </section>
     </PageContainerBox>
   );
 };
