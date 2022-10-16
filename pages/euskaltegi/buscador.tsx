@@ -35,7 +35,9 @@ export default EuskaltegiSearchPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   const euskaltegis = await euskaltegiRepository.getAllEuskaltegis();
-  const locations = await euskaltegiRepository.getAllLocations();
+  const locations = (await euskaltegiRepository.getAllLocations())
+    .filter((l) => l.toIndex)
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return { props: { euskaltegis, locations } };
 };
