@@ -68,6 +68,24 @@ const SiteEuskaltegisContainer: React.FC<Props> = ({
                 alt={`Encuentra euskaltegis en ${location.name}`}
                 title={`Euskaltegis en ${location.name}`}
               />
+              <span>
+                Imagen extraída de{" "}
+                <a
+                  href="https://commons.wikimedia.org/wiki/Main_Page"
+                  target="_blank"
+                  rel="noreferrer noopener nofollow"
+                >
+                  Wikimedia Commons
+                </a>{" "}
+                bajo licencia{" "}
+                <a
+                  href="https://creativecommons.org/"
+                  target="_blank"
+                  rel="noreferrer noopener nofollow"
+                >
+                  Creative Commons
+                </a>{" "}
+              </span>
             </div>
             <p
               style={{

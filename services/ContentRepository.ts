@@ -4,6 +4,7 @@ import { CategoriesEnum } from "../types/categories";
 
 export interface Query {
   category?: CategoriesEnum;
+  excludeCategory?: CategoriesEnum;
   excludeSlugs?: string[];
   skip?: number;
   limit?: number;

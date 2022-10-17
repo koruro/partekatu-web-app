@@ -41,14 +41,19 @@
 	margin-right: 0.25em;
 }
 
-.euskaltegis-container__banner-img {
-  text-align: center;
-}
-
 .euskaltegis-container__banner-img img {
   max-height: 200px;
   width: 100%;
   filter: drop-shadow(4px 4px 0px var(--primary-light-2));
+}
+
+.euskaltegis-container__banner-img span {
+  display: block;
+  margin: .5rem;
+  text-align: left;
+  color: var(--text-subtle);
+  font-style: italic;
+  font-size: .9em;
 }
 
 .euskaltegis-container__body {
