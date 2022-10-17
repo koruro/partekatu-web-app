@@ -339,9 +339,9 @@ export class ContentfulRepository implements ContentRepository {
       color: entry.fields.color ?? null,
       description: entry.fields.description ?? null,
       seoMetadata: {
-        metaDesc: entry.fields.metadata?.meta_desc ?? null,
-        metaTitle: entry.fields.metadata?.meta_title ?? null,
-        titleAlt: entry.fields.metadata?.title_alt ?? null,
+        metaDesc: entry.fields.seoMetadata?.meta_desc ?? null,
+        metaTitle: entry.fields.seoMetadata?.meta_title ?? null,
+        titleAlt: entry.fields.seoMetadata?.title_alt ?? null,
       },
       slug: entry.fields.slug ?? null,
       title: entry.fields.title ?? null,
