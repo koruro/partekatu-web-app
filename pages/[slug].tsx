@@ -5,6 +5,7 @@ import PageBox from "../components/Page/PageBox/PageBox";
 import ArticleContainer from "../containers/ArticleContainer";
 import { Article } from "../models/Article";
 import { articleRepository } from "../services/bootstrap";
+import { CategoriesEnum } from "../types/categories";
 import { ArticleMarkdownParser } from "../utils/markdownToHtml";
 
 interface Props {
@@ -43,10 +44,7 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
       { preview }
     );
 
-    const recommendations = await articleRepository.getArticles({
-      limit: 3,
-      excludeSlugs: [article.slug],
-    });
+    const recommendations = await getRecommendations(article);
 
     const htmlContent = new ArticleMarkdownParser(article.content);
     const referencesHtmlContent = new ArticleMarkdownParser(article.references);
@@ -74,6 +72,24 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
     console.error(error);
     return { props: {} };
   }
+};
+
+export const getRecommendations = async (
+  article: Article
+): Promise<Article[]> => {
+  const sameCategory = await articleRepository.getArticles({
+    limit: 1,
+    excludeSlugs: [article.slug],
+    category: article.category.slug as CategoriesEnum,
+  });
+
+  const otherCategories = await articleRepository.getArticles({
+    limit: 2,
+    excludeSlugs: [article.slug],
+    excludeCategory: article.category.slug as CategoriesEnum,
+  });
+
+  return [...sameCategory, ...otherCategories];
 };
 
 export default ArticlePage;

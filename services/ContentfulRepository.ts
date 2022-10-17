@@ -165,6 +165,13 @@ export class ContentfulRepository implements ContentRepository {
         "fields.category.fields.slug[all]": query.category,
       };
     }
+    if (query?.excludeCategory) {
+      _query = {
+        ..._query,
+        "fields.category.sys.contentType.sys.id": "category",
+        "fields.category.fields.slug[nin]": query.excludeCategory,
+      };
+    }
     if (query?.excludeSlugs) {
       _query = {
         ..._query,
