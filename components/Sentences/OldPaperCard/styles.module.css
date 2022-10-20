@@ -1,0 +1,65 @@
+.old-paper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  --my-height: 100%;
+  margin: 2rem 0;
+  --paper-width: 92%
+}
+
+.old-paper__parchment {
+  position: absolute;
+  display: flex;
+	width: var(--paper-width);
+  /* center page with absolute position */
+  top: 0%; left: 50%; transform: translate(-50%, 0);
+	padding: 4em;
+	box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3), 0 0 125px #8f5922 inset;
+	background: #fffef0;
+  /* v2.1 : borders effect with SVG : try to play with scale to change them */
+  filter: url(#wavy2);
+  /* v2.2 : Noise added for a vellum paper effect */
+  height: var(--my-height);
+}
+
+.old-paper__contain {
+  font-family: "Times New Roman", Times, serif;
+  position: relative;
+ 	display: flex;
+  flex-direction: column;
+	width: var(--paper-width);
+  height: auto;
+  margin: 0 auto;
+	padding: 3em 1.8em;
+}
+
+.old-paper__contain span {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  opacity: 0.8;
+}
+
+.old-paper__contain p {
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.old-paper__contain p::first-letter {
+  float: left;
+  /* font: 1.7em/1em Morris; */
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 1px #000;
+  margin: 0 .1rem;
+}
+
+@media (min-width: 768px) {
+  .old-paper {
+    --paper-width: 90%
+  }
+
+  .old-paper__contain {
+    padding: 4em;
+  }
+}
