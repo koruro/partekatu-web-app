@@ -9,6 +9,7 @@ import VideoReviewCard from "../../Sentences/VideoReview/VideoReviewCard";
 import SongReviewCard from "../../Sentences/SongReview/SongReviewCard";
 import NameInfoCardContainer from "../../Sentences/NameInfoCard/NameInfoCardContainer";
 import OldPaperCard from "../../Sentences/OldPaperCard/OldPaperCard";
+import ReferalProductCardContainer from "../../Sentences/ReferalProductCard/ReferalProductCardContainer";
 
 interface Props {
   htmlContent: string;
@@ -89,8 +90,10 @@ const RehypeReact: React.FC<Props> = ({ htmlContent }) => {
             );
           }
           if (props.className === "old-paper") {
-            incrementIndex();
             return createElement(OldPaperCard, {}, children);
+          }
+          if (props.className === "referal-product") {
+            return createElement(ReferalProductCardContainer, {}, children);
           }
           return createElement("div", { ...props }, children);
         }),
