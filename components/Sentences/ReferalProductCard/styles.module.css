@@ -1,0 +1,46 @@
+.referal-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem;
+  margin: 0 1rem;
+}
+
+.referal-container h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  background-color: transparent;
+}
+
+.referal-container__image img {
+  max-height: 400px;
+}
+
+.amazon-referal-button {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  background-color: #f4d078;
+	padding: 0.4rem 1rem;
+	text-align: center;
+	font-weight: bold;
+	border-radius: var(--rounded-s);
+	color: var(--text) !important;
+	border: 2px solid transparent;
+	transition: border 0.05s ease;
+	width: fit-content;
+	margin: auto;
+	margin-top: 2rem;
+}
+
+.amazon-referal-button:hover {
+	border: 2px solid var(--text-subtle);
+}
+
+@media (min-width: 768px) {
+  .referal-container {
+    margin: 0 8rem;
+  }
+}
