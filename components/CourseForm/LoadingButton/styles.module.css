@@ -1,0 +1,17 @@
+.subscribe-loading-button {
+  align-self: center;
+  /* background: var(--gramar-gradient); */
+  background: var(--primary);
+  color: white;
+  border: none;
+  /* border: 3px solid var(--primary); */
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: var(--rounded-l);
+  cursor: pointer;
+}
+
+.subscribe-loading-button--disabled {
+  cursor: auto;
+  opacity: 0.6;
+}

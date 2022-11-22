@@ -1,6 +1,5 @@
 .footer {
 	position: relative;
-	margin-top: 6rem;
 	background-color: var(--primary);
 	color: white;
 	z-index: 1;

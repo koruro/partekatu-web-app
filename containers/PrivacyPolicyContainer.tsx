@@ -1,130 +1,131 @@
 import PageContainerBox from "../components/Page/PageContainerBox/PageContainerBox";
 
 const PrivacyPolicyContainer = () => {
-	return (
-		<PageContainerBox breakLimit="md">
-			<section
-				className="article-content"
-				style={{ marginTop: "5rem", fontSize: "1.12em" }}
-			>
-				<h1>
-					Responsable – ¿quién es el responsable del tratamiento de los datos?
-				</h1>
-				<h2>Finalidades – ¿con qué finalidades tratamos tus datos?</h2>
-				<p>
-					En cumplimiento de lo dispuesto en el Reglamento Europeo 2016/679
-					General de Protección de Datos, te informamos de que trataremos los
-					datos que nos facilitas para: Gestionar la contratación de servicios
-					que realice a través de la Plataforma, así como la facturación y
-					entrega correspondiente. Remitir periódicamente comunicaciones sobre
-					servicios, eventos y noticias relacionadas con las actividades
-					desarrolladas por , por cualquier medio (teléfono, correo postal o
-					email), salvo que se indique lo contrario o el usuario se oponga o
-					revoque su consentimiento. Remitir información comercial y / o
-					promocional relacionada con el sector de servicios contratados y valor
-					añadido para usuarios finales, salvo que se indique lo contrario o el
-					usuario se oponga o revoque su consentimiento. Dar cumplimiento a las
-					obligaciones legalmente establecidas, así como verificar el
-					cumplimiento de las obligaciones contractuales, incluía la prevención
-					de fraude. Cesión de datos a organismos y autoridades, siempre y
-					cuando sean requeridos de conformidad con las disposiciones legales y
-					reglamentarias.
-				</p>
-				<h2>Compromisos y obligaciones de los usuarios</h2>
-				<p>
-					El Usuario queda informado, y acepta, que el acceso a la presente web
-					no supone, en modo alguno, el inicio de una relación comercial con .
-					De esta forma, el usuario se compromete a utilizar el sitio Web, sus
-					servicios y contenidos sin contravenir la legislación vigente, la
-					buena fe y el orden público. Queda prohibido el uso de la web, con
-					fines ilícitos o lesivos, o que, de cualquier forma, puedan causar
-					perjuicio o impedir el normal funcionamiento del sitio web. Respecto
-					de los contenidos de esta web, se prohíbe:Su reproducción,
-					distribución o modificación, total o parcial, a menos que se cuente
-					con la autorización de sus legítimos titulares;Cualquier vulneración
-					de los derechos del prestador o de los legítimos titulares;Su
-					utilización para fines comerciales o publicitarios. En la utilización
-					de la web, , el Usuario se compromete a no llevar a cabo ninguna
-					conducta que pudiera dañar la imagen, los intereses y los derechos de
-					o de terceros o que pudiera dañar, inutilizar o sobrecargar el portal
-					(indicar dominio) o que impidiera, de cualquier forma, la normal
-					utilización de la web. No obstante, el Usuario debe ser consciente de
-					que las medidas de seguridad de los sistemas informáticos en Internet
-					no son enteramente fiables y que, por tanto no puede garantizar la
-					inexistencia de virus u otros elementos que puedan producir
-					alteraciones en los sistemas informáticos (software y hardware) del
-					Usuario o en sus documentos electrónicos y ficheros contenidos en los
-					mismos.
-				</p>
-				<h2>Medidas de seguridad</h2>
-				<p>
-					Los datos personales comunicados por el usuario a pueden ser
-					almacenados en bases de datos automatizadas o no, cuya titularidad
-					corresponde en exclusiva a , asumiendo ésta todas las medidas de
-					índole técnica, organizativa y de seguridad que garantizan la
-					confidencialidad, integridad y calidad de la información contenida en
-					las mismas de acuerdo con lo establecido en la normativa vigente en
-					protección de datos. La comunicación entre los usuarios y utiliza un
-					canal seguro, y los datos transmitidos son cifrados gracias a
-					protocolos a https, por tanto, garantizamos las mejores condiciones de
-					seguridad para que la confidencialidad de los usuarios esté
-					garantizada.
-				</p>
-				<h2>Derecho de propiedad intelectual e industrial</h2>
-				<p>
-					En virtud de lo dispuesto en los artículos 8 y 32.1, párrafo segundo,
-					de la Ley de Propiedad Intelectual, quedan expresamente prohibidas la
-					reproducción, la distribución y la comunicación pública, incluida su
-					modalidad de puesta a disposición, de la totalidad o parte de los
-					contenidos de esta página web, con fines comerciales, en cualquier
-					soporte y por cualquier medio técnico, sin la autorización de . El
-					usuario se compromete a respetar los derechos de Propiedad Intelectual
-					e Industrial titularidad de . El usuario conoce y acepta que la
-					totalidad del sitio web, conteniendo sin carácter exhaustivo el texto,
-					software, contenidos (incluyendo estructura, selección, ordenación y
-					presentación de los mismos) podcast, fotografías, material audiovisual
-					y gráficos, está protegida por marcas, derechos de autor y otros
-					derechos legítimos, de acuerdo con los tratados internacionales en los
-					que España es parte y otros derechos de propiedad y leyes de España.
-					En el caso de que un usuario o un tercero consideren que se ha
-					producido una violación de sus legítimos derechos de propiedad
-					intelectual por la introducción de un determinado contenido en la web,
-					deberá notificar dicha circunstancia a indicando: Datos personales del
-					interesado titular de los derechos presuntamente infringidos, o
-					indicar la representación con la que actúa en caso de que la
-					reclamación la presente un tercero distinto del interesado. Señalar
-					los contenidos protegidos por los derechos de propiedad intelectual y
-					su ubicación en la web, la acreditación de los derechos de propiedad
-					intelectual señalados y declaración expresa en la que el interesado se
-					responsabiliza de la veracidad de las informaciones facilitadas en la
-					notificación
-				</p>
-				<h2>Enlaces externos</h2>
-				<p>
-					Las páginas de la web , podría proporcionar enlaces a otros sitios web
-					propios y contenidos que son propiedad de terceros. El único objeto de
-					los enlaces es proporcionar al Usuario la posibilidad de acceder a
-					dichos enlaces. no se responsabiliza en ningún caso de los resultados
-					que puedan derivarse al Usuario por acceso a dichos enlaces. Asimismo,
-					el usuario encontrará dentro de este sitio, páginas, promociones,
-					programas de afiliados que acceden a los hábitos de navegación de los
-					usuarios para establecer perfiles. Esta información siempre es anónima
-					y no se identifica al usuario. La Información que se proporcione en
-					estos Sitios patrocinado o enlaces de afiliados está sujeta a las
-					políticas de privacidad que se utilicen en dichos Sitios y no estará
-					sujeta a esta política de privacidad. Por lo que recomendamos
-					ampliamente a los Usuarios a revisar detalladamente las políticas de
-					privacidad de los enlaces de afiliado. El Usuario que se proponga
-					establecer cualquier dispositivo técnico de enlace desde su sitio web
-					al portal deberá obtener la autorización previa y escrita de El
-					establecimiento del enlace no implica en ningún caso la existencia de
-					relaciones entre y el propietario del sitio en el que se establezca el
-					enlace, ni la aceptación o aprobación por parte de de sus contenidos o
-					servicios
-				</p>
-			</section>
-		</PageContainerBox>
-	);
+  return (
+    <PageContainerBox breakLimit="md">
+      <section
+        className="article-content"
+        style={{ marginTop: "5rem", fontSize: "1.12em" }}
+      >
+        <h1>Política de privacidad</h1>
+        <p>
+          PARTEKATU está especialmente sensibilizada en relación con la
+          protección de datos de carácter personal de los Usuarios de los
+          servicios del sitio Web. Mediante la presente Política de Privacidad
+          (en adelante, la Política) PARTEKATU informa a los usuarios del sitio
+          web codigotrading.com de los usos a los que se someten los datos de
+          carácter personal que se recaban en sitio Web (https://partekatu.com),
+          con el fin de que decidan, libre y voluntariamente, si desean
+          facilitar la información solicitada.
+        </p>
+        <p>
+          PARTEKATU se reserva la facultad de modificar esta Política con el
+          objeto de adaptarla a novedades legislativas, criterios
+          jurisprudenciales, prácticas del sector, o intereses de la entidad.
+          Cualquier modificación en la misma será anunciada con la debida
+          antelación, a fin de que tenga perfecto conocimiento de su contenido.
+        </p>
+        <h2>¿Cuáles son las finalidades para las que se trata los datos?</h2>
+        <p>
+          La finalidad de la recogida y tratamiento de los datos personales, a
+          través del correo electrónico propiedad de PARTEKATU, o de otros
+          medios como los perfiles en Redes sociales, puestos a disposición de
+          los Usuarios, responde, según el caso concreto, para gestionar y
+          atender a solicitudes de información, dudas o sugerencias en relación
+          con los servicios prestados por PARTEKATU; gestión docente,
+          administrativa, fiscal y contable de los alumnos de los cursos de
+          formación de la academia; participación en concursos o sorteos; o bien
+          la gestión necesaria de las publicaciones o cualesquiera servicios o
+          actividades, actos o eventos prestados, ofertados, patrocinados y/o
+          esponsorizados por PARTEKATU. Así mismo podremos remitirle
+          comunicaciones de carácter comercial relacionadas con los servicios
+          prestados a usted por parte de PARTEKATU una vez forme parte de
+          nuestros clientes, o bien, si no siéndolo contamos con su
+          consentimiento a tal efecto.
+        </p>
+        <h2>¿Cuánto tiempo se conservan los datos?</h2>
+        <p>
+          Los datos personales proporcionados se conservarán durante el plazo
+          correspondiente para cumplir con las obligaciones legales pertinentes
+          (obligaciones fiscales, contables y administrativas), o se solicite su
+          supresión por el interesado y este esté legitimado para ello. En
+          particular se conservarán durante el periodo necesario para la
+          prestación de los servicios objeto de PARTEKATU.
+        </p>
+        <h2>
+          ¿Cuáles son las bases legales de legitimación para tratar los datos?
+        </h2>
+        <p>
+          PARTEKATU está legitimado al tratamiento de datos personales, con base
+          en consentimiento otorgado por el interesado para uno o varios fines
+          específicos, tal y como recoge el artículo 6.1. a) del Reglamento
+          General de Protección de datos personales, sin perjuicio de otras
+          bases de legitimación del consentimiento previstas en el RGPD que
+          pudieran resultar de aplicación. En este caso es de aplicación el art.
+          6.1.b) el cual se refiere a la existencia de una obligación
+          contractual existente entre PARTEKATU y el cliente, en este caso los
+          usuarios de la plataforma de formación, en virtud de la cual PARTEKATU
+          necesita tratar determinados datos de cliente para prestarle el
+          servicio por este contratado. Así mismo, con base en el interés
+          legítimo del responsable (art. 6.1. f) (PARTEKATU) se podrá proceder
+          al tratamiento de datos personales con fines de mercadotecnia siempre
+          dentro del ámbito de actividad de PARTEKATU no incluyéndose la
+          elaboración de perfiles ni toma de decisiones automatizadas con
+          efectos jurídicos sobre los interesados.
+        </p>
+        <h2>¿Quiénes son los destinatarios de los datos?</h2>
+        <p>
+          Con el fin de que los datos obrantes en nuestros ficheros,
+          informáticos y/o en papel, siempre correspondan a la realidad, se
+          tratara de mantener actualizados. De manera que, a estos efectos, el
+          usuario deberá realizar los cambios, directamente, cuando así esté
+          habilitado o comunicándose, por medio fehaciente, al área o
+          departamento correspondiente a PARTEKATU. Los datos personales
+          recabados a través del correo electrónico propiedad del responsable
+          del tratamiento, no serán cedidos o comunicados a terceros, salvo en
+          los supuestos necesarios para el desarrollo, control y cumplimiento de
+          la/s finalidad/es expresada/s, en los supuestos previstos según Ley,
+          así como en los casos específicos, de los que se informe expresamente
+          al Usuario.
+        </p>
+        <h2>¿Cuáles son mis derechos como usuario?</h2>
+        <p>
+          El usuario, como titular de de los datos personales, en todo caso
+          podrá ejercitar los derechos que le asisten, de acuerdo con el RGPD, y
+          que son:
+        </p>
+        <ul>
+          <li>
+            Derecho a solicitar el acceso a los datos personales relativos al
+            interesado.
+          </li>
+          <li>Derecho a solicitar su rectificación o supresión.</li>
+          <li>Derecho a solicitar la limitación de su tratamiento.</li>
+          <li>Derecho a oponerse al tratamiento.</li>
+          <li>Derecho a la portabilidad de los datos.</li>
+        </ul>
+        <p>
+          El interesado podrá ejercitar tales derechos mediante solicitud
+          acompañada de una fotocopia de su D.N.I, y en la que especificará cuál
+          de éstos solicita sea satisfecho, remitida al correo electrónico:
+          partekatu.web@gmail.com
+        </p>
+        <h2>
+          ¿Qué medidas de seguridad se han adoptado en relación a los datos
+          peronales?
+        </h2>
+        <p>
+          PARTEKATU ha adoptado en su sistema de información las medidas
+          técnicas y organizativas legalmente requeridas, a fin de garantizar la
+          seguridad y confidencialidad de los datos almacenados, evitando así,
+          en la medida de lo posible, su alteración, pérdida, tratamiento o
+          acceso no autorizado. Si tiene alguna pregunta sobre esta Política de
+          Privacidad, rogamos que se ponga en contacto con nosotros enviando un
+          email a partekatu.web@gmail.com.
+        </p>
+      </section>
+    </PageContainerBox>
+  );
 };
 
 export default PrivacyPolicyContainer;
