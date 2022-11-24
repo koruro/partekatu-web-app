@@ -99,6 +99,7 @@ const BaseCourseForm: React.FC<Props> = ({
         <div style={{ display: "flex", justifyContent: "center", gap: "2rem" }}>
           <SubscribeLoadingButton enable={submitEnabled} isLoading={loading} />
           <button
+            type="reset"
             style={{
               border: "none",
               background: "transparent",

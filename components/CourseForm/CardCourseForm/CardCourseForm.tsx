@@ -2,10 +2,35 @@ import { useCourseForm } from "../useCourseForm";
 import BaseCourseForm from "./BaseCourseForm";
 import ThankYouCourseForm from "./ThankYouCourseForm";
 import { useState } from "react";
+import { CourseSubscriptionStorageData } from "../courseSubscriptionStorageService";
 
-const CardCourseForm = () => {
+interface Props {
+  subscriptionData?: CourseSubscriptionStorageData;
+  onSubmit?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void;
+  onIgnore?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void;
+  onClose?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void;
+}
+const CardCourseForm: React.FC<Props> = ({
+  subscriptionData,
+  onIgnore,
+  onSubmit,
+  onClose,
+}) => {
   const {
     email,
+    name,
     setEmail,
     submitEnabled,
     setTermsAccepted,
@@ -13,8 +38,8 @@ const CardCourseForm = () => {
     success,
     ignoreForm,
     submitForm,
-    subscriptionData,
-  } = useCourseForm();
+    subscriptionData: innerSD,
+  } = useCourseForm(onSubmit, onIgnore);
   const [isThanksOpen, setIsThanksOpen] = useState(true);
 
   const renderBox = (children: any) => (
@@ -32,9 +57,14 @@ const CardCourseForm = () => {
     </div>
   );
 
-  if (success && isThanksOpen) {
+  if (success && isThanksOpen && innerSD) {
     return renderBox(
-      <ThankYouCourseForm onClose={() => setIsThanksOpen(false)} />
+      <ThankYouCourseForm
+        onClose={() => {
+          setIsThanksOpen(false);
+          onClose && onClose(name, email, innerSD);
+        }}
+      />
     );
   }
   if (subscriptionData && subscriptionData.isFilled()) return null;
@@ -42,11 +72,11 @@ const CardCourseForm = () => {
   return renderBox(
     <BaseCourseForm
       email={email}
-      ignoreForm={ignoreForm}
       loading={loading}
       setEmail={setEmail}
       setTermsAccepted={setTermsAccepted}
       submitEnabled={submitEnabled}
+      ignoreForm={ignoreForm}
       submitForm={submitForm}
     />
   );

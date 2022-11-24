@@ -1,6 +1,28 @@
 import CardCourseForm from "../CardCourseForm/CardCourseForm";
+import { CourseSubscriptionStorageData } from "../courseSubscriptionStorageService";
 
-const FixedCoursePopupForm = () => {
+interface Props {
+  subscriptionData?: CourseSubscriptionStorageData;
+  onSubmit?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void;
+  onIgnore?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void;
+  onClose?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void;
+}
+const FixedCoursePopupForm: React.FC<Props> = ({
+  onClose,
+  subscriptionData,
+}) => {
   return (
     <div
       style={{
@@ -12,7 +34,11 @@ const FixedCoursePopupForm = () => {
         margin: "1rem",
       }}
     >
-      <CardCourseForm />
+      <CardCourseForm
+        onIgnore={onClose}
+        onClose={onClose}
+        subscriptionData={subscriptionData}
+      />
     </div>
   );
 };

@@ -1,12 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   CourseSubscriptionStatus,
   CourseSubscriptionStorageData,
-  getCourseSubscribptionData,
   saveCourseSubscribptionData,
 } from "./courseSubscriptionStorageService";
 
-export function useCourseForm() {
+export function useCourseForm(
+  onSubmit?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void,
+  onIgnore?: (
+    name: string,
+    email: string,
+    data: CourseSubscriptionStorageData
+  ) => void
+) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -15,10 +25,6 @@ export function useCourseForm() {
   const [loading, setLoading] = useState<boolean>(false);
   const [subscriptionData, setSubscriptionData] =
     useState<CourseSubscriptionStorageData>();
-
-  useEffect(() => {
-    getCourseSubscribptionData().then(setSubscriptionData);
-  }, []);
 
   const subscribeToList = async (email: string) => {
     setLoading(true);
@@ -48,7 +54,10 @@ export function useCourseForm() {
       CourseSubscriptionStatus.Subscribed,
       new Date()
     );
-    saveCourseSubscribptionData(d).then(() => setSubscriptionData(d));
+    return saveCourseSubscribptionData(d).then(() => {
+      setSubscriptionData(d);
+      onSubmit && onSubmit(name, email, d);
+    });
   };
 
   const ignoreForm = async () => {
@@ -56,7 +65,10 @@ export function useCourseForm() {
       CourseSubscriptionStatus.Closed,
       new Date()
     );
-    saveCourseSubscribptionData(d).then(() => setSubscriptionData(d));
+    return saveCourseSubscribptionData(d).then(() => {
+      setSubscriptionData(d);
+      onIgnore && onIgnore(name, email, d);
+    });
   };
 
   return {
