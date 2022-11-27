@@ -14,7 +14,13 @@ const PreInfographicAd = () => {
     } catch (err) {}
   }, [asPath]);
   return (
-    <div key="pre-infographic-ad" id="pre-infographic-ad">
+    <div
+      key="pre-infographic-ad"
+      id="pre-infographic-ad"
+      style={{
+        minHeight: "150px",
+      }}
+    >
       <ins
         className="adsbygoogle"
         style={{
