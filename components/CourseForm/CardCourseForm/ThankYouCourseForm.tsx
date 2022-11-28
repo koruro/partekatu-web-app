@@ -1,5 +1,3 @@
-import styles from "./styles.module.css";
-
 interface Props {
   onClose: () => void;
 }
@@ -20,10 +18,7 @@ const ThankYouCourseForm: React.FC<Props> = ({ onClose }) => {
           marginBottom: "2rem",
         }}
       >
-        <p>
-          Te avisaremos por email cuando hayamos sacado el curso para que puedas
-          inscribirte al curso.
-        </p>
+        <p>Te avisaremos por email cuando tengamos listo el curso.</p>
       </div>
       <button
         className="button-padding-1 hoverable-elevate"
