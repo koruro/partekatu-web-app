@@ -1,6 +1,16 @@
 import { PropsWithChildren } from "react";
 import SongReview from "./SongReview";
 
+const getChorus = (children: any[], className: string) => {
+  return (children as any[])
+    .filter((c) => c.props?.className === className)
+    .map((c) => c?.props?.children)
+    .flat()
+    .filter((c) => c.type === "p")
+    .map((c) => c.props.children)
+    .flat();
+};
+
 const SongReviewCard: React.FC<PropsWithChildren> = ({ children }) => {
   const anchorLink = (children as any[]).find(
     (c) => c.props?.isheadinglink === "true"
@@ -20,20 +30,8 @@ const SongReviewCard: React.FC<PropsWithChildren> = ({ children }) => {
     .filter((c) => c.type === "p")
     .map((c) => c?.props?.children);
 
-  const spanishChorus = (children as any[])
-    .filter((c) => c.props?.className === "spanish-chorus")
-    .map((c) => c?.props?.children)
-    .flat()
-    .filter((c) => c.type === "p")
-    .map((c) => c.props.children)
-    .flat();
-  const vasqueChorus = (children as any[])
-    .filter((c) => c.props?.className === "euskera-chorus")
-    .map((c) => c?.props?.children)
-    .flat()
-    .filter((c) => c.type === "p")
-    .map((c) => c.props.children)
-    .flat();
+  const spanishChorus = getChorus(children as any[], "spanish-chorus");
+  const vasqueChorus = getChorus(children as any[], "euskera-chorus");
 
   return (
     <SongReview
