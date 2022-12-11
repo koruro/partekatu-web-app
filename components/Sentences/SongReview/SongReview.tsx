@@ -5,12 +5,12 @@ import styles from "./styles.module.css";
 interface Props {
   anchorLink: JSX.Element;
   title: JSX.Element;
-  author: string;
+  author?: string;
   video: { src: string; alt: string; title: string };
   category?: string;
   review: string[];
-  spanishChorus: string[];
-  vasqueChorus: string[];
+  spanishChorus?: string[];
+  vasqueChorus?: string[];
 }
 
 const SongReview: React.FC<Props> = ({
@@ -31,7 +31,9 @@ const SongReview: React.FC<Props> = ({
     >
       {anchorLink}
       {title}
-      <span className={styles["song-review__author"]}>{author}</span>
+      {author && (
+        <span className={styles["song-review__author"]}>{author}</span>
+      )}
       <div className={styles["song-review__corpus"]}>
         <div style={{ position: "relative", paddingTop: "56.25%" }}>
           {video && (
@@ -56,20 +58,23 @@ const SongReview: React.FC<Props> = ({
           ))}
         </section>
       </div>
-      {vasqueChorus.length > 0 && spanishChorus.length > 0 && (
-        <div className={styles["song-review__choruses"]}>
-          <div style={{ fontStyle: "italic" }}>
-            {vasqueChorus.map((sen, i) => (
-              <p key={i}>{sen}</p>
-            ))}
+      {vasqueChorus &&
+        vasqueChorus.length > 0 &&
+        spanishChorus &&
+        spanishChorus.length > 0 && (
+          <div className={styles["song-review__choruses"]}>
+            <div style={{ fontStyle: "italic" }}>
+              {vasqueChorus.map((sen, i) => (
+                <p key={i}>{sen}</p>
+              ))}
+            </div>
+            <div>
+              {spanishChorus.map((sen, i) => (
+                <p key={i}>{sen}</p>
+              ))}
+            </div>
           </div>
-          <div>
-            {spanishChorus.map((sen, i) => (
-              <p key={i}>{sen}</p>
-            ))}
-          </div>
-        </div>
-      )}
+        )}
     </TaggedBlankCard>
   );
 };
