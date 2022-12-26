@@ -2,7 +2,7 @@ import { createElement } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 
-const OnlineCourse: React.FC<{ as: "h2" | "span" }> = ({ as = "span" }) => {
+const OnlineCourse: React.FC<{ as?: "h2" | "span" }> = ({ as = "span" }) => {
   return createElement(
     as,
     {},
