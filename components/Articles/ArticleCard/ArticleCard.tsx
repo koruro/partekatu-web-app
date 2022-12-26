@@ -4,6 +4,7 @@ import CategoryBox from "../../Categories/CategoryBox/CategoryBox";
 import styles from "./styles.module.css";
 import { getMinifiedImage } from "../../../utils/getMinifiedImage";
 import { TaggedBlankCard } from "../../Shared/BlankCard/BlankCard";
+import React from "react";
 
 interface Props {
   slug: string;
@@ -14,6 +15,7 @@ interface Props {
   banner: string;
   emoji: string;
   large?: boolean;
+  titleAs?: "h2" | "h3" | "span";
 }
 
 const ArticleCard: React.FC<Props> = ({
@@ -25,6 +27,7 @@ const ArticleCard: React.FC<Props> = ({
   description,
   slug,
   large,
+  titleAs = "span",
 }) => {
   return (
     <a href={`/${slug}`}>
@@ -48,9 +51,9 @@ const ArticleCard: React.FC<Props> = ({
             />
           </div>
           <div className={styles["article-card__info"]}>
-            <span className={styles["article-card__info__title"]}>
-              {emoji} {title}
-            </span>
+            <div className={styles["article-card__info__title"]}>
+              {emoji} {React.createElement(titleAs, {}, title)}
+            </div>
             <p>{description}</p>
           </div>
         </div>

@@ -33,6 +33,7 @@ const ArticleRecommendations: React.FC<Props> = ({
               altTitle={article.metadata.title_alt}
               description={article.description}
               slug={article.slug}
+              titleAs="h3"
             />
           ))}
         </div>

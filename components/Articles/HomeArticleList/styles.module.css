@@ -13,7 +13,7 @@
 	row-gap: 24px;
 }
 
-.home-articles h2 {
+.home-articles-list__news-title {
 	background-color: var(--primary);
 	color: white;
 	display: block;

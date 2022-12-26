@@ -26,6 +26,7 @@ const HomeArticleList: React.FC<Props> = ({
             altTitle={highlight.metadata.title_alt}
             slug={highlight.slug}
             large
+            titleAs="h2"
           />
         ))}
       </div>
@@ -45,6 +46,7 @@ const HomeArticleList: React.FC<Props> = ({
                 altTitle={article.metadata.title_alt}
                 description={article.description}
                 slug={article.slug}
+                titleAs="h3"
               />
             ))}
           </div>

@@ -1,8 +1,11 @@
+import { createElement } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 
-const OnlineCourse = () => {
-  return (
+const OnlineCourse: React.FC<{ as: "h2" | "span" }> = ({ as = "span" }) => {
+  return createElement(
+    as,
+    {},
     <a
       className={classNames(
         styles["online-course-button"],

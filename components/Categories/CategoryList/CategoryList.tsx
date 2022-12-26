@@ -44,7 +44,7 @@ const CategoryList: React.FC<
           </a>
         ))}
       </div>
-      {!isCoursePage && <OnlineCourse />}
+      {!isCoursePage && <OnlineCourse as={categoryAs} />}
     </div>
   );
 };

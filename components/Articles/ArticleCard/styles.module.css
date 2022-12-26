@@ -28,7 +28,16 @@
 	color: var(--text);
 }
 
-.article-card--large .article-card__info__title {
+.article-card__info__title h3, 
+.article-card__info__title h2,
+.article-card__info__title span {
+	margin: 0;
+	display: inline;
+}
+
+.article-card--large .article-card__info__title h2,
+.article-card--large .article-card__info__title h3,
+.article-card--large .article-card__info__title span {
 	font-size: 1.7rem;
 }
 
