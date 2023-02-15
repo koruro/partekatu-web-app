@@ -46,6 +46,10 @@ export async function generateSitemap() {
 		<lastmod>${serializeDate(now)}</lastmod>
 	</url>
   <url>
+    <loc>https://${DOMAIN}/quienes-somos</loc>
+    <lastmod>${serializeDate(now)}</lastmod>
+  </url>
+  <url>
     <loc>https://${DOMAIN}/curso-euskera-online</loc>
     <lastmod>${serializeDate(now)}</lastmod>
   </url>
