@@ -13,6 +13,7 @@
 
 	/* SHADOWS */
 	--bshadow-elevate-1: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	--bshadow-elevate-1_5: 0px 5px 14px rgba(0, 0, 0, 0.15);
 	--bshadow-elevate-2: 0px 5px 25px rgba(0, 0, 0, 0.09);
 
 	--shadow-elevate-1: drop-shadow(var(--bshadow-elevate-1));
@@ -66,6 +67,8 @@
 	--gold-1: #FFD600;
 	--gold-2: #FDBA55;
 
+	--background: #f4f5f9;
+
 	--primary-gradient: linear-gradient(
 		270deg, 
 		var(--spanish) 3.12%,
@@ -97,7 +100,7 @@ body {
 		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
-	background-color: #f4f5f9;
+	background-color: var(--background);
 	scroll-padding-top: 6rem;
 }
 
