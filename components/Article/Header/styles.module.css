@@ -25,6 +25,10 @@
 	margin-bottom: 2rem;
 }
 
+.article-header__banner-image img {
+	object-fit: cover;
+}
+
 .article-header__title {
 	letter-spacing: -0.05em;
 	margin: 1rem 0;

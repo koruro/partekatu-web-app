@@ -147,17 +147,17 @@ const SurnameAnalysis: React.FC<Props> = ({ data }) => {
                 <AnalyticsBox
                   surname={formatedSurname}
                   type="first"
-                  data={data.analytics.firstOnly!}
+                  data={data.analytics.firstOnly ?? 0}
                 />
                 <AnalyticsBox
                   surname={formatedSurname}
                   type="second"
-                  data={data.analytics.secondOnly!}
+                  data={data.analytics.secondOnly ?? 0}
                 />
                 <AnalyticsBox
                   surname={formatedSurname}
                   type="both"
-                  data={data.analytics.both!}
+                  data={data.analytics.both ?? 0}
                 />
               </div>
               <p className={styles["reference"]}>

@@ -43,7 +43,6 @@ const VideoReview: React.FC<Props> = ({
             decoding="async"
           />
         )}
-
         <section>
           {review.map((r, i) => (
             <p key={i}>{r}</p>
