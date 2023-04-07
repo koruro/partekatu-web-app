@@ -38,7 +38,7 @@ const LegalPage: React.FC<Props> = ({ articles }) => {
       />
       <PageBox>
         <NavBar />
-        <BasicCourseLandingContainer articles={articles} />
+        <BasicCourseLandingContainer />
         <Footer />
       </PageBox>
     </>

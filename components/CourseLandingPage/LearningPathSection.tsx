@@ -71,8 +71,8 @@ const LearningPathSection = () => {
               <Image
                 alt="infografias"
                 src="/course-landing/infographic.png"
-                width="160px"
-                height="100px"
+                width="160"
+                height="100"
               ></Image>
               <span>Infografias</span>
               <p>
