@@ -44,10 +44,9 @@ const ArticleCard: React.FC<Props> = ({
           <div className={styles["article-card__image"]}>
             <Image
               title={title}
-              alt={altTitle}
+              alt={altTitle ?? ""}
               src={large ? banner : getMinifiedImage(banner)}
-              layout="fill"
-              objectFit="cover"
+              fill
             />
           </div>
           <div className={styles["article-card__info"]}>

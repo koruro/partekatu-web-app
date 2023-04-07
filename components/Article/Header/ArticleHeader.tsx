@@ -52,10 +52,9 @@ const ArticleHeader: React.FC<Props> = ({
       <div className={styles["article-header__banner-image"]}>
         <Image
           title={metaTitle}
-          alt={altTitle}
+          alt={altTitle ?? ""}
           src={banner}
-          objectFit="cover"
-          layout="fill"
+          fill
           priority
         />
       </div>

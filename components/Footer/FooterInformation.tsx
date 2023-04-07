@@ -17,20 +17,14 @@ const FooterInformation: React.FC = () => {
           </a>
         </div>
         <div className={styles["footer__links"]}>
-          <Link href="/quienes-somos">
-            <a>
-              <small>Quiénes somos</small>
-            </a>
+          <Link href="/quienes-somos" passHref>
+            <small>Quiénes somos</small>
           </Link>
-          <Link href="/legal">
-            <a>
-              <small>Aviso legal</small>
-            </a>
+          <Link href="/legal" passHref>
+            <small>Aviso legal</small>
           </Link>
-          <Link href="/privacidad">
-            <a>
-              <small>Politica de privacidad</small>
-            </a>
+          <Link href="/privacidad" passHref>
+            <small>Politica de privacidad</small>
           </Link>
         </div>
         <div className={styles["footer__copyright"]}>
