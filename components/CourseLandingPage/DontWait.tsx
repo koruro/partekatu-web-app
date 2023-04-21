@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 
 const DontWait = () => {
   return (
-    <div
+    <section
       style={{
         display: "flex",
         flexDirection: "column",
@@ -36,7 +36,7 @@ const DontWait = () => {
       >
         Unete ahora 🎉
       </a>
-    </div>
+    </section>
   );
 };
 

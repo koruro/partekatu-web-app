@@ -30,6 +30,8 @@
 }
 
 .divider {
+  color: red;
+  fill: red;
   aspect-ratio: 960/192;
   width: 100%;
   background-repeat: no-repeat;
@@ -85,6 +87,7 @@
 
 .hero__img__blob {
   position: absolute;
+  color: red;
   width: 100%;
   height: 100%;
   /* top: 50px; */
@@ -100,11 +103,15 @@
 
 .video-section {
   padding: .7rem;
-  background: linear-gradient(180deg, #DCE4EE 0%, #e5e2fb 100%);
+  background: linear-gradient(180deg, #BDD5EA 0%, #e7e2fd 80%);
   margin-top: 0;
 }
 
 .video-section__features {
+  border-radius: var(--rounded-m);
+  border: 3px solid #7f79f0;
+  padding: 1rem 2rem;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   gap: .4rem;
@@ -116,7 +123,7 @@
   text-align: center;
   margin-bottom: 1rem;
   text-decoration: underline;
-  text-decoration-color: #CE83E9;
+  text-decoration-color: #7f79f0;
   text-decoration-thickness: 3px;
 }
 
@@ -132,8 +139,8 @@
   justify-content: center;
   align-items: center;
   border-radius: var(--rounded-s);
-  border: 2px solid rgb(209, 209, 214);
-  background: rgb(229, 229, 234);
+  /* border: 2px solid rgb(209, 209, 214); */
+  background: #212b38;
   box-shadow: var(--bshadow-elevate-2);
   margin-inline: auto;
   max-width: 640px;
@@ -160,7 +167,7 @@
 .video-section__text {
   display: grid;
   grid-template-columns: 1fr;
-  margin-bottom: min(-8vw, -5rem);
+  margin-bottom: min(-5vw, -5rem);
 }
 
 .video-section__title {
@@ -196,7 +203,7 @@
   padding: 1rem 2rem;
   border-radius: var(--rounded-l);
   box-shadow: var(--bshadow-elevate-2);
-  background: linear-gradient(var(--background), var(--background)) padding-box, linear-gradient(135deg, #4fc4b1, #b8b0f3) border-box;
+  background: linear-gradient(var(--background), var(--background)) padding-box, linear-gradient(135deg, #BDD5EA, #b8b0f3) border-box;
   border: 4px solid transparent;
 }
 
@@ -216,7 +223,7 @@
 }
 
 .opsection {
-  background: linear-gradient(132.29deg,rgba(132,200,168,0.08) 17.64%,rgba(114,192,156,0) 66.58%), #DCE4EE;
+  background: linear-gradient(200deg, #BDD5EA 0%, #e7e2fd 100%);
   clip-path: polygon(0 10%,100% 0,100% 100%,0 100%);
   -webkit-clip-path: polygon(0 6%,100% 0,100% 100%,0 100%);
 }

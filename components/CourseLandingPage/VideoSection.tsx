@@ -50,7 +50,8 @@ const VideoSection = () => {
             </div>
             <div
               style={{
-                padding: ".8rem",
+                padding: ".4rem",
+                paddingBottom: ".2rem",
                 paddingTop: "1.6rem",
                 border: "none",
                 width: "100%",

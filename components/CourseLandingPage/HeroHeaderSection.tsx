@@ -1,4 +1,5 @@
 import PageContainerBox from "../Page/PageContainerBox/PageContainerBox";
+import Blob1 from "../assets/Blob1";
 import styles from "./styles.module.css";
 
 const HeroHeaderSection = () => {
@@ -39,6 +40,7 @@ const HeroHeaderSection = () => {
             </div>
           </div>
           <div className={styles["hero__img"]}>
+            {/* <Blob1 /> */}
             <img
               className={styles["hero__img__blob"]}
               src="blobs/blob-haikei.svg"
