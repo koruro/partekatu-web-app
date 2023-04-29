@@ -15,15 +15,15 @@ const LearningPathSection = () => {
           }}
         >
           <h2>
-            🌟 Aprende de manera{" "}
-            <span
+            🌟 ¿Qué vas a aprender?
+            {/* <span
               style={{
                 textDecoration: "underline",
                 textDecorationColor: "#5EAF00",
               }}
             >
               eficaz
-            </span>
+            </span> */}
           </h2>
           <div
             style={{
@@ -33,10 +33,20 @@ const LearningPathSection = () => {
               maxWidth: "600px",
             }}
           >
-            <p>
-              Perfectamente adaptado a tus necesidades y horarios. Aprende desde
-              la comodidad de tu casa.
-            </p>
+            <ul>
+              <li>La cultura vasca</li>
+              <li>El alfabeto del euskera junto a su acento y pronunciación</li>
+              <li>
+                Vocabulario básico y útil (saludos, fórmulas de cortesía,
+                afirmación y negación, los números, sustantivos y adjetivos de
+                uso cotidiano, etc.)
+              </li>
+              <li>
+                Gramática básica. Todo lo necesario para entender cómo funciona
+                el euskera.
+              </li>
+              <li>Cómo formular y responder a preguntas del día a día.</li>
+            </ul>
             <img
               alt="estudia en casa"
               // layout="responsive"
@@ -48,10 +58,7 @@ const LearningPathSection = () => {
               }}
               src="course-landing/study_home.png"
             ></img>
-            <p>
-              Este curso ha sido diseñado para ofrecerte una experiencia de
-              aprendizaje de calidad, adaptada a tus necesidades y horarios.
-            </p>
+            <p>Todo esto mediante...</p>
           </div>
           <div className={styles["learn_path__elements"]}>
             <div className={styles["learn_path__feature"]}>
@@ -61,10 +68,10 @@ const LearningPathSection = () => {
                   height: "100px",
                 }}
               ></img>
-              <span>Videos cortos y concisos</span>
+              <span>Videos cortos y cercanos</span>
               <p>
-                Videos rapidos y directos al grano. Listos para ver en cualquier
-                momento.
+                26 vídeos directos al grano (2-10 mins) llenos de ejemplos para
+                que entiendas todo.
               </p>
             </div>
             <div className={styles["learn_path__feature"]}>
@@ -76,8 +83,8 @@ const LearningPathSection = () => {
               ></Image>
               <span>Infografias</span>
               <p>
-                Videos rapidos y directos al grano. Listos para ver en cualquier
-                elit. Voluptatum accusantium dolore.
+                Coloridos esquemas que resumen los contenidos presentados en los
+                vídeos.
               </p>
             </div>
             <div className={styles["learn_path__feature"]}>
@@ -87,23 +94,10 @@ const LearningPathSection = () => {
                   height: "100px",
                 }}
               ></img>
-              <span>Cuestionarios y exámenes</span>
+              <span>Tests sobre lo aprendido</span>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatum accusantium dolore.
-              </p>
-            </div>
-            <div className={styles["learn_path__feature"]}>
-              <img
-                src="course-landing/exams.png"
-                style={{
-                  height: "100px",
-                }}
-              ></img>
-              <span>Algo más</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatum accusantium dolore.
+                Cuestionarios con preguntas para que consolides los contenidos
+                presentados en los vídeos.
               </p>
             </div>
           </div>

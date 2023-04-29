@@ -84,13 +84,9 @@ const VideoSection = () => {
                 }}
               >
                 <p>
-                  En este curso te ofrecemos un enfoque práctico y dinámico para
-                  que puedas adquirir las bases del euskera en poco tiempo.
-                </p>
-                <p>
-                  Aprenderás a comunicarte en situaciones cotidianas y podrás
-                  avanzar a tu propio ritmo. Además, contarás con el apoyo y la
-                  guía de nuestros profesores especializados en euskera.
+                  Adquirirás las bases del euskera en poco tiempo y a tu ritmo.
+                  Para eso, aprenderás mediante vídeos, infografías y ejercicios
+                  😉.
                 </p>
                 <div className={styles["video-section__features"]}>
                   <h3
@@ -99,24 +95,26 @@ const VideoSection = () => {
                       color: "var(--text)",
                     }}
                   >
-                    Que vas a ganar:
+                    Este curso es para ti si...
                   </h3>
                   <div className={styles["video-section__feature"]}>
                     <span>🎁</span>
                     <span>
-                      Aprende el idioma desde 0, sin ningun conocimiento previo
+                      Quieres conocer y empaparte de la cultura vasca que rodea
+                      al euskera
                     </span>
                   </div>
                   <div className={styles["video-section__feature"]}>
                     <span>🧘‍♀️</span>
                     <span>
-                      Comunicate en situaciones cotidianas sin problema
+                      Quieres aprender los fundamentos del euskera desde 0
                     </span>
                   </div>
                   <div className={styles["video-section__feature"]}>
                     <span>🌏</span>
                     <span>
-                      Viaja por Euskadi y enriquecete de la cultura vasca
+                      Quieres poder viajar por el País Vasco comunicándote en
+                      euskera
                     </span>
                   </div>
                 </div>

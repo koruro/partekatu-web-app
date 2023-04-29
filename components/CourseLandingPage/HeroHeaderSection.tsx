@@ -16,12 +16,12 @@ const HeroHeaderSection = () => {
                   display: "block",
                 }}
               >
-                Esto es un ejemplo
+                Curso de euskera básico
               </span>
             </h1>
             <p>
-              Aprende desde cero y comunícate en situaciones cotidianas de forma
-              sencilla y efectiva.
+              Aprende <b>desde cero</b> y comunícate en situaciones cotidianas
+              de forma sencilla y efectiva.
             </p>
             <div
               style={{
@@ -35,7 +35,7 @@ const HeroHeaderSection = () => {
                   "button-padding-2",
                 ].join(" ")}
               >
-                Unete ahora 🎉
+                Únete ahora 🎉
               </a>
             </div>
           </div>

@@ -25,7 +25,7 @@ const OpinionSection = () => {
               fontSize: "1.6rem",
             }}
           >
-            😉 Opiniones de estudiantes
+            😉 Opiniones de nuestros estudiante
           </h2>
           <div className={styles["opsection__opinions"]}>
             <div
@@ -42,9 +42,8 @@ const OpinionSection = () => {
                     fontStyle: "italic",
                   }}
                 >
-                  “Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Aperiam qui adipisci obcaecati sequi sint numquam itaque,
-                  saepe accusantium!”
+                  “El curso es breve y te da esas bases para seguir aprendiendo
+                  euskera. Lo recomiendo como iniciación al idioma.”
                 </p>
                 <div
                   style={{
@@ -54,7 +53,7 @@ const OpinionSection = () => {
                   }}
                 >
                   <img src="course-landing/alumno_1.jpg"></img>
-                  <span>Leire Portu Etxebarria</span>
+                  <span>Ana Alonso</span>
                 </div>
               </div>
             </div>
@@ -71,8 +70,9 @@ const OpinionSection = () => {
                     fontStyle: "italic",
                   }}
                 >
-                  “Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Aperiam qui adipisci ”
+                  “Creo que he aprendido mucho con los vídeos y las infografías
+                  me han ayudado mucho para que nada se me olvide. Muchas
+                  gracias!!”
                 </p>
                 <div
                   style={{
@@ -81,8 +81,8 @@ const OpinionSection = () => {
                     gap: "1rem",
                   }}
                 >
-                  <img src="course-landing/alumno_1.jpg"></img>
-                  <span>Leire Portu Etxebarria</span>
+                  <img src="course-landing/alumno_2.jpg"></img>
+                  <span>María Ramos</span>
                 </div>
               </div>
             </div>

@@ -18,14 +18,15 @@ const DontWait = () => {
           marginTop: "1rem",
         }}
       >
-        Comienza tu aprendizaje ahora!
+        Más de 1.000.000 de personas hablan ya euskera
       </h3>
       <p
         style={{
           color: "var(--text-subtle)",
         }}
       >
-        No esperes más y clicka aquí para unirte al curso y comenzar a aprender
+        Comienza tu aprendizaje y forma parte de la comunidad vasca. Únete ahora
+        🎉
       </p>
       <a
         className={[
@@ -34,7 +35,7 @@ const DontWait = () => {
           "button-padding-2",
         ].join(" ")}
       >
-        Unete ahora 🎉
+        Únete ahora 🎉
       </a>
     </section>
   );
