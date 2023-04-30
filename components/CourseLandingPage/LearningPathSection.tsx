@@ -25,6 +25,14 @@ const LearningPathSection = () => {
               eficaz
             </span> */}
           </h2>
+          <p
+            style={{
+              textAlign: "center",
+              color: "var(--text-subtle)",
+            }}
+          >
+            En este curso cubriremos los siguientes apartados:
+          </p>
           <div
             style={{
               textAlign: "center",
@@ -33,21 +41,36 @@ const LearningPathSection = () => {
               maxWidth: "600px",
             }}
           >
-            <ul>
-              <li>La cultura vasca</li>
-              <li>El alfabeto del euskera junto a su acento y pronunciación</li>
+            <ul className={styles["learn_path__learn-content"]}>
               <li>
-                Vocabulario básico y útil (saludos, fórmulas de cortesía,
-                afirmación y negación, los números, sustantivos y adjetivos de
-                uso cotidiano, etc.)
+                <span>🗺️</span>
+                <p>La cultura vasca</p>
               </li>
               <li>
-                Gramática básica. Todo lo necesario para entender cómo funciona
-                el euskera.
+                <span>🔊</span>
+                <p>El alfabeto del euskera junto a su acento y pronunciación</p>
               </li>
-              <li>Cómo formular y responder a preguntas del día a día.</li>
+              <li>
+                <span>🎨</span>
+                <p>
+                  Vocabulario básico y útil (saludos, fórmulas de cortesía,
+                  afirmación y negación, los números, sustantivos y adjetivos de
+                  uso cotidiano, etc.)
+                </p>
+              </li>
+              <li>
+                <span>✏️</span>
+                <p>
+                  Gramática básica. Todo lo necesario para entender cómo
+                  funciona el euskera.
+                </p>
+              </li>
+              <li>
+                <span>🙋🏻‍♀️</span>
+                <p>Cómo formular y responder a preguntas del día a día.</p>{" "}
+              </li>
             </ul>
-            <img
+            {/* <img
               alt="estudia en casa"
               // layout="responsive"
               // width="900px"
@@ -57,15 +80,15 @@ const LearningPathSection = () => {
                 width: "100%",
               }}
               src="course-landing/study_home.png"
-            ></img>
+            ></img> */}
             <p>Todo esto mediante...</p>
           </div>
           <div className={styles["learn_path__elements"]}>
             <div className={styles["learn_path__feature"]}>
               <img
-                src="course-landing/videos.png"
+                src="course-landing/videocassette_1f4fc.png"
                 style={{
-                  height: "100px",
+                  height: "80px",
                 }}
               ></img>
               <span>Videos cortos y cercanos</span>
@@ -77,9 +100,9 @@ const LearningPathSection = () => {
             <div className={styles["learn_path__feature"]}>
               <Image
                 alt="infografias"
-                src="/course-landing/infographic.png"
-                width="160"
-                height="100"
+                src="/course-landing/framed-picture_1f5bc-fe0f.png"
+                width="90"
+                height="80"
               ></Image>
               <span>Infografias</span>
               <p>
@@ -89,9 +112,9 @@ const LearningPathSection = () => {
             </div>
             <div className={styles["learn_path__feature"]}>
               <img
-                src="course-landing/exams.png"
+                src="course-landing/memo_1f4dd.png"
                 style={{
-                  height: "100px",
+                  height: "80px",
                 }}
               ></img>
               <span>Tests sobre lo aprendido</span>

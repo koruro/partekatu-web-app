@@ -72,7 +72,7 @@
 }
 
 .hero__text p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--text-subtle);
 }
 
@@ -205,9 +205,9 @@
   align-items: center;
   text-align: center;
   padding: 1rem 2rem;
-  border-radius: var(--rounded-l);
-  box-shadow: var(--bshadow-elevate-2);
-  background: linear-gradient(var(--background), var(--background)) padding-box, linear-gradient(135deg, #8fcbdf, #b38fe5) border-box;
+  border-radius: var(--rounded-s);
+  box-shadow: var(--bshadow-elevate-1);
+  background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #8fcbdf, #b38fe5) border-box;
   border: 4px solid transparent;
 }
 
@@ -221,9 +221,30 @@
 .learn_path__feature p {
   margin: 0;
   margin-bottom: 1rem;
-
-  
   color: var(--text-subtle);
+}
+
+.learn_path__learn-content {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  text-align: left;
+  color: var(--text);
+}
+
+.learn_path__learn-content li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  gap: .6rem;
+}
+
+.learn_path__learn-content li:not(:last-child) {
+  border-bottom: 2px solid #e9ecef;
+}
+
+.learn_path__learn-content li p {
+  margin: 0;
 }
 
 .opsection {
