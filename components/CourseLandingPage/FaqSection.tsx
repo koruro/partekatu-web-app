@@ -32,9 +32,10 @@ const FaqSection = () => {
             <li>
               <span>¿Conseguiré el nivel A1 de euskera con el curso?</span>
               <p>
-                Este curso te dará los pilares principales para que entiendas el
-                euskera y te puedas comunicar en el menor tiempo posible. Es por
-                eso que no adquirirás el nivel A1 de la lengua vasca.
+                Con este curso únicamente aprenderás euskera elemental y te
+                daremos las herramientas para comunicarte en situaciones
+                básicas. Todavía estarás lejos del nivel A1, que exige unas 125
+                horas de estudio de la lengua vasca.
               </p>
               <p>
                 Eso sí, obtendrás una sólida base para poder seguir tu camino

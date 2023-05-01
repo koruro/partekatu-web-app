@@ -8,17 +8,10 @@ const HeroHeaderSection = () => {
       <PageContainerBox breakLimit="xl">
         <div className={styles["hero"]}>
           <div className={styles["hero__text"]}>
-            <h1>
-              Aprende euskera hoy mismo
-              <span
-                className={styles["basic-course-lp__h-title"]}
-                style={{
-                  display: "block",
-                }}
-              >
-                Curso de euskera básico
-              </span>
-            </h1>
+            <div className={styles["hero__title"]}>
+              <span>Aprende euskera hoy mismo</span>
+              <h1>Curso de euskera básico online</h1>
+            </div>
             <p>
               Aprende <b>desde cero</b> y comunícate en situaciones cotidianas
               de forma sencilla y efectiva.

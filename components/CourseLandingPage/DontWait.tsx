@@ -25,8 +25,7 @@ const DontWait = () => {
           color: "var(--text-subtle)",
         }}
       >
-        Comienza tu aprendizaje y forma parte de la comunidad vasca. Únete ahora
-        🎉
+        Comienza tu aprendizaje y forma parte de la comunidad vasca.
       </p>
       <a
         className={[

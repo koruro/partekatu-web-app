@@ -44,18 +44,20 @@ const LearningPathSection = () => {
             <ul className={styles["learn_path__learn-content"]}>
               <li>
                 <span>🗺️</span>
-                <p>La cultura vasca</p>
+                <p>La cultura vasca.</p>
               </li>
               <li>
                 <span>🔊</span>
-                <p>El alfabeto del euskera junto a su acento y pronunciación</p>
+                <p>
+                  El alfabeto del euskera junto a su acento y pronunciación.
+                </p>
               </li>
               <li>
                 <span>🎨</span>
                 <p>
                   Vocabulario básico y útil (saludos, fórmulas de cortesía,
                   afirmación y negación, los números, sustantivos y adjetivos de
-                  uso cotidiano, etc.)
+                  uso cotidiano, etc.).
                 </p>
               </li>
               <li>
@@ -104,7 +106,7 @@ const LearningPathSection = () => {
                 width="90"
                 height="80"
               ></Image>
-              <span>Infografias</span>
+              <span>Infografías</span>
               <p>
                 Coloridos esquemas que resumen los contenidos presentados en los
                 vídeos.
