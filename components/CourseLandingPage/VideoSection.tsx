@@ -1,18 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import PageContainerBox from "../Page/PageContainerBox/PageContainerBox";
 import styles from "./styles.module.css";
-
-const FrameButton = ({}) => {
-  return (
-    <div
-      style={{
-        width: "10px",
-        height: "10px",
-        borderRadius: "100%",
-        backgroundColor: "rgb(255, 59, 48)",
-      }}
-    ></div>
-  );
-};
 
 const VideoSection = () => {
   return (
@@ -120,8 +108,11 @@ const VideoSection = () => {
                 </div>
               </div>
               <img
+                decoding="async"
+                loading="lazy"
                 src="course-landing/Camping_Isometric.png"
                 width="100%"
+                alt=""
               ></img>
             </div>
           </div>

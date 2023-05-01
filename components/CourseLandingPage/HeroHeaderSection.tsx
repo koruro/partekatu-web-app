@@ -1,5 +1,5 @@
+import Image from "next/image";
 import PageContainerBox from "../Page/PageContainerBox/PageContainerBox";
-import Blob1 from "../assets/Blob1";
 import styles from "./styles.module.css";
 
 const HeroHeaderSection = () => {
@@ -33,15 +33,7 @@ const HeroHeaderSection = () => {
             </div>
           </div>
           <div className={styles["hero__img"]}>
-            {/* <Blob1 /> */}
-            <img
-              className={styles["hero__img__blob"]}
-              src="blobs/blob-haikei.svg"
-            />
-            <img
-              className={styles["hero__img__eusk"]}
-              src="course-landing/vasque_country_map.png"
-            ></img>
+            <Image priority alt="" src="course-landing/eusk_map.svg" fill />
           </div>
         </div>
       </PageContainerBox>

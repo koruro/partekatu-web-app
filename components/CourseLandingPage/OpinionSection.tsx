@@ -1,5 +1,8 @@
+import Image from "next/image";
 import PageContainerBox from "../Page/PageContainerBox/PageContainerBox";
 import styles from "./styles.module.css";
+
+const AVATAR_SIZE = 42;
 
 const OpinionSection = () => {
   return (
@@ -52,7 +55,18 @@ const OpinionSection = () => {
                     gap: "1rem",
                   }}
                 >
-                  <img src="course-landing/alumno_1.jpg"></img>
+                  <div
+                    style={{
+                      position: "relative",
+                    }}
+                  >
+                    <Image
+                      alt="foto de perfil de Ana Alonso"
+                      width={AVATAR_SIZE}
+                      height={AVATAR_SIZE}
+                      src="/course-landing/alumno_1.jpg"
+                    />
+                  </div>
                   <span>Ana Alonso</span>
                 </div>
               </div>
@@ -81,7 +95,12 @@ const OpinionSection = () => {
                     gap: "1rem",
                   }}
                 >
-                  <img src="course-landing/alumno_2.jpg"></img>
+                  <Image
+                    alt="foto de perfil de María Ramos"
+                    width={AVATAR_SIZE}
+                    height={AVATAR_SIZE}
+                    src="/course-landing/alumno_2.jpg"
+                  />
                   <span>María Ramos</span>
                 </div>
               </div>

@@ -2,6 +2,8 @@ import Image from "next/image";
 import PageContainerBox from "../Page/PageContainerBox/PageContainerBox";
 import styles from "./styles.module.css";
 
+const EMOJI_IMG_SIZE = 80;
+
 const LearningPathSection = () => {
   return (
     <section className={styles["learn_path"]}>
@@ -14,17 +16,7 @@ const LearningPathSection = () => {
             padding: ".7rem",
           }}
         >
-          <h2>
-            🌟 ¿Qué vas a aprender?
-            {/* <span
-              style={{
-                textDecoration: "underline",
-                textDecorationColor: "#5EAF00",
-              }}
-            >
-              eficaz
-            </span> */}
-          </h2>
+          <h2>🌟 ¿Qué vas a aprender?</h2>
           <p
             style={{
               textAlign: "center",
@@ -72,27 +64,16 @@ const LearningPathSection = () => {
                 <p>Cómo formular y responder a preguntas del día a día.</p>{" "}
               </li>
             </ul>
-            {/* <img
-              alt="estudia en casa"
-              // layout="responsive"
-              // width="900px"
-              // height="600px"
-              style={{
-                maxWidth: "400px",
-                width: "100%",
-              }}
-              src="course-landing/study_home.png"
-            ></img> */}
             <p>Todo esto mediante...</p>
           </div>
           <div className={styles["learn_path__elements"]}>
             <div className={styles["learn_path__feature"]}>
-              <img
-                src="course-landing/videocassette_1f4fc.png"
-                style={{
-                  height: "80px",
-                }}
-              ></img>
+              <Image
+                src="/course-landing/videocassette_1f4fc.png"
+                alt="Videos cortos y cercanos"
+                height={EMOJI_IMG_SIZE}
+                width={EMOJI_IMG_SIZE}
+              />
               <span>Videos cortos y cercanos</span>
               <p>
                 26 vídeos directos al grano (2-10 mins) llenos de ejemplos para
@@ -101,11 +82,11 @@ const LearningPathSection = () => {
             </div>
             <div className={styles["learn_path__feature"]}>
               <Image
-                alt="infografias"
+                alt="Infografías"
                 src="/course-landing/framed-picture_1f5bc-fe0f.png"
-                width="90"
-                height="80"
-              ></Image>
+                width={EMOJI_IMG_SIZE}
+                height={EMOJI_IMG_SIZE}
+              />
               <span>Infografías</span>
               <p>
                 Coloridos esquemas que resumen los contenidos presentados en los
@@ -113,12 +94,15 @@ const LearningPathSection = () => {
               </p>
             </div>
             <div className={styles["learn_path__feature"]}>
-              <img
-                src="course-landing/memo_1f4dd.png"
+              <Image
+                alt="Tests sobre lo aprendido"
+                width={EMOJI_IMG_SIZE}
+                height={EMOJI_IMG_SIZE}
+                src="/course-landing/memo_1f4dd.png"
                 style={{
-                  height: "80px",
+                  marginTop: "8px",
                 }}
-              ></img>
+              />
               <span>Tests sobre lo aprendido</span>
               <p>
                 Cuestionarios con preguntas para que consolides los contenidos
