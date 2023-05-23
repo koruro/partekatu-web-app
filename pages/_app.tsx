@@ -2,7 +2,6 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
 
-import MyCookieConsent from "../components/Shared/MyCookieConsent";
 import "../components/Shared/Pagination/pagination-box.css";
 import "../styles/globals.css";
 import "../styles/article-content.css";
@@ -36,7 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       ></Script>
       <ErrorBoundary fallback={() => <ClientErrorContainer />}>
         <Component {...pageProps} />
-        <MyCookieConsent />
       </ErrorBoundary>
     </>
   );
