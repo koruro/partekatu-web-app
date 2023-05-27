@@ -1,0 +1,15 @@
+.my-course-button {
+  display: flex;
+  gap: .4rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: var(--rounded-l);
+	transition-property: background-color, color;
+	transition-duration: 0.2s;
+}
+
+.my-course-button:hover {
+  color: white;
+  background-color: var(--primary);
+}

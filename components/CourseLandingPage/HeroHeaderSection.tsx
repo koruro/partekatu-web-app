@@ -22,6 +22,7 @@ const HeroHeaderSection = () => {
               }}
             >
               <a
+                href="https://curso.partekatu.com/step/curso-euskera-basico/"
                 className={[
                   styles["basic-course-lp__button"],
                   "hoverable-elevate",

@@ -47,7 +47,7 @@ const VideoSection = () => {
               }}
             >
               <iframe
-                src="https://iframe.mediadelivery.net/embed/107244/734172ed-d330-4b56-9456-fd6feebe4f1d?autoplay=false"
+                src="https://iframe.mediadelivery.net/embed/107244/265274b7-30c1-4d7d-80f1-6d832c283e1b?autoplay=false"
                 loading="lazy"
                 style={{
                   border: "none",

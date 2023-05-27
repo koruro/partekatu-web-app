@@ -7,6 +7,12 @@ import PageBox from "../components/Page/PageBox/PageBox";
 import { Article } from "../models/Article";
 import { CategoriesEnum } from "../types/categories";
 import { genOnlineCourseStructuredData } from "../utils/structuredData";
+import {
+  CoursePopupData,
+  CoursePopupState,
+  useCoursePopupDataStorage,
+} from "../components/CourseForm/useCoursePopupStorage";
+import { useEffect } from "react";
 
 const headTitle = "Curso de Euskera Online desde 0: Aprende Fácil y Rápido";
 const metaTitle = "Curso de Euskera Online desde 0: Aprende Fácil y Rápido";
@@ -19,7 +25,20 @@ interface Props {
   articles: Record<CategoriesEnum, Article[]>;
 }
 
-const LegalPage: React.FC<Props> = () => {
+const OnlineCourseLandingPage: React.FC<Props> = () => {
+  const { popupData, setPopupData } = useCoursePopupDataStorage();
+
+  useEffect(() => {
+    if (popupData?.state === CoursePopupState.VISITED) return;
+    const timeout = setTimeout(
+      () =>
+        setPopupData(new CoursePopupData(new Date(), CoursePopupState.VISITED)),
+      10000
+    );
+    return () => window.clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <CustomHead
@@ -48,4 +67,4 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: {} };
 };
 
-export default LegalPage;
+export default OnlineCourseLandingPage;
