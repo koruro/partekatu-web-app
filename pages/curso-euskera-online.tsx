@@ -1,26 +1,37 @@
 import { GetStaticProps } from "next";
+import BasicCourseLandingContainer from "../components/CourseLandingPage/LandingPage";
 import CustomHead from "../components/CustomHead";
 import Footer from "../components/Footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
 import PageBox from "../components/Page/PageBox/PageBox";
-import EuskeraCourseContainer from "../containers/EuskeraCourseContainer/EuskeraCourseContainer";
-import { Article } from "../models/Article";
-import { articleRepository } from "../services/bootstrap";
-import { CategoriesEnum } from "../types/categories";
 import { genOnlineCourseStructuredData } from "../utils/structuredData";
+import {
+  CoursePopupData,
+  CoursePopupState,
+  useCoursePopupDataStorage,
+} from "../components/CourseForm/useCoursePopupStorage";
+import { useEffect } from "react";
 
-const headTitle = "El Curso de Euskera Online, Gratis y a tu manera";
-const metaTitle = "El Curso de Euskera Online, Gratis y a tu manera";
+const headTitle = "Curso de Euskera Online desde 0: Aprende Fácil y Rápido";
+const metaTitle = "Curso de Euskera Online desde 0: Aprende Fácil y Rápido";
 const metaDesc =
-  "Aquí aprenderás euskera desde 0 mediante lecciones cercanas que cualquiera entendería ¡Y, además, todo esto es gratis y a tu rimo!";
-const imgUrl =
-  "https://images.ctfassets.net/vba2k9hz72yx/5TLW3PYNhNhNBQQtaevW1H/971296463ebe62e8fff85e9e82e2b16c/partekatu-online-course-image.png";
+  "¿Quieres hablar en euskera? Mediante este curso de euskera aprenderás de forma sencilla mediante vídeos, ejercicios e infografías ¡Entra y aprende!";
+const imgUrl = "/course-landing/course-thumbnail.png";
 
-interface Props {
-  articles: Record<CategoriesEnum, Article[]>;
-}
+const OnlineCourseLandingPage: React.FC = () => {
+  const { popupData, setPopupData } = useCoursePopupDataStorage();
 
-const LegalPage: React.FC<Props> = ({ articles }) => {
+  useEffect(() => {
+    if (popupData?.state === CoursePopupState.VISITED) return;
+    const timeout = setTimeout(
+      () =>
+        setPopupData(new CoursePopupData(new Date(), CoursePopupState.VISITED)),
+      10000
+    );
+    return () => window.clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <CustomHead
@@ -37,7 +48,7 @@ const LegalPage: React.FC<Props> = ({ articles }) => {
       />
       <PageBox>
         <NavBar />
-        <EuskeraCourseContainer articles={articles} />
+        <BasicCourseLandingContainer />
         <Footer />
       </PageBox>
     </>
@@ -46,17 +57,7 @@ const LegalPage: React.FC<Props> = ({ articles }) => {
 
 // Get static props
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    // Fetch article and recommendations data
-    const landingArticles = await articleRepository.getLandingPageArticles();
-
-    return {
-      props: { articles: landingArticles },
-    };
-  } catch (error) {
-    console.error(error);
-    return { props: {} };
-  }
+  return { props: {} };
 };
 
-export default LegalPage;
+export default OnlineCourseLandingPage;
