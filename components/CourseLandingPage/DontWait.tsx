@@ -28,6 +28,9 @@ const DontWait = () => {
         Comienza tu aprendizaje y forma parte de la comunidad vasca.
       </p>
       <a
+        href="https://curso.partekatu.com/step/curso-euskera-basico/"
+        target="__blank"
+        rel="noopener noreferrer"
         className={[
           styles["basic-course-lp__button"],
           "hoverable-elevate",
