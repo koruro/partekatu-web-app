@@ -11,7 +11,7 @@ interface Props {}
 
 function showPopup(path: string, popup?: CoursePopupData): boolean {
   if (!popup) return false;
-  if (path === "/curso-euskera-online-2") return false;
+  if (path === "/curso-euskera-online") return false;
   if (popup.state === CoursePopupState.VISITED) return false;
 
   return new Date().getTime() - popup.at.getTime() >= 1000 * 60 * 60 * 24;
@@ -56,7 +56,7 @@ const FixedCoursePopup: React.FC<Props> = ({}) => {
           <p>Si te interesa, ¡Haz clic y échale un vistazo! 😉</p>
           <div style={{ marginTop: "2rem" }}>
             <a
-              href="curso-euskera-online-2"
+              href="curso-euskera-online"
               className={[
                 styles["lp__button"],
                 "hoverable-elevate",
