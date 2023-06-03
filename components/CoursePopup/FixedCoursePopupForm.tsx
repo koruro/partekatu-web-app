@@ -9,12 +9,18 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {}
 
+const BANNER_HIDE_DURATION = 1000 * 60 * 60 * 24;
+
 function showPopup(path: string, popup?: CoursePopupData): boolean {
   if (!popup) return false;
   if (path === "/curso-euskera-online") return false;
-  if (popup.state === CoursePopupState.VISITED) return false;
 
-  return new Date().getTime() - popup.at.getTime() >= 1000 * 60 * 60 * 24;
+  // Do not show banner if user has clicked CTA
+  if (popup.state === CoursePopupState.CLICKED) return false;
+  if (popup.state === CoursePopupState.DEFAULT) return true;
+
+  // If VISITED or CLOSED, wait 1 day to show it again
+  return new Date().getTime() - popup.at.getTime() >= BANNER_HIDE_DURATION;
 }
 
 const FixedCoursePopup: React.FC<Props> = ({}) => {

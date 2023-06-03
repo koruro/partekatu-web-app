@@ -6,15 +6,18 @@ import HeroHeaderSection from "./HeroHeaderSection";
 import styles from "./styles.module.css";
 import DontWait from "./DontWait";
 
-const BasicCourseLandingContainer: React.FC = () => {
+interface Props {
+  onCTAClick: () => any;
+}
+const BasicCourseLandingContainer: React.FC<Props> = ({ onCTAClick }) => {
   return (
     <div className={styles["basic-course-lp"]}>
-      <HeroHeaderSection />
+      <HeroHeaderSection onCTAClick={onCTAClick} />
       <div className={styles["divider"]}></div>
       <VideoSection />
       <div className={styles["divider-2"]}></div>
       <LearningPathSection />
-      <DontWait />
+      <DontWait onCTAClick={onCTAClick} />
       <OpinionSection />
       <FaqSection />
     </div>

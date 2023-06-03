@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 const ITEM_NAME = "course_popup";
 
 export enum CoursePopupState {
-  VISITED = "VISITED",
-  CLOSED = "CLOSED",
-  DEFAULT = "DEFAULT",
+  VISITED = "VISITED", // User has visited landing page
+  CLICKED = "CLICKED", // User has clicked on CTA
+  CLOSED = "CLOSED", // User has closed banner
+  DEFAULT = "DEFAULT", // User hasnt performed any action
 }
 
 export class CoursePopupData {

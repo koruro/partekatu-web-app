@@ -2,7 +2,10 @@ import Image from "next/image";
 import PageContainerBox from "../Page/PageContainerBox/PageContainerBox";
 import styles from "./styles.module.css";
 
-const HeroHeaderSection = () => {
+interface Props {
+  onCTAClick: () => any;
+}
+const HeroHeaderSection: React.FC<Props> = ({ onCTAClick }) => {
   return (
     <header>
       <PageContainerBox breakLimit="xl">
@@ -23,6 +26,7 @@ const HeroHeaderSection = () => {
             >
               <a
                 href="https://curso.partekatu.com/step/curso-euskera-basico/"
+                onClick={onCTAClick}
                 target="__blank"
                 rel="noopener noreferrer"
                 className={[

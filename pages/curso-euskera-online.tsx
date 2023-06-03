@@ -12,6 +12,8 @@ import {
 } from "../components/CourseForm/useCoursePopupStorage";
 import { useEffect } from "react";
 
+const MARK_AS_VISITED_DURATION = 10000; // 10s
+
 const headTitle = "Curso de Euskera Online desde 0: Aprende Fácil y Rápido";
 const metaTitle = "Curso de Euskera Online desde 0: Aprende Fácil y Rápido";
 const metaDesc =
@@ -22,15 +24,15 @@ const OnlineCourseLandingPage: React.FC = () => {
   const { popupData, setPopupData } = useCoursePopupDataStorage();
 
   useEffect(() => {
-    if (popupData?.state === CoursePopupState.VISITED) return;
+    if (!popupData) return;
+    if (popupData.state === CoursePopupState.CLICKED) return;
     const timeout = setTimeout(
       () =>
         setPopupData(new CoursePopupData(new Date(), CoursePopupState.VISITED)),
-      10000
+      MARK_AS_VISITED_DURATION
     );
     return () => window.clearTimeout(timeout);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [popupData, setPopupData]);
 
   return (
     <>
@@ -48,7 +50,13 @@ const OnlineCourseLandingPage: React.FC = () => {
       />
       <PageBox>
         <NavBar />
-        <BasicCourseLandingContainer />
+        <BasicCourseLandingContainer
+          onCTAClick={() => {
+            setPopupData(
+              new CoursePopupData(new Date(), CoursePopupState.CLICKED)
+            );
+          }}
+        />
         <Footer />
       </PageBox>
     </>

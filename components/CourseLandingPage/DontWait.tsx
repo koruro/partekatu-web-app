@@ -1,6 +1,10 @@
 import styles from "./styles.module.css";
 
-const DontWait = () => {
+interface Props {
+  onCTAClick: () => any;
+}
+
+const DontWait: React.FC<Props> = ({ onCTAClick }) => {
   return (
     <section
       style={{
@@ -36,6 +40,7 @@ const DontWait = () => {
           "hoverable-elevate",
           "button-padding-2",
         ].join(" ")}
+        onClick={onCTAClick}
       >
         Únete ahora 🎉
       </a>
