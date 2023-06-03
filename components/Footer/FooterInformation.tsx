@@ -34,6 +34,7 @@ const FooterInformation: React.FC = () => {
               marginTop: "1rem",
               width: "30%",
               display: "block",
+              textAlign: "center",
             }}
             href="/condiciones-generales-contratacion-reembolsos"
             passHref
