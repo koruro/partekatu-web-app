@@ -61,14 +61,14 @@
   max-width: 600px;
 }
 
-.hero__title span {
-  font-size: clamp(1.2rem, 6vw, 2rem);;
+.hero__title h1 {
+  font-size: clamp(1.2rem, 6vw, 2rem);
   font-weight: bold;
   letter-spacing: -1px;
   color: #484848;
 }
 
-.hero__title h1 {
+.hero__title span {
   margin: 0;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 130%;
@@ -104,6 +104,13 @@
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.hero__price-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .video-section {
@@ -176,6 +183,11 @@
   margin-bottom: min(-5vw, -5rem);
 }
 
+.video-section__text p {
+  text-align: center;
+  padding: 0 1rem;
+}
+
 .video-section__title {
   color: var(--text);
   font-size: 2.4rem;
@@ -185,6 +197,30 @@
 
 .video-section__content {
   padding: 0;
+}
+
+.instructor-info {
+  padding: 1rem;
+  margin-bottom: -2rem;
+}
+
+.instructor-info__instructor {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.instructor-info__instructor svg {
+  margin-top: .6rem;
+  display: block;
+  width: 250px;
+  margin-inline: auto;
+}
+
+.instructor-info p {
+  font-style: italic;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .learn_path h2 {
@@ -321,6 +357,32 @@
   color: var(--text-subtle);
 }
 
+.buy-price-footer {
+  position: sticky;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity .15s ease-in-out;
+}
+
+.buy-price-footer--show {
+  opacity: 1;
+}
+
+.buy-price-footer__container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: var(--bshadow-elevate-1_5);
+}
+
+.buy-price-footer__price__ammount {
+  margin-left: .3rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
 @media (min-width: 780px) {
   .hero {
     margin-top: 5rem;
@@ -347,6 +409,12 @@
     height: auto;
   }
   
+  .hero__price-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
 
   .video-section__frame {
     margin-top: -12vw;
@@ -355,6 +423,11 @@
   .video-section__text {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .video-section__text p {
+    text-align: left;
+    padding: 0;
   }
 
   .video-section__features h3 {
@@ -372,6 +445,25 @@
 
   .divider-2 {
     aspect-ratio: 960/109;
+  }
+  
+  .instructor-info__instructor {
+    display: flex;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    gap: 1rem;
+    font-weight: 400;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .instructor-info__instructor svg {
+    display: block;
+    width: clamp(250px, 30vw, 350px);
+    margin-inline: initial;
+  }
+
+  .instructor-info p {
+    font-size: 1.3rem;
   }
 
   .learn_path h2 {
@@ -397,5 +489,30 @@
   
   .opsection__opinion__front {
     height: 100%;
+  }
+  
+  .buy-price-footer {
+    margin: 5rem;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .buy-price-footer__container {
+    padding: 1rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: var(--rounded-l);
+    background-color: white;
+    border: 4px solid #b38fe5;
+  }
+
+  .buy-price-footer__price__ammount {
+    margin-left: .3rem;
+    font-size: 1.8rem;
+    font-weight: bold;
   }
 }

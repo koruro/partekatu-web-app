@@ -16,7 +16,7 @@ const LearningPathSection = () => {
             padding: ".7rem",
           }}
         >
-          <h2>🌟 ¿Qué vas a aprender?</h2>
+          <h2>¿Qué vas a aprender?</h2>
           <p
             style={{
               textAlign: "center",

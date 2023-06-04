@@ -62,7 +62,7 @@ const VideoSection = () => {
           </div>
           <div className={styles["video-section__content"]}>
             <h2 className={styles["video-section__title"]}>
-              🥽 Sumérgete en el euskera
+              Sumérgete en el euskera
             </h2>
             <div className={styles["video-section__text"]}>
               <div

@@ -28,7 +28,7 @@ const OpinionSection = () => {
               fontSize: "1.6rem",
             }}
           >
-            😉 Opiniones de nuestros estudiantes
+            Opiniones de nuestros estudiantes 😉
           </h2>
           <div className={styles["opsection__opinions"]}>
             <div
