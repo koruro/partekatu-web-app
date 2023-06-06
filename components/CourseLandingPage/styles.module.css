@@ -359,13 +359,14 @@
 
 .buy-price-footer {
   position: sticky;
-  bottom: 0;
+  bottom: -200px;
   opacity: 0;
-  transition: opacity .15s ease-in-out;
+  transition: opacity .15s ease-in-out, bottom .3s ease-in-out;
 }
 
 .buy-price-footer--show {
   opacity: 1;
+  bottom: 0;
 }
 
 .buy-price-footer__container {

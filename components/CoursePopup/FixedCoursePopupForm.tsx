@@ -55,7 +55,7 @@ const FixedCoursePopup: React.FC<Props> = ({}) => {
           }}
         >
           <p>
-            ¡Oye! ¿Sabías que en nuestra web tenemos un euskera básico para
+            ¡Oye! ¿Sabías que en nuestra web tenemos un curso de euskera para
             principiantes? Está formado por vídeos, infografías y ejercicios
             para que aprendas euskera.
           </p>

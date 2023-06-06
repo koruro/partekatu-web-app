@@ -16,7 +16,7 @@ const HeroHeaderSection: React.FC<Props> = ({ onCTAClick }) => {
               <span>Comunícate en euskera con total seguridad</span>
             </div>
             <p>
-              Aprende euskera <b>desde cero</b> y comunícate en situaciones
+              Aprende euskera <b>desde cero</b> y utilízalo en situaciones
               cotidianas de forma sencilla y efectiva.
             </p>
             <div
