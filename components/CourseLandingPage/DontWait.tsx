@@ -41,6 +41,7 @@ const DontWait: React.FC<Props> = ({ onCTAClick }) => {
           "button-padding-2",
         ].join(" ")}
         onClick={onCTAClick}
+        id="curso-euskera-desde-0-remember"
       >
         Únete ahora 🎉
       </a>

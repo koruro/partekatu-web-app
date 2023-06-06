@@ -47,6 +47,7 @@ const HeroHeaderSection: React.FC<Props> = ({ onCTAClick }) => {
                     "hoverable-elevate",
                     "button-padding-2",
                   ].join(" ")}
+                  id="curso-euskera-desde-0-hero"
                 >
                   Únete ahora 🎉
                 </a>

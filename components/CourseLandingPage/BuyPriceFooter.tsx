@@ -41,6 +41,7 @@ export function BuyPriceFooter({ onCTAClick }: Props) {
             "hoverable-elevate",
             "button-padding-2",
           ].join(" ")}
+          id="curso-euskera-desde-0-footer"
         >
           Únete ahora 🎉
         </a>

@@ -47,6 +47,7 @@ const VideoSection = () => {
               }}
             >
               <iframe
+                title="video introductorio al curso de euskera desde 0"
                 src="https://iframe.mediadelivery.net/embed/107244/265274b7-30c1-4d7d-80f1-6d832c283e1b?autoplay=false"
                 loading="lazy"
                 style={{
