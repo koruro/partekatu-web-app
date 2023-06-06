@@ -31,7 +31,7 @@ const BaseCourseForm: React.FC<Props> = ({
             fontWeight: "bold",
           }}
         >
-          📖 ¡Estamos preparando un nuevo curso de euskera básico!
+          📖 ¡Estamos preparando un nuevo curso de euskera!
         </span>
         <div
           style={{

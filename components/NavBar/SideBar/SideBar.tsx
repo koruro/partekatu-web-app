@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import CategoryList from "../../Categories/CategoryList/CategoryList";
 import styles from "./styles.module.css";
+import MyCourse from "../../Shared/MyCourseButton/MyCourse";
 
 interface Props {
   onClose: any;
@@ -25,6 +26,13 @@ const SideBar: React.FC<Props> = ({ onClose, isOpenned }) => {
       >
         <div className={styles["side-bar__content"]}>
           <CategoryList inColumn />
+          <div
+            style={{
+              marginTop: "2rem",
+            }}
+          >
+            <MyCourse />
+          </div>
         </div>
       </div>
       <div

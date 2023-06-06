@@ -1,21 +1,23 @@
 .online-course-button {
 	position: relative;
-	padding: 0.8rem;
 	text-align: center;
 	z-index: 1;
-	background: linear-gradient(270deg, var(--warn) 3.12%, var(--warn-c1) 100%);
-	color: var(--text);
 	margin: 0;
 	font-size: 1rem;
 	font-weight: bold;
-	border-radius: var(--rounded-l);
 	display: inline-block;
-	border: 3px solid transparent;
-	box-sizing: border-box;
-	transition: transform 0.25s;
 	overflow: hidden;
+	color: var(--text);
+	padding: .8rem 1.1rem;
+  --lp-primary: #5EAF00;
+  --lp-primary-dark: #0A9797;
+  --bk: white;
+  /*background: linear-gradient(90deg, var(--lp-primary-dark), var(--lp-primary) 50%) border-box; */
+  background: linear-gradient(var(--bk), var(--bk)) padding-box, linear-gradient(135deg, #8fcbdf, #b38fe5) border-box;
+  border-radius: var(--rounded-l);
+  box-shadow: var(--bshadow-elevate-1);
+  border: 4px solid transparent;
 }
 
 .online-course-button:hover {
-	transform: scale(0.9);
 }

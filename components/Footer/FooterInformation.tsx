@@ -27,6 +27,21 @@ const FooterInformation: React.FC = () => {
             <small>Politica de privacidad</small>
           </Link>
         </div>
+        <div>
+          <Link
+            style={{
+              margin: "auto",
+              marginTop: "1rem",
+              width: "30%",
+              display: "block",
+              textAlign: "center",
+            }}
+            href="/condiciones-generales-contratacion-reembolsos"
+            passHref
+          >
+            <small>Condiciones generales y Política de Reembolsos</small>
+          </Link>
+        </div>
         <div className={styles["footer__copyright"]}>
           <small>
             &copy; partekatu.com está licenciada bajo{` `}

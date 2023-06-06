@@ -10,12 +10,13 @@ const OnlineCourse: React.FC<{ as?: "h2" | "span" }> = ({ as = "span" }) => {
       className={classNames(
         styles["online-course-button"],
         "button-padding-1",
+        "hoverable-elevate",
         "elevate-1"
       )}
       href={"/curso-euskera-online"}
       id="online-course-button"
     >
-      Curso Online
+      Curso Online 🎉
     </a>
   );
 };
