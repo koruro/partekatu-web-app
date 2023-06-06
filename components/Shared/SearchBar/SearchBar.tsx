@@ -80,10 +80,9 @@ const SearchBar: React.FC<Props> = ({
             onChange={(e) => {
               onCategoryChange(e.target.value);
             }}
+            defaultValue=""
           >
-            <option selected value={""}>
-              Categorías
-            </option>
+            <option value={""}>Categorías</option>
             {Object.keys(CategoriesDict).map((category) => (
               <option key={category} value={category}>
                 {CategoriesDict[category as CategoriesEnum].text}

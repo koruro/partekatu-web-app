@@ -33,10 +33,8 @@ const NavBar: React.FC = () => {
                   className={styles["menu-icon"]}
                   style={{ marginRight: "3rem" }}
                 >
-                  <Link href="/articulos">
-                    <a>
-                      <FaSearch size="18px" />
-                    </a>
+                  <Link href="/articulos" passHref>
+                    <FaSearch size="18px" />
                   </Link>
                 </div>
               )}

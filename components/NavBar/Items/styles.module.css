@@ -8,7 +8,7 @@
 		align-items: center;
 	}
 
-	.nav-items a {
+	.nav-link {
 		border-radius: var(--rounded-l);
 		border: 3px solid var(--primary);
 		color: var(--primary);
@@ -17,12 +17,12 @@
 		transition-duration: 0.2s;
 	}
 
-	.nav-items a:hover {
+	.nav-link:hover {
 		background-color: var(--primary);
 		color: white;
 	}
 
-	.nav-items a:first-of-type {
+	.nav-link:first-of-type {
 		margin-right: 2rem;
 	}
 }

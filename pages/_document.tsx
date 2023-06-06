@@ -7,7 +7,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="author" content="Xabier Madorran, Ander Benito" />
+          <meta name="author" content="Partekatu" />
           {IS_PRODUCTION ? null : <meta name="robots" content="noindex" />}
           {/* <link
 						href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:wght@500;700&display=swap"
