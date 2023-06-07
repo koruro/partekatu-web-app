@@ -347,7 +347,7 @@ const PurchaseConditionsContainer = () => {
           </p>
         </div>
         <div className="et_pb_text_inner">
-          <h2>
+          <h2 id="desistimiento">
             Precio, medios de pago, entrega de los productos/servicios, garantía
             y <span style={{ textDecoration: "underline" }}>desistimiento</span>
           </h2>
@@ -499,17 +499,10 @@ const PurchaseConditionsContainer = () => {
             política de reembolsos.
           </p>
           <p>
-            Puedes enviar una solicitud de reembolso utilizando el formulario de
-            derecho de desistimiento que encontrarás{" "}
-            <a
-              href="https://curso.partekatu.com/formulario-de-desistimiento/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Formulario de Desistimiento"
-            >
-              aquí
-            </a>
-            .
+            Puedes solicitar tu reembolso enviándonos un correo a{" "}
+            <a href="mailto:partekatu.web@gmail.com">partekatu.web@gmail.com</a>{" "}
+            con el asunto <b>Reembolso (nº pedido)</b> y explicando brevemente
+            el motivo del reembolso.
           </p>
           <p>
             Cuando el usuario que haya aquirido un curso no esté satisfecho,
