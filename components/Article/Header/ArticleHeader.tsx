@@ -3,7 +3,7 @@ import ArticleAuthor from "../Author/ArticleAuthor";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import CategoryBox from "../../Categories/CategoryBox/CategoryBox";
-import CustomBannerAd from "../../Ads/CustomBannerAd/CustomBannerAd";
+import HeadingTitleAd from "../../Ads/HeadingTitleAd";
 
 interface Props {
   title: string;
@@ -45,7 +45,7 @@ const ArticleHeader: React.FC<Props> = ({
           </div>
         </>
       </LazyHydrate>
-      <CustomBannerAd />
+      <HeadingTitleAd />
       {preamble && (
         <p className={styles["article-header__preamble"]}>{preamble}</p>
       )}
