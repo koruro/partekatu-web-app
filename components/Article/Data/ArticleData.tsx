@@ -19,6 +19,7 @@ import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import CardCourseForm from "../../CourseForm/CardCourseForm/CardCourseForm";
 import { useCourseDataStorage } from "../../CourseForm/useCourseDataStorage";
 
+//Hola
 interface Props {
   article: Article;
   recommendations: Article[];
