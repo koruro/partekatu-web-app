@@ -19,9 +19,9 @@ import styles from "./styles.module.css";
             interactivos.
           </p>
           <p>
-            <b><a href="curso-euskera-online" target="_blank"></b>
+            <b><a href="curso-euskera-online" target="_blank">
               ¡Échale un vistazo 😉!
-            </a>
+            </a></b>
           </p>
         </div>
       </div>
