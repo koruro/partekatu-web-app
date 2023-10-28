@@ -25,6 +25,3 @@ import styles from "./styles.module.css";
           </p>
         </div>
       </div>
-    </>
-  );
-}
