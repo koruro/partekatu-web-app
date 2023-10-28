@@ -31,7 +31,7 @@ const BaseCourseForm: React.FC<Props> = ({
             fontWeight: "bold",
           }}
         >
-          📖 ¡Estamos preparando un nuevo curso de euskera!
+          📖 ¿Sabías que tenemos un curso de euskera online desde 0?
         </span>
         <div
           style={{
@@ -39,12 +39,13 @@ const BaseCourseForm: React.FC<Props> = ({
           }}
         >
           <p>
-            Estará formado por lecciones con vídeos, materiales y ejercicios
+            Está formado por lecciones con vídeos, materiales y ejercicios
             interactivos.
           </p>
           <p>
-            Si te interesa, introduce aquí tu email y te avisaremos cuando lo
-            tengamos listo 😉.
+            <a href="curso-euskera-online" target="_blank">
+              ¡Échale un vistazo 😉!
+            </a>
           </p>
         </div>
       </div>
