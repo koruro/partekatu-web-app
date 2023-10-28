@@ -18,7 +18,7 @@ import styles from "./styles.module.css";
             Está formado por lecciones con vídeos, materiales y ejercicios
             interactivos.
           </p>
-          <p text-align: center>
+          <p>
             <b></b><a href="curso-euskera-online" target="_blank"></b>
               ¡Échale un vistazo 😉!
             </a>
