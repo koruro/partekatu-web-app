@@ -19,7 +19,7 @@ import styles from "./styles.module.css";
             interactivos.
           </p>
           <p>
-            <b></b><a href="curso-euskera-online" target="_blank"></b>
+            <b><a href="curso-euskera-online" target="_blank"></b>
               ¡Échale un vistazo 😉!
             </a>
           </p>
