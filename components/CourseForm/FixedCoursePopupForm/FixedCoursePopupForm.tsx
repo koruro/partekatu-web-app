@@ -19,10 +19,7 @@ interface Props {
     data: CourseSubscriptionStorageData
   ) => void;
 }
-const FixedCoursePopupForm: React.FC<Props> = ({
-  onClose,
-  subscriptionData,
-}) => {
+const FixedCoursePopupForm: React.FC<Props> = ({}) => {
   return (
     <div
       style={{
@@ -34,11 +31,7 @@ const FixedCoursePopupForm: React.FC<Props> = ({
         margin: "1rem",
       }}
     >
-      <CardCourseForm
-        onIgnore={onClose}
-        onClose={onClose}
-        subscriptionData={subscriptionData}
-      />
+      <CardCourseForm />
     </div>
   );
 };

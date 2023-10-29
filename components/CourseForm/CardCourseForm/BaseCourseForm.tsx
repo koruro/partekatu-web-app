@@ -1,5 +1,6 @@
-import styles from "./styles.module.css";
-
+const BaseCourseForm: React.FC = ({}) => {
+  return (
+    <>
       <div>
         <span
           style={{
@@ -18,10 +19,15 @@ import styles from "./styles.module.css";
             Está formado por lecciones con vídeos, materiales y ejercicios
             interactivos.
           </p>
-          <p>
-            <b><a href="curso-euskera-online" target="_blank">
+          <p style={{ textAlign: "center" }}>
+            <a href="curso-euskera-online" target="_blank">
               ¡Échale un vistazo 😉!
-            </a></b>
+            </a>
           </p>
         </div>
       </div>
+    </>
+  );
+};
+
+export default BaseCourseForm;
