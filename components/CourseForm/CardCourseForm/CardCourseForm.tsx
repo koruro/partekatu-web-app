@@ -1,47 +1,6 @@
-import { useCourseForm } from "../useCourseForm";
 import BaseCourseForm from "./BaseCourseForm";
-import ThankYouCourseForm from "./ThankYouCourseForm";
-import { useState } from "react";
-import { CourseSubscriptionStorageData } from "../courseSubscriptionStorageService";
 
-interface Props {
-  subscriptionData?: CourseSubscriptionStorageData;
-  onSubmit?: (
-    name: string,
-    email: string,
-    data: CourseSubscriptionStorageData
-  ) => void;
-  onIgnore?: (
-    name: string,
-    email: string,
-    data: CourseSubscriptionStorageData
-  ) => void;
-  onClose?: (
-    name: string,
-    email: string,
-    data: CourseSubscriptionStorageData
-  ) => void;
-}
-const CardCourseForm: React.FC<Props> = ({
-  subscriptionData,
-  onIgnore,
-  onSubmit,
-  onClose,
-}) => {
-  const {
-    email,
-    name,
-    setEmail,
-    submitEnabled,
-    setTermsAccepted,
-    loading,
-    success,
-    ignoreForm,
-    submitForm,
-    subscriptionData: innerSD,
-  } = useCourseForm(onSubmit, onIgnore);
-  const [isThanksOpen, setIsThanksOpen] = useState(true);
-
+const CardCourseForm: React.FC = ({}) => {
   const renderBox = (children: any) => (
     <div
       style={{
@@ -57,29 +16,7 @@ const CardCourseForm: React.FC<Props> = ({
     </div>
   );
 
-  if (success && isThanksOpen && innerSD) {
-    return renderBox(
-      <ThankYouCourseForm
-        onClose={() => {
-          setIsThanksOpen(false);
-          onClose && onClose(name, email, innerSD);
-        }}
-      />
-    );
-  }
-  if (subscriptionData && subscriptionData.isFilled()) return null;
-
-  return renderBox(
-    <BaseCourseForm
-      email={email}
-      loading={loading}
-      setEmail={setEmail}
-      setTermsAccepted={setTermsAccepted}
-      submitEnabled={submitEnabled}
-      ignoreForm={ignoreForm}
-      submitForm={submitForm}
-    />
-  );
+  return renderBox(<BaseCourseForm />);
 };
 
 export default CardCourseForm;

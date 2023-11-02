@@ -17,7 +17,6 @@ import {
 import PreInfographicAd from "../../Ads/PreInfographicAd";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import CardCourseForm from "../../CourseForm/CardCourseForm/CardCourseForm";
-import { useCourseDataStorage } from "../../CourseForm/useCourseDataStorage";
 
 //Hola
 interface Props {
@@ -34,15 +33,11 @@ const ArticleData: React.FC<Props> = ({
   showSocials = true,
 }) => {
   const isPageWide = useMediaQuery(`(min-width: 790px)`);
-  const { subscriptionData, setSubscriptionData } = useCourseDataStorage();
 
   const showAdOrSubscriptionForm = () => {
     if (!article.infographic) return;
 
     if (isPageWide) return <PreInfographicAd />;
-
-    if (subscriptionData && subscriptionData.isFilled())
-      return <PreInfographicAd />;
 
     return (
       <div
@@ -50,11 +45,7 @@ const ArticleData: React.FC<Props> = ({
           margin: "1rem",
         }}
       >
-        <CardCourseForm
-          subscriptionData={subscriptionData}
-          onClose={(_, __, sd) => setSubscriptionData(sd)}
-          onIgnore={(_, __, sd) => setSubscriptionData(sd)}
-        />
+        <CardCourseForm />
       </div>
     );
   };
