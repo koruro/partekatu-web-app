@@ -34,7 +34,7 @@ const HeroHeaderSection: React.FC<Props> = ({ onCTAClick }) => {
                       fontWeight: "bold",
                     }}
                   >
-                    19,99
+                    24,99
                   </span>
                 </div>
                 <a
