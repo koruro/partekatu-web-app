@@ -28,7 +28,7 @@ export function BuyPriceFooter({ onCTAClick }: Props) {
         <div className={styles["buy-price-footer__price"]}>
           <span>€</span>
           <span className={styles["buy-price-footer__price__ammount"]}>
-            19,99
+            24,99
           </span>
         </div>
         <a
