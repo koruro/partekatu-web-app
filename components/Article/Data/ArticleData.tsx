@@ -35,7 +35,6 @@ const ArticleData: React.FC<Props> = ({
   const isPageWide = useMediaQuery(`(min-width: 790px)`);
 
   const showAdOrSubscriptionForm = () => {
-    if (!article.infographic) return;
 
     if (isPageWide) return <PreInfographicAd />;
 
