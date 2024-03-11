@@ -55,7 +55,8 @@ const FixedCoursePopup: React.FC<Props> = ({}) => {
           }}
         >
           <p>
-            ¡Oye! <b>¿Sabías que en nuestra web tenemos un curso con el que aprenderás euskera a tu ritmo?</b> Está formado por vídeos, infografías y ejercicios.
+            ¡Oye! <b>¿Sabías que en nuestra web tenemos un curso con el que aprenderás
+            euskera a tu ritmo?</b> Está formado por vídeos, infografías y ejercicios.
           </p>
           <p>Si te interesa, <b>¡Haz clic y échale un vistazo!</b> 😉</p>
           <div style={{ marginTop: "2rem" }}>
