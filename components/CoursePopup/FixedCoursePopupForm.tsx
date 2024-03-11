@@ -55,18 +55,11 @@ const FixedCoursePopup: React.FC<Props> = ({}) => {
           }}
         >
           <p>
-            ¡Oye!
-            <b>
-            ¿Sabías que en nuestra web tenemos un curso con el que aprenderás
-            euskera a tu ritmo?
-            </b>
-            Está formado por vídeos, infografías y ejercicios.
+            ¡Oye! ¿Sabías que en nuestra web tenemos un curso de euskera para
+            principiantes? Está formado por vídeos, infografías y ejercicios
+            para que aprendas euskera.
           </p>
-          <p>Si te interesa,
-            <b>
-            Haz clic y échale un vistazo!
-            </b>
-            😉</p>
+          <p>Si te interesa, ¡Haz clic y échale un vistazo! 😉</p>
           <div style={{ marginTop: "2rem" }}>
             <a
               href="curso-euskera-online"
